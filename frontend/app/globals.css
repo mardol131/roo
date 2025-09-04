@@ -1,7 +1,20 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Montserrat;
+  src: url("./_fonts/Montserrat.ttf");
+}
+
 @theme {
   --color-orange: #f2800f;
   --color-pink: #e70d72;
   --color-violet: #552783;
+
+  --font-montserrat: "Montserrat";
+
+  --spacing-contentWrapper: 1500px;
+}
+
+h2 {
+  @apply font-montserrat;
 }
