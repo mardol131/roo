@@ -1,0 +1,3 @@
+type SvgIconComponent = {
+  color: string;
+};

@@ -10,11 +10,22 @@
   --color-pink: #e70d72;
   --color-violet: #552783;
 
+  --color-placeholderText: var(--color-gray-400);
+
   --font-montserrat: "Montserrat";
 
   --spacing-contentWrapper: 1500px;
+  --spacing-lowerHeader: 1000px;
 }
 
 h2 {
   @apply font-montserrat;
+}
+
+.gradientBorder {
+  border-radius: 50px; /*1*/
+  border: 3px solid transparent; /*2*/
+  background: linear-gradient(45deg, red, blue) border-box; /*3*/
+  mask: /*4*/ linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  mask-composite: exclude; /*5*/
 }
