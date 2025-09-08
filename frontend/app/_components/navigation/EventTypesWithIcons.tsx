@@ -1,65 +1,154 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import { Anniversary } from "@/app/_icons/anniversary";
+import React, { ReactNode } from "react";
+import Engagement from "@/app/_icons/Engegament";
+import BabyShower from "@/app/_icons/BabyShower";
+import CompanyParty from "@/app/_icons/CompanyParty";
+import Anniversary from "@/app/_icons/Anniversary";
+import Birthday from "@/app/_icons/Birthday";
 import OpeningParty from "@/app/_icons/OpeningParty";
-import babyShower from "@/app/_icons/baby-shower.svg";
-import { GiPartyPopper } from "react-icons/gi";
+import Party from "@/app/_icons/Party";
+import Ball from "@/app/_icons/Ball";
+import TeamBuilding from "@/app/_icons/TeamBuilding";
+import KidParty from "@/app/_icons/KidParty";
+import Wedding from "@/app/_icons/Wedding";
 
 type Props = {};
 
-export type IconTextType = {
-  text: string;
+type IconStylesType = {
   color: string;
+  hoverBg: string;
+  border: string;
+  hoverBorder: string;
+  textColor: string;
 };
 
-const colorsGradient = [
-  "#f2800f",
-  "#f06922",
-  "#ee5237",
-  "#eb3b4a",
-  "#e9245e",
-  "#e60d72",
-  "#ca1275",
-  "#ac1879",
-  "#8f1d7c",
-  "#722280",
-  "#552783",
+const IconStyles: IconStylesType[] = [
+  {
+    color: "#f2800f",
+    hoverBg: "hover:bg-[#f2800f]",
+    border: "border-[#f2800f]",
+    hoverBorder: "hover:border-[#f2800f]",
+    textColor: "text-[#f2800f]",
+  },
+  {
+    color: "#f06922",
+    hoverBg: "hover:bg-[#f06922]",
+    border: "border-[#f06922]",
+    hoverBorder: "hover:border-[#f06922]",
+    textColor: "text-[#f06922]",
+  },
+  {
+    color: "#ee5237",
+    hoverBg: "hover:bg-[#ee5237]",
+    border: "border-[#ee5237]",
+    hoverBorder: "hover:border-[#ee5237]",
+    textColor: "text-[#ee5237]",
+  },
+  {
+    color: "#eb3b4a",
+    hoverBg: "hover:bg-[#eb3b4a]",
+    border: "border-[#eb3b4a]",
+    hoverBorder: "hover:border-[#eb3b4a]",
+    textColor: "text-[#eb3b4a]",
+  },
+  {
+    color: "#e9245e",
+    hoverBg: "hover:bg-[#e9245e]",
+    border: "border-[#e9245e]",
+    hoverBorder: "hover:border-[#ee5237]",
+    textColor: "text-[#e9245e]",
+  },
+  {
+    color: "#e60d72",
+    hoverBg: "hover:bg-[#e60d72]",
+    border: "border-[#e60d72]",
+    hoverBorder: "hover:border-[#e60d72]",
+    textColor: "text-[#e60d72]",
+  },
+  {
+    color: "#ca1275",
+    hoverBg: "hover:bg-[#ca1275]",
+    border: "border-[#ca1275]",
+    hoverBorder: "hover:border-[#ca1275]",
+    textColor: "text-[#ca1275]",
+  },
+  {
+    color: "#ac1879",
+    hoverBg: "hover:bg-[#ac1879]",
+    border: "border-[#ac1879]",
+    hoverBorder: "hover:border-[#ac1879]",
+    textColor: "text-[#ac1879]",
+  },
+  {
+    color: "#8f1d7c",
+    hoverBg: "hover:bg-[#8f1d7c]",
+    border: "border-[#8f1d7c]",
+    hoverBorder: "hover:border-[#8f1d7c]",
+    textColor: "text-[#8f1d7c]",
+  },
+  {
+    color: "#722280",
+    hoverBg: "hover:bg-[#722280]",
+    border: "border-[#722280]",
+    hoverBorder: "hover:border-[#722280]",
+    textColor: "text-[#722280]",
+  },
+  {
+    color: "#552783",
+    hoverBg: "hover:bg-[#552783]",
+    border: "border-[#552783]",
+    hoverBorder: "hover:border-[#552783]",
+    textColor: "text-[#552783]",
+  },
+];
+const Icons = [
+  { text: "heelo", icon: Engagement },
+  { text: "hello", icon: BabyShower },
+  { text: "halo", icon: Anniversary },
+  { text: "hell", icon: CompanyParty },
+  { text: "hell", icon: Birthday },
+  { text: "hell", icon: OpeningParty },
+  { text: "hell", icon: Party },
+  { text: "hell", icon: Ball },
+  { text: "hell", icon: TeamBuilding },
+  { text: "hell", icon: KidParty },
+  { text: "hell", icon: Wedding },
 ];
 
-export function IconText({ text, color }: IconTextType) {
+export type IconTextType = {
+  text: string;
+  children: ReactNode;
+  iconStyles: IconStylesType;
+};
+
+export function IconText({ text, iconStyles, children }: IconTextType) {
   return (
     <div className="flex flex-col items-center gap-4 text-center w-full">
-      <div style={{ backgroundColor: color }} className="rounded-full p-[2px]">
-        <div
-          className={`rounded-full flex items-center justify-center h-15 w-15 bg-white !`}
-        >
-          <GiPartyPopper className="text-3xl" style={{ color: color }} />
-        </div>
+      <div
+        className={`${iconStyles.border} ${iconStyles.hoverBg} ${iconStyles.hoverBorder} ${iconStyles.textColor} hover:border-none transition-all  ease-in-out border-2 rounded-full flex items-center justify-center h-20 w-20 bg-white hover:text-white`}
+      >
+        {children}
       </div>
-      <p className="break-words">{text}</p>
+      <p
+        style={{ color: iconStyles.color }}
+        className="break-words font-semibold capitalize"
+      >
+        {text}
+      </p>
     </div>
   );
 }
 
 export default function EventTypesWithIcons({}: Props) {
-  const icons = [];
-
-  for (let i = 0; i < 11; i++) {
-    icons.push(
-      <IconText
-        key={i}
-        text="Opening párty"
-        color={colorsGradient[i]}
-      ></IconText>
-    );
-  }
-
   return (
-    <div className="flex justify-between w-full bg-linear-30 py-20">
-      {icons.map((icon) => {
-        return icon;
+    <div className="flex justify-between w-full bg-linear-30 py-5 max-w-lowerHeader">
+      {Icons.map((icon, index) => {
+        return (
+          <IconText key={index} text={icon.text} iconStyles={IconStyles[index]}>
+            {icon.icon({ width: 40, height: 40 })}
+          </IconText>
+        );
       })}
     </div>
   );

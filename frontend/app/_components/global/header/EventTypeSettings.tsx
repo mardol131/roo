@@ -1,16 +1,18 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { GiPartyPopper } from "react-icons/gi";
-import { IconTextType } from "../../navigation/EventTypesWithIcons";
 
 type Props = {};
 
-function IconText({ text, color }: IconTextType) {
+export type IconTextType = {
+  text: string;
+  color: string;
+  children: ReactNode;
+};
+
+function IconText({ text, children }: IconTextType) {
   return (
     <div className="cursor-pointer relative overflow-hidden group flex flex-col items-center gap-4 text-center w-full border-2 rounded-xl border-gray-100 p-5 max-w-50 bg-opa hover:!text-white transition-all ease-in-out">
-      <GiPartyPopper
-        className="text-4xl z-20 text-pink group-hover:text-white transition-all ease-in-out"
-        style={{ color: color }}
-      />
+      {children}
       <p className="break-words z-20 font-semibold capitalize">{text}</p>
       <span className="absolute inset-0 bg-gradient-to-r from-orange to-pink opacity-0 transition-opacity duration-500 ease-in-out z-10 group-hover:opacity-100"></span>
     </div>
