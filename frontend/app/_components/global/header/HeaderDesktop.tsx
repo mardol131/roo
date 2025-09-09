@@ -9,6 +9,8 @@ import { FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
 import EventTypeSettings from "./EventTypeSettings";
 
 import { BiSolidParty } from "react-icons/bi";
+import EventTypesWithIcons from "../../navigation/EventTypesWithIcons";
+import PlaceSettings from "./PlaceSettings";
 
 type Props = {};
 
@@ -49,52 +51,103 @@ type LowerHeaderPropsType = {
   settingsType: SettingsType;
 };
 
-export function LowerHeader({ setSettingsType }: LowerHeaderPropsType) {
+export function LowerHeader({
+  setSettingsType,
+  settingsType,
+}: LowerHeaderPropsType) {
   return (
     <>
       {" "}
-      <div className="p-2 bg-gray-200/30 border-1 font-semibold border-gray-200 shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-placeholderText w-full max-w-lowerHeader rounded-full">
-        <div className="grid grid-cols-4 w-full content-stretch">
-          <button
-            onClick={() => {
-              setSettingsType("eventType");
-            }}
-            className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
-          >
-            <BiSolidParty className="text-pink group-hover:text-white text-xl self-center z-20" />
-            <p className="z-20 font-semibold ">Typ akce?</p>
-            <span className="absolute inset-0 bg-gradient-to-r from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100"></span>
-          </button>
-          <button
-            onClick={() => {
-              setSettingsType("place");
-            }}
-            className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
-          >
-            <FaMapMarkerAlt className="text-pink group-hover:text-white text-xl self-center z-20" />
-            <p className="z-20 font-semibold ">Kde?</p>
-            <span className="absolute inset-0 bg-gradient-to-b from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100"></span>
-          </button>
-          <button
-            onClick={() => {
-              setSettingsType("time");
-            }}
-            className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
-          >
-            <FaCalendar className="text-pink group-hover:text-white text-xl self-center z-20" />
-            <p className="z-20 font-semibold ">Kdy?</p>
-            <span className="absolute inset-0 bg-gradient-to-t from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100"></span>
-          </button>
-          <button
-            onClick={() => {
-              setSettingsType("people");
-            }}
-            className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
-          >
-            <FaUser className="text-pink group-hover:text-white text-xl self-center z-20" />
-            <p className="z-20 font-semibold">Kolik lidí?</p>
-            <span className="absolute inset-0 bg-gradient-to-l from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100"></span>
-          </button>
+      <div className="p-2 bg-optionsBar border-1 font-semibold border-gray-200 shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-placeholderText w-full max-w-lowerHeader rounded-full">
+        <div className="grid grid-cols-4 w-full gap-2 content-stretch">
+          {settingsType != "eventType" ? (
+            <button
+              onClick={() => {
+                setSettingsType("eventType");
+              }}
+              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+            >
+              <BiSolidParty className="text-pink group-hover:text-white text-xl self-center z-20" />
+              <p className="z-20 font-semibold ">Typ akce?</p>
+              <span className="absolute inset-0 bg-gradient-to-r from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100"></span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setSettingsType("eventType");
+              }}
+              className="bg-gradient-to-r from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+            >
+              <BiSolidParty className=" group-hover:text-white text-xl self-center z-20" />
+              <p className="z-20 font-semibold ">Typ akce?</p>
+            </button>
+          )}
+          {settingsType != "place" ? (
+            <button
+              onClick={() => {
+                setSettingsType("place");
+              }}
+              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
+            >
+              <FaMapMarkerAlt className="text-pink group-hover:text-white text-xl self-center z-20" />
+              <p className="z-20 font-semibold ">Kde?</p>
+              <span className="absolute inset-0 bg-gradient-to-b from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100"></span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setSettingsType("place");
+              }}
+              className="bg-gradient-to-b from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+            >
+              <FaMapMarkerAlt className=" group-hover:text-white text-xl self-center z-20" />
+              <p className="z-20 font-semibold ">Kde?</p>
+            </button>
+          )}
+          {settingsType != "time" ? (
+            <button
+              onClick={() => {
+                setSettingsType("time");
+              }}
+              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
+            >
+              <FaCalendar className="text-pink group-hover:text-white text-xl self-center z-20" />
+              <p className="z-20 font-semibold ">Kdy?</p>
+              <span className="absolute inset-0 bg-gradient-to-t from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100"></span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setSettingsType("time");
+              }}
+              className="bg-gradient-to-t from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+            >
+              <FaCalendar className=" group-hover:text-white text-xl self-center z-20" />
+              <p className="z-20 font-semibold ">Kdy?</p>
+            </button>
+          )}
+          {settingsType != "people" ? (
+            <button
+              onClick={() => {
+                setSettingsType("people");
+              }}
+              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
+            >
+              <FaUser className="text-pink group-hover:text-white text-xl self-center z-20" />
+              <p className="z-20 font-semibold">Kolik lidí?</p>
+              <span className="absolute inset-0 bg-gradient-to-l from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100"></span>
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                setSettingsType("people");
+              }}
+              className="bg-gradient-to-l from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+            >
+              <FaUser className="group-hover:text-white text-xl self-center z-20" />
+              <p className="z-20 font-semibold">Kolik lidí?</p>
+            </button>
+          )}
         </div>
         <div
           onClick={() => {
@@ -109,10 +162,10 @@ export function LowerHeader({ setSettingsType }: LowerHeaderPropsType) {
   );
 }
 
-export type SettingsType = "eventType" | "place" | "time" | "people" | null;
+export type SettingsType = "eventType" | "place" | "time" | "people";
 
 export default function HeaderDesktop({}: Props) {
-  const [settingsType, setSettingsType] = useState<SettingsType>(null);
+  const [settingsType, setSettingsType] = useState<SettingsType>("eventType");
 
   return (
     <div className="px-[74px] flex flex-col items-center w-full border-b border-zinc-100 pb-5">
@@ -122,7 +175,10 @@ export default function HeaderDesktop({}: Props) {
           setSettingsType={setSettingsType}
           settingsType={settingsType}
         />
-        {settingsType == "eventType" && <EventTypeSettings />}
+        {settingsType == "eventType" && <EventTypesWithIcons />}
+        {settingsType == "place" && <PlaceSettings />}
+        {settingsType == "time" && <EventTypesWithIcons />}
+        {settingsType == "people" && <EventTypesWithIcons />}
       </div>
     </div>
   );

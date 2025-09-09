@@ -14,6 +14,8 @@
 
   --color-placeholderText: var(--color-gray-400);
 
+  --color-optionsBar: var(--color-gray-50);
+
   --font-montserrat: "Montserrat";
 
   --spacing-contentWrapper: 1500px;
