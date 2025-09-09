@@ -4,12 +4,10 @@ import React, { useState } from "react";
 import logo from "../../../../public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
-import { FaMagnifyingGlass, FaPerson, FaUser } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaUser } from "react-icons/fa6";
 import { FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
 import EventTypeSettings from "./EventTypeSettings";
-import { colors } from "@/app/_data/colors";
-import { LuPartyPopper } from "react-icons/lu";
-import { GiPartyHat } from "react-icons/gi";
+
 import { BiSolidParty } from "react-icons/bi";
 
 type Props = {};
@@ -18,7 +16,7 @@ export function UpperHeader() {
   return (
     <div className="w-full max-w-contentWrapper grid grid-cols-[1fr_3fr_1fr] items-center">
       <Image src={logo} width={100} height={100} alt="logo" />
-      <div className="rounded-full bg-linear-30 from-orange via-pink to-violet; flex text-white font-semibold shadow-lg">
+      <div className="rounded-full bg-linear-30 from-orange via-pink to-violet flex text-white font-semibold shadow-lg">
         <button className="py-2 hover:scale-120 w-[32%] cursor-pointer ease-in-out transition-all">
           Venues
         </button>
@@ -49,16 +47,11 @@ type LowerHeaderPropsType = {
   settingsType: SettingsType;
 };
 
-export function LowerHeader({
-  setSettingsType,
-  settingsType,
-}: LowerHeaderPropsType) {
-  const [outerDivFocus, setOuterDivFocus] = useState(false);
-
+export function LowerHeader({ setSettingsType }: LowerHeaderPropsType) {
   return (
     <>
       {" "}
-      <div className="p-2 bg-zinc-200/30 border-1 font-semibold border-gray-100 shadow-lg flex gap-3 min-h-18 content-stretch justify-items-start text-placeholderText w-full max-w-lowerHeader rounded-full">
+      <div className="p-2 bg-gray-200/30 border-1 font-semibold border-gray-200 shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-placeholderText w-full max-w-lowerHeader rounded-full">
         <div className="grid grid-cols-4 w-full content-stretch">
           <button
             onClick={() => {

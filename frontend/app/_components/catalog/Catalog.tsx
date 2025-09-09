@@ -1,7 +1,7 @@
 import React from "react";
-import Section from "./Section";
 import BubblesSection from "./BubblesSection";
-import image from "../../../public/forest.jpg";
+import image from "@/app/_images/test.jpg";
+import CatalogGroupSection from "./CatalogGroupSection";
 
 type Props = {};
 
@@ -18,10 +18,10 @@ export default function Catalog(props: Props) {
 
   return (
     <div className="flex flex-col gap-16 max-w-contentWrapper w-full">
-      <Section />
-      <Section />
+      <CatalogGroupSection />
+      <CatalogGroupSection />
       <BubblesSection bubbles={bubblesArray} />
-      <Section />
+      <CatalogGroupSection />
     </div>
   );
 }

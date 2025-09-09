@@ -142,7 +142,7 @@ export function IconText({ text, iconStyles, children }: IconTextType) {
 
 export default function EventTypesWithIcons({}: Props) {
   return (
-    <div className="flex justify-between w-full gap-5 bg-linear-30 py-5 max-w-[1200px]">
+    <div className="flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]">
       {Icons.map((icon, index) => {
         return (
           <IconText key={index} text={icon.text} iconStyles={IconStyles[index]}>
