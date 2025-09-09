@@ -12,6 +12,7 @@ import Ball from "@/app/_icons/Ball";
 import TeamBuilding from "@/app/_icons/TeamBuilding";
 import KidParty from "@/app/_icons/KidParty";
 import Wedding from "@/app/_icons/Wedding";
+import SectionWrapper from "../wrappers/SectionWrapper";
 
 type Props = {};
 
@@ -142,14 +143,20 @@ export function IconText({ text, iconStyles, children }: IconTextType) {
 
 export default function EventTypesWithIcons({}: Props) {
   return (
-    <div className="flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]">
-      {Icons.map((icon, index) => {
-        return (
-          <IconText key={index} text={icon.text} iconStyles={IconStyles[index]}>
-            {icon.icon({ width: 40, height: 40 })}
-          </IconText>
-        );
-      })}
-    </div>
+    <SectionWrapper>
+      <div className="flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]">
+        {Icons.map((icon, index) => {
+          return (
+            <IconText
+              key={index}
+              text={icon.text}
+              iconStyles={IconStyles[index]}
+            >
+              {icon.icon({ width: 40, height: 40 })}
+            </IconText>
+          );
+        })}
+      </div>
+    </SectionWrapper>
   );
 }

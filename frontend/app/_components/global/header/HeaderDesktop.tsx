@@ -29,12 +29,14 @@ export function UpperHeader() {
           Weddings
         </button>
       </div>
-      <div className="text-center flex justify-end gap-11">
-        <Link href={"/"} className="text-pink">
-          Staň se <br />
-          <span className="uppercase">dodavatelem</span>
+      <div className="text-center flex justify-end gap-11 items-center">
+        <Link
+          href={"/"}
+          className="text-white font-semibold bg-linear-60 from-pink to-orange hover:scale-110 ease-in-out transition-all shadow-md rounded-lg p-2"
+        >
+          Pro dodavatele
         </Link>
-        <div className="bg-orange rounded-full w-10 h-10 flex items-center justify-center text-white">
+        <div className="bg-orange rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer">
           <FaUser />
         </div>
       </div>
