@@ -19,11 +19,17 @@ export function UpperHeader() {
     <div className="w-full max-w-contentWrapper grid grid-cols-[1fr_3fr_1fr] items-center">
       <Image src={logo} width={100} height={100} alt="logo" />
       <div className="rounded-full bg-linear-30 from-orange via-pink to-violet flex text-white font-semibold shadow-lg">
-        <button className="py-2 hover:scale-120 w-[29%]">Venues</button>
+        <button className="py-2 hover:scale-120 w-[32%] cursor-pointer ease-in-out transition-all">
+          Venues
+        </button>
         <div className="w-0.5 bg-white"></div>
-        <button className="hover:scale-120 w-[39%]">Gastro</button>
+        <button className="hover:scale-120 w-[33%]  cursor-pointer ease-in-out transition-all">
+          Gastro
+        </button>
         <div className="w-0.5 bg-white"></div>
-        <button className="py-2 w-[29%] hover:scale-120">Weddings</button>
+        <button className="py-2 w-[32%] hover:scale-120  cursor-pointer ease-in-out transition-all">
+          Weddings
+        </button>
       </div>
       <div className="text-center flex justify-end gap-11">
         <Link href={"/"} className="text-pink">
