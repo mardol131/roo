@@ -1,17 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./_components/global/header/Header";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import StoreProvider from "./_redux/StoreProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,12 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        {children}
-      </body>
+      <StoreProvider>
+        <body className={`antialiased`}>
+          <Header />
+          <div className="pt-70">{children}</div>
+        </body>
+      </StoreProvider>
     </html>
   );
 }

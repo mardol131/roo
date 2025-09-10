@@ -34,7 +34,7 @@ export default function BubblesSection(props: Props) {
         })}
       </div>
       <div className="bg-gray-300/0 rounded-full flex gap-3 p-2 max-w-150 self-center w-full border-2 border-pink shadow-xl">
-        <div className="flex items-stretch justify-between w-full gap-6 px-4 font-semibold text-placeholderText">
+        <div className="flex items-stretch justify-between w-full gap-6 px-4 font-semibold text-textPlaceholder">
           <input
             type="text"
             placeholder="Typ akce"

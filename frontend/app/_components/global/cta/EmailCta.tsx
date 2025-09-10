@@ -22,7 +22,7 @@ export default function EmailCta(props: Props) {
           <p className="text-pink font-semibold text-sm">Tvůj email</p>
           <input
             type="email"
-            className="w-full placeholder:text-placeholderText "
+            className="w-full placeholder:text-textPlaceholder "
             placeholder="jan.novak@gmail.com"
           />
         </div>

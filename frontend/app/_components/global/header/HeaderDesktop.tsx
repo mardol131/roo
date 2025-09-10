@@ -6,11 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaMagnifyingGlass, FaUser } from "react-icons/fa6";
 import { FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
-import EventTypeSettings from "./EventTypeSettings";
 
 import { BiSolidParty } from "react-icons/bi";
-import EventTypesWithIcons from "../../navigation/EventTypesWithIcons";
 import PlaceSettings from "./PlaceSettings";
+import EventTypesWithIcons from "./EventTypeSettings";
+import CalendarSettings from "./CalendarSettings";
 
 type Props = {};
 
@@ -34,7 +34,7 @@ export function UpperHeader() {
       <div className="text-center flex justify-end gap-11 items-center">
         <Link
           href={"/"}
-          className="text-white font-semibold bg-linear-60 from-pink to-orange hover:scale-110 ease-in-out transition-all shadow-md rounded-lg p-2"
+          className="text-white font-semibold bg-linear-60 from-pink to-orange hover:scale-110 ease-in-out transition-all shadow-md rounded-full py-2 px-4"
         >
           Pro dodavatele
         </Link>
@@ -58,7 +58,7 @@ export function LowerHeader({
   return (
     <>
       {" "}
-      <div className="p-2 bg-optionsBar border-1 font-semibold border-gray-200 shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-placeholderText w-full max-w-lowerHeader rounded-full">
+      <div className="p-2 bg-optionsBar border-1 font-semibold border-borderLight shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-textPlaceholder w-full max-w-lowerHeader rounded-full">
         <div className="grid grid-cols-4 w-full gap-2 content-stretch">
           {settingsType != "eventType" ? (
             <button
@@ -168,7 +168,7 @@ export default function HeaderDesktop({}: Props) {
   const [settingsType, setSettingsType] = useState<SettingsType>("eventType");
 
   return (
-    <div className="px-[74px] flex flex-col items-center w-full border-b border-zinc-100 pb-5">
+    <div className="fixed bg-white px-[74px] flex flex-col items-center w-full border-b border-zinc-100 pb-5">
       <UpperHeader />
       <div className="flex flex-col gap-10 items-center w-full">
         <LowerHeader
@@ -177,7 +177,7 @@ export default function HeaderDesktop({}: Props) {
         />
         {settingsType == "eventType" && <EventTypesWithIcons />}
         {settingsType == "place" && <PlaceSettings />}
-        {settingsType == "time" && <EventTypesWithIcons />}
+        {settingsType == "time" && <CalendarSettings />}
         {settingsType == "people" && <EventTypesWithIcons />}
       </div>
     </div>
