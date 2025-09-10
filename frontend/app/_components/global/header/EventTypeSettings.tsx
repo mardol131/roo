@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import Engagement from "@/app/_icons/Engegament";
+import Engagement from "@/app/_icons/Engagement";
 import BabyShower from "@/app/_icons/BabyShower";
 import CompanyParty from "@/app/_icons/CompanyParty";
 import Anniversary from "@/app/_icons/Anniversary";
