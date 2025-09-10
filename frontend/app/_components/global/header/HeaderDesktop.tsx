@@ -11,6 +11,13 @@ import { BiSolidParty } from "react-icons/bi";
 import PlaceSettings from "./PlaceSettings";
 import EventTypesWithIcons from "./EventTypeSettings";
 import CalendarSettings from "./CalendarSettings";
+import PeopleSettings from "./PeopleSettings";
+import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
+
+import {
+  CurrentStepType,
+  lowerHeaderStep,
+} from "@/app/_redux/slices/lowerHeaderStepsSlice";
 
 type Props = {};
 
@@ -46,26 +53,28 @@ export function UpperHeader() {
   );
 }
 
-type LowerHeaderPropsType = {
-  setSettingsType: React.Dispatch<React.SetStateAction<SettingsType>>;
-  settingsType: SettingsType;
-};
+export function LowerHeader() {
+  const [peopleSettings, setPeopleSettings] = useState<boolean>(false);
+  const { peopleCount } = useAppSelector((state) => state.initialFilter);
+  const { currentStep } = useAppSelector((state) => state.lowerHeaderStep);
+  const dispatch = useAppDispatch();
 
-export function LowerHeader({
-  setSettingsType,
-  settingsType,
-}: LowerHeaderPropsType) {
+  function setStep(step: CurrentStepType) {
+    console.log(step);
+    dispatch(lowerHeaderStep.actions.changeStep(step));
+  }
+
   return (
     <>
       {" "}
       <div className="p-2 bg-optionsBar border-1 font-semibold border-borderLight shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-textPlaceholder w-full max-w-lowerHeader rounded-full">
         <div className="grid grid-cols-4 w-full gap-2 content-stretch">
-          {settingsType != "eventType" ? (
+          {currentStep != "eventType" ? (
             <button
               onClick={() => {
-                setSettingsType("eventType");
+                setStep("eventType");
               }}
-              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full  "
             >
               <BiSolidParty className="text-pink group-hover:text-white text-xl self-center z-20" />
               <p className="z-20 font-semibold ">Typ akce?</p>
@@ -74,20 +83,20 @@ export function LowerHeader({
           ) : (
             <button
               onClick={() => {
-                setSettingsType("eventType");
+                setStep("eventType");
               }}
-              className="bg-gradient-to-r from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+              className="bg-gradient-to-r from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full  "
             >
               <BiSolidParty className=" group-hover:text-white text-xl self-center z-20" />
               <p className="z-20 font-semibold ">Typ akce?</p>
             </button>
           )}
-          {settingsType != "place" ? (
+          {currentStep != "place" ? (
             <button
               onClick={() => {
-                setSettingsType("place");
+                setStep("place");
               }}
-              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
+              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full  "
             >
               <FaMapMarkerAlt className="text-pink group-hover:text-white text-xl self-center z-20" />
               <p className="z-20 font-semibold ">Kde?</p>
@@ -96,20 +105,20 @@ export function LowerHeader({
           ) : (
             <button
               onClick={() => {
-                setSettingsType("place");
+                setStep("place");
               }}
-              className="bg-gradient-to-b from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+              className="bg-gradient-to-b from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full "
             >
               <FaMapMarkerAlt className=" group-hover:text-white text-xl self-center z-20" />
               <p className="z-20 font-semibold ">Kde?</p>
             </button>
           )}
-          {settingsType != "time" ? (
+          {currentStep != "time" ? (
             <button
               onClick={() => {
-                setSettingsType("time");
+                setStep("time");
               }}
-              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
+              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full  "
             >
               <FaCalendar className="text-pink group-hover:text-white text-xl self-center z-20" />
               <p className="z-20 font-semibold ">Kdy?</p>
@@ -118,20 +127,21 @@ export function LowerHeader({
           ) : (
             <button
               onClick={() => {
-                setSettingsType("time");
+                setStep("time");
               }}
-              className="bg-gradient-to-t from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+              className="bg-gradient-to-t from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full  "
             >
               <FaCalendar className=" group-hover:text-white text-xl self-center z-20" />
               <p className="z-20 font-semibold ">Kdy?</p>
             </button>
           )}
-          {settingsType != "people" ? (
+          {peopleSettings === false ? (
             <button
               onClick={() => {
-                setSettingsType("people");
+                setStep("people");
+                setPeopleSettings(true);
               }}
-              className="relative group from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full border-pink "
+              className="relative group border-none from-orange via-pink to-violet hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer hover:!text-white flex items-center gap-3 transition-all ease-in-out hover:rounded-full "
             >
               <FaUser className="text-pink group-hover:text-white text-xl self-center z-20" />
               <p className="z-20 font-semibold">Kolik lidí?</p>
@@ -139,22 +149,18 @@ export function LowerHeader({
             </button>
           ) : (
             <button
-              onClick={() => {
-                setSettingsType("people");
+              onMouseLeave={() => {
+                if (peopleCount === 0) {
+                  setPeopleSettings(false);
+                }
               }}
-              className="bg-gradient-to-l from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full border-pink "
+              className="border border-borderLight hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer  transition-all ease-in-out flex items-center gap-3  hover:rounded-full "
             >
-              <FaUser className="group-hover:text-white text-xl self-center z-20" />
-              <p className="z-20 font-semibold">Kolik lidí?</p>
+              <PeopleSettings />
             </button>
           )}
         </div>
-        <div
-          onClick={() => {
-            setSettingsType("time");
-          }}
-          className="cursor-pointer hover:scale-130 transition-all ease-in-out relative z-20 shrink-0 scale-108 max-w-13 max-h-13 w-full aspect-square flex items-center justify-center bg-linear-30 from-orange via-pink to-violet rounded-full text-white text-xl justify-self-end"
-        >
+        <div className="cursor-pointer hover:scale-130 transition-all ease-in-out relative z-20 shrink-0 scale-108 max-w-13 max-h-13 w-full aspect-square flex items-center justify-center bg-linear-30 from-orange via-pink to-violet rounded-full text-white text-xl justify-self-end">
           <FaMagnifyingGlass />
         </div>
       </div>
@@ -162,23 +168,18 @@ export function LowerHeader({
   );
 }
 
-export type SettingsType = "eventType" | "place" | "time" | "people" | null;
-
 export default function HeaderDesktop({}: Props) {
-  const [settingsType, setSettingsType] = useState<SettingsType>(null);
+  const { currentStep } = useAppSelector((state) => state.lowerHeaderStep);
+  console.log(currentStep);
 
   return (
     <div className="fixed bg-white px-[74px] flex flex-col items-center w-full border-b border-zinc-100 pb-5">
       <UpperHeader />
       <div className="flex flex-col gap-10 items-center w-full">
-        <LowerHeader
-          setSettingsType={setSettingsType}
-          settingsType={settingsType}
-        />
-        {settingsType == "eventType" && <EventTypesWithIcons />}
-        {settingsType == "place" && <PlaceSettings />}
-        {settingsType == "time" && <CalendarSettings />}
-        {settingsType == "people" && <EventTypesWithIcons />}
+        <LowerHeader />
+        {currentStep == "eventType" && <EventTypesWithIcons />}
+        {currentStep == "place" && <PlaceSettings />}
+        {currentStep == "time" && <CalendarSettings />}
       </div>
     </div>
   );

@@ -47,10 +47,19 @@ p {
   @apply font-montserrat;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-pink) white !important;
+}
+
 .gradientBorder {
   border-radius: 50px; /*1*/
   border: 3px solid transparent; /*2*/
   background: linear-gradient(45deg, red, blue) border-box; /*3*/
   mask: /*4*/ linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
   mask-composite: exclude; /*5*/
+}
+
+::-webkit-scrollbar-thumb {
+  scrollbar-color: var(--color-pink);
 }

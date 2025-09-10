@@ -13,6 +13,8 @@ import TeamBuilding from "@/app/_icons/TeamBuilding";
 import KidParty from "@/app/_icons/KidParty";
 import Wedding from "@/app/_icons/Wedding";
 import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
+import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
+import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
 
 type Props = {};
 
@@ -142,9 +144,16 @@ export function IconText({ text, iconStyles, children }: IconTextType) {
 }
 
 export default function EventTypeSettings({}: Props) {
+  const dispatch = useAppDispatch();
+
   return (
     <HeaderSettingsWrapper>
-      <div className="bg-white p-10 rounded-xl border border-borderLight shadow-lg flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]">
+      <div
+        onMouseLeave={() => {
+          dispatch(lowerHeaderStep.actions.changeStep(null));
+        }}
+        className="bg-white p-10 rounded-xl border border-borderLight shadow-lg flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]"
+      >
         {Icons.map((icon, index) => {
           return (
             <IconText

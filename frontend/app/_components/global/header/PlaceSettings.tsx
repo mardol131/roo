@@ -1,42 +1,94 @@
+"use client";
+
 import React from "react";
 import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
-import { FaMapMarked } from "react-icons/fa";
+import { FaMapMarked, FaMapSigns } from "react-icons/fa";
+import { useAppDispatch } from "@/app/_redux/hooks";
+import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
 
 type Props = {};
 
 export default function PlaceSettings({}: Props) {
+  const dispatch = useAppDispatch();
+
   return (
     <HeaderSettingsWrapper>
-      <div className="px-10 bg-white gap-10 shadow-xl border border-borderLight rounded-full grid grid-cols-2 p-5 items-center w-full max-w-lowerHeader justify-center">
-        <div className="w-full flex items-center">
-          <FaMapMarked className="text-pink text-3xl" />
-          <select
-            name="pets"
-            id="pet-select"
-            className="p-5 font-semibold text-textPlaceholder w-full"
-          >
-            <option value="">Vyberte kraj</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
-          </select>
+      <div
+        onMouseLeave={() => {
+          dispatch(lowerHeaderStep.actions.changeStep(null));
+        }}
+        className="p-10 bg-white gap-10 shadow-xl border border-borderLight rounded-3xl grid grid-cols-2 items-center w-full max-w-lowerHeader justify-center"
+      >
+        <div className="w-full flex flex-col gap-5">
+          <button className="flex gap-5 justify-center items-center text-lg font-semibold w-full px-4 text-textPlaceholder">
+            <FaMapMarked className="text-pink text-3xl" />
+            Začněte výběrem kraje
+          </button>
+          <div className=" h-70 overflow-y-scroll p-3 rounded-xl [&::-webkit-scrollbar-thumb]:bg-pink">
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+          </div>
         </div>
-        <select
-          name="pets"
-          id="pet-select"
-          className="p-5 font-semibold text-textPlaceholder border-gray-300 border-b-3"
-        >
-          <option value="">Vyberte okres</option>
-          <option value="dog">Dog</option>
-          <option value="cat">Cat</option>
-          <option value="hamster">Hamster</option>
-          <option value="parrot">Parrot</option>
-          <option value="spider">Spider</option>
-          <option value="goldfish">Goldfish</option>
-        </select>
+        <div className="w-full flex flex-col gap-5">
+          <button className="flex gap-5 justify-center items-center text-lg font-semibold w-full px-4 text-textPlaceholder">
+            <FaMapSigns className="text-pink text-3xl" />
+            Vyberte okres
+          </button>
+          <div className="h-70 overflow-y-scroll p-3 rounded-xl">
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+              Začněte výběrem kraje
+            </button>
+          </div>
+        </div>
       </div>
     </HeaderSettingsWrapper>
   );

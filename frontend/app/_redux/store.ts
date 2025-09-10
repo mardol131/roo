@@ -1,12 +1,15 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
-import calendarReducer from "./slices/calendarSlice";
+import initialFilterSlice from "./slices/initialFilterSlice";
+import lowerHeaderStepSlice from "./slices/lowerHeaderStepsSlice";
+import { lowerHeaderStep } from "./slices/lowerHeaderStepsSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      calendar: calendarReducer,
+      initialFilter: initialFilterSlice,
+      lowerHeaderStep: lowerHeaderStepSlice,
     },
   });
 };

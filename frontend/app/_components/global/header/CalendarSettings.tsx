@@ -11,6 +11,8 @@ import {
   FaTriangleExclamation,
   FaXmark,
 } from "react-icons/fa6";
+import { useAppDispatch } from "@/app/_redux/hooks";
+import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
 
 type Props = {
   setToggle: Dispatch<boolean>;
@@ -18,6 +20,8 @@ type Props = {
 
 //Toggling the datepicker component for chosing daterange
 export default function CalendarSettings() {
+  const dispatch = useAppDispatch();
+
   //Fixed and initial values
   const currentDate = new Date();
   const daysOfWeek = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"];
@@ -542,6 +546,9 @@ export default function CalendarSettings() {
           className="w-full max-w-lowerHeader absolute max-h-[500px] md:max-h-screen bg-optionsBar shadow-lg border border-borderLight md:rounded-2xl md:overflow-auto overflow-scroll p-5"
           onClick={(e) => {
             e.stopPropagation();
+          }}
+          onMouseLeave={() => {
+            dispatch(lowerHeaderStep.actions.changeStep(null));
           }}
         >
           <div className="">
