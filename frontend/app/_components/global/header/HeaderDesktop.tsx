@@ -173,7 +173,7 @@ export default function HeaderDesktop({}: Props) {
   console.log(currentStep);
 
   return (
-    <div className="fixed bg-white px-[74px] flex flex-col items-center w-full border-b border-zinc-100 pb-5">
+    <div className="fixed bg-white z-50 px-[74px] flex flex-col items-center w-full border-b border-zinc-100 pb-5">
       <UpperHeader />
       <div className="flex flex-col gap-10 items-center w-full">
         <LowerHeader />

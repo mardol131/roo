@@ -7,7 +7,7 @@ type Props = {};
 
 export default function CatalogGroupSection(props: Props) {
   const cards = [];
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 5; i++) {
     cards.push(<OfferCard key={i} />);
   }
 
