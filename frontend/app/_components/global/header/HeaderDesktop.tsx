@@ -162,10 +162,10 @@ export function LowerHeader({
   );
 }
 
-export type SettingsType = "eventType" | "place" | "time" | "people";
+export type SettingsType = "eventType" | "place" | "time" | "people" | null;
 
 export default function HeaderDesktop({}: Props) {
-  const [settingsType, setSettingsType] = useState<SettingsType>("eventType");
+  const [settingsType, setSettingsType] = useState<SettingsType>(null);
 
   return (
     <div className="fixed bg-white px-[74px] flex flex-col items-center w-full border-b border-zinc-100 pb-5">
