@@ -10,7 +10,7 @@ type Props = {};
 
 export default function PlaceSettings({}: Props) {
   const dispatch = useAppDispatch();
-  const [showRegions, setShowRegions] = useState(true);
+  const [showRegions, setShowRegions] = useState(false);
   const [showCities, setShowCities] = useState(false);
 
   return (

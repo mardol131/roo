@@ -2,49 +2,69 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export type InitialFilterSliceType = {
-  peopleCount: number;
+  guests: {
+    adult: number;
+    minor: number;
+    ztp: number;
+    pets: number;
+  };
 };
 
 const initialState: InitialFilterSliceType = {
-  peopleCount: 0,
+  guests: {
+    adult: 0,
+    minor: 0,
+    ztp: 0,
+    pets: 0,
+  },
 };
 
-export function incrementFunction(state: InitialFilterSliceType) {
-  const { peopleCount } = state;
-  if (peopleCount > 999) {
-    state.peopleCount += 500;
-  } else if (peopleCount > 499) {
-    state.peopleCount += 100;
-  } else if (peopleCount > 199) {
-    state.peopleCount += 50;
-  } else if (peopleCount > 99) {
-    state.peopleCount += 20;
-  } else if (peopleCount > 49) {
-    state.peopleCount += 10;
-  } else if (peopleCount > 19) {
-    state.peopleCount += 5;
+export type GuestType = "adult" | "minor" | "ztp" | "pets";
+
+export function incrementFunction(
+  state: InitialFilterSliceType,
+  action: PayloadAction<GuestType>
+) {
+  const guestType = action.payload;
+  const { guests } = state;
+  if (guests[guestType] > 999) {
+    state.guests[guestType] += 500;
+  } else if (guests[guestType] > 499) {
+    state.guests[guestType] += 100;
+  } else if (guests[guestType] > 199) {
+    state.guests[guestType] += 50;
+  } else if (guests[guestType] > 99) {
+    state.guests[guestType] += 20;
+  } else if (guests[guestType] > 49) {
+    state.guests[guestType] += 10;
+  } else if (guests[guestType] > 19) {
+    state.guests[guestType] += 5;
   } else {
-    state.peopleCount += 1;
+    state.guests[guestType] += 1;
   }
 }
 
-export function decrementFunction(state: InitialFilterSliceType) {
-  const { peopleCount } = state;
-  if (peopleCount > 1000) {
-    state.peopleCount -= 500;
-  } else if (peopleCount > 0) {
-    if (peopleCount > 500) {
-      state.peopleCount -= 100;
-    } else if (peopleCount > 200) {
-      state.peopleCount -= 50;
-    } else if (peopleCount > 100) {
-      state.peopleCount -= 20;
-    } else if (peopleCount > 50) {
-      state.peopleCount -= 10;
-    } else if (peopleCount > 20) {
-      state.peopleCount -= 5;
-    } else if (peopleCount > 0) {
-      state.peopleCount -= 1;
+export function decrementFunction(
+  state: InitialFilterSliceType,
+  action: PayloadAction<GuestType>
+) {
+  const { guests } = state;
+  const guestType = action.payload;
+  if (guests[guestType] > 1000) {
+    state.guests[guestType] -= 500;
+  } else if (guests[guestType] > 0) {
+    if (guests[guestType] > 500) {
+      state.guests[guestType] -= 100;
+    } else if (guests[guestType] > 200) {
+      state.guests[guestType] -= 50;
+    } else if (guests[guestType] > 100) {
+      state.guests[guestType] -= 20;
+    } else if (guests[guestType] > 50) {
+      state.guests[guestType] -= 10;
+    } else if (guests[guestType] > 20) {
+      state.guests[guestType] -= 5;
+    } else if (guests[guestType] > 0) {
+      state.guests[guestType] -= 1;
     }
   }
 }
