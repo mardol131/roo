@@ -8,7 +8,7 @@ import {
   initialFilterSlice,
 } from "@/app/_redux/slices/initialFilterSlice";
 import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
-import { CounterType, PeopleCounter } from "../molecules/Counter";
+import { CounterType, Counter } from "../molecules/Counter";
 import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
 
 type Props = {};
@@ -25,6 +25,15 @@ export default function PeopleSettings({}: Props) {
     dispatch(initialFilterSlice.actions.decrement(type));
   }
 
+  function changeValueOnUserInput(type: GuestType, value: number) {
+    dispatch(
+      initialFilterSlice.actions.changeOnUserInput({
+        guestType: type,
+        value: value,
+      })
+    );
+  }
+
   return (
     <HeaderSettingsWrapper>
       <div className="max-w-lowerHeader w-full flex justify-end">
@@ -35,7 +44,7 @@ export default function PeopleSettings({}: Props) {
           className="p-8 bg-white rounded-xl border-borderLight shadow-xl"
         >
           <GuestsCounter
-            addFunctions={() => {
+            addFunction={() => {
               addGuests("adult");
             }}
             removeFunction={() => {
@@ -43,9 +52,12 @@ export default function PeopleSettings({}: Props) {
             }}
             value={guests.adult}
             text="Dospělí"
+            stateChangerOnUserInteract={(value: number) => {
+              changeValueOnUserInput("adult", value);
+            }}
           />
           <GuestsCounter
-            addFunctions={() => {
+            addFunction={() => {
               addGuests("minor");
             }}
             removeFunction={() => {
@@ -53,9 +65,12 @@ export default function PeopleSettings({}: Props) {
             }}
             value={guests.minor}
             text="Děti"
+            stateChangerOnUserInteract={(value: number) => {
+              changeValueOnUserInput("minor", value);
+            }}
           />
           <GuestsCounter
-            addFunctions={() => {
+            addFunction={() => {
               addGuests("ztp");
             }}
             removeFunction={() => {
@@ -63,9 +78,12 @@ export default function PeopleSettings({}: Props) {
             }}
             value={guests.ztp}
             text="ZTP"
+            stateChangerOnUserInteract={(value: number) => {
+              changeValueOnUserInput("ztp", value);
+            }}
           />
           <GuestsCounter
-            addFunctions={() => {
+            addFunction={() => {
               addGuests("pets");
             }}
             removeFunction={() => {
@@ -73,6 +91,9 @@ export default function PeopleSettings({}: Props) {
             }}
             value={guests.pets}
             text="Mazlíčci"
+            stateChangerOnUserInteract={(value: number) => {
+              changeValueOnUserInput("pets", value);
+            }}
           />
         </div>
       </div>
@@ -84,10 +105,11 @@ export function GuestsCounter(props: CounterType & { text: string }) {
   return (
     <div className="grid grid-cols-2 items-center border-b border-borderLight">
       <p className="font-semibold select-none">{props.text}</p>
-      <PeopleCounter
-        addFunctions={props.addFunctions}
+      <Counter
+        addFunction={props.addFunction}
         removeFunction={props.removeFunction}
         value={props.value}
+        stateChangerOnUserInteract={props.stateChangerOnUserInteract}
       />
     </div>
   );

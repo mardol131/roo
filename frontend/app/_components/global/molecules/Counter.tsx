@@ -2,12 +2,13 @@ import React from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 
 export type CounterType = {
-  addFunctions: () => void;
+  addFunction: () => void;
   removeFunction: () => void;
   value: number;
+  stateChangerOnUserInteract: (value: number) => void;
 };
 
-export function PeopleCounter(props: CounterType) {
+export function Counter(props: CounterType) {
   return (
     <div className="grid bg-white grid-cols-3 items-center justify-items-center gap-2 p-3">
       <button
@@ -17,11 +18,20 @@ export function PeopleCounter(props: CounterType) {
         <FaMinus />
       </button>
 
-      <p className="w-12 h-12 border border-borderLight rounded-lg flex items-center justify-center">
-        {props.value}
-      </p>
+      <input
+        onChange={(e) => {
+          const value = Number(e.target.value);
+          if (!isNaN(value)) {
+            props.stateChangerOnUserInteract(value);
+          }
+        }}
+        type="number"
+        className="font-semibold w-12 h-12 border border-borderLight rounded-lg text-center flex items-center justify-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+        value={props.value}
+      />
+
       <button
-        onClick={props.addFunctions}
+        onClick={props.addFunction}
         className="border w-10 h-10 p-3 rounded-full border-borderLight hover:bg-orange/40 hover:shadow-md transition-all ease-in-out cursor-pointer"
       >
         <FaPlus />

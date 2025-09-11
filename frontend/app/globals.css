@@ -63,3 +63,13 @@ p {
 ::-webkit-scrollbar-thumb {
   scrollbar-color: var(--color-pink);
 }
+
+@layer utilities {
+  .no-spin::-webkit-outer-spin-button,
+  .no-spin::-webkit-inner-spin-button {
+    @apply appearance-none m-0;
+  }
+  .no-spin {
+    --moz-appearance: textfield;
+  }
+}

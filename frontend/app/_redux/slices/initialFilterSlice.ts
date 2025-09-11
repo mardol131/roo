@@ -69,16 +69,26 @@ export function decrementFunction(
   }
 }
 
+export function changeOnUserInputFunction(
+  state: InitialFilterSliceType,
+  action: PayloadAction<{ guestType: GuestType; value: number }>
+) {
+  const guestType = action.payload.guestType;
+  state.guests[guestType] = action.payload.value;
+}
+
 export const initialFilterSlice = createSlice({
   name: "initialFilter",
   initialState,
   reducers: {
     increment: incrementFunction,
     decrement: decrementFunction,
+    changeOnUserInput: changeOnUserInputFunction,
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement } = initialFilterSlice.actions;
+export const { increment, decrement, changeOnUserInput } =
+  initialFilterSlice.actions;
 
 export default initialFilterSlice.reducer;
