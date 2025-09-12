@@ -5,10 +5,7 @@ import React from "react";
 type Props = BubbleType;
 
 export default function Bubble(props: Props) {
-  console.log(props.image.src);
-
   const colSpan = "col-span-" + props.colSpan;
-  console.log(colSpan);
   return (
     <div
       style={{

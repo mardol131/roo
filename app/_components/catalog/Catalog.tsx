@@ -1,7 +1,7 @@
 import React from "react";
 import BubblesSection from "./BubblesSection";
 import image from "@/app/_images/test.jpg";
-import CatalogGroupSection from "./CatalogGroupSection";
+import CategorySection from "./CategorySection";
 import EmailCta from "../global/cta/EmailCta";
 import SectionWrapper from "../wrappers/SectionWrapper";
 
@@ -21,11 +21,11 @@ export default function Catalog(props: Props) {
   return (
     <SectionWrapper>
       <div className="flex flex-col gap-16 max-w-contentWrapper w-full">
-        <CatalogGroupSection />
-        <CatalogGroupSection />
+        <CategorySection />
+        <CategorySection />
         <BubblesSection bubbles={bubblesArray} />
-        <CatalogGroupSection />
-        <CatalogGroupSection />
+        <CategorySection />
+        <CategorySection />
         <EmailCta
           heading="Buď v obraze!"
           text="  Lorem ipsum dolor sit amet consectetur adipisicing elit."
@@ -33,8 +33,8 @@ export default function Catalog(props: Props) {
           webhookUrl="dsa898"
           buttonDesign="gradient"
         />
-        <CatalogGroupSection />
-        <CatalogGroupSection />
+        <CategorySection />
+        <CategorySection />
       </div>
     </SectionWrapper>
   );

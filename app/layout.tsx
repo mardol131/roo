@@ -19,7 +19,7 @@ export default function RootLayout({
       <StoreProvider>
         <body>
           <Header />
-          <div className="pt-60">{children}</div>
+          <div className="pt-52">{children}</div>
           <Footer />
         </body>
       </StoreProvider>
