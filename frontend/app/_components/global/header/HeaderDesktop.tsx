@@ -11,7 +11,7 @@ import { BiSolidParty } from "react-icons/bi";
 import PlaceSettings from "./PlaceSettings";
 import EventTypesWithIcons from "./EventTypeSettings";
 import CalendarSettings from "./CalendarSettings";
-import PeopleSettings from "./PeopleSettings";
+import GuestsSettings from "./GuestsSettings";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 
 import {
@@ -168,7 +168,7 @@ export default function HeaderDesktop({}: Props) {
           {currentStep == "eventType" && <EventTypesWithIcons />}
           {currentStep == "place" && <PlaceSettings />}
           {currentStep == "time" && <CalendarSettings />}
-          {currentStep == "people" && <PeopleSettings />}
+          {currentStep == "people" && <GuestsSettings />}
         </div>
       </div>
     </div>

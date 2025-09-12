@@ -19,7 +19,7 @@ export default function PlaceSettings({}: Props) {
         onMouseLeave={() => {
           dispatch(lowerHeaderStep.actions.changeStep(null));
         }}
-        className="p-10 bg-white gap-5 shadow-xl border border-borderLight items-center rounded-3xl grid grid-cols-[1fr_2fr] w-full max-w-lowerHeader justify-center"
+        className="p-10 bg-white gap-5 shadow-xl border border-borderLight items-center rounded-large grid grid-cols-[1fr_2fr] w-full max-w-lowerHeader justify-center"
       >
         <button className="flex gap-5 justify-start items-center text-lg font-semibold w-full px-4 text-textPlaceholder">
           <FaMapMarked className="text-pink text-3xl" />

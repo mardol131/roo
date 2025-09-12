@@ -543,7 +543,7 @@ export default function CalendarSettings() {
     <>
       <HeaderSettingsWrapper>
         <div
-          className="w-full max-w-lowerHeader absolute max-h-[500px] md:max-h-screen bg-optionsBar shadow-lg border border-borderLight md:rounded-2xl md:overflow-auto overflow-scroll p-5"
+          className="w-full max-w-lowerHeader absolute max-h-[500px] md:max-h-screen bg-white shadow-lg border border-borderLight md:rounded-large md:overflow-auto overflow-scroll p-5"
           onClick={(e) => {
             e.stopPropagation();
           }}

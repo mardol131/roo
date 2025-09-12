@@ -13,7 +13,7 @@ import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
 
 type Props = {};
 
-export default function PeopleSettings({}: Props) {
+export default function GuestsSettings({}: Props) {
   const { guests } = useAppSelector((state) => state.initialFilter);
   const dispatch = useAppDispatch();
 
@@ -41,7 +41,7 @@ export default function PeopleSettings({}: Props) {
           onMouseLeave={() => {
             dispatch(lowerHeaderStep.actions.changeStep(null));
           }}
-          className="p-8 bg-white rounded-xl border-borderLight shadow-xl"
+          className="p-8 bg-white rounded-large border border-borderLight shadow-xl"
         >
           <GuestsCounter
             addFunction={() => {

@@ -152,7 +152,7 @@ export default function EventTypeSettings({}: Props) {
         onMouseLeave={() => {
           dispatch(lowerHeaderStep.actions.changeStep(null));
         }}
-        className="bg-white p-10 rounded-xl border border-borderLight shadow-lg flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]"
+        className="bg-white p-10 rounded-large border border-borderLight shadow-lg flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]"
       >
         {Icons.map((icon, index) => {
           return (

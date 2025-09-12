@@ -21,6 +21,10 @@
 
   --spacing-contentWrapper: 1500px;
   --spacing-lowerHeader: 1000px;
+
+  --radius-small: var(--radius-md);
+  --radius-medium: var(--radius-xl);
+  --radius-large: var(--radius-3xl);
 }
 
 h1 {

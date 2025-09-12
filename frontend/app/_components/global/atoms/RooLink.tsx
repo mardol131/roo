@@ -1,20 +1,16 @@
 import Link from "next/link";
 
-export function RooLink({
-  href,
-  text,
-  className,
-}: {
+export function RooLink(props: {
   href: string;
   text: string;
   className?: string;
 }) {
   return (
     <Link
-      className={`${className} hover:text-pink transition-all ease-in-out`}
-      href={href}
+      className={`${props.className} hover:text-pink transition-all ease-in-out`}
+      href={props.href}
     >
-      {text}
+      {props.text}
     </Link>
   );
 }
