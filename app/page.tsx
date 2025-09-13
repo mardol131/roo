@@ -1,4 +1,4 @@
-import Catalog from "./_components/catalog/Catalog";
+import Catalog from "./_components/homepage/Catalog";
 
 export default function Home() {
   return (

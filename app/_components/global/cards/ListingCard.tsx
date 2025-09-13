@@ -8,7 +8,7 @@ import { FaHeart } from "react-icons/fa6";
 
 type Props = {};
 
-export default function OfferCard({}: Props) {
+export default function ListingCard({}: Props) {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   return (
     <div className="relative rounded-xl overflow-hidden shadow-2xl">
@@ -39,7 +39,7 @@ export default function OfferCard({}: Props) {
         width={600}
         height={600}
       />
-      <div className="grid grid-cols-[2fr_1fr] py-3 px-7">
+      <div className="grid grid-cols-[2fr_1fr] p-4">
         <div>
           <p className="font-semibold">Mlýn Davídkov</p>
           <p className="text-sm">

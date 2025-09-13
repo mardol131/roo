@@ -8,7 +8,7 @@ import {
   initialFilterSlice,
 } from "@/app/_redux/slices/initialFilterSlice";
 import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
-import { CounterType, Counter } from "../molecules/Counter";
+import { CounterType, Counter } from "../filters/Counter";
 import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
 
 type Props = {};

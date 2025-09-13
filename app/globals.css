@@ -51,6 +51,10 @@ p {
   @apply font-montserrat;
 }
 
+.animate {
+  @apply ease-in-out transition-all;
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-pink) white !important;

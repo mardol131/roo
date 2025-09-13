@@ -1,7 +1,7 @@
 import React from "react";
 import Heading from "../global/atoms/Heading";
 import SectionHeading from "../global/atoms/SectionHeading";
-import OfferCard from "../global/cards/ListingCard";
+import ListingCard from "../global/cards/ListingCard";
 import { getPublicCollectionData } from "@/app/_functions/api/getPublicCollectionData";
 
 type Props = {};
@@ -12,7 +12,7 @@ export default async function CategorySection(props: Props) {
 
   const cards = [];
   for (let i = 0; i < 5; i++) {
-    cards.push(<OfferCard key={i} />);
+    cards.push(<ListingCard key={i} />);
   }
 
   return (
