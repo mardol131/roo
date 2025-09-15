@@ -24,19 +24,30 @@ type Props = {};
 export function UpperHeader() {
   return (
     <div className="w-full max-w-contentWrapper grid grid-cols-[1fr_3fr_1fr] items-center">
-      <Image src={logo} width={100} height={100} alt="logo" />
+      <Link href={"/"}>
+        <Image src={logo} width={100} height={100} alt="logo" />
+      </Link>
       <div className="rounded-full bg-linear-30 from-orange via-pink to-violet flex text-white font-semibold shadow-lg">
-        <button className="py-2 hover:scale-120 w-[32%] cursor-pointer ease-in-out transition-all">
+        <Link
+          href={"/kategorie/venues"}
+          className="py-2 hover:scale-120 w-[32%] cursor-pointer ease-in-out transition-all flex items-center justify-center"
+        >
           Venues
-        </button>
+        </Link>
         <div className="w-0.5 bg-white"></div>
-        <button className="hover:scale-120 w-[33%]  cursor-pointer ease-in-out transition-all">
+        <Link
+          href={"/kategorie/gastro"}
+          className="hover:scale-120 w-[33%]  cursor-pointer ease-in-out transition-all flex items-center justify-center"
+        >
           Gastro
-        </button>
+        </Link>
         <div className="w-0.5 bg-white"></div>
-        <button className="py-2 w-[32%] hover:scale-120  cursor-pointer ease-in-out transition-all">
+        <Link
+          href={"/kategorie/weddings"}
+          className="py-2 w-[32%] hover:scale-120  cursor-pointer ease-in-out transition-all flex items-center justify-center"
+        >
           Weddings
-        </button>
+        </Link>
       </div>
       <div className="text-center flex justify-end gap-11 items-center">
         <Link
