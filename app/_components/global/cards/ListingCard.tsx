@@ -5,13 +5,17 @@ import React, { useState } from "react";
 import image from "../../../_images/test.jpg";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
+import Link from "next/link";
 
 type Props = {};
 
 export default function ListingCard({}: Props) {
   const [isLiked, setIsLiked] = useState<boolean>(false);
   return (
-    <div className="relative rounded-xl overflow-hidden shadow-2xl">
+    <Link
+      href={"/inzerat/muj-inzerat"}
+      className="relative rounded-xl overflow-hidden shadow-2xl"
+    >
       <button className="absolute left-2 top-2 bg-orange py-1 px-2 rounded-full text-sm text-white font-semibold">
         Kategorie
       </button>
@@ -51,6 +55,6 @@ export default function ListingCard({}: Props) {
           <p className="font-semibold">4,9</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

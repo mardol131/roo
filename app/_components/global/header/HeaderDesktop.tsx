@@ -18,6 +18,7 @@ import {
   CurrentStepType,
   lowerHeaderStep,
 } from "@/app/_redux/slices/lowerHeaderStepsSlice";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
 type Props = {};
 
@@ -168,20 +169,28 @@ export function LowerHeaderButton(props: {
 
 export default function HeaderDesktop({}: Props) {
   const { currentStep } = useAppSelector((state) => state.lowerHeaderStep);
+  const { slug } = useParams();
+  console.log(slug);
   console.log(currentStep);
 
   return (
-    <div className="fixed bg-white z-50 px-[74px] flex flex-col items-center w-full border-b border-zinc-100 pb-5">
+    <div
+      className={`fixed bg-white z-50 px-[74px] flex flex-col items-center w-full border-b border-zinc-100 ${
+        !slug && "pb-5"
+      }`}
+    >
       <UpperHeader />
-      <div className="relative flex flex-col gap-5 items-center justify-center w-full">
-        <LowerHeader />
-        <div className="relative w-full">
-          {currentStep == "eventType" && <EventTypesWithIcons />}
-          {currentStep == "place" && <PlaceSettings />}
-          {currentStep == "time" && <CalendarSettings />}
-          {currentStep == "people" && <GuestsSettings />}
+      {!slug && (
+        <div className="relative flex flex-col gap-5 items-center justify-center w-full">
+          <LowerHeader />
+          <div className="relative w-full">
+            {currentStep == "eventType" && <EventTypesWithIcons />}
+            {currentStep == "place" && <PlaceSettings />}
+            {currentStep == "time" && <CalendarSettings />}
+            {currentStep == "people" && <GuestsSettings />}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
