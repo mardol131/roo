@@ -19,6 +19,31 @@ import { FAQCard } from "@/app/_components/global/molecules/FAQCard";
 
 type Props = {};
 
+export default function page({}: Props) {
+  return (
+    <div className="-mt-25">
+      <SectionWrapper>
+        <PhotoGrid />
+      </SectionWrapper>
+      <SectionWrapper>
+        <div className="grid grid-cols-[3fr_2fr] w-full gap-9">
+          <div className="min-h-screen">
+            <ListingHeader />
+            <ListingDescription />
+            <ImagesGridVerticalHalf direction="left" />
+            <ImagesGridHorizontalHalf direction="right" />
+            <ImagesGridSquare direction="left" />
+            <SublistingsCards />
+            <ImagesGridVerticalHalf direction="right" />
+            <ListingFAQ />
+          </div>
+          <ListingSidebar />
+        </div>
+      </SectionWrapper>
+    </div>
+  );
+}
+
 export function PhotoGrid() {
   return (
     <div className="relative grid grid-cols-[3fr_1fr_1fr] grid-rows-2 w-full gap-3 py-5">
@@ -117,33 +142,12 @@ export function ListingHeader() {
   );
 }
 
-export default function page({}: Props) {
-  return (
-    <div className="-mt-25">
-      <SectionWrapper>
-        <PhotoGrid />
-      </SectionWrapper>
-      <SectionWrapper>
-        <div className="grid grid-cols-[3fr_2fr] w-full gap-9">
-          <div className="min-h-screen">
-            <ListingHeader />
-            <ListingDescription />
-            <SublistingsCards />
-            <ListingFAQ />
-          </div>
-          <ListingSidebar />
-        </div>
-      </SectionWrapper>
-    </div>
-  );
-}
-
 export function ListingSidebar() {
   const items = [];
 
   for (let i = 0; i < 4; i++) {
     items.push(
-      <div className="flex flex-col gap-2">
+      <div key={i} className="flex flex-col gap-2">
         <p className="font-semibold text-sm">Datum konání akce</p>
         <div className="flex gap-4 items-center border rounded-small border-borderLight p-2">
           <FaRegCalendar className="text-pink text-2xl" />
@@ -152,24 +156,12 @@ export function ListingSidebar() {
             className="outline-borderLight w-full p-1 font-semibold text-textNormal/60"
           >
             <option value="">Please select a pet</option>
-            <option value="cat">
-              <p>1.10.2025</p>
-            </option>
-            <option value="cat">
-              <p>1.10.2025</p>
-            </option>
-            <option value="cat">
-              <p>1.10.2025</p>
-            </option>
-            <option value="cat">
-              <p>1.10.2025</p>
-            </option>
-            <option value="cat">
-              <p>1.10.2025</p>
-            </option>
-            <option value="cat">
-              <p>1.10.2025</p>
-            </option>
+            <option value="cat">1.10.2025</option>
+            <option value="cat">1.10.2025</option>
+            <option value="cat">1.10.2025</option>
+            <option value="cat">1.10.2025</option>
+            <option value="cat">1.10.2025</option>
+            <option value="cat">1.10.2025</option>
           </select>
         </div>
       </div>
@@ -177,9 +169,9 @@ export function ListingSidebar() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-3">
+      <SupervendorBanner />
       <div className="sticky top-30 flex flex-col gap-3">
-        {" "}
         <div className=" flex flex-col gap-5  border p-8 rounded-medium border-borderLight shadow-lg justify-center items-center">
           <div className="grid grid-cols-2 gap-4 w-full">{items}</div>
           <button className="py-2 animate hover:scale-105 cursor-pointer px-5 text-xl bg-linear-60 from-orange via-pink to-violet rounded-full text-white font-semibold">
@@ -192,7 +184,6 @@ export function ListingSidebar() {
             od 2.000 Kč za osobu
           </p>
         </div>
-        <SupervendorBanner />
       </div>
     </div>
   );
@@ -201,7 +192,7 @@ export function ListingSidebar() {
 export function SupervendorBanner() {
   return (
     <div className="flex flex-col gap-3">
-      <div className="border border-borderLight bg-white rounded-medium p-7">
+      <div className="border border-borderLight bg-white rounded-medium p-7 shadow-md">
         <p className="text-center">Tento dodavatel je v kategori</p>
         <div className="flex items-center justify-center gap-4">
           <FaCrown className="text-6xl text-amber-400" />
@@ -211,11 +202,11 @@ export function SupervendorBanner() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-3">
-        <button className="border border-borderLight rounded-medium items-center justify-center flex gap-3 py-3">
+        <button className="border border-borderLight rounded-medium items-center justify-center flex gap-3 py-3 shadow-md">
           <FaHeart className="text-pink text-2xl" />
           <p>Přidat do oblíbených</p>
         </button>
-        <button className="border border-borderLight rounded-medium items-center justify-center flex gap-3">
+        <button className="border border-borderLight rounded-medium items-center justify-center flex gap-3 shadow-md">
           <FaShare className="text-pink text-2xl" />
           <p>Sdílet</p>
         </button>
@@ -325,6 +316,199 @@ export function ListingFAQ() {
         dolorem harum magnam repellendus porro, cumque laborum neque,
         accusantium repudiandae?"
         />
+      </div>
+    </CardSectionWrapper>
+  );
+}
+
+export type ImagesGridType = {
+  direction: "left" | "right";
+};
+
+export function ImagesGridVerticalHalf(props: ImagesGridType) {
+  return (
+    <CardSectionWrapper>
+      <div className="grid grid-cols-2 gap-3">
+        <div
+          className={`${
+            props.direction === "right" && "col-start-2 row-start-1"
+          } relative rounded-medium overflow-hidden`}
+        >
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="w-full h-full aspect-square object-cover"
+          />
+          <div className="absolute bottom-5 left-[50%] translate-x-[-50%] w-[90%] bg-white px-4 py-5 flex flex-col gap-4 rounded-medium">
+            <h4 className="font-semibold text-pink">Nápoje všeho druhu</h4>
+            <p className="text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+              quisquam consectetur iure tenetur maiores delectus natus provident
+              iusto debitis! Praesentium officiis sit harum voluptatum natus.
+              Sapiente harum perspiciatis in iste!
+            </p>
+          </div>
+        </div>
+        <div
+          className={`${
+            props.direction === "right" && "col-start-1 row-start-1"
+          } grid grid-cols-2 items-stretch gap-3`}
+        >
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+        </div>
+      </div>
+    </CardSectionWrapper>
+  );
+}
+
+export function ImagesGridHorizontalHalf(props: ImagesGridType) {
+  return (
+    <CardSectionWrapper>
+      <div className="grid grid-rows-2 gap-3">
+        <div className={`relative rounded-medium overflow-hidden row-start-1`}>
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="w-full h-80 aspect-square object-cover"
+          />
+          <div
+            className={`absolute bottom-5 ${
+              props.direction === "right" ? "right-5" : "left-5"
+            } max-w-80 bg-white px-4 py-5 flex flex-col gap-4 rounded-medium`}
+          >
+            <h4 className="font-semibold text-pink">Nápoje všeho druhu</h4>
+            <p className="text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+              quisquam consectetur iure tenetur maiores delectus natus provident
+              iusto debitis!
+            </p>
+          </div>
+        </div>
+        <div className={`grid grid-cols-5 gap-3 items-stretch max-h-[70%]`}>
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+        </div>
+      </div>
+    </CardSectionWrapper>
+  );
+}
+
+export function ImagesGridSquare(props: ImagesGridType) {
+  return (
+    <CardSectionWrapper>
+      <div className="grid grid-rows-2 grid-cols-2 gap-3">
+        <Image
+          src={image}
+          width={500}
+          height={500}
+          alt="image"
+          className="w-full col-span-2 h-80 aspect-square object-cover relative rounded-medium overflow-hidden row-start-1"
+        />
+        <div
+          className={`w-full bg-white p-10 flex flex-col gap-4 rounded-medium items-center justify-center`}
+        >
+          <h3 className="font-semibold text-pink">Nápoje všeho druhu</h3>
+          <p className="text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Necessitatibus, quae voluptatibus unde, ad eum labore modi ratione
+            itaque architecto laboriosam repellat minima, deserunt adipisci
+            nihil assumenda deleniti magnam vel magni!
+          </p>
+        </div>
+        <div className={`grid grid-cols-2 gap-3 items-stretch`}>
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+          <Image
+            src={image}
+            width={500}
+            height={500}
+            alt="image"
+            className="rounded-medium object-cover"
+          />
+        </div>
       </div>
     </CardSectionWrapper>
   );
