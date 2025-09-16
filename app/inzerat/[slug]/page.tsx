@@ -1,5 +1,5 @@
 import SectionWrapper from "@/app/_components/wrappers/SectionWrapper";
-import React from "react";
+import React, { ReactNode } from "react";
 
 import image from "@/app/_images/test.jpg";
 import Image from "next/image";
@@ -7,7 +7,15 @@ import Heading from "@/app/_components/global/atoms/Heading";
 import { FaMapMarker, FaMapMarkerAlt } from "react-icons/fa";
 import { HiMiniUsers, HiUser, HiUsers } from "react-icons/hi2";
 import { GiForkKnifeSpoon, GiFruitTree } from "react-icons/gi";
-import { FaCrown, FaRegCalendar } from "react-icons/fa6";
+import {
+  FaChevronRight,
+  FaCrown,
+  FaHeart,
+  FaQ,
+  FaRegCalendar,
+  FaShare,
+} from "react-icons/fa6";
+import { FAQCard } from "@/app/_components/global/molecules/FAQCard";
 
 type Props = {};
 
@@ -116,9 +124,12 @@ export default function page({}: Props) {
         <PhotoGrid />
       </SectionWrapper>
       <SectionWrapper>
-        <div className="grid grid-cols-[3fr_2fr] w-full gap-3">
+        <div className="grid grid-cols-[3fr_2fr] w-full gap-9">
           <div className="min-h-screen">
             <ListingHeader />
+            <ListingDescription />
+            <SublistingsCards />
+            <ListingFAQ />
           </div>
           <ListingSidebar />
         </div>
@@ -167,7 +178,7 @@ export function ListingSidebar() {
 
   return (
     <div>
-      <div className="sticky top-40 flex flex-col gap-3">
+      <div className="sticky top-30 flex flex-col gap-3">
         {" "}
         <div className=" flex flex-col gap-5  border p-8 rounded-medium border-borderLight shadow-lg justify-center items-center">
           <div className="grid grid-cols-2 gap-4 w-full">{items}</div>
@@ -189,14 +200,132 @@ export function ListingSidebar() {
 
 export function SupervendorBanner() {
   return (
-    <div className="border border-borderLight bg-white rounded-medium p-10">
-      <p className="text-center">Tento dodavatel je v kategori</p>
-      <div className="flex items-center justify-center gap-4">
-        <FaCrown className="text-7xl text-amber-400" />
-        <p className="text-4xl font-semibold text-pink uppercase">
-          #Supervendor
-        </p>
+    <div className="flex flex-col gap-3">
+      <div className="border border-borderLight bg-white rounded-medium p-7">
+        <p className="text-center">Tento dodavatel je v kategori</p>
+        <div className="flex items-center justify-center gap-4">
+          <FaCrown className="text-6xl text-amber-400" />
+          <p className="text-4xl font-semibold text-pink uppercase">
+            #Supervendor
+          </p>
+        </div>
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        <button className="border border-borderLight rounded-medium items-center justify-center flex gap-3 py-3">
+          <FaHeart className="text-pink text-2xl" />
+          <p>Přidat do oblíbených</p>
+        </button>
+        <button className="border border-borderLight rounded-medium items-center justify-center flex gap-3">
+          <FaShare className="text-pink text-2xl" />
+          <p>Sdílet</p>
+        </button>
       </div>
     </div>
+  );
+}
+
+export function ListingDescription() {
+  return (
+    <CardSectionWrapper heading="Kouzelný resort pro Vaši akci">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rerum
+        qui repellat, non animi ullam ex officia. Necessitatibus iste illo
+        dolorem harum magnam repellendus porro, cumque laborum neque,
+        accusantium repudiandae?
+      </p>
+    </CardSectionWrapper>
+  );
+}
+
+export type CardSectionWrapperPropsType = {
+  children: ReactNode;
+  heading?: string;
+};
+
+export function CardSectionWrapper(props: CardSectionWrapperPropsType) {
+  return (
+    <div className="pt-10 border-t mt-10 border-borderLight flex flex-col gap-7">
+      {props.heading && <h3 className="font-semibold">{props.heading}</h3>}
+      {props.children}
+    </div>
+  );
+}
+
+export function SublistingsCards() {
+  return (
+    <CardSectionWrapper heading="Služby">
+      <div className="flex flex-col gap-5">
+        <div className="">
+          <div className="flex gap-2">
+            <SublistingCard />
+            <SublistingCard />
+            <SublistingCard />
+            <SublistingCard />
+            <FaChevronRight className="text-3xl text-pink self-center" />
+          </div>
+        </div>
+      </div>
+    </CardSectionWrapper>
+  );
+}
+
+export function SublistingCard() {
+  return (
+    <div className="border border-borderLight rounded-medium overflow-hidden">
+      <Image
+        src={image}
+        width={400}
+        height={400}
+        alt="img"
+        className="aspect-square object-cover"
+      />
+      <h4 className="min-h-20 flex items-center justify-center font-semibold">
+        Obsluha
+      </h4>
+    </div>
+  );
+}
+
+export function ListingFAQ() {
+  return (
+    <CardSectionWrapper heading="Časté dotazy">
+      <div className="flex flex-col gap-4">
+        <FAQCard
+          question="Co pro vás můžeme udělat?"
+          answer="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rerum
+        qui repellat, non animi ullam ex officia. Necessitatibus iste illo
+        dolorem harum magnam repellendus porro, cumque laborum neque,
+        accusantium repudiandae?"
+        />
+        <FAQCard
+          question="Co pro vás můžeme udělat?"
+          answer="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rerum
+        qui repellat, non animi ullam ex officia. Necessitatibus iste illo
+        dolorem harum magnam repellendus porro, cumque laborum neque,
+        accusantium repudiandae?"
+        />{" "}
+        <FAQCard
+          question="Co pro vás můžeme udělat?"
+          answer="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rerum
+        qui repellat, non animi ullam ex officia. Necessitatibus iste illo
+        dolorem harum magnam repellendus porro, cumque laborum neque,
+        accusantium repudiandae?"
+        />{" "}
+        <FAQCard
+          question="Co pro vás můžeme udělat?"
+          answer="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rerum
+        qui repellat, non animi ullam ex officia. Necessitatibus iste illo
+        dolorem harum magnam repellendus porro, cumque laborum neque,
+        accusantium repudiandae?"
+        />{" "}
+        <FAQCard
+          question="Co pro vás můžeme udělat?"
+          answer="  Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis rerum
+        qui repellat, non animi ullam ex officia. Necessitatibus iste illo
+        dolorem harum magnam repellendus porro, cumque laborum neque,
+        accusantium repudiandae?"
+        />
+      </div>
+    </CardSectionWrapper>
   );
 }

@@ -20,7 +20,9 @@ export default function ListingCard({}: Props) {
         Kategorie
       </button>
       <div
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
           setIsLiked(!isLiked);
         }}
         className="cursor-pointer hover:scale-120 ease-in-out transition-all absolute right-2 top-2 text-lg"
