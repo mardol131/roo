@@ -14,7 +14,7 @@ export default function ListingCard({}: Props) {
   return (
     <Link
       href={"/inzerat/muj-inzerat"}
-      className="relative rounded-xl overflow-hidden shadow-2xl"
+      className="relative rounded-xl overflow-hidden shadow-2xl shrink-0"
     >
       <button className="absolute left-2 top-2 bg-orange py-1 px-2 rounded-full text-sm text-white font-semibold">
         Kategorie
@@ -39,7 +39,7 @@ export default function ListingCard({}: Props) {
       </div>
 
       <Image
-        className="h-50 object-cover"
+        className="max-w-60 h-50 object-cover"
         src={image}
         alt=""
         width={600}

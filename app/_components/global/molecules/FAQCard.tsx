@@ -16,7 +16,7 @@ export function FAQCard(props: FAQCardType) {
       onClick={() => {
         setIsOpen(!isOpen);
       }}
-      className="border-b-2 border-borderLight pb-3 flex flex-col gap-3 cursor-pointer"
+      className="border-b border-pink/10 pb-3 flex flex-col gap-3 cursor-pointer"
     >
       <div className="flex items-center justify-between">
         <h5 className="font-semibold">{props.question}</h5>

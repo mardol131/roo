@@ -17,7 +17,7 @@ export default function CategoryListings({}: Props) {
   }
   return (
     <div>
-      <div className="grid grid-cols-5 gap-x-5 gap-y-8 max-w-contentWrapper w-full p-8">
+      <div className="flex gap-x-5 gap-y-8 w-full p-8 flex-wrap">
         {topCards}
         {cards}
       </div>

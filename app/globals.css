@@ -5,6 +5,11 @@
   src: url("./_fonts/Montserrat.ttf");
 }
 
+@font-face {
+  font-family: Nunito;
+  src: url("./_fonts/Nunit-sans.ttf");
+}
+
 @theme {
   --color-orange: #ff9900;
   --color-pink: #e70d72;
@@ -18,6 +23,7 @@
   --color-optionsBar: var(--color-gray-50);
 
   --font-montserrat: "Montserrat";
+  --font-nunito: "Nunito";
 
   --spacing-contentWrapper: 1500px;
   --spacing-lowerHeader: 1000px;
@@ -48,7 +54,7 @@ h5 {
 }
 
 p {
-  @apply font-montserrat;
+  @apply font-nunito;
 }
 
 .animate {
