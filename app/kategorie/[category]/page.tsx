@@ -6,7 +6,7 @@ type Props = {};
 
 export default function page({}: Props) {
   return (
-    <div className="grid grid-cols-[1fr_5fr]">
+    <div className="grid grid-cols-[18rem_5fr]">
       <FilterBar />
       <CategoryListings />
     </div>

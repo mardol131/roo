@@ -52,14 +52,17 @@ export function UpperHeader() {
       </div>
       <div className="text-center flex justify-end gap-11 items-center">
         <Link
-          href={"/"}
+          href={"/admin"}
           className="text-white font-semibold bg-linear-60 from-pink to-orange hover:scale-110 ease-in-out transition-all shadow-md rounded-full py-2 px-4"
         >
           Pro dodavatele
         </Link>
-        <div className="bg-orange rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer">
+        <Link
+          href={"/admin"}
+          className="bg-orange rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
+        >
           <FaUser />
-        </div>
+        </Link>
       </div>
     </div>
   );

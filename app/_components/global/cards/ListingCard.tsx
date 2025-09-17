@@ -39,7 +39,7 @@ export default function ListingCard({}: Props) {
       </div>
 
       <Image
-        className="max-w-70 h-50 object-cover"
+        className="w-full h-50 object-cover"
         src={image}
         alt=""
         width={600}

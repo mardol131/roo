@@ -46,7 +46,7 @@ export default function FilterBar({}: Props) {
               width={500}
               height={500}
               alt="map"
-              className="absolute z-0 h-full grayscale-70 hue-rotate-170"
+              className="absolute z-0 h-full object-cover grayscale-70 hue-rotate-170"
             />
           </div>
         </FilterSectionWrapper>
