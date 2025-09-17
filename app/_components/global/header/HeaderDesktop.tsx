@@ -175,7 +175,7 @@ export default function HeaderDesktop({}: Props) {
 
   return (
     <div
-      className={`fixed bg-white z-50 px-[74px] flex flex-col items-center w-full border-b border-zinc-100 ${
+      className={`sticky top-0 bg-white z-50 px-[74px] flex flex-col items-center w-full border-b border-zinc-100 ${
         !slug && "pb-5"
       }`}
     >

@@ -16,7 +16,7 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <SectionWrapper classnameOne="py-5 mt-20 border-t border-borderLight">
+    <div className="py-5 border-t border-borderLight">
       <div className="grid grid-cols-[2fr_5fr_2fr] items-center w-full">
         <div className="flex text-sm items-center gap-5">
           <Image
@@ -56,6 +56,6 @@ export default function Footer({}: Props) {
           </Link>
         </div>
       </div>
-    </SectionWrapper>
+    </div>
   );
 }

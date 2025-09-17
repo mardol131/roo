@@ -25,7 +25,7 @@ type Props = {};
 
 export default function FilterBar({}: Props) {
   return (
-    <div className="relative border-r border-borderLight min-h-screen">
+    <div className="relative border-r border-borderLight min-h-screen pb-20">
       <div className="sticky top-11/12 flex items-center justify-center w-full px-5">
         <button className="bg-pink w-full py-2 rounded-small text-white font-semibold shadow-lg hover:scale-105 animate cursor-pointer hover:shadow-pink-950/30">
           Vyhledat

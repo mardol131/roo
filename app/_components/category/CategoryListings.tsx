@@ -17,7 +17,7 @@ export default function CategoryListings({}: Props) {
   }
   return (
     <div>
-      <div className="flex gap-x-5 gap-y-8 w-full p-8 flex-wrap">
+      <div className="flex gap-x-5 gap-y-8 w-full p-8 flex-wrap shrink">
         {topCards}
         {cards}
       </div>

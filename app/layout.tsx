@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./_components/global/header/Header";
 import StoreProvider from "./_redux/StoreProvider";
 import Footer from "./_components/global/header/Footer";
+import ContentWrapper from "./_components/wrappers/ContentWrapper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,13 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <StoreProvider>
-        <body>
-          <Header />
-          <div className="pt-52">{children}</div>
+      <body>
+        <div className="relative">
+          <StoreProvider>
+            <Header />
+          </StoreProvider>
+          {children}
           <Footer />
-        </body>
-      </StoreProvider>
+        </div>
+      </body>
     </html>
   );
 }
