@@ -6,7 +6,7 @@ type Props = {};
 
 export default function page({}: Props) {
   return (
-    <div className="grid grid-cols-5 gap-10">
+    <div className="grid grid-cols-5 gap-10 p-10">
       <div className="grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] col-span-3 gap-5">
         <RooService name="Rozvoj sociálních sítí" />
         <RooService name="Fotograf" />

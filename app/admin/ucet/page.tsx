@@ -4,7 +4,7 @@ type Props = {};
 
 export default function page({}: Props) {
   return (
-    <div className="grid grid-cols-2 gap-5">
+    <div className="grid grid-cols-2 gap-5 p-10">
       <div className="border bg-white border-borderLight rounded-medium p-5 shadow-md flex flex-col gap-8">
         <h3 className="font-semibold">Osobní údaje</h3>
         <div className="grid grid-cols-2 gap-5">

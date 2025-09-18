@@ -31,6 +31,12 @@
   --radius-small: var(--radius-md);
   --radius-medium: var(--radius-xl);
   --radius-large: var(--radius-3xl);
+
+  --spacing-adminGap: 1rem;
+}
+
+.listingGridColumns {
+  @apply grid-cols-[repeat(auto-fit,minmax(17rem,1fr))];
 }
 
 h1 {

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { ReactNode } from "react";
 import SectionWrapper from "../../wrappers/SectionWrapper";
 import logo from "@/public/logo.png";
@@ -11,10 +13,16 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import { RooLink } from "../atoms/RooLink";
+import { usePathname } from "next/navigation";
 
 type Props = {};
 
 export default function Footer({}: Props) {
+  const path = usePathname();
+  if (path.startsWith("/admin")) {
+    return <></>;
+  }
+
   return (
     <div className="border-t border-borderLight px-10 flex justify-center">
       <div className="max-w-contentWrapper grid grid-cols-[2fr_5fr_2fr] items-center w-full">
