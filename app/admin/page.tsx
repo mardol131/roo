@@ -21,8 +21,8 @@ type Props = {};
 
 export default function page() {
   return (
-    <div className="grid grid-cols-[3fr_1fr] gap-5 p-10">
-      <div className="flex flex-col gap-5">
+    <div className="grid grid-cols-[3fr_1fr] gap-5 p-10 h-200">
+      <div className="flex flex-col gap-5 overflow-scroll">
         <div className="grid grid-cols-3 gap-3">
           <AdminRooCardTwo />
           <AdminRooCard />
@@ -41,7 +41,7 @@ export default function page() {
         </div>
       </div>
 
-      <div className="bg-white border border-borderLight rounded-medium shadow-lg p-5 flex flex-col gap-5">
+      <div className="bg-white border border-borderLight rounded-medium shadow-lg p-5 flex flex-col gap-5 overflow-y-scroll">
         <h3 className="font-bold text-pink">Novinky a upozornění</h3>
         <AdminNewsCard
           heading="Vítejte v naší službě"
