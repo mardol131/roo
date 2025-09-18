@@ -20,7 +20,7 @@ export default function Catalog(props: Props) {
 
   return (
     <SectionWrapper>
-      <div className="flex flex-col gap-16 max-w-contentWrapper w-full">
+      <div className=" pb-20 flex flex-col gap-16 max-w-contentWrapper w-full">
         <CategorySection />
         <CategorySection />
         <BubblesSection bubbles={bubblesArray} />

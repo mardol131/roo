@@ -27,7 +27,7 @@ type Props = {};
 
 export default function page({}: Props) {
   return (
-    <div className="">
+    <div className="pb-10">
       <SectionWrapper>
         <PhotoGrid />
       </SectionWrapper>

@@ -83,19 +83,24 @@ export default function page({}: Props) {
 export function AdminHomepage() {
   return (
     <div className="grid grid-cols-4 gap-10">
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] col-span-3 gap-10">
-        <RooCardTwo />
-        <RooCard />
-        <p className="text-3xl col-span-3 font-semibold">Inzeráty</p>
-        <AdminListingCard />
-        <AdminListingCard />
-        <AdminListingCard />
-        <AdminListingCard />
-        <AdminListingCard />
-        <AdminListingCard />
-        <AdminListingCard />
+      <div className="col-span-3 flex flex-col gap-10">
+        <div className="grid grid-cols-3 col-span-3 gap-10">
+          <RooCardTwo />
+          <RooCard />
+        </div>
+        <p className="text-2xl col-span-3 font-semibold">Inzeráty</p>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(25rem,1fr))] col-span-3 gap-10">
+          <AdminListingCard />
+          <AdminListingCard />
+          <AdminListingCard />
+          <AdminListingCard />
+          <AdminListingCard />
+          <AdminListingCard />
+          <AdminListingCard />
+        </div>
       </div>
-      <div className="bg-white border border-borderLight rounded-medium shadow-lg p-5 flex flex-col gap-5">
+
+      <div className="bg-white border row-start-1 col-start-4 border-borderLight rounded-medium shadow-lg p-5 flex flex-col gap-5">
         <h3 className="font-bold text-pink">Novinky a upozornění</h3>
         <NewsCard
           heading="Vítejte v naší službě"

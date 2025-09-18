@@ -16,8 +16,8 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <div className="py-5 border-t border-borderLight">
-      <div className="grid grid-cols-[2fr_5fr_2fr] items-center w-full">
+    <div className="border-t border-borderLight px-10 flex justify-center">
+      <div className="max-w-contentWrapper grid grid-cols-[2fr_5fr_2fr] items-center w-full">
         <div className="flex text-sm items-center gap-5">
           <Image
             src={logo}
