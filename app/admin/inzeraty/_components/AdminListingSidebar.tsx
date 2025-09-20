@@ -1,43 +1,76 @@
 "use client";
 
-import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { FaChevronDown, FaChevronUp, FaPlus } from "react-icons/fa6";
 import Link from "next/link";
 import { AdminListingSidebarTab } from "./AdminListingSidebartab";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
+import { FaBoxes } from "react-icons/fa";
+import { IoImage, IoImages } from "react-icons/io5";
 
 export function AdminListingSidebar() {
   const [listingsOpen, setListingsOpen] = useState(false);
   return (
-    <div className="bg-white border-r border-borderLight p-5 flex flex-col gap-6 items-start text-textNormal overflow-y-auto h-full w-[350px]">
-      <Link
+    <div className="flex flex-col gap-3 w-full">
+      <SidebarButton
         href={"/admin/inzeraty"}
-        className="animate hover:text-pink text-lg font-semibold border-b w-full text-start pb-2 border-borderLight"
-      >
-        Souhrnný přehled
-      </Link>
+        text="Souhrn"
+        icon={<FaBoxes />}
+      />
       <div className="w-full flex flex-col items-start gap-5">
-        <button
+        <SidebarButton
           onClick={() => {
             setListingsOpen(!listingsOpen);
           }}
-          className="flex hover:text-pink animate text-lg font-semibold cursor-pointer justify-between items-center w-full border-b border-borderLight pb-2"
-        >
-          Vaše inzeráty
-          {listingsOpen ? <FaChevronUp /> : <FaChevronDown />}
-        </button>
+          text="Vaše inzeráty"
+          icon={<IoImages />}
+        />
+
         {listingsOpen && (
-          <div className="pl-5 flex flex-col gap-3 font-semibold text-base">
-            <AdminListingSidebarTab />
-            <AdminListingSidebarTab />
-            <AdminListingSidebarTab />
-            <AdminListingSidebarTab />
-            <AdminListingSidebarTab />
-            <button className="animate mt-5 hover:scale-110 cursor-pointer bg-linear-30 from-violet to-pink shadow-lg py-2 px-3 text-lg rounded-small text-white font-semibold animate">
-              Přidat nový inzerát
-            </button>
-          </div>
+          <>
+            <div className="ml-10 flex flex-col gap-1 font-semibold text-base">
+              <AdminListingSidebarTab />
+              <AdminListingSidebarTab />
+              <AdminListingSidebarTab />
+              <AdminListingSidebarTab />
+              <AdminListingSidebarTab />
+              <button className="text-textMedium text-lg hover:bg-compAdmin/20 self-center flex items-center justify-center w-10 h-10 animate rounded-small">
+                <FaPlus />
+              </button>
+            </div>
+          </>
         )}
       </div>
     </div>
+  );
+}
+
+type SidebarButtonProps = {
+  text: string;
+  href?: string;
+  onClick?: () => void;
+  icon?: ReactNode;
+};
+
+export function SidebarButton(props: SidebarButtonProps) {
+  const className =
+    "animate cursor-pointer font-semibold flex items-center gap-4 hover:bg-compAdmin/20 text-base w-full text-start text-textMedium p-2 rounded-md";
+
+  if (props.href) {
+    return (
+      <Link href={props.href} className={className}>
+        {props.icon && (
+          <div className="text-xl text-textNormal">{props.icon}</div>
+        )}
+        <p>{props.text}</p>
+      </Link>
+    );
+  }
+  return (
+    <button onClick={props.onClick} className={className}>
+      {props.icon && (
+        <div className="text-xl text-textNormal">{props.icon}</div>
+      )}
+      <p>{props.text}</p>
+    </button>
   );
 }

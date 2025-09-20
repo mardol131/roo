@@ -42,7 +42,7 @@ export default function page() {
       </div>
 
       <div className="bg-white border border-borderLight rounded-medium shadow-lg p-5 flex flex-col gap-5 overflow-y-scroll">
-        <h3 className="font-bold text-pink">Novinky a upozornění</h3>
+        <h3 className="font-bold text-primary">Novinky a upozornění</h3>
         <AdminNewsCard
           heading="Vítejte v naší službě"
           text=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,

@@ -13,7 +13,7 @@ export function Counter(props: CounterType) {
     <div className="grid bg-white grid-cols-3 items-center justify-items-center gap-2 p-3">
       <button
         onClick={props.removeFunction}
-        className="border w-10 h-10 p-3 rounded-full border-borderLight hover:bg-pink/10 transition-all ease-in-out cursor-pointer"
+        className="border w-10 h-10 p-3 rounded-full border-borderLight hover:bg-primary/10 transition-all ease-in-out cursor-pointer"
       >
         <FaMinus />
       </button>
@@ -32,7 +32,7 @@ export function Counter(props: CounterType) {
 
       <button
         onClick={props.addFunction}
-        className="border w-10 h-10 p-3 rounded-full border-borderLight hover:bg-pink/10 transition-all ease-in-out cursor-pointer"
+        className="border w-10 h-10 p-3 rounded-full border-borderLight hover:bg-primary/10 transition-all ease-in-out cursor-pointer"
       >
         <FaPlus />
       </button>

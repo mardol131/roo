@@ -9,21 +9,23 @@ type Props = {};
 export default function AdminCheckbox({}: Props) {
   const [isSelected, setIsSelected] = useState(false);
 
-  const styling = "text-violet text-2xl";
-
   return (
-    <div
+    <button
       onClick={() => {
         setIsSelected(!isSelected);
       }}
-      className="flex items-center gap-3 border p-1 px-2 pr-3 text-sm font-semibold border-borderLight bg-violet/10 rounded-small"
+      className="cursor-pointer group flex items-center gap-3 border p-1 px-2 pr-3 text-sm font-semibold border-borderLight bg-compAdmin/5 rounded-small"
     >
       {!isSelected ? (
-        <MdCheckBoxOutlineBlank className={styling} />
+        <MdCheckBoxOutlineBlank
+          className={"group-hover:text-tertiary text-tertiary/30 text-2xl"}
+        />
       ) : (
-        <IoMdCheckbox className={styling} />
+        <IoMdCheckbox
+          className={"group-hover:text-tertiary text-tertiary text-2xl"}
+        />
       )}
-      <p>Text</p>
-    </div>
+      <p className="font-bold text-textNormal">Text</p>
+    </button>
   );
 }

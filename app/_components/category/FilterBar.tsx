@@ -27,7 +27,7 @@ export default function FilterBar({}: Props) {
   return (
     <div className="relative border-r border-borderLight min-h-screen pb-20">
       <div className="sticky top-11/12 flex items-center justify-center w-full px-5">
-        <button className="bg-pink w-full py-2 rounded-small text-white font-semibold shadow-lg hover:scale-105 animate cursor-pointer hover:shadow-pink-950/30">
+        <button className="bg-primary w-full py-2 rounded-small text-white font-semibold shadow-lg hover:scale-105 animate cursor-pointer hover:shadow-primary-950/30">
           Vyhledat
         </button>
       </div>
@@ -36,8 +36,8 @@ export default function FilterBar({}: Props) {
           <div className="relative w-full h-35 overflow-hidden rounded-medium brightness-100 flex items-center justify-center flex-col gap-2 shadow-lg">
             <div className="z-20 flex flex-col items-center justify-center gap-3">
               {" "}
-              <FaMapMarkerAlt className="text-4xl text-pink" />
-              <button className="bg-pink text-white py-1 px-3 text-sm rounded-small">
+              <FaMapMarkerAlt className="text-4xl text-primary" />
+              <button className="bg-primary text-white py-1 px-3 text-sm rounded-small">
                 Najdi na mapě
               </button>
             </div>

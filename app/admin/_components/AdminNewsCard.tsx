@@ -7,8 +7,8 @@ export type AdminNewsCardProps = {
 };
 
 const newsColors = {
-  news: "bg-linear-40 from-violet to-pink",
-  alert: "bg-linear-120 from-violet to-pink",
+  news: "bg-linear-40 from-compAdmin to-primary",
+  alert: "bg-linear-120 from-compAdmin to-primary",
 };
 
 export function AdminNewsCard(props: AdminNewsCardProps) {

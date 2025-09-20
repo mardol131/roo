@@ -46,7 +46,7 @@ export default function Footer({}: Props) {
           <RooLink href={"/"} text="Mapa webu" />
           <RooLink href={"/"} text="Kontakty" />
         </div>
-        <div className="flex text-xl gap-2 text-pink justify-self-end">
+        <div className="flex text-xl gap-2 text-primary justify-self-end">
           <Link href={"/"}>
             <FaFacebook />
           </Link>

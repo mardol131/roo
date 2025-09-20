@@ -63,49 +63,49 @@ export function ListingHeader() {
             Catering Mlýn Davídkov
           </h1>
           <div className="flex items-center gap-10">
-            <FaMapMarkerAlt className="text-2xl text-pink" />
+            <FaMapMarkerAlt className="text-2xl text-primary" />
             <p>Okres Kolín | Praha</p>
           </div>
         </div>
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-7">
-            <HiUsers className="text-2xl text-pink" />
+            <HiUsers className="text-2xl text-primary" />
             <p>
               max. <span className="font-semibold">900</span> osob
             </p>
           </div>
           <div className="flex items-center gap-7">
-            <HiUser className="text-2xl text-pink" />
+            <HiUser className="text-2xl text-primary" />
             <p>
               min. <span className="font-semibold">900</span> osob
             </p>
           </div>
           <div className="flex items-center gap-7">
-            <GiForkKnifeSpoon className="text-2xl text-pink" />
+            <GiForkKnifeSpoon className="text-2xl text-primary" />
             <p>
               <span className="font-semibold">17</span> typů kuchyní
             </p>
           </div>
           <div className="flex items-center gap-7">
-            <GiFruitTree className="text-2xl text-pink" />
+            <GiFruitTree className="text-2xl text-primary" />
             <p>Vnitřní i venkovní akce</p>
           </div>
         </div>
       </div>
       <div className="w-full grid grid-cols-5 text-center gap-2">
-        <p className="py-3 px-4 border-2 border-pink font-semibold rounded-medium text-pink">
+        <p className="py-3 px-4 border-2 border-primary font-semibold rounded-medium text-primary">
           Show Kitchen
         </p>
-        <p className="py-3 px-4 border-2 border-pink font-semibold rounded-medium text-pink">
+        <p className="py-3 px-4 border-2 border-primary font-semibold rounded-medium text-primary">
           Show Kitchen
         </p>{" "}
-        <p className="py-3 px-4 border-2 border-pink font-semibold rounded-medium text-pink">
+        <p className="py-3 px-4 border-2 border-primary font-semibold rounded-medium text-primary">
           Show Kitchen
         </p>{" "}
-        <p className="py-3 px-4 border-2 border-pink font-semibold rounded-medium text-pink">
+        <p className="py-3 px-4 border-2 border-primary font-semibold rounded-medium text-primary">
           Show Kitchen
         </p>{" "}
-        <p className="py-3 px-4 border-2 border-pink font-semibold rounded-medium text-pink">
+        <p className="py-3 px-4 border-2 border-primary font-semibold rounded-medium text-primary">
           Show Kitchen
         </p>
       </div>
@@ -121,7 +121,7 @@ export function ListingSidebar() {
       <div key={i} className="flex flex-col gap-2">
         <p className="font-semibold text-sm">Datum konání akce</p>
         <div className="flex gap-4 items-center border rounded-small border-borderLight p-2">
-          <FaRegCalendar className="text-pink text-2xl" />
+          <FaRegCalendar className="text-primary text-2xl" />
           <select
             id="pet-select"
             className="outline-borderLight text-sm w-full p-1 font-semibold text-textNormal/60"
@@ -145,7 +145,7 @@ export function ListingSidebar() {
       <div className="sticky top-30 flex flex-col gap-4">
         <div className=" flex flex-col gap-5  border p-8 rounded-medium border-borderLight shadow-lg justify-center items-center">
           <div className="grid grid-cols-2 gap-4 w-full">{items}</div>
-          <button className="py-2 animate hover:scale-105 cursor-pointer px-5 text-xl bg-linear-60 from-orange via-pink to-violet rounded-full text-white font-semibold">
+          <button className="py-2 animate hover:scale-105 cursor-pointer px-5 text-xl bg-linear-60 from-secondary via-primary to-tertiary rounded-full text-white font-semibold">
             Nezávazně poptat
           </button>
           <p className="text-textPlaceholder text-sm">
@@ -153,7 +153,7 @@ export function ListingSidebar() {
           </p>
           <div className="border-t w-full h-1 border-borderLight"></div>
           <p className="w-full">Orientační cena:</p>
-          <p className="text-2xl font-semibold text-pink mb-5">
+          <p className="text-2xl font-semibold text-primary mb-5">
             od 2.000 Kč za osobu
           </p>
         </div>
@@ -169,7 +169,7 @@ export function SupervendorBanner() {
         <p className="text-center text-textNormal font-semibold">
           Tento dodavatel je v kategorii
         </p>
-        <div className="flex items-center justify-center gap-4 bg-clip-text bg-linear-60 from-orange via-pink to-violet">
+        <div className="flex items-center justify-center gap-4 bg-clip-text bg-linear-60 from-secondary via-primary to-tertiary">
           <FaCrown className="text-6xl text-amber-400" />
           <div className="text-4xl font-semibold text-transparent uppercase ">
             #Supervendor
@@ -178,11 +178,11 @@ export function SupervendorBanner() {
       </div>
       <div className="grid grid-cols-2 gap-3">
         <button className="border border-borderLight rounded-medium items-center justify-center flex gap-3 py-3 shadow-md">
-          <FaHeart className="text-pink text-2xl" />
+          <FaHeart className="text-primary text-2xl" />
           <p>Přidat do oblíbených</p>
         </button>
         <button className="border border-borderLight rounded-medium items-center justify-center flex gap-3 shadow-md">
-          <FaShare className="text-pink text-2xl" />
+          <FaShare className="text-primary text-2xl" />
           <p>Sdílet</p>
         </button>
       </div>
@@ -213,7 +213,7 @@ export function ListingSectionWrapper(props: ListingSectionWrapperType) {
     <div className="pt-12 mt-12 border-borderLight flex flex-col gap-7">
       {props.heading && (
         <>
-          <h2 className="font-bold border-b-2 border-pink self-start pb-5">
+          <h2 className="font-bold border-b-2 border-primary self-start pb-5">
             {props.heading}
           </h2>
         </>
@@ -234,7 +234,7 @@ export function SublistingsCards() {
             <SublistingCard text="Něco" />
             <SublistingCard text="Nápad" />
 
-            <FaChevronRight className="text-3xl text-pink self-center" />
+            <FaChevronRight className="text-3xl text-primary self-center" />
           </div>
         </div>
       </div>
@@ -256,7 +256,7 @@ export function SublistingCard(props: SublistingCardProp) {
         alt="img"
         className="aspect-square object-cover"
       />
-      <h5 className="absolute bottom-2 bg-white/80 text-pink backdrop-blur-sm rounded-medium left-[50%] translate-x-[-50%] flex p-3 max-w-[90%] items-center justify-center font-semibold">
+      <h5 className="absolute bottom-2 bg-white/80 text-primary backdrop-blur-sm rounded-medium left-[50%] translate-x-[-50%] flex p-3 max-w-[90%] items-center justify-center font-semibold">
         {props.text}
       </h5>
     </div>
@@ -328,7 +328,7 @@ export function ImagesGridVerticalHalf(props: ImagesGridType) {
             className="w-full h-full aspect-square object-cover"
           />
           <div className="absolute bottom-5 left-[50%] translate-x-[-50%] w-[90%] bg-white/70 backdrop-blur-lg px-4 py-5 flex flex-col gap-4 rounded-medium">
-            <h4 className="font-semibold text-pink">Nápoje všeho druhu</h4>
+            <h4 className="font-semibold text-primary">Nápoje všeho druhu</h4>
             <p className="text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
               quisquam consectetur iure tenetur maiores delectus natus provident
@@ -394,7 +394,7 @@ export function ImagesGridHorizontalHalf(props: ImagesGridType) {
               props.direction === "right" ? "right-5" : "left-5"
             } max-w-80 bg-white/70 backdrop-blur-lg px-4 py-5 flex flex-col gap-4 rounded-medium`}
           >
-            <h4 className="font-bold text-pink">Nápoje všeho druhu</h4>
+            <h4 className="font-bold text-primary">Nápoje všeho druhu</h4>
             <p className="text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
               quisquam consectetur iure tenetur maiores delectus natus provident
@@ -452,7 +452,7 @@ export function ImagesGridSquare(props: ImagesGridType) {
         <div
           className={`w-full bg-white p-10 flex flex-col gap-4 rounded-medium items-center justify-center`}
         >
-          <h2 className="font-bold text-pink w-full text-start">
+          <h2 className="font-bold text-primary w-full text-start">
             Nápoje všeho druhu
           </h2>
           <p className="text-sm">
@@ -526,7 +526,7 @@ export function ReviewCard(props: ReviewCardType) {
           <p className="text-sm">CEO Best Comp a.s.</p>
         </div>
       </div>
-      <div className="flex items-center gap-2 text-3xl text-pink min-h-30">
+      <div className="flex items-center gap-2 text-3xl text-primary min-h-30">
         <FaRegStar />
         <p>5.0</p>
       </div>
@@ -542,7 +542,7 @@ export type CustomStatProp = {
 export function CustomStat(props: CustomStatProp) {
   return (
     <div className="flex flex-col items-center justify-center gap-4">
-      <p className="font-bold text-pink text-6xl">{props.stat}</p>
+      <p className="font-bold text-primary text-6xl">{props.stat}</p>
       <p className="text-lg font-semibold text-textNormal">
         {props.description}
       </p>
@@ -599,7 +599,7 @@ type ListingIconProps = {
 export function ListingIcon(props: ListingIconProps) {
   return (
     <div className="flex items-center gap-10">
-      <RiSoundModuleFill className="text-3xl text-pink" />
+      <RiSoundModuleFill className="text-3xl text-primary" />
       <p>{props.text}</p>
     </div>
   );

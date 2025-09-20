@@ -28,7 +28,7 @@ export function UpperHeader() {
       <Link href={"/"}>
         <Image src={logo} width={100} height={100} alt="logo" />
       </Link>
-      <div className="rounded-full bg-linear-30 from-orange via-pink to-violet flex text-white font-semibold shadow-lg">
+      <div className="rounded-full bg-linear-30 from-secondary via-primary to-tertiary flex text-white font-semibold shadow-lg">
         <Link
           href={"/kategorie/venues"}
           className="py-2 hover:scale-120 w-[32%] cursor-pointer ease-in-out transition-all flex items-center justify-center"
@@ -53,13 +53,13 @@ export function UpperHeader() {
       <div className="text-center flex justify-end gap-11 items-center">
         <Link
           href={"/admin"}
-          className="text-white font-semibold bg-linear-60 from-pink to-orange hover:scale-110 ease-in-out transition-all shadow-md rounded-full py-2 px-4"
+          className="text-white font-semibold bg-linear-60 from-primary to-secondary hover:scale-110 ease-in-out transition-all shadow-md rounded-full py-2 px-4"
         >
           Pro dodavatele
         </Link>
         <Link
           href={"/admin"}
-          className="bg-orange rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
+          className="bg-secondary rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
         >
           <FaUser />
         </Link>
@@ -122,7 +122,7 @@ export function LowerHeader() {
             type="people"
           />
         </div>
-        <div className="cursor-pointer hover:scale-130 transition-all ease-in-out relative z-20 shrink-0 scale-108 max-w-13 max-h-13 w-full aspect-square flex items-center justify-center bg-linear-30 from-orange via-pink to-violet rounded-full text-white text-xl justify-self-end">
+        <div className="cursor-pointer hover:scale-130 transition-all ease-in-out relative z-20 shrink-0 scale-108 max-w-13 max-h-13 w-full aspect-square flex items-center justify-center bg-linear-30 from-secondary via-primary to-tertiary rounded-full text-white text-xl justify-self-end">
           <FaMagnifyingGlass />
         </div>
       </div>
@@ -143,7 +143,7 @@ export function LowerHeaderButton(props: {
   type: CurrentStepType;
 }) {
   const iconClassName =
-    "text-pink group-hover:text-white text-xl self-center z-20";
+    "text-primary group-hover:text-white text-xl self-center z-20";
   const iconSeconClassName = "group-hover:text-white text-xl self-center z-20";
   {
     return props.currentStep != props.type ? (
@@ -154,13 +154,13 @@ export function LowerHeaderButton(props: {
         <div className={iconClassName}>{props.icon}</div>
         <p className="z-20 font-semibold ">{props.text}</p>
         <span
-          className={`absolute inset-0 ${props.gradientDirection} from-orange to-pink opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100`}
+          className={`absolute inset-0 ${props.gradientDirection} from-secondary to-primary opacity-0 transition-opacity ease-in-out z-10 group-hover:opacity-100`}
         ></span>
       </button>
     ) : (
       <button
         onClick={props.setter}
-        className={`${props.gradientDirection} from-orange to-pink hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full`}
+        className={`${props.gradientDirection} from-secondary to-primary hover:shadow-lg rounded-full justify-center group overflow-hidden cursor-pointer !text-white transition-all ease-in-out flex items-center gap-3  hover:rounded-full`}
       >
         <div className={iconSeconClassName}>{props.icon}</div>
 

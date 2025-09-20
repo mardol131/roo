@@ -16,7 +16,7 @@ export default function AdminLayout({
   return (
     <body>
       <StoreProvider>
-        <div className="grid grid-cols-[90px_1fr]">
+        <div className="grid grid-cols-[55px_1fr] h-screen">
           <AdminSidebar />
           <div className="bg-zinc-100 h-screen flex flex-col">
             <AdminHeader />

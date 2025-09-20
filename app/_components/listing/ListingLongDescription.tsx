@@ -12,7 +12,7 @@ export function ListingLongDescription() {
   return (
     <ListingSectionWrapper>
       <div className="flex flex-col gap-5 items-center justify-center">
-        <div className="text-center flex flex-col gap-4 font-semibold text-pink">
+        <div className="text-center flex flex-col gap-4 font-semibold text-primary">
           <h2 className="font-bold">DJ Natsuki</h2>
           <p className="text-xl">Profesionální DJka světového formátu</p>
         </div>
@@ -66,10 +66,10 @@ export function ListingLongDescription() {
                 }}
                 className="group flex items-center justify-center gap-3 cursor-pointer p-3"
               >
-                <button className=" font-semibold animate group-hover:text-pink cursor-pointer">
+                <button className=" font-semibold animate group-hover:text-primary cursor-pointer">
                   Zobrazit více
                 </button>
-                <FaChevronDown className="group-hover:text-pink animate" />
+                <FaChevronDown className="group-hover:text-primary animate" />
               </div>
             </div>
           ) : (
@@ -80,10 +80,10 @@ export function ListingLongDescription() {
                 }}
                 className="group cursor-pointer flex items-center justify-center gap-3"
               >
-                <button className="font-semibold animate group-hover:text-pink cursor-pointer">
+                <button className="font-semibold animate group-hover:text-primary cursor-pointer">
                   Zavřít
                 </button>
-                <FaChevronUp className="group-hover:text-pink animate" />
+                <FaChevronUp className="group-hover:text-primary animate" />
               </div>
             </div>
           )}

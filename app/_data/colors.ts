@@ -1,5 +1,5 @@
 export const colors = {
-  orange: "#f2800f",
-  pink: "#e70d72",
-  violet: "#552783",
+  secondary: "#f2800f",
+  primary: "#e70d72",
+  tertiary: "#552783",
 };

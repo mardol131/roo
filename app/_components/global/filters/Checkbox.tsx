@@ -14,7 +14,7 @@ export function Checkbox(props: RooCheckboxProps) {
   const [active, setActive] = useState(false);
 
   const types = {
-    active: { border: "border-pink", bg: "bg-pink" },
+    active: { border: "border-primary", bg: "bg-primary" },
     nonActive: { border: "border-gray-700", bg: "bg-white" },
   };
 
@@ -27,7 +27,7 @@ export function Checkbox(props: RooCheckboxProps) {
     >
       <div className="h-4 w-4">
         {active ? (
-          <MdCheckBox className="text-pink aspect-square" />
+          <MdCheckBox className="text-primary aspect-square" />
         ) : (
           <MdOutlineCheckBoxOutlineBlank />
         )}

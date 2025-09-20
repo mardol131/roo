@@ -16,7 +16,7 @@ export default function ListingCard({}: Props) {
       href={"/inzerat/muj-inzerat"}
       className="relative rounded-xl overflow-hidden shadow-2xl"
     >
-      <button className="absolute left-2 top-2 bg-orange py-1 px-2 rounded-full text-sm text-white font-semibold">
+      <button className="absolute left-2 top-2 bg-secondary py-1 px-2 rounded-full text-sm text-white font-semibold">
         Kategorie
       </button>
       <div
@@ -53,7 +53,7 @@ export default function ListingCard({}: Props) {
           </p>
         </div>
         <div className="flex gap-3 items-center justify-end">
-          <FaStar className="text-pink" />
+          <FaStar className="text-primary" />
           <p className="font-semibold">4,9</p>
         </div>
       </div>

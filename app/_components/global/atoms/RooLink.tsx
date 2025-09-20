@@ -7,7 +7,7 @@ export function RooLink(props: {
 }) {
   return (
     <Link
-      className={`${props.className} hover:text-pink transition-all ease-in-out`}
+      className={`${props.className} hover:text-primary transition-all ease-in-out`}
       href={props.href}
     >
       {props.text}

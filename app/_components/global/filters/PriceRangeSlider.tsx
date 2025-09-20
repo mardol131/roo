@@ -20,7 +20,7 @@ export function PriceRangeSlider({ min, max, rtl, counts }: Props) {
           const highRange = oneBarRange * index;
 
           if (values[0] <= lowRange && values[1] > highRange) {
-            backgroundColor = colors.pink;
+            backgroundColor = colors.primary;
           }
           return (
             <div
@@ -57,12 +57,12 @@ export function PriceRangeSlider({ min, max, rtl, counts }: Props) {
               className="w-full flex"
             >
               <div
-                className="h-1 w-full rounded-full bg-pink"
+                className="h-1 w-full rounded-full bg-primary"
                 ref={props.ref}
                 style={{
                   background: getTrackBackground({
                     values,
-                    colors: ["#ccc", colors.pink, "#ccc"],
+                    colors: ["#ccc", colors.primary, "#ccc"],
                     min: min,
                     max: max,
                     rtl,
@@ -78,7 +78,7 @@ export function PriceRangeSlider({ min, max, rtl, counts }: Props) {
             <div
               {...props}
               key={props.key}
-              className="bg-pink rounded-full w-4 h-4 outline-0"
+              className="bg-primary rounded-full w-4 h-4 outline-0"
             ></div>
           )}
         />

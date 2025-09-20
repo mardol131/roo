@@ -54,7 +54,7 @@ export function PhotoGrid() {
             onClick={() => {
               setLightboxIsOpen(false);
             }}
-            className="hover:text-pink hover:scale-110 animate cursor-pointer top-[15%] right-[15%] text-4xl text-white fixed "
+            className="hover:text-primary hover:scale-110 animate cursor-pointer top-[15%] right-[15%] text-4xl text-white fixed "
           />
           <div className="max-w-[50%] max-h-[50%] flex flex-col items-center justify-center gap-5">
             <Image

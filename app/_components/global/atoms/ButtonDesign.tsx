@@ -4,6 +4,7 @@ export type ButtonPropsType = {
   text: string;
   design: ButtonDesign;
   size: "small" | "medium" | "big";
+  rounding?: "rounded-small" | "rounded-medium";
 };
 
 export type ButtonDesign = "gradient" | "color";
@@ -11,7 +12,7 @@ export type ButtonDesign = "gradient" | "color";
 export default function ButtonDesign(props: ButtonPropsType) {
   if (props.design === "gradient") {
     return (
-      <button className="font-semibold bg-linear-90 from-orange via-pink to-violet px-4 py-2 rounded-full text-white">
+      <button className="font-semibold bg-linear-90 from-secondary via-primary to-tertiary px-4 py-2 rounded-full text-white">
         {props.text}
       </button>
     );

@@ -22,7 +22,7 @@ export default function PlaceSettings({}: Props) {
         className="p-10 bg-white gap-5 shadow-xl border border-borderLight items-center rounded-large grid grid-cols-[1fr_2fr] w-full max-w-lowerHeader justify-center"
       >
         <button className="flex gap-5 justify-start items-center text-lg font-semibold w-full px-4 text-textPlaceholder">
-          <FaMapMarked className="text-pink text-3xl" />
+          <FaMapMarked className="text-primary text-3xl" />
           Začněte výběrem kraje
         </button>
         <div className="cursor-pointer relative z-20 hover:shadow-xl transition-all ease-in-out w-full border bg-white border-borderLight rounded-xl">
@@ -37,25 +37,25 @@ export default function PlaceSettings({}: Props) {
           {showRegions && (
             <div className="absolute w-full h-100 bg-white top-15 border border-borderLight rounded-xl flex flex-col shadow-xl p-10">
               <div className="overflow-y-scroll flex flex-col gap-3 pr-5 items-start font-semibold">
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
               </div>
@@ -63,7 +63,7 @@ export default function PlaceSettings({}: Props) {
           )}
         </div>
         <button className="flex gap-5 justify-start items-center text-lg font-semibold w-full px-4 text-textPlaceholder">
-          <FaMapSigns className="text-pink text-3xl" />
+          <FaMapSigns className="text-primary text-3xl" />
           Vyberte město
         </button>
         <div className="cursor-pointer relative hover:shadow-xl transition-all ease-in-out w-full border bg-white border-borderLight rounded-xl">
@@ -78,25 +78,25 @@ export default function PlaceSettings({}: Props) {
           {showCities && (
             <div className="absolute w-full h-100 bg-white top-15 border border-borderLight rounded-xl flex flex-col shadow-xl p-10">
               <div className="overflow-y-scroll flex flex-col gap-3 pr-5 items-start font-semibold">
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
-                <p className="hover:bg-pink border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
+                <p className="hover:bg-primary border-b w-full border-borderLight hover:text-white transition-all ease-in-out p-2 rounded-lg hover:text-lg">
                   Hlavní město Praha
                 </p>
               </div>
@@ -106,35 +106,35 @@ export default function PlaceSettings({}: Props) {
 
         {/* <div className="w-full flex flex-col gap-5">
           <button className="flex gap-5 justify-center items-center text-lg font-semibold w-full px-4 text-textPlaceholder">
-            <FaMapSigns className="text-pink text-3xl" />
+            <FaMapSigns className="text-primary text-3xl" />
             Vyberte okres
           </button>
           <div className="h-70 overflow-y-scroll p-3 rounded-xl">
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
-            <button className="flex hover:bg-pink hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
+            <button className="flex hover:bg-primary hover:text-white transition-all cursor-pointer hover:scale-105 ease-in-out rounded-lg gap-5 justify-center items-center font-semibold w-full py-2 px-4 hover:shadow-lg text-textPlaceholder">
               Začněte výběrem kraje
             </button>
           </div>

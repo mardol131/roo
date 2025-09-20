@@ -1,6 +1,9 @@
 import Image from "next/image";
 import image from "@/app/_images/test.jpg";
 import { FaRegStar, FaStar } from "react-icons/fa6";
+import { RiSettings3Line } from "react-icons/ri";
+import Link from "next/link";
+import { FiExternalLink } from "react-icons/fi";
 
 export function AdminListingCard() {
   const rating = 3;
@@ -8,42 +11,57 @@ export function AdminListingCard() {
   const ratingStart = [];
   for (let i = 0; i < 5; i++) {
     if (i < rating) {
-      ratingStart.push(<FaStar key={i} className="text-pink" />);
+      ratingStart.push(<FaStar key={i} className="text-primary" />);
     } else {
-      ratingStart.push(<FaRegStar key={i} className="text-pink" />);
+      ratingStart.push(<FaRegStar key={i} className="text-primary" />);
     }
   }
 
   return (
-    <div className="border rounded-medium border-borderLight bg-white shadow-lg overflow-hidden">
-      <Image
-        src={image}
-        height={400}
-        width={500}
-        alt="image"
-        className=" object-cover h-50 w-full"
-      />
-      <div className="p-3 flex flex-col gap-5 text-sm">
-        <div className="grid grid-cols-[3fr_1fr] justify-between">
-          <h4 className="font-bold  text-pink">Mlýn Davídkov</h4>
+    <div className="grid text-sm grid-cols-8 gap-2 p-2 border-b last:border-b-0 border-borderLight items-center justify-items-start">
+      <div className="flex gap-5 col-span-2 items-center">
+        <div className="w-4 h-4 bg-gray-100 rounded-small border border-borderLight"></div>
+        <Image
+          src={image}
+          height={400}
+          width={500}
+          alt="image"
+          className=" object-cover h-12 w-12 rounded-small"
+        />
+        <div className="grid grid-cols-2 items-center gap-2">
+          <Link
+            href={"/admin/inzeaty"}
+            target="_blank"
+            className="border cursor-pointer animate hover:bg-primary hover:text-white font-semibold p-2 rounded-small shadow-sm border-borderLight"
+          >
+            <FiExternalLink />
+          </Link>
+          <button className="border cursor-pointer animate hover:bg-primary hover:text-white font-semibold p-2  rounded-small shadow-sm border-borderLight">
+            <RiSettings3Line />
+          </button>
+        </div>
+        <div className="flex flex-col items-start justify-center">
+          <p className="font-bold text-base text-primary">Mlýn Davídkov</p>
           <div className="flex items-center justify-self-end">
             {ratingStart}
-          </div>{" "}
-        </div>
-        <div className="font-semibold gap-3 flex flex-col text-base">
-          <div className="flex justify-between">
-            <p className="">Zobrazení</p>
-            <p>365</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="">Počet objednávek</p>
-            <p>4</p>
           </div>
         </div>
-        <button className="border w-full cursor-pointer animate hover:bg-pink hover:text-white font-semibold p-2 rounded-small shadow-md border-borderLight">
-          Upravit inzerát
-        </button>
       </div>
+
+      <p className="">12.5.2025</p>
+      <p className="bg-emerald-500 font-semibold rounded-sm px-2 text-white">
+        Aktivní
+      </p>
+      <p className="">365</p>
+      <p className="">12</p>
+      <p className="">
+        50000 <span>Kč</span>
+      </p>
+      <p className="">365</p>
     </div>
   );
+}
+
+function Divider() {
+  return <div className="w-[2px] bg-borderLight/30 h-7"></div>;
 }

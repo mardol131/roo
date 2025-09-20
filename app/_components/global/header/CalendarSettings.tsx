@@ -299,14 +299,14 @@ export default function CalendarSettings() {
   function GenerateMonth() {
     return (
       <div className=" p-5">
-        <div className="flex justify-between items-center py-5 text-pink">
+        <div className="flex justify-between items-center py-5 text-primary">
           <FaChevronLeft
             className="cursor-pointer"
             onClick={() => {
               changeMonth("minus");
             }}
           />
-          <p className="font-semibold text-pink">
+          <p className="font-semibold text-primary">
             {monthsOfYear[currentMonth]} {currentYear}
           </p>
           <FaChevronRight
@@ -316,12 +316,12 @@ export default function CalendarSettings() {
             }}
           />
         </div>
-        <div className="grid grid-cols-7 justify-items-stretch gap-2 mb-2 text-pink">
+        <div className="grid grid-cols-7 justify-items-stretch gap-2 mb-2 text-primary">
           {daysOfWeek.map((item) => {
             return (
               <p
                 key={"days" + item}
-                className="font-semibold pb-2 border-b border-b-pink/20 border-borderGray text-center"
+                className="font-semibold pb-2 border-b border-b-primary/20 border-borderGray text-center"
               >
                 {item}
               </p>

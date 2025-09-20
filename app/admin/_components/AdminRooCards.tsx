@@ -6,14 +6,14 @@ export function AdminRooCard() {
   const ratingStart = [];
   for (let i = 0; i < 5; i++) {
     if (i < rating) {
-      ratingStart.push(<FaStar key={i} className="text-pink" />);
+      ratingStart.push(<FaStar key={i} className="text-primary" />);
     } else {
-      ratingStart.push(<FaRegStar key={i} className="text-pink" />);
+      ratingStart.push(<FaRegStar key={i} className="text-primary" />);
     }
   }
 
   return (
-    <div className="border rounded-medium border-borderLight bg-linear-150 from-violet to-pink shadow-xl flex flex-col overflow-hidden">
+    <div className="border rounded-medium border-borderLight bg-linear-150 from-compAdmin to-primary shadow-xl flex flex-col overflow-hidden">
       <div className="p-5 flex flex-col gap-5 items-center justify-center h-full">
         <div className="flex items-center justify-between">
           <h3 className="font-bold  text-white">
@@ -41,9 +41,9 @@ export function AdminRooCardTwo() {
   const ratingStart = [];
   for (let i = 0; i < 5; i++) {
     if (i < rating) {
-      ratingStart.push(<FaStar key={i} className="text-pink" />);
+      ratingStart.push(<FaStar key={i} className="text-primary" />);
     } else {
-      ratingStart.push(<FaRegStar key={i} className="text-pink" />);
+      ratingStart.push(<FaRegStar key={i} className="text-primary" />);
     }
   }
 

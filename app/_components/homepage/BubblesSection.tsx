@@ -33,15 +33,15 @@ export default function BubblesSection(props: Props) {
           );
         })}
       </div>
-      <div className="bg-gray-300/0 rounded-full flex gap-3 p-2 max-w-150 self-center w-full border-2 border-pink shadow-xl">
+      <div className="bg-gray-300/0 rounded-full flex gap-3 p-2 max-w-150 self-center w-full border-2 border-primary shadow-xl">
         <div className="flex items-stretch justify-between w-full gap-6 px-4 font-semibold text-textPlaceholder">
           <input
             type="text"
             placeholder="Typ akce"
-            className="self-center outline-0 focus:border-b-2 border-orange/15"
+            className="self-center outline-0 focus:border-b-2 border-secondary/15"
           />
         </div>
-        <button className="shrink-0 w-8 h-8 flex items-center justify-center bg-linear-30 from-orange via-pink to-violet rounded-full text-white text-xl justify-self-end">
+        <button className="shrink-0 w-8 h-8 flex items-center justify-center bg-linear-30 from-secondary via-primary to-tertiary rounded-full text-white text-xl justify-self-end">
           <FaMagnifyingGlass />
         </button>
       </div>

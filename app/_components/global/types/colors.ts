@@ -1,4 +1,4 @@
-export type ColorsType = "orange" | "pink" | "violet";
+export type ColorsType = "secondary" | "primary" | "tertiary";
 
 export type ColorGradientType =
   | "#f2800f"
