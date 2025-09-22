@@ -24,7 +24,7 @@ export function AdminSidebarButton(props: AdminSidebarButtonProps) {
   return (
     <Link
       href={props.href}
-      className="cursor-pointer flex flex-col text-xl items-center justify-center gap-3 text-slate-500 font-semibold hover:bg-compAdmin/80 aspect-square w-full rounded-medium animate"
+      className="cursor-pointer w-full aspect-square flex text-xl items-center justify-center gap-3 text-primary font-semibold hover:bg-primary/80 hover:text-white bg-trans hover:shadow-md shadow-black/20 rounded-full animate"
     >
       {props.icon}
     </Link>
@@ -63,10 +63,10 @@ function create() {
 
 export function AdminSidebar() {
   return (
-    <div className="bg-white relative h-screen w-full flex justify-center">
-      <div className="w-full p-1">
-        <div className="flex flex-col gap-3 sticky top-0 text-center justify-between">
-          <div className="flex flex-col gap-3">
+    <div className="relative h-screen w-full flex justify-center">
+      <div className="w-full h-screen py-10">
+        <div className="flex flex-col gap-3 sticky top-0 text-center justify-between  h-full border-borderLight rounded-r-3xl p-2">
+          <div className="flex flex-col items-center justify-start gap-3">
             <Link href={"/"}>
               <Image src={logo} height={200} width={200} alt="logo" />
             </Link>
@@ -77,8 +77,6 @@ export function AdminSidebar() {
               icon={<FaHandHoldingHand />}
             />
             <AdminSidebarButton href="/admin/ucet" icon={<FaUser />} />
-            <button onClick={login}>Login</button>
-            <button onClick={create}>Create</button>
           </div>
         </div>
       </div>
