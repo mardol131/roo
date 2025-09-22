@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import AdminCheckbox from "../../_components/inputs/AdminCheckbox";
 import Image from "next/image";
 import image from "@/app/_images/test.jpg";
@@ -272,4 +272,14 @@ export function AdminTextarea(props: AdminTextInput) {
       placeholder={props.placeholder || "placeholder"}
     />
   );
+}
+
+type AdminListingFormSectionWrapper = {
+  children: ReactNode;
+};
+
+export function AdminListingFormSectionWrapper(
+  props: AdminListingFormSectionWrapper
+) {
+  return <div></div>;
 }
