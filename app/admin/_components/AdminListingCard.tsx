@@ -18,7 +18,7 @@ export function AdminListingCard() {
   }
 
   return (
-    <div className="grid text-[13px] bg-white rounded-full grid-cols-8 gap-2 p-2 border border-borderLight items-center justify-items-start">
+    <div className="grid text-[13px] bg-white rounded-full grid-cols-8 gap-2 p-2 pl-5 border border-borderLight items-center justify-items-start">
       <div className="flex gap-5 col-span-2 items-center">
         <div className="w-4 h-4 bg-gray-100 rounded-small border border-borderLight"></div>
         <Image

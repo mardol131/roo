@@ -57,7 +57,7 @@ export default function page({}: Props) {
         />
       </div>
       <div className="flex  flex-col w-full pb-3 gap-3">
-        <div className=" border-b text-sm border-borderLight rounded-t-medium py-5 grid grid-cols-8 gap-2 font-bold text-textMedium pr-8 pl-2">
+        <div className="pl-5 border-b text-sm border-borderLight rounded-t-medium py-5 grid grid-cols-8 gap-2 font-bold text-textMedium pr-8">
           <div className="flex items-center gap-5 col-span-2">
             <div className="w-4 h-4 bg-gray-100 rounded-small border border-borderLight"></div>
             <p className="col-span-2">Inzerát</p>
