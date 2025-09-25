@@ -1,4 +1,4 @@
-import Button from "@/app/_components/global/atoms/Button";
+import Button from "@/app/_global/atoms/Button";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 
 export function AdminRooCard() {

@@ -1,11 +1,6 @@
-import Catalog from "./_components/homepage/Catalog";
+import Catalog from "./_pages/homepage/_components/Catalog";
+import Homepage from "./_pages/homepage/Homepage";
 
-export default function Home() {
-  return (
-    <div className="w-full pt-10 flex justify-center">
-      <div>
-        <Catalog />
-      </div>
-    </div>
-  );
+export default function page() {
+  return <Homepage />;
 }
