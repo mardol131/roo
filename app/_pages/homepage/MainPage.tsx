@@ -3,7 +3,7 @@ import Catalog from "./_components/Catalog";
 
 type Props = {};
 
-export default function Homepage({}: Props) {
+export default function MainPage({}: Props) {
   return (
     <div className="w-full pt-10 flex justify-center">
       <div>
