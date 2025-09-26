@@ -15,8 +15,8 @@ export type ButtonColors =
   | "tertiary";
 
 const colors = {
-  gradientThree: "bg-linear-90 from-secondary via-primary to-tertiary",
-  gradientTwo: "bg-linear-60 from-primary to-secondary",
+  gradientThree: "bg-linear-30 from-secondary via-primary to-tertiary",
+  gradientTwo: "bg-linear-30 from-primary to-secondary",
   primary: "bg-primary",
   secondary: "bg-secondary",
   tertiary: "bg-tertiary",

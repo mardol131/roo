@@ -1,7 +1,6 @@
 import React from "react";
 import image from "@/app/_images/test.jpg";
-import CategorySection from "../homepage/CategorySection";
-import ListingCard from "../../_global/cards/ListingCard";
+import ListingCard from "@/app/_global/cards/ListingCard";
 
 type Props = {};
 

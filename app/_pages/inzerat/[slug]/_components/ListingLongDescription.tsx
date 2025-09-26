@@ -1,8 +1,8 @@
 "use client";
 
-import { ListingSectionWrapper } from "@/app/inzerat/[slug]/page";
 import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { ListingSectionWrapper } from "../ListingPage";
 
 type Props = {};
 

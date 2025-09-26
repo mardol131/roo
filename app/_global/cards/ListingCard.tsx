@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
-import image from "../../../_images/test.jpg";
+import image from "@/app/_images/test.jpg";
 import { FaStar } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import Link from "next/link";

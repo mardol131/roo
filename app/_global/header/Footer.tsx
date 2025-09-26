@@ -24,9 +24,9 @@ export default function Footer({}: Props) {
   }
 
   return (
-    <div className="border-t border-borderLight px-10 flex justify-center">
-      <div className="max-w-contentWrapper grid grid-cols-[2fr_5fr_2fr] items-center w-full">
-        <div className="flex text-sm items-center gap-5">
+    <div className="border-t border-borderLight px-10 pb-10 md:pb-0 flex justify-center">
+      <div className="max-w-contentWrapper md:grid grid-cols-[2fr_5fr_2fr] flex flex-col justify-center gap-3 items-center w-full">
+        <div className="flex md:flex-row flex-col text-sm items-center md:gap-5 gap-2 justify-center text-center md:text-start">
           <Image
             src={logo}
             width={200}
@@ -38,7 +38,7 @@ export default function Footer({}: Props) {
             ROO Events, The Roosters s.r.o, 2025 <br />© All Rights Reserved{" "}
           </p>
         </div>
-        <div className="font-semibold flex gap-10 text-sm justify-self-center">
+        <div className="font-semibold flex flex-col md:flex-row items-center md:gap-10 gap-3 text-sm justify-self-center">
           <RooLink href={"/"} text="GDRP" />
           <RooLink href={"/"} text="Obchodní podmínky" />
           <RooLink href={"/"} text="Pro média" />
