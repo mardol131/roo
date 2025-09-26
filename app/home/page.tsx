@@ -1,4 +1,4 @@
-import HomePage from "../_pages/home/HomePage";
+import HomePage from "../_pages/landingPages/home/HomePage";
 
 type Props = {};
 

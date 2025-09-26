@@ -82,17 +82,17 @@ export function WebsiteHeaderMobile() {
           <Link href={"#Roo"} className="hover:text-primary animate">
             Kontakt
           </Link>
+          <Link href={"#pain"}>
+            <Button
+              text="Přidej se k nám"
+              size="md"
+              color="gradientThree"
+              rounding="full"
+            />
+          </Link>
         </div>
 
-        <AiOutlineMenu className="text-2xl" />
-        <Link href={"#pain"}>
-          <Button
-            text="Přidej se k nám"
-            size="md"
-            color="gradientThree"
-            rounding="full"
-          />
-        </Link>
+        <TiThMenu className="text-primary text-2xl" />
       </div>
     </div>
   );
