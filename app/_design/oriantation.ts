@@ -1,0 +1,1 @@
+type Sides = "left" | "right";
