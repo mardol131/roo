@@ -4,9 +4,11 @@ import { MdClose } from "react-icons/md";
 import { IoMdCheckmark } from "react-icons/io";
 import { ImCheckmark } from "react-icons/im";
 import { FaXmark } from "react-icons/fa6";
+import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
+import { LandingHeadingType } from "@/app/_design/text";
 
 type ComparisonSectionProps = {
-  heading: string;
+  heading: LandingHeadingProps;
   for: {
     heading: string;
     points: string[];
@@ -20,12 +22,10 @@ type ComparisonSectionProps = {
 export default function ComparisonSection(props: ComparisonSectionProps) {
   return (
     <LandingSectionWrapper classNameOuter="border-y border-borderLight">
-      <div className="flex flex-col gap-10 text-center items-center justify-center w-full">
-        <div className="max-w-landingWrapper text-center text-4xl font-bold">
-          <h2>{props.heading}</h2>
-        </div>
-        <div className="grid grid-cols-2 gap-4 max-w-landingWrapper w-full text-white">
-          <div className="bg-linear-30 from-secondary to-primary p-15 rounded-medium shadow-lg flex flex-col gap-5">
+      <div className="flex flex-col gap-10 text-center items-center justify-center w-full max-w-landingWrapper">
+        <LandingHeading {...props.heading} />
+        <div className="grid md:grid-cols-2 gap-4 w-full text-white">
+          <div className="bg-linear-30 from-secondary to-primary md:p-15 p-5 rounded-medium shadow-lg flex flex-col gap-5">
             <h3 className="text-4xl font-bold">{props.against.heading}</h3>
             <div className="flex flex-col gap-4 items-center">
               {props.against.points.map((point) => {
@@ -41,7 +41,7 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
               })}
             </div>
           </div>
-          <div className="bg-linear-30 from-primary to-tertiary p-15 rounded-medium shadow-lg flex flex-col gap-5">
+          <div className="bg-linear-30 from-primary to-tertiary md:p-15 p-5 rounded-medium shadow-lg flex flex-col gap-5">
             <h3 className="text-4xl font-bold">{props.for.heading}</h3>
             <div className="flex flex-col gap-4 items-center">
               {props.for.points.map((point) => {

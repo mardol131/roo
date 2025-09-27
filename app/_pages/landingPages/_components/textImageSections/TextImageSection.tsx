@@ -3,13 +3,19 @@ import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 import Image from "next/image";
 import Button from "@/app/_global/atoms/Button";
 import Link from "next/link";
-import { GradientsType, textColor, TextColorType } from "@/app/_design/colors";
+import {
+  ColorsAndGradientsType,
+  textColor,
+  TextColorType,
+} from "@/app/_design/colors";
+import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
+import { Sides } from "@/app/_design/oriantation";
 
 type TextImageSectionProps = {
-  heading: string;
+  heading: LandingHeadingProps;
   textOne: string;
   textTwo: string;
-  overlay?: GradientsType;
+  overlay?: ColorsAndGradientsType;
   image?: string;
   textColor: TextColorType;
   imageSide: Sides;
@@ -22,7 +28,7 @@ type TextImageSectionProps = {
 export default function TextImageSection(props: TextImageSectionProps) {
   return (
     <LandingSectionWrapper overlay={props.overlay}>
-      <div className="grid grid-cols-2 items-center justify-items-center gap-10 max-w-300">
+      <div className="md:grid flex flex-col grid-cols-2 items-center justify-items-center gap-10 max-w-landingWrapper w-full">
         <div
           className={`${
             props.imageSide === "left" ? "col-start-2" : "col-start-1"
@@ -30,7 +36,7 @@ export default function TextImageSection(props: TextImageSectionProps) {
             props.textColor && textColor[props.textColor]
           } row-start-1 flex flex-col gap-8  col-span-1`}
         >
-          <h2 className="font-bold text-6xl">{props.heading}</h2>
+          <LandingHeading {...props.heading} />
           <div className="flex flex-col gap-4">
             <p>{props.textOne}</p>
             <p>{props.textTwo}</p>
@@ -54,7 +60,7 @@ export default function TextImageSection(props: TextImageSectionProps) {
             alt="image"
             className={`${
               props.imageSide === "left" ? "col-start-1" : "col-start-2"
-            } row-start-1 col-span-1 w-100 aspect-square object-cover rounded-medium shadow-lg object-center`}
+            } row-start-1 col-span-1 w-130 aspect-square object-cover rounded-medium shadow-lg object-center`}
           />
         )}
       </div>

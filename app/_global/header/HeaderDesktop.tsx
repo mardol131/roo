@@ -179,8 +179,6 @@ export default function HeaderDesktop({}: Props) {
   const { slug } = useParams();
   const pathname = usePathname();
   const isLandingpage = pathname.startsWith("/home");
-  console.log(slug);
-  console.log(currentStep);
 
   if (!isLandingpage) {
     return (

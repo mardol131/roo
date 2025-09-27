@@ -1,64 +1,74 @@
 import { iconsList, IconsList } from "@/app/_icons/_iconsList";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 import {
-  colorsAndGradientsType,
+  ColorsAndGradientsType,
   ColorsType,
   textColor,
   TextColorType,
 } from "@/app/_design/colors";
+import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
+import Link from "next/link";
 
-type CardSectionCardProps = {
+export type CardSectionCardProps = {
   heading: string;
   text: string;
   icon?: IconsList;
-  color: string;
+  color: TextColorType;
+  href?: string;
 };
 
 function Card(props: CardSectionCardProps) {
   const Icon = props.icon && iconsList[props.icon];
-
+  if (props.href) {
+    return (
+      <Link href={props.href}>
+        <div
+          className={`${
+            props.color && textColor[props.color]
+          } border hover:scale-105 animate shadow-lg bg-white border-borderLight rounded-medium p-15 flex flex-col items-center gap-4`}
+        >
+          {Icon && <Icon className={`w-20 h-20`} />}
+          <p className="font-extrabold text-3xl ">{props.heading}</p>
+          <p className="text-textNormal font-semibold text-lg">{props.text}</p>
+        </div>
+      </Link>
+    );
+  }
   return (
-    <div className="border shadow-lg bg-white border-borderLight rounded-medium p-15 flex flex-col items-center gap-4">
-      {Icon && <Icon style={{ color: props.color }} className="w-20 h-20 " />}
+    <div
+      className={`${
+        props.color && textColor[props.color]
+      } border hover:scale-105 animate shadow-lg bg-white border-borderLight rounded-medium p-15 flex flex-col items-center gap-4`}
+    >
+      {Icon && (
+        <Icon
+          className={`${props.color && textColor[props.color]} w-20 h-20`}
+        />
+      )}
       <p style={{ color: props.color }} className="font-extrabold text-3xl ">
         {props.heading}
       </p>
-      <p className="font-semibold text-lg">{props.text}</p>
+      <p className="text-textNormal font-semibold text-lg">{props.text}</p>
     </div>
   );
 }
 
-type CardsSectionProps = {
-  headingOne: string;
-  headingTwo?: string;
+export type CardsSectionProps = {
+  heading: LandingHeadingProps;
   headingColor?: TextColorType;
   cards: CardSectionCardProps[];
-  overlay?: colorsAndGradientsType;
+  overlay?: ColorsAndGradientsType;
 };
 
 export function CardsSection(props: CardsSectionProps) {
+  console.log(props);
   return (
     <LandingSectionWrapper overlay={props.overlay}>
-      <div className="flex flex-col gap-10 text-center items-center justify-center w-full">
-        <div
-          className={`${
-            props.headingColor && textColor[props.headingColor]
-          } text-center h2 font-bold`}
-        >
-          <h2>{props.headingOne}</h2>
-          {props.headingTwo && <h2>{props.headingTwo}</h2>}
-        </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(17rem,1fr))] gap-4 max-w-300">
-          {props.cards.map((card) => {
-            return (
-              <Card
-                key={card.heading + card.text}
-                heading={card.heading}
-                text={card.text}
-                icon={card.icon}
-                color={card.color}
-              />
-            );
+      <div className="flex flex-col gap-10 text-center items-center justify-center w-full max-w-landingWrapper">
+        <LandingHeading {...props.heading} />
+        <div className="grid md:grid-cols-[repeat(auto-fit,minmax(17rem,1fr))] gap-4 max-w-300">
+          {props.cards.map((card, i) => {
+            return <Card key={card.heading + card.text + i} {...card} />;
           })}
         </div>
       </div>

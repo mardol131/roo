@@ -19,7 +19,7 @@ export type ColorGradientType =
   | "#722280"
   | "#552783";
 
-export type colorsAndGradientsType = keyof typeof colorsAndGradients;
+export type ColorsAndGradientsType = keyof typeof colorsAndGradients;
 
 export const colorsAndGradients = {
   secondary: "bg-secondary",

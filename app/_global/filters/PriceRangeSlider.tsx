@@ -2,7 +2,7 @@
 import { getTrackBackground, Range } from "react-range";
 
 import React from "react";
-import { colors } from "@/app/_data/colors";
+import { colors } from "@/app/_design/colors";
 
 type Props = { min: number; max: number; rtl: boolean; counts: number[] };
 

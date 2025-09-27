@@ -16,6 +16,7 @@ import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
 import TextImageSection from "../_components/textImageSections/TextImageSection";
 import ComparisonSection from "../_components/comparisonSection/ComparisonSection";
 import FormSection from "../_components/formSection/FormSection";
+import MasonrySection from "../_components/masonrySection/MasonrySection";
 
 export default function HomePage({}: Props) {
   return (
@@ -32,31 +33,38 @@ export default function HomePage({}: Props) {
         image={image.src}
       />
       <CardsSection
-        headingOne="Chceš vědět výhody speciálně pro tebe?"
-        headingTwo="Vyber kategorii."
+        heading={{
+          headingOne: "Chceš vědět výhody speciálně pro tebe?",
+          headingTwo: "Vyber kategorii.",
+        }}
         cards={[
           {
             heading: "Gastro",
-            text: "Děláš catering, máš foodtruck nebo bar na eventy",
+            text: "Děláš cadtering, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
-            color: colors.primary,
+            color: "primary",
+            href: "/",
           },
           {
             heading: "Gastro",
-            text: "Děláš catering, máš foodtruck nebo bar na eventy",
+            text: "Děláš caterinag, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
-            color: colors.secondary,
+            color: "secondary",
           },
           {
             heading: "Gastro",
-            text: "Děláš catering, máš foodtruck nebo bar na eventy",
+            text: "Děláš cateriwng, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
-            color: colors.tertiary,
+            color: "tertiary",
           },
         ]}
       />
       <TextImageSection
-        heading="Kolik zpráv, mailů a telefonátů tě dělí od jedný zakázky?"
+        heading={{
+          align: "start",
+          headingOne:
+            "Kolik zpráv, mailů a telefonátů tě dělí od jedný zakázky?",
+        }}
         textOne="Děláš super práci. Ale všechno okolo ti bere čas i energii. 
 ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         textTwo="Vždyť to znáš. Zpráva na Instagramu. Pak e-mail. Pak se neozvou. Nebo chtějí slevu. Z jednoho klienta je deset interakcí – a výsledek nejistý."
@@ -66,8 +74,102 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         button={{ text: "Přidej se mezi první dodavatele Roo", url: "/main" }}
         overlay="primaryTertiary"
       />
+      <MasonrySection
+        text="Vždyť to znáš. Zpráva na Instagramu. Pak e-mail. Pak se neozvou. Nebo chtějí slevu. Z jednoho klienta je deset interakcí – a výsledek nejistý."
+        bubbles={[
+          {
+            heading: "S tímhle vám můžeme pomoct",
+            color: "primary",
+            column: {
+              start: 3,
+              end: 4,
+            },
+            row: {
+              start: 3,
+              end: 4,
+            },
+          },
+          {
+            text: "Z jednoho klienta je deset interakcí – a výsledek nejistý.",
+            color: "primary",
+            column: {
+              start: 1,
+              end: 2,
+            },
+            row: {
+              start: 2,
+              end: 5,
+            },
+          },
+          {
+            text: "Z jednoho klienta je deset interakcí – a výsledek nejistý.",
+            color: "secondary",
+            column: {
+              start: 4,
+              end: 5,
+            },
+            row: {
+              start: 1,
+              end: 2,
+            },
+          },
+
+          {
+            text: "Z jednoho klienta je deset interakcí – a výsledek nejistý.",
+            color: "primary",
+            column: {
+              start: 2,
+              end: 3,
+            },
+            row: {
+              start: 2,
+              end: 3,
+            },
+          },
+          {
+            text: "Z jednoho klienta je deset interakcí – a výsledek nejistý.",
+            color: "tertiary",
+            column: {
+              start: 2,
+              end: 3,
+            },
+            row: {
+              start: 3,
+              end: 4,
+            },
+          },
+          {
+            text: "Z jednoho klienta je deset interakcí – a výsledek nejistý.",
+            color: "primary",
+            column: {
+              start: 1,
+              end: 4,
+            },
+            row: {
+              start: 1,
+              end: 2,
+            },
+          },
+          {
+            image: image.src,
+            column: {
+              start: 3,
+              end: 4,
+            },
+            row: {
+              start: 4,
+              end: 5,
+            },
+          },
+        ]}
+      />
       <TextImageSection
-        heading="Kolik zpráv, mailů a telefonátů tě dělí od jedný zakázky?"
+        heading={{
+          align: "start",
+          size: "lg",
+          headingOne:
+            "Kolik zpráv, mailů a telefonátů tě dělí od jedný zakázky?",
+        }}
         textOne="Děláš super práci. Ale všechno okolo ti bere čas i energii. 
 ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         textColor="white"
@@ -78,7 +180,11 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         button={{ text: "Přidej se mezi první dodavatele Roo", url: "/main" }}
       />
       <ComparisonSection
-        heading="Tvůj profil v ROO říká všechno, co organizátor potřebuje slyšet – bez ptaní."
+        heading={{
+          color: "primary",
+          headingOne:
+            "Tvůj profil v ROO říká všechno, co organizátor potřebuje slyšet – bez ptaní.",
+        }}
         for={{
           heading: "Co uvidí klient v ROO?",
           points: ["Co přesně nabízíš"],
@@ -86,10 +192,10 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         against={{
           heading: "Co dnes klient často neví?",
           points: [
-            "Co přesně nabízíš",
-            "Co přesně nabízíš",
-            "Co přesně nabízíš",
-            "Co přesně nabízíš",
+            "Co přesdně nabízíš",
+            "Co přesnwě nabízíš",
+            "Co přesqně nabízíš",
+            "Co přesngě nabízíš",
           ],
         }}
       />
@@ -102,28 +208,31 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         webhook="/"
       />
       <CardsSection
-        overlay="primarySecondary"
-        headingOne="Chceš vědět výhody speciálně pro tebe?"
-        headingTwo="Vyber kategorii."
+        overlay="primaryTertiaryOpac"
+        heading={{
+          color: "white",
+          headingOne: "Chceš vědět výhody speciálně pro tebe?",
+          headingTwo: "Vyber kategorii.",
+        }}
         headingColor="white"
         cards={[
           {
             heading: "Gastro",
             text: "Děláš catering, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
-            color: colors.primary,
+            color: "primary",
           },
           {
             heading: "Gastro",
             text: "Děláš catering, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
-            color: colors.secondary,
+            color: "primary",
           },
           {
             heading: "Gastro",
             text: "Děláš catering, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
-            color: colors.tertiary,
+            color: "primary",
           },
         ]}
       />

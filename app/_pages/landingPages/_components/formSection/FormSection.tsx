@@ -1,9 +1,8 @@
 import React from "react";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
-import image from "@/app/_images/test.jpg";
-import { ColorsType, GradientsType } from "@/app/_design/colors";
-import { Checkbox } from "@/app/_global/filters/Checkbox";
+
 import Button from "@/app/_global/atoms/Button";
+import { ColorsAndGradientsType } from "@/app/_design/colors";
 
 type FormTextInputProps = {
   label: string;
@@ -86,7 +85,7 @@ type Props = {
   heading: string;
   text: string;
   image?: string;
-  overlay?: GradientsType;
+  overlay?: ColorsAndGradientsType;
   button: {
     text: string;
   };
@@ -98,7 +97,7 @@ export default function FormSection(props: Props) {
     <LandingSectionWrapper overlay={props.overlay} image={props.image}>
       <form
         action={props.webhook}
-        className="max-w-170 flex flex-col w-full gap-10 bg-white p-15 rounded-large shadow-lg"
+        className="max-w-170 flex flex-col w-full gap-10 bg-white md:p-15 p-5 py-10 rounded-large shadow-lg"
       >
         <div className="flex flex-col text-center gap-5">
           {" "}

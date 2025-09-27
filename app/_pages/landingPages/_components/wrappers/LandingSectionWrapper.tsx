@@ -1,6 +1,6 @@
 import {
   colorsAndGradients,
-  colorsAndGradientsType,
+  ColorsAndGradientsType,
 } from "@/app/_design/colors";
 import { ReactNode } from "react";
 
@@ -9,7 +9,7 @@ type SectionWrapperProps = {
   classNameInner?: string;
   children: ReactNode;
   image?: string;
-  overlay?: colorsAndGradientsType;
+  overlay?: ColorsAndGradientsType;
 };
 
 export function LandingSectionWrapper(props: SectionWrapperProps) {
@@ -22,9 +22,7 @@ export function LandingSectionWrapper(props: SectionWrapperProps) {
         }}
       >
         <div
-          className={`${props.classNameOuter} ${
-            props.overlay && colorsAndGradients[props.overlay]
-          }  relative z-0 w-full h-full flex items-center justify-center overflow-hidden`}
+          className={`${props.classNameOuter} ${colorsAndGradients["primaryTertiaryOpac"]}  relative z-0 w-full h-full flex items-center justify-center overflow-hidden`}
         >
           <div
             className={`${props.classNameInner} flex items-center justify-center h-full max-w-contentWrapper w-full p-5 py-30`}
