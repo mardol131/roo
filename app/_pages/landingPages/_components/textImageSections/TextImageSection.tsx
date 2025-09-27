@@ -10,12 +10,13 @@ import {
 } from "@/app/_design/colors";
 import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
 import { Sides } from "@/app/_design/oriantation";
+import { OverlayType } from "@/app/_types/objects";
 
-type TextImageSectionProps = {
+export type TextImageSectionProps = {
   heading: LandingHeadingProps;
   textOne: string;
   textTwo: string;
-  overlay?: ColorsAndGradientsType;
+  overlay?: OverlayType;
   image?: string;
   textColor: TextColorType;
   imageSide: Sides;

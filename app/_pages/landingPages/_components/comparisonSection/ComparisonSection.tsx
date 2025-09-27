@@ -6,22 +6,25 @@ import { ImCheckmark } from "react-icons/im";
 import { FaXmark } from "react-icons/fa6";
 import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
 import { LandingHeadingType } from "@/app/_design/text";
+import { ColorsAndGradientsType } from "@/app/_design/colors";
+import { OverlayType } from "@/app/_types/objects";
 
-type ComparisonSectionProps = {
+export type ComparisonSectionProps = {
   heading: LandingHeadingProps;
   for: {
     heading: string;
-    points: string[];
+    points: { text: string; id: string }[];
   };
   against: {
     heading: string;
-    points: string[];
+    points: { text: string; id: string }[];
   };
+  overlay?: OverlayType;
 };
 
 export default function ComparisonSection(props: ComparisonSectionProps) {
   return (
-    <LandingSectionWrapper classNameOuter="border-y border-borderLight">
+    <LandingSectionWrapper overlay={props.overlay}>
       <div className="flex flex-col gap-10 text-center items-center justify-center w-full max-w-landingWrapper">
         <LandingHeading {...props.heading} />
         <div className="grid md:grid-cols-2 gap-4 w-full text-white">
@@ -32,10 +35,10 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
                 return (
                   <div
                     className="flex items-center justify-center gap-4"
-                    key={point}
+                    key={point.id}
                   >
                     <FaXmark className="text-3xl" />
-                    <p className="text-2xl font-semibold">{point}</p>
+                    <p className="text-2xl font-semibold">{point.text}</p>
                   </div>
                 );
               })}
@@ -48,10 +51,10 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
                 return (
                   <div
                     className="flex items-center justify-center gap-4"
-                    key={point}
+                    key={point.id}
                   >
                     <ImCheckmark className="text-3xl" />
-                    <p className="text-2xl font-semibold">{point}</p>
+                    <p className="text-2xl font-semibold">{point.text}</p>
                   </div>
                 );
               })}

@@ -1,16 +1,11 @@
 type Props = {};
 
-import Link from "next/link";
-import React, { ReactNode } from "react";
+import React from "react";
 import image from "@/app/_images/heroOne.jpg";
-import Image from "next/image";
-import Button from "@/app/_global/atoms/Button";
-import { TiThMenu } from "react-icons/ti";
-import { AiOutlineMenu } from "react-icons/ai";
+
 import { HeroBackgroundImage } from "../_components/heroSections/HeroBackgroundImage";
 import { CardsSection } from "../_components/cardSection/CardsSection";
-import { colors } from "@/app/_design/colors";
-import logo from "@/public/logo.png";
+
 import { WebsiteHeader } from "../_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
 import TextImageSection from "../_components/textImageSections/TextImageSection";
@@ -72,7 +67,7 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         textColor="white"
         imageSide="left"
         button={{ text: "Přidej se mezi první dodavatele Roo", url: "/main" }}
-        overlay="primaryTertiary"
+        overlay={{ overlayColor: "primaryTertiary" }}
       />
       <MasonrySection
         text="Vždyť to znáš. Zpráva na Instagramu. Pak e-mail. Pak se neozvou. Nebo chtějí slevu. Z jednoho klienta je deset interakcí – a výsledek nejistý."
@@ -173,7 +168,7 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         textOne="Děláš super práci. Ale všechno okolo ti bere čas i energii. 
 ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         textColor="white"
-        overlay="primarySecondary"
+        overlay={{ overlayColor: "primarySecondary" }}
         textTwo="Vždyť to znáš. Zpráva na Instagramu. Pak e-mail. Pak se neozvou. Nebo chtějí slevu. Z jednoho klienta je deset interakcí – a výsledek nejistý."
         image={image.src}
         imageSide="right"
@@ -187,34 +182,42 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         }}
         for={{
           heading: "Co uvidí klient v ROO?",
-          points: ["Co přesně nabízíš"],
+          points: [{ text: "Co přesně nabízíš", id: "45" }],
         }}
         against={{
           heading: "Co dnes klient často neví?",
           points: [
-            "Co přesdně nabízíš",
-            "Co přesnwě nabízíš",
-            "Co přesqně nabízíš",
-            "Co přesngě nabízíš",
+            { text: "Co přesně nabízíš", id: "45" },
+            { text: "Co přesně nabízíš", id: "45" },
+            { text: "Co přesně nabízíš", id: "45" },
           ],
         }}
       />
       <FormSection
-        heading="Přidej se na čekačku"
+        heading={{
+          headingOne: "Chceš vědět výhody speciálně pro tebe?",
+          color: "primary",
+        }}
         text="Přidej se do Waitlistu, abys nepromeškal/a příležitost získat své první poptávky a být první v ROOdině!"
         image={image.src}
-        overlay="primarySecondaryOpac"
+        overlay={{ overlayColor: "primarySecondaryOpac" }}
         button={{ text: "Přidat se" }}
         webhook="/"
+        fields={[
+          {
+            blockType: "formtextinput",
+            label: "Hello",
+            placeholder: "my name",
+          },
+        ]}
       />
       <CardsSection
-        overlay="primaryTertiaryOpac"
+        overlay={{ overlayColor: "primaryTertiaryOpac" }}
         heading={{
           color: "white",
           headingOne: "Chceš vědět výhody speciálně pro tebe?",
           headingTwo: "Vyber kategorii.",
         }}
-        headingColor="white"
         cards={[
           {
             heading: "Gastro",

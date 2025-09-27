@@ -8,6 +8,7 @@ import {
 } from "@/app/_design/colors";
 import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
 import Link from "next/link";
+import { OverlayType } from "@/app/_types/objects";
 
 export type CardSectionCardProps = {
   heading: string;
@@ -55,13 +56,12 @@ function Card(props: CardSectionCardProps) {
 
 export type CardsSectionProps = {
   heading: LandingHeadingProps;
-  headingColor?: TextColorType;
   cards: CardSectionCardProps[];
-  overlay?: ColorsAndGradientsType;
+  overlay?: OverlayType;
 };
 
 export function CardsSection(props: CardsSectionProps) {
-  console.log(props);
+  console.log(props.heading);
   return (
     <LandingSectionWrapper overlay={props.overlay}>
       <div className="flex flex-col gap-10 text-center items-center justify-center w-full max-w-landingWrapper">

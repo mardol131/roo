@@ -6,12 +6,12 @@ import {
 } from "./MasonryBubbleImage";
 import { MasonryBubbleText, MasonryBubbleTextProps } from "./MasonryBubbleText";
 
-type Props = {
+export type MasonrySectionProps = {
   text: string;
   bubbles: (MasonryBubbleImageProps | MasonryBubbleTextProps)[];
 };
 
-export default function MasonrySection(props: Props) {
+export default function MasonrySection(props: MasonrySectionProps) {
   return (
     <LandingSectionWrapper>
       <div className="max-w-landingWrapper w-full h-full flex flex-col items-center gap-10">

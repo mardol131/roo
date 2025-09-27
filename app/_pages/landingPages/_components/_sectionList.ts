@@ -1,9 +1,18 @@
 import { CardsSection, CardsSectionProps } from "./cardSection/CardsSection";
-import ComparisonSection from "./comparisonSection/ComparisonSection";
-import FormSection from "./formSection/FormSection";
-import { HeroBackgroundImage } from "./heroSections/HeroBackgroundImage";
-import MasonrySection from "./masonrySection/MasonrySection";
-import TextImageSection from "./textImageSections/TextImageSection";
+import ComparisonSection, {
+  ComparisonSectionProps,
+} from "./comparisonSection/ComparisonSection";
+import FormSection, { FormSectionProps } from "./formSection/FormSection";
+import {
+  HeroBackgroundImage,
+  HeroBackgroundImageProps,
+} from "./heroSections/HeroBackgroundImage";
+import MasonrySection, {
+  MasonrySectionProps,
+} from "./masonrySection/MasonrySection";
+import TextImageSection, {
+  TextImageSectionProps,
+} from "./textImageSections/TextImageSection";
 
 export const sectionList = {
   CardsSection,
@@ -14,24 +23,28 @@ export const sectionList = {
   MasonrySection,
 };
 
-export const sectionListString = {
+type SectionMap = {
+  cardssection: CardsSectionProps;
+  comparisonsection: ComparisonSectionProps;
+  formsection: FormSectionProps;
+  herobackgroundimage: HeroBackgroundImageProps;
+  textimagesection: TextImageSectionProps;
+  masonrysection: MasonrySectionProps;
+};
+
+export const sectionListString: {
+  [K in keyof SectionMap]: React.FC<SectionMap[K]>;
+} = {
   cardssection: CardsSection,
   comparisonsection: ComparisonSection,
   formsection: FormSection,
-  herosackgroundsmage: HeroBackgroundImage,
-  textsmagesection: TextImageSection,
+  herobackgroundimage: HeroBackgroundImage,
+  textimagesection: TextImageSection,
   masonrysection: MasonrySection,
 };
 
-export function getSectionByBlockType(blockType: SectionListType) {
-  switch (blockType) {
-    case "cardssection":
-      return sectionListString[blockType];
-  }
-}
-
 export type SectionListType = keyof typeof sectionListString;
 
-export type PayloadSectionsType = CardsSectionProps & {
-  blockType: SectionListType;
-};
+export type PayloadSectionsType = {
+  [K in keyof SectionMap]: SectionMap[K] & { blockType: K };
+}[keyof SectionMap];

@@ -2,22 +2,22 @@ import {
   colorsAndGradients,
   ColorsAndGradientsType,
 } from "@/app/_design/colors";
+import { OverlayType } from "@/app/_types/objects";
 import { ReactNode } from "react";
 
 type SectionWrapperProps = {
   classNameOuter?: string;
   classNameInner?: string;
   children: ReactNode;
-  image?: string;
-  overlay?: ColorsAndGradientsType;
+  overlay?: OverlayType;
 };
 
 export function LandingSectionWrapper(props: SectionWrapperProps) {
-  if (props.image) {
+  if (props.overlay?.image) {
     return (
       <div
         style={{
-          backgroundImage: `url(${props.image})`,
+          backgroundImage: `url(${props.overlay.image})`,
           backgroundSize: "cover",
         }}
       >
@@ -37,7 +37,7 @@ export function LandingSectionWrapper(props: SectionWrapperProps) {
   return (
     <div
       className={`${props.classNameOuter} ${
-        props.overlay && colorsAndGradients[props.overlay]
+        props.overlay && colorsAndGradients[props.overlay.overlayColor]
       } relative z-0 w-full flex items-center justify-center overflow-hidden`}
     >
       <div

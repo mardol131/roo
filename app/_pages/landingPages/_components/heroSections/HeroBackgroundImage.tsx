@@ -1,7 +1,7 @@
 import Button from "@/app/_global/atoms/Button";
 import Link from "next/link";
 
-type HeroBackgroundImageProps = {
+export type HeroBackgroundImageProps = {
   headingOne: string;
   headingTwo?: string;
   text: string;
