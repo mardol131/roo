@@ -15,7 +15,7 @@ export default function MasonrySection(props: MasonrySectionProps) {
   return (
     <LandingSectionWrapper>
       <div className="max-w-landingWrapper w-full h-full flex flex-col items-center gap-10">
-        <div className=" md:grid grid-cols-4 auto-rows-fr flex flex-col text-center gap-5">
+        <div className="w-full md:grid grid-cols-4 auto-rows-fr flex flex-col text-center gap-5">
           {props.bubbles.map((bubble, i) => {
             if ("image" in bubble) {
               return <MasonryBubbleImage key={bubble.image} {...bubble} />;

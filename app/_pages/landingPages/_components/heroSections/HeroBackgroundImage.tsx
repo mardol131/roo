@@ -1,42 +1,47 @@
-import Button from "@/app/_global/atoms/Button";
 import Link from "next/link";
+import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
+import {
+  colorsAndGradients,
+  ColorsAndGradientsType,
+  textColor,
+} from "@/app/_design/colors";
+import Button from "@/app/_global/atoms/Button";
+import { TextSettingsType } from "@/app/_design/text";
+import Image from "next/image";
 
 export type HeroBackgroundImageProps = {
-  headingOne: string;
-  headingTwo?: string;
-  text: string;
+  heading: LandingHeadingProps;
+  text: TextSettingsType;
   buttonText: string;
   buttonUrl: string;
   image: string;
+  bgColor?: ColorsAndGradientsType;
 };
 
 export function HeroBackgroundImage(props: HeroBackgroundImageProps) {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${props.image})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className="flex min-h-screen overflow-hidden"
-    >
-      <div className="relative md:w-[50%] w-full flex items-center justify-center md:bg-primary/5 bg-white/70">
-        <div className="md:min-h-200 min-h-140 max-w-150 flex flex-col items-center text-center w-full justify-center gap-5 p-5">
-          <h1 className="text-primary font-semibold md:text-7xl text-5xl">
-            {props.headingOne}
-            {props.headingTwo && (
-              <>
-                <br />
-                {props.headingTwo}
-              </>
-            )}
-          </h1>
-          <p className="md:text-2xl text-lg font-semibold">{props.text}</p>
+    <div className="md:grid grid-cols-2 min-h-screen overflow-hidden">
+      <div
+        className={`${
+          props.bgColor
+            ? colorsAndGradients[props.bgColor]
+            : "md:bg-primary/5 bg-white/70"
+        } relative w-full flex items-center justify-center `}
+      >
+        <div className="md:min-h-200 min-h-140 max-w-170 flex flex-col items-center text-center w-full justify-center gap-5 p-5">
+          <LandingHeading {...props.heading} />
+          <p
+            className={`${
+              props.text.color && textColor[props.text.color]
+            } md:text-2xl text-lg font-semibold`}
+          >
+            {props.text.text}
+          </p>
           <Link href={props.buttonUrl}>
             <Button
               text={props.buttonText}
               color="gradientThree"
-              size="xl"
+              size="3xl"
               rounding="full"
             />
           </Link>
@@ -46,6 +51,13 @@ export function HeroBackgroundImage(props: HeroBackgroundImageProps) {
 
         <div className="absolute left-0 top-0  md:-mt-30 md:-ml-15 -mt-5 -ml-5 md:w-70 md:h-70 w-30 h-30 rounded-full bg-linear-60 shadow-[0px_0px_15px_4px] shadow-black/50  from-primary to-tertiary"></div>
       </div>
+      <Image
+        className="hidden md:block h-full w-full object-cover"
+        src={props.image}
+        width={1000}
+        height={1000}
+        alt="hero"
+      />
     </div>
   );
 }

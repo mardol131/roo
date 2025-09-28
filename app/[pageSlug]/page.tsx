@@ -4,16 +4,20 @@ import {
   sectionListString,
   PayloadSectionsType,
 } from "../_pages/landingPages/_components/_sectionList";
+import LandingHeading from "../_pages/landingPages/_components/heading/LandingHeading";
+import { WebsiteHeader } from "../_pages/landingPages/_components/header/WebsiteHeader";
+import { WebsiteHeaderMobile } from "../_pages/landingPages/_components/header/WebsiteHeaderMobile";
 
 type Props = {
   params: {
-    slug: string;
+    pageSlug: string;
   };
 };
 
 export default async function page({ params }: Props) {
-  const { slug } = params;
-  const data = await getLandingPage(slug);
+  const { pageSlug } = params;
+  console.log("hello", params);
+  const data = await getLandingPage(pageSlug);
   const sections: PayloadSectionsType[] = data.docs[0].sections;
 
   const sectionsToRender = sections.map((section, i) => {
@@ -35,5 +39,13 @@ export default async function page({ params }: Props) {
     }
   });
 
-  return <div>{sectionsToRender}</div>;
+  return (
+    <div>
+      <>
+        <WebsiteHeader />
+        <WebsiteHeaderMobile />
+        {sectionsToRender}
+      </>
+    </div>
+  );
 }

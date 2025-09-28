@@ -11,14 +11,14 @@ import {
 import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
 import { Sides } from "@/app/_design/oriantation";
 import { OverlayType } from "@/app/_types/objects";
+import { TextSettingsType } from "@/app/_design/text";
 
 export type TextImageSectionProps = {
   heading: LandingHeadingProps;
-  textOne: string;
-  textTwo: string;
+  textOne: TextSettingsType;
+  textTwo?: TextSettingsType;
   overlay?: OverlayType;
   image?: string;
-  textColor: TextColorType;
   imageSide: Sides;
   button?: {
     text: string;
@@ -33,14 +33,24 @@ export default function TextImageSection(props: TextImageSectionProps) {
         <div
           className={`${
             props.imageSide === "left" ? "col-start-2" : "col-start-1"
-          } ${
-            props.textColor && textColor[props.textColor]
-          } row-start-1 flex flex-col gap-8  col-span-1`}
+          } row-start-1 flex flex-col gap-8 col-span-1`}
         >
           <LandingHeading {...props.heading} />
           <div className="flex flex-col gap-4">
-            <p>{props.textOne}</p>
-            <p>{props.textTwo}</p>
+            <p
+              className={props.textOne.color && textColor[props.textOne.color]}
+            >
+              {props.textOne.text}
+            </p>
+            {props.textTwo && (
+              <p
+                className={
+                  props.textTwo.color && textColor[props.textTwo.color]
+                }
+              >
+                {props.textTwo.text}
+              </p>
+            )}
           </div>
           {props.button && (
             <Link href={props.button?.url}>

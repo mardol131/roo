@@ -1,6 +1,7 @@
 import { textColor, TextColorType } from "@/app/_design/colors";
 import { textAlign, TextAlignType } from "@/app/_design/oriantation";
 import { landingHeading, LandingHeadingType } from "@/app/_design/text";
+import { HeadingLevel } from "@/app/_types/heading";
 import React from "react";
 
 export type LandingHeadingProps = {
@@ -9,9 +10,54 @@ export type LandingHeadingProps = {
   size?: LandingHeadingType;
   color?: TextColorType;
   align?: TextAlignType;
+  level?: HeadingLevel;
 };
 
 export default function LandingHeading(props: LandingHeadingProps) {
+  if (props.level === "h1") {
+    return (
+      <div
+        className={`${props.size ? landingHeading[props.size] : "text-4xl"} ${
+          props.color && textColor[props.color]
+        } ${
+          props.align && textAlign[props.align]
+        } w-full max-w-landingWrapper text-center flex flex-col items-center font-bold`}
+      >
+        <h1 className="w-full">
+          {props.headingOne}
+          {props.headingTwo && (
+            <>
+              <br />
+              {props.headingTwo}
+            </>
+          )}
+        </h1>
+      </div>
+    );
+  }
+
+  if (props.level === "h3") {
+    return (
+      <div
+        className={`${props.size ? landingHeading[props.size] : "text-4xl"} ${
+          props.color && textColor[props.color]
+        } ${
+          props.align && textAlign[props.align]
+        } max-w-landingWrapper text-center flex flex-col items-center font-bold`}
+      >
+        <h3>
+          {props.headingOne}
+          {props.headingTwo && (
+            <>
+              <br />
+              {props.headingTwo}
+            </>
+          )}
+        </h3>
+      </div>
+    );
+  }
+
   return (
     <div
       className={`${props.size ? landingHeading[props.size] : "text-4xl"} ${
@@ -20,8 +66,15 @@ export default function LandingHeading(props: LandingHeadingProps) {
         props.align && textAlign[props.align]
       } max-w-landingWrapper text-center flex flex-col items-center font-bold`}
     >
-      <h2>{props.headingOne}</h2>
-      {props.headingTwo && <h2>{props.headingTwo}</h2>}
+      <h2 className="w-full">
+        {props.headingOne}
+        {props.headingTwo && (
+          <>
+            <br />
+            {props.headingTwo}
+          </>
+        )}
+      </h2>
     </div>
   );
 }
