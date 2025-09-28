@@ -7,6 +7,7 @@ import {
 import LandingHeading from "../_pages/landingPages/_components/heading/LandingHeading";
 import { WebsiteHeader } from "../_pages/landingPages/_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../_pages/landingPages/_components/header/WebsiteHeaderMobile";
+import { redirect } from "next/navigation";
 
 type Props = {
   params: {
@@ -16,8 +17,17 @@ type Props = {
 
 export default async function page({ params }: Props) {
   const { pageSlug } = params;
-  console.log("hello", params);
-  const data = await getLandingPage(pageSlug);
+  let data;
+  try {
+    const response = await getLandingPage(pageSlug);
+    data = response;
+    if (!response.docs.length) {
+      redirect("/");
+    }
+    console.log(response);
+  } catch {
+    redirect("/");
+  }
   const sections: PayloadSectionsType[] = data.docs[0].sections;
 
   const sectionsToRender = sections.map((section, i) => {
