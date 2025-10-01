@@ -4,7 +4,6 @@ import {
   sectionListString,
   PayloadSectionsType,
 } from "../_pages/landingPages/_components/_sectionList";
-import LandingHeading from "../_pages/landingPages/_components/heading/LandingHeading";
 import { WebsiteHeader } from "../_pages/landingPages/_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../_pages/landingPages/_components/header/WebsiteHeaderMobile";
 import { redirect } from "next/navigation";
@@ -21,6 +20,7 @@ export default async function page({ params }: Props) {
   try {
     const response = await getLandingPage(pageSlug);
     data = response;
+    console.log(response);
     if (!response.docs.length) {
       redirect("/");
     }

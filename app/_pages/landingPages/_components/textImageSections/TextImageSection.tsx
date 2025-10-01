@@ -9,14 +9,13 @@ import {
   TextColorType,
 } from "@/app/_design/colors";
 import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
-import { Sides } from "@/app/_design/oriantation";
+import { Sides } from "@/app/_design/orientation";
 import { OverlayType } from "@/app/_types/objects";
-import { TextSettingsType } from "@/app/_design/text";
+import { PayloadTextSectionType, TextSettingsType } from "@/app/_design/text";
+import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
 
 export type TextImageSectionProps = {
-  heading: LandingHeadingProps;
-  textOne: TextSettingsType;
-  textTwo?: TextSettingsType;
+  text: PayloadTextSectionType;
   overlay?: OverlayType;
   image?: string;
   imageSide: Sides;
@@ -35,24 +34,8 @@ export default function TextImageSection(props: TextImageSectionProps) {
             props.imageSide === "left" ? "col-start-2" : "col-start-1"
           } row-start-1 flex flex-col gap-8 col-span-1`}
         >
-          <LandingHeading {...props.heading} />
-          <div className="flex flex-col gap-4">
-            <p
-              className={props.textOne.color && textColor[props.textOne.color]}
-            >
-              {props.textOne.text}
-            </p>
-            {props.textTwo && (
-              <p
-                className={
-                  props.textTwo.color && textColor[props.textTwo.color]
-                }
-              >
-                {props.textTwo.text}
-              </p>
-            )}
-          </div>
-          {props.button && (
+          <PayloadRichTextGenerator text={props.text} />
+          {props.button?.text && (
             <Link href={props.button?.url}>
               <Button
                 text={props.button?.text}

@@ -1,5 +1,5 @@
 import { textColor, TextColorType } from "@/app/_design/colors";
-import { textAlign, TextAlignType } from "@/app/_design/oriantation";
+import { textAlign, TextAlignType } from "@/app/_design/orientation";
 import { landingHeading, LandingHeadingType } from "@/app/_design/text";
 import { HeadingLevel } from "@/app/_types/heading";
 import React from "react";
@@ -11,6 +11,7 @@ export type LandingHeadingProps = {
   color?: TextColorType;
   align?: TextAlignType;
   level?: HeadingLevel;
+  weight?: number;
 };
 
 export default function LandingHeading(props: LandingHeadingProps) {
@@ -59,22 +60,21 @@ export default function LandingHeading(props: LandingHeadingProps) {
   }
 
   return (
-    <div
+    <h2
+      style={{ fontWeight: props.weight || 400 }}
       className={`${props.size ? landingHeading[props.size] : "text-4xl"} ${
         props.color && textColor[props.color]
       } ${
         props.align && textAlign[props.align]
-      } max-w-landingWrapper text-center flex flex-col items-center font-bold`}
+      } max-w-landingWrapper text-center flex flex-col items-center`}
     >
-      <h2 className="w-full">
-        {props.headingOne}
-        {props.headingTwo && (
-          <>
-            <br />
-            {props.headingTwo}
-          </>
-        )}
-      </h2>
-    </div>
+      {props.headingOne}
+      {props.headingTwo && (
+        <>
+          <br />
+          {props.headingTwo}
+        </>
+      )}
+    </h2>
   );
 }
