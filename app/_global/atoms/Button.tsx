@@ -1,18 +1,27 @@
+import {
+  colorsAndGradients,
+  ColorsAndGradientsType,
+  textColor,
+  TextColorType,
+} from "@/app/_design/colors";
 import { rounding, RoundingType } from "@/app/_design/rounding";
+import Link from "next/link";
 import React from "react";
 
 export type ButtonPropsType = {
-  text: string;
-  color: ButtonColors;
-  size: ButtonSize;
-  rounding: RoundingType;
+  text?: string;
+  textColor?: TextColorType;
+  bgColor?: ColorsAndGradientsType;
+  size?: ButtonSize;
+  rounding?: RoundingType;
   className?: string;
   type?: "submit" | "button" | "reset";
+  link?: string;
 };
 
-type ButtonSize = keyof typeof size;
+type ButtonSize = keyof typeof buttonSizeList;
 
-const size = {
+const buttonSizeList = {
   "4xl": "px-7 py-5 text-4xl",
   "3xl": "px-5 py-3 text-3xl",
   "2xl": "px-5 py-3 text-2xl",
@@ -22,29 +31,33 @@ const size = {
   sm: "px-2 py-1 text-sm",
 };
 
-export type ButtonColors = keyof typeof colors;
-
-const colors = {
-  gradientThree:
-    "bg-linear-30 from-secondary via-primary to-tertiary text-white",
-  gradientTwo: "bg-linear-30 from-primary to-secondary text-white",
-  primary: "bg-primary text-white",
-  secondary: "bg-secondary text-white",
-  tertiary: "bg-tertiary text-white",
-  white: "bg-white text-primary",
-};
-
 export default function Button(props: ButtonPropsType) {
-  return (
-    <button
-      type={props.type || "button"}
-      className={`${props.className} ${colors[props.color]} ${
-        size[props.size]
-      } ${
-        rounding[props.rounding]
-      } font-semibold  hover:scale-105 animate cursor-pointer shadow-md`}
-    >
-      {props.text}
-    </button>
-  );
+  const buttonBgColor = props.bgColor && colorsAndGradients[props.bgColor];
+  const buttonSize = props.size && buttonSizeList[props.size];
+  const buttonRounding = props.rounding && rounding[props.rounding];
+  const buttonTextColor = props.textColor && textColor[props.textColor];
+
+  const buttonClassname =
+    "font-semibold  hover:scale-105 animate cursor-pointer shadow-md";
+
+  if (props.link) {
+    return (
+      <Link
+        href={props.link}
+        type={props.type || "button"}
+        className={`${props.className} ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor} ${buttonClassname}`}
+      >
+        {props.text}
+      </Link>
+    );
+  } else {
+    return (
+      <button
+        type={props.type || "button"}
+        className={`${props.className} ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor} ${buttonClassname}`}
+      >
+        {props.text}
+      </button>
+    );
+  }
 }

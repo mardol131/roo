@@ -34,7 +34,8 @@ export function WebsiteHeader() {
           <Button
             text="Přidej se k rodině"
             size="lg"
-            color="gradientThree"
+            bgColor="primarySecondary"
+            textColor="white"
             rounding="full"
           />
         </Link>

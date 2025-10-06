@@ -22,6 +22,7 @@ export function MasonryBubbleImage(props: MasonryBubbleImageProps) {
         gridRowEnd: props.row?.end,
         backgroundImage: `url(${props.image})`,
         backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
       className={`p-5 font-bold text-xl rounded-large shadow-lg flex sm:h-auto h-50 items-center justify-center`}
     ></div>

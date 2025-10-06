@@ -5,14 +5,13 @@ import {
   ColorsAndGradientsType,
   textColor,
 } from "@/app/_design/colors";
-import Button from "@/app/_global/atoms/Button";
+import Button, { ButtonPropsType } from "@/app/_global/atoms/Button";
 import { TextSettingsType } from "@/app/_design/text";
 
 export type HeroBackgroundImageProps = {
   heading: LandingHeadingProps;
   text: TextSettingsType;
-  buttonText: string;
-  buttonUrl: string;
+  button: ButtonPropsType;
   image: string;
   bgColor?: ColorsAndGradientsType;
 };
@@ -43,14 +42,7 @@ export function HeroBackgroundImage(props: HeroBackgroundImageProps) {
           >
             {props.text.text}
           </p>
-          <Link href={props.buttonUrl}>
-            <Button
-              text={props.buttonText}
-              color="gradientThree"
-              size="xl"
-              rounding="full"
-            />
-          </Link>
+          {props.button.text && <Button {...props.button} />}
         </div>
       </div>
       <div className="absolute right-0 bottom-0 md:-mb-20 md:-mr-15 -mb-5 -mr-5 md:w-80 md:h-80 w-30 h-30 shadow-[0px_0px_15px_4px] shadow-black/50 rounded-full bg-linear-60 from-primary to-tertiary"></div>

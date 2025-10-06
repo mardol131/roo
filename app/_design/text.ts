@@ -13,7 +13,7 @@ export type HeadingLevelType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export type ParagraphType = "paragraph";
 
-export type PayloadRichTextTagsType = HeadingLevelType | ParagraphType;
+export type PayloadRichTextTagsType = HeadingLevelType;
 
 export type TextSettingsType = {
   text: string;
@@ -55,23 +55,23 @@ export type PayloadRichTextColors = {
 };
 
 export type PayloadRichTextSizes = {
-  h1?: number;
-  h2?: number;
-  h3?: number;
-  h4?: number;
-  h5?: number;
-  h6?: number;
-  paragraph?: number;
+  h1?: string;
+  h2?: string;
+  h3?: string;
+  h4?: string;
+  h5?: string;
+  h6?: string;
+  paragraph?: string;
 };
 
 export type PayloadRichTextWeights = {
-  h1?: number;
-  h2?: number;
-  h3?: number;
-  h4?: number;
-  h5?: number;
-  h6?: number;
-  paragraph?: number;
+  h1?: string;
+  h2?: string;
+  h3?: string;
+  h4?: string;
+  h5?: string;
+  h6?: string;
+  paragraph?: string;
 };
 
 export const textWeight = {};
@@ -81,4 +81,8 @@ export type PayloadTextSectionType = {
   richTextColors?: PayloadRichTextColors;
   richTextWeights?: PayloadRichTextWeights;
   richTextSizes?: PayloadRichTextSizes;
+};
+
+export const fonts = {
+  montserrat: "font-montserrat",
 };

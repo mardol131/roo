@@ -1,7 +1,7 @@
 import React from "react";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 import Image from "next/image";
-import Button from "@/app/_global/atoms/Button";
+import Button, { ButtonPropsType } from "@/app/_global/atoms/Button";
 import Link from "next/link";
 import {
   ColorsAndGradientsType,
@@ -19,10 +19,7 @@ export type TextImageSectionProps = {
   overlay?: OverlayType;
   image?: string;
   imageSide: Sides;
-  button?: {
-    text: string;
-    url: string;
-  };
+  button?: ButtonPropsType;
 };
 
 export default function TextImageSection(props: TextImageSectionProps) {
@@ -32,19 +29,10 @@ export default function TextImageSection(props: TextImageSectionProps) {
         <div
           className={`${
             props.imageSide === "left" ? "col-start-2" : "col-start-1"
-          } row-start-1 flex flex-col gap-8 col-span-1`}
+          } row-start-1 flex flex-col items-start gap-8 col-span-1`}
         >
           <PayloadRichTextGenerator text={props.text} />
-          {props.button?.text && (
-            <Link href={props.button?.url}>
-              <Button
-                text={props.button?.text}
-                color="white"
-                size="xl"
-                rounding="full"
-              />
-            </Link>
-          )}
+          {props.button?.text && <Button {...props.button} />}
         </div>
         {props.image && (
           <Image
@@ -54,7 +42,7 @@ export default function TextImageSection(props: TextImageSectionProps) {
             alt="image"
             className={`${
               props.imageSide === "left" ? "col-start-1" : "col-start-2"
-            } row-start-1 col-span-1 w-130 aspect-square object-cover rounded-medium shadow-lg object-center`}
+            } row-start-1 col-span-1 w-130 aspect-square object-cover rounded-4xl shadow-lg object-center`}
           />
         )}
       </div>

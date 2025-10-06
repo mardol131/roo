@@ -34,7 +34,8 @@ export function WebsiteHeaderMobile() {
             <Button
               text="Přidej se k nám"
               size="md"
-              color="gradientThree"
+              bgColor="primarySecondary"
+              textColor="white"
               rounding="full"
             />
           </Link>

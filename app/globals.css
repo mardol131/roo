@@ -12,7 +12,7 @@
 
 @theme {
   --color-secondary: #ff9900;
-  --color-primary: #e70d72;
+  --color-primary: #ff0066;
   --color-tertiary: #663399;
 
   --color-adminPrimary: var(--color-pink-600);
@@ -24,6 +24,8 @@
   --color-textNormal: var(--color-gray-800);
   --color-textMedium: var(--color-gray-600);
   --color-textPlaceholder: var(--color-gray-500);
+
+  --color-textLight: var(--color-zinc-800);
 
   --color-optionsBar: var(--color-gray-50);
 

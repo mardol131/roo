@@ -40,7 +40,7 @@ export default function Heading(props: Props) {
         <h3
           className={`${props.fontWeight} ${
             props.color && textColor[props.color]
-          } h3`}
+          } text-4xl`}
           style={{ textAlign: props.textAlign }}
         >
           {props.text}
@@ -51,7 +51,7 @@ export default function Heading(props: Props) {
         <h4
           className={`${props.fontWeight} ${
             props.color && textColor[props.color]
-          } h4`}
+          } text-3xl`}
           style={{ textAlign: props.textAlign }}
         >
           {props.text}

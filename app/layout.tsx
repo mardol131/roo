@@ -18,6 +18,9 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body>
+        <StoreProvider>
+          <Header />
+        </StoreProvider>
         <div className="relative">
           {children}
           <Footer />

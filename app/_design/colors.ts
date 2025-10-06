@@ -22,6 +22,7 @@ export type ColorGradientType =
 export type ColorsAndGradientsType = keyof typeof colorsAndGradients;
 
 export const colorsAndGradients = {
+  white: "bg-white",
   secondary: "bg-secondary",
   primary: "bg-primary",
   tertiary: "bg-tertiary",
@@ -71,4 +72,5 @@ export const textColor = {
   tertiary: "text-tertiary",
   black: "text-black",
   white: "text-white",
+  textLight: "text-textLight",
 };

@@ -1,14 +1,12 @@
 import {
   colorsAndGradients,
   ColorsAndGradientsType,
-  textColor,
-  TextColorType,
 } from "@/app/_design/colors";
+import { PayloadTextSectionType } from "@/app/_design/text";
+import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
 
 export type MasonryBubbleTextProps = {
-  text?: string;
-  heading?: string;
-  textColor?: TextColorType;
+  text: PayloadTextSectionType;
   color?: ColorsAndGradientsType;
   column?: {
     start: number;
@@ -29,14 +27,11 @@ export function MasonryBubbleText(props: MasonryBubbleTextProps) {
         gridRowStart: props.row?.start,
         gridRowEnd: props.row?.end,
       }}
-      className={`${props.color && colorsAndGradients[props.color]} ${
-        props.textColor ? textColor[props.textColor] : "text-white"
-      } p-5 rounded-large shadow-lg flex flex-col gap-4 items-center justify-center`}
+      className={`${
+        props.color && colorsAndGradients[props.color]
+      } p-10 rounded-large shadow-lg flex flex-col gap-4 items-center justify-center`}
     >
-      {props.heading && (
-        <p className="text-2xl font-semibold">{props.heading}</p>
-      )}
-      {props.text && <p className="text-xl">{props.text}</p>}{" "}
+      <PayloadRichTextGenerator text={props.text} />
     </div>
   );
 }

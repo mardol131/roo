@@ -1,4 +1,4 @@
-import AdminPage from "../_pages/admin/AdminPage";
+import AdminPage from "@/app/_pages/admin/AdminPage";
 
 type Props = {};
 

@@ -23,7 +23,7 @@ function Card(props: CardSectionCardProps) {
       <Link
         className={`${
           props.align && textAlign[props.align]
-        } border hover:scale-105 flex flex-col items-center animate shadow-lg bg-white border-borderLight rounded-medium p-15 gap-4`}
+        } border hover:scale-105 flex flex-col items-center animate shadow-lg bg-white border-borderLight rounded-medium md:p-12 p-8 gap-4`}
         href={props.href}
       >
         {Icon && (
@@ -39,7 +39,7 @@ function Card(props: CardSectionCardProps) {
     <div
       className={`${
         props.align && textAlign[props.align]
-      } border hover:scale-105 animate shadow-lg bg-white border-borderLight rounded-medium p-15 gap-4`}
+      } border flex flex-col items-center hover:scale-105 animate shadow-lg bg-white border-borderLight rounded-medium md:p-12 p-8 gap-4`}
     >
       {Icon && (
         <Icon
@@ -58,6 +58,7 @@ export type CardsSectionProps = {
 };
 
 export function CardsSection(props: CardsSectionProps) {
+  console.log(props);
   return (
     <LandingSectionWrapper overlay={props.overlay}>
       <div className="flex flex-col gap-20 text-center items-center justify-center w-full max-w-landingWrapper">

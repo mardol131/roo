@@ -26,7 +26,7 @@ type Props = {};
 export default function AdminPage({}: Props) {
   return (
     <div className="grid grid-cols-[3fr_1fr] gap-5 p-10 overflow-y-auto">
-      <div className="flex flex-col gap-5">
+      {/* <div className="flex flex-col gap-5">
         <div className="grid grid-cols-3 gap-3">
           <AdminRooCardTwo />
           <AdminRooCard />
@@ -104,7 +104,7 @@ export default function AdminPage({}: Props) {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
