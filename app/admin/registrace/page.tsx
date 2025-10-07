@@ -1,6 +1,8 @@
-import SignUpPage from "@/app/_pages/admin/registrace/SignUpPage";
 import React from "react";
+import Page from "./_page/Page";
 
-export default function page() {
-  return <SignUpPage />;
+type Props = {};
+
+export default function page({}: Props) {
+  return <Page />;
 }

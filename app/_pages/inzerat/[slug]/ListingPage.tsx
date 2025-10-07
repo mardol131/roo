@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 
 import image from "@/app/_images/test.jpg";
 import Image from "next/image";
-import Heading from "@/app/_global/atoms/Heading";
+import Heading from "@/app/_global/atoms/Text";
 import { FaMapMarker, FaMapMarkerAlt } from "react-icons/fa";
 import { HiMiniUsers, HiUser, HiUsers } from "react-icons/hi2";
 import { GiForkKnifeSpoon, GiFruitTree } from "react-icons/gi";

@@ -1,6 +1,4 @@
 import React from "react";
-import AdminPageSidebarWrapper from "../_components/AdminPageSidebarWrapper";
-import { AdminListingSidebar } from "./_components/AdminListingSidebar";
 
 type Props = {};
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Heading from "../atoms/Heading";
+import Heading from "../atoms/Text";
 import ButtonWebhook from "../buttons/ButtonWebhook";
 import { ButtonDesign } from "../atoms/ButtonDesign";
 import { colorsAndGradients } from "@/app/_design/colors";

@@ -8,9 +8,6 @@ type Props = {};
 export default function MainPage({}: Props) {
   return (
     <>
-      <StoreProvider>
-        <Header />
-      </StoreProvider>
       <div className="w-full pt-10 flex justify-center">
         <div>
           <Catalog />

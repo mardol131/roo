@@ -1,4 +1,4 @@
-import AccountPage from "@/app/_pages/admin/ucet/AccountPage";
+import AccountPage from "@/app/admin/ucet/_components/AccountPage";
 import React from "react";
 
 type Props = {};
