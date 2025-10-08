@@ -14,12 +14,18 @@ export type NewListingSlice = {
   currentStep: NewListingStepsType;
   services: ServiceType[];
   currentService: ServiceType | null;
+  step: number;
+  data: any;
 };
 
 const initialState: NewListingSlice = {
   currentStep: "typ-dodavatele",
   services: [],
   currentService: null,
+  step: 0,
+  data: {
+    1: {},
+  },
 };
 
 export function changeStepAction(
@@ -61,6 +67,12 @@ export const newListing = createSlice({
     changeStep: changeStepAction,
     updateServiceType: updateServiceTypesAction,
     changeCurrentService: changeCurrentServiceAction,
+    nextStep: (state) => {
+      state.step += 1;
+    },
+    prevStep: (state) => {
+      if (state.step > 0) state.step -= 1;
+    },
   },
 });
 

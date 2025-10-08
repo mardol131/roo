@@ -64,15 +64,17 @@ export default function ServiceTypeStep({}: Props) {
               );
             })}
           </div>
-          <div onClick={anotherStepHandler}>
-            <Button
-              text="Pokračovat"
-              bgColor="secondaryPrimaryTertiary"
-              size="xl"
-              rounding="full"
-              textColor="white"
-            />
-          </div>
+          {services.length > 0 && (
+            <div onClick={anotherStepHandler}>
+              <Button
+                text="Pokračovat"
+                bgColor="secondaryPrimaryTertiary"
+                size="xl"
+                rounding="full"
+                textColor="white"
+              />
+            </div>
+          )}
         </>
       </AdminFormWrapper>
     </AdminWrapper>
