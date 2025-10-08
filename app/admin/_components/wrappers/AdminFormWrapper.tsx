@@ -15,7 +15,12 @@ export default function AdminFormWrapper({
   return (
     <div className="w-full h-full flex flex-col items-center justify-start gap-10">
       <div className="flex flex-col items-center text-center gap-5">
-        <Text level="h4" text={heading} className="mt-5" />
+        <Text
+          level="h4"
+          text={heading}
+          color="black"
+          className="mt-5 font-semibold"
+        />
         {subheading && <Text level="paragraph3" text={subheading} />}
       </div>
       {children}

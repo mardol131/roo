@@ -70,7 +70,7 @@ export const textColor = {
   secondary: "text-secondary",
   primary: "text-primary",
   tertiary: "text-tertiary",
-  black: "text-black",
+  black: "text-textNormal",
   white: "text-white",
   textLight: "text-textLight",
 };

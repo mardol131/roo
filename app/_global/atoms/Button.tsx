@@ -1,3 +1,5 @@
+"use client";
+
 import {
   colorsAndGradients,
   ColorsAndGradientsType,
@@ -17,6 +19,7 @@ export type ButtonPropsType = {
   className?: string;
   type?: "submit" | "button" | "reset";
   link?: string;
+  onClick?: () => void;
 };
 
 type ButtonSize = keyof typeof buttonSizeList;
@@ -43,6 +46,7 @@ export default function Button(props: ButtonPropsType) {
   if (props.link) {
     return (
       <Link
+        onClick={props.onClick}
         href={props.link}
         type={props.type || "button"}
         className={`${props.className} ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor} ${buttonClassname}`}
@@ -53,6 +57,7 @@ export default function Button(props: ButtonPropsType) {
   } else {
     return (
       <button
+        onClick={props.onClick}
         type={props.type || "button"}
         className={`${props.className} ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor} ${buttonClassname}`}
       >

@@ -9,7 +9,7 @@ export default function layout({
 }>) {
   return (
     <div className="flex h-fit overflow-hidden">
-      <div className="overflow-y-scroll w-full">{children}</div>
+      <div className="overflow-y-auto w-full">{children}</div>
     </div>
   );
 }

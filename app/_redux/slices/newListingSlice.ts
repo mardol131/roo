@@ -2,33 +2,34 @@ import { ServiceType } from "@/app/_types/business/services";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export type CurrentStepType =
-  | "pickService"
-  | "pickOneService"
-  | "serviceName"
-  | "serviceType"
-  | "serviceLocation";
+export type NewListingStepsType =
+  | "udaje-dodavatele"
+  | "typ-dodavatele"
+  | "vybrat-prvni-typ-dodavatele"
+  | "jmeno-dodavatele"
+  | "typ-sluzby"
+  | "lokace-sluzby";
 
 export type NewListingSlice = {
-  currentStep: CurrentStepType;
+  currentStep: NewListingStepsType;
   services: ServiceType[];
   currentService: ServiceType | null;
 };
 
 const initialState: NewListingSlice = {
-  currentStep: "pickService",
+  currentStep: "typ-dodavatele",
   services: [],
   currentService: null,
 };
 
 export function changeStepAction(
   state: NewListingSlice,
-  action: PayloadAction<CurrentStepType>
+  action: PayloadAction<NewListingStepsType>
 ) {
   state.currentStep = action.payload;
 }
 
-export function addServiceAction(
+export function updateServiceTypesAction(
   state: NewListingSlice,
   action: PayloadAction<ServiceType>
 ) {
@@ -48,7 +49,7 @@ export function addServiceAction(
 
 export function changeCurrentServiceAction(
   state: NewListingSlice,
-  action: PayloadAction<ServiceType>
+  action: PayloadAction<ServiceType | null>
 ) {
   state.currentService = action.payload;
 }
@@ -58,7 +59,7 @@ export const newListing = createSlice({
   initialState,
   reducers: {
     changeStep: changeStepAction,
-    addService: addServiceAction,
+    updateServiceType: updateServiceTypesAction,
     changeCurrentService: changeCurrentServiceAction,
   },
 });
