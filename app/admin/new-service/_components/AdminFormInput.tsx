@@ -20,14 +20,14 @@ export function AdminFormInput({
   onChange,
 }: AdminFormInputType) {
   return (
-    <div className="p-1 px-2 rounded-small border flex flex-col border-borderLight">
+    <div className="p-1 px-2 flex flex-col ">
       <label className="text-primary font-semibold">{label}</label>
       <input
         placeholder={placeholder}
         id={name}
         name={name}
         type={type}
-        className=" focus:outline-0 box-border focus:border-b-2 border-b-2 border-transparent focus:border-primary text-lg placeholder:text-textPlaceholder/30"
+        className="pb-1 focus:outline-0 box-border focus:border-b-2 border-b-2 border-borderLight/60 focus:border-primary/15 text-lg placeholder:text-textPlaceholder/30"
       />
     </div>
   );

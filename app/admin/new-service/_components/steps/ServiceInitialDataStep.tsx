@@ -2,20 +2,23 @@
 
 import React, { useState } from "react";
 
-import successBg from "../../../../../_images/successBg.jpg";
+import successBg from "../../../_images/successBg.jpg";
 import Button from "@/app/_global/atoms/Button";
 import Image from "next/image";
 import Text from "@/app/_global/atoms/Text";
 import AdminWrapper from "@/app/admin/_components/wrappers/AdminWrapper";
 import AdminFormWrapper from "@/app/admin/_components/wrappers/AdminFormWrapper";
-import { AdminFormCheckbox, AdminFormInput } from "../../AdminFormInput";
-import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
+
+import { AdminFormCheckbox, AdminFormInput } from "../AdminFormInput";
+import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
+import AdminFormPartWrapper from "@/app/admin/_components/wrappers/FormPartWrapper";
 
 type Props = {};
 
 export default function ServiceInitialDataStep({}: Props) {
   const [success, setSuccess] = useState(false);
-  const { newListingNextStep } = useNewListingSteps();
+
+  const { changeStepHandler } = useNewListingSteps();
 
   if (success) {
     return (
@@ -37,7 +40,7 @@ export default function ServiceInitialDataStep({}: Props) {
           />
           <Button
             onClick={() => {
-              newListingNextStep("typ-dodavatele");
+              changeStepHandler("serviceType");
             }}
             text="Pokračovat"
             size="2xl"
@@ -54,7 +57,8 @@ export default function ServiceInitialDataStep({}: Props) {
       <AdminFormWrapper heading="Registrace dodavatele">
         <form className="flex flex-col gap-6">
           <div className="grid grid-cols-2 items-start gap-5">
-            <div className="bg-white border border-borderLight rounded-large p-4 gap-3 flex flex-col">
+            <AdminFormPartWrapper>
+              {" "}
               <Text
                 text="Údaje o společnosti"
                 level="paragraph2"
@@ -107,8 +111,8 @@ export default function ServiceInitialDataStep({}: Props) {
                 name="country"
                 placeholder="Česká republika"
               />
-            </div>
-            <div className="bg-white border border-borderLight rounded-large p-3 gap-3 flex flex-col">
+            </AdminFormPartWrapper>
+            <AdminFormPartWrapper>
               <Text
                 text="Hlavní kontaktní osoba"
                 level="paragraph2"
@@ -139,7 +143,7 @@ export default function ServiceInitialDataStep({}: Props) {
                 name="email"
                 placeholder="karel.novak@email.cz"
               />
-            </div>
+            </AdminFormPartWrapper>
             {/* <div className="flex flex-col justify-between gap-5">
               <div className="bg-white border border-borderLight rounded-large p-3 gap-3 flex flex-col">
                 <AdminFormInput

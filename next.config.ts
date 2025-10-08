@@ -14,8 +14,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/admin/novy-dodavatel/:step",
-        destination: "/admin/new-service/:step",
+        source: "/admin/novy-dodavatel",
+        destination: "/admin/new-service",
       },
       {
         source: "/admin/registrace",

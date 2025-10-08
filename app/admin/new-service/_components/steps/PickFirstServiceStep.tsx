@@ -16,8 +16,8 @@ import { ServiceType } from "@/app/_types/business/services";
 import AdminFormWrapper from "@/app/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/admin/_components/wrappers/AdminWrapper";
 import React, { useState } from "react";
-import { ServiceTypeCard } from "../../ServiceTypeCard";
-import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
+import { useNewListingSteps } from "../_hooks/useNewListingSteps";
+import { ServiceTypeCard } from "../ServiceTypeCard";
 
 type Props = {};
 
@@ -26,7 +26,7 @@ export default function PickFirstServiceStep({}: Props) {
     (state) => state.newListing
   );
   const dispatch = useAppDispatch();
-  const { newListingNextStep } = useNewListingSteps();
+  const { changeStepHandler } = useNewListingSteps();
 
   function updateCurrentService(value: ServiceType) {
     dispatch(newListing.actions.changeCurrentService(value));
@@ -34,8 +34,12 @@ export default function PickFirstServiceStep({}: Props) {
 
   function startFormularHandler() {
     if (currentService) {
-      newListingNextStep("jmeno-dodavatele");
+      changeStepHandler("serviceName");
     }
+  }
+
+  function previousStepHandler() {
+    changeStepHandler("serviceType");
   }
 
   return (
@@ -58,14 +62,15 @@ export default function PickFirstServiceStep({}: Props) {
             })}
           </div>
           <div className="flex gap-5">
-            <Button
-              text="Zpět"
-              bgColor="secondaryPrimaryTertiary"
-              size="xl"
-              rounding="full"
-              textColor="white"
-              link="typ-dodavatele"
-            />
+            <div onClick={previousStepHandler}>
+              <Button
+                text="Zpět"
+                bgColor="secondaryPrimaryTertiary"
+                size="xl"
+                rounding="full"
+                textColor="white"
+              />
+            </div>
             <div onClick={startFormularHandler}>
               <Button
                 text="Začít s vyplňováním"

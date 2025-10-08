@@ -1,14 +1,17 @@
 "use client";
 
-import { NewListingStepsType } from "@/app/_redux/slices/newListingSlice";
-import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/app/_redux/hooks";
+import {
+  newListing,
+  NewListingStepsType,
+} from "@/app/_redux/slices/newListingSlice";
 
 export function useNewListingSteps() {
-  const router = useRouter();
+  const dispatch = useAppDispatch();
 
-  async function newListingNextStep(step: NewListingStepsType) {
-    await router.push(step);
+  async function changeStepHandler(step: NewListingStepsType) {
+    await dispatch(newListing.actions.changeStep(step));
   }
 
-  return { newListingNextStep };
+  return { changeStepHandler };
 }

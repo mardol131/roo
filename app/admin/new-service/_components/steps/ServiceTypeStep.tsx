@@ -16,33 +16,100 @@ import { ServiceType, serviceTypeArray } from "@/app/_types/business/services";
 import AdminFormWrapper from "@/app/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/admin/_components/wrappers/AdminWrapper";
 import React, { useState } from "react";
-import { ServiceTypeCard } from "../../ServiceTypeCard";
 import { useRouter } from "next/router";
-import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
+import { ServiceTypeCard } from "../ServiceTypeCard";
+import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 
 type Props = {};
 
 export default function ServiceTypeStep({}: Props) {
-  const { currentStep: step, services } = useAppSelector(
-    (state) => state.newListing
-  );
+  const {
+    currentStep: step,
+    services,
+    currentService,
+  } = useAppSelector((state) => state.newListing);
   const dispatch = useAppDispatch();
-  const { newListingNextStep } = useNewListingSteps();
+  const { changeStepHandler } = useNewListingSteps();
+  const [pickOne, setPickOne] = useState(false);
 
   function updateStateHandler(value: ServiceType) {
     dispatch(newListing.actions.updateServiceType(value));
   }
 
-  async function anotherStepHandler() {
+  function returnToTypeshandler() {
+    setPickOne(false);
+  }
+
+  function anotherStepHandler() {
     if (services.length > 1) {
       dispatch(newListing.actions.changeCurrentService(null));
-      newListingNextStep("vybrat-prvni-typ-dodavatele");
+      setPickOne(true);
     } else if (services.length === 1) {
       dispatch(newListing.actions.changeCurrentService(services[0]));
-      newListingNextStep("jmeno-dodavatele");
+      changeStepHandler("serviceName");
     } else if (!services.length) {
       console.log("Vyberte službu");
     }
+  }
+
+  function updateCurrentService(value: ServiceType) {
+    dispatch(newListing.actions.changeCurrentService(value));
+  }
+
+  function startFormularHandler() {
+    if (currentService) {
+      changeStepHandler("serviceName");
+    }
+  }
+
+  function previousStepHandler() {
+    changeStepHandler("serviceType");
+  }
+
+  if (pickOne) {
+    return (
+      <AdminWrapper>
+        <AdminFormWrapper
+          heading={"Jakou službu chceš nastavit jako první?"}
+          subheading={"Druhou službu budete mít možnost nadtavit později"}
+        >
+          <>
+            <div className="flex w-full justify-center gap-5 max-w-250">
+              {services.map((service) => {
+                return (
+                  <ServiceTypeCard
+                    isActive={currentService === service}
+                    key={service}
+                    value={service}
+                    onClick={updateCurrentService}
+                  />
+                );
+              })}
+            </div>
+            <div className="flex gap-5">
+              <div onClick={returnToTypeshandler}>
+                <Button
+                  text="Zpět"
+                  bgColor="secondaryPrimaryTertiary"
+                  size="xl"
+                  rounding="full"
+                  textColor="white"
+                />
+              </div>
+              <div onClick={startFormularHandler}>
+                <Button
+                  text="Začít s vyplňováním"
+                  bgColor="secondaryPrimaryTertiary"
+                  size="xl"
+                  rounding="full"
+                  textColor="white"
+                />
+              </div>
+            </div>
+          </>
+        </AdminFormWrapper>
+      </AdminWrapper>
+    );
   }
 
   return (

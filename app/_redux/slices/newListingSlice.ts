@@ -3,12 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export type NewListingStepsType =
-  | "udaje-dodavatele"
-  | "typ-dodavatele"
-  | "vybrat-prvni-typ-dodavatele"
-  | "jmeno-dodavatele"
-  | "typ-sluzby"
-  | "lokace-sluzby";
+  | "companyData"
+  | "serviceType"
+  | "serviceName"
+  | "serviceLocation";
+
+export const NewListingStepsArray: NewListingStepsType[] = [
+  "companyData",
+  "serviceType",
+  "serviceName",
+  "serviceLocation",
+];
 
 export type NewListingSlice = {
   currentStep: NewListingStepsType;
@@ -19,7 +24,7 @@ export type NewListingSlice = {
 };
 
 const initialState: NewListingSlice = {
-  currentStep: "typ-dodavatele",
+  currentStep: "companyData",
   services: [],
   currentService: null,
   step: 0,
