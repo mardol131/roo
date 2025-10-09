@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/pages/:path*",
+      "destination": "https://osvc365.cz/:path*"
+    }
+  ],
+  "redirects": [],
+  "headers": [],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
