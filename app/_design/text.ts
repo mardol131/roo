@@ -76,12 +76,14 @@ export type PayloadRichTextWeights = {
 
 export const textWeight = {};
 
-export type PayloadTextSectionType = {
-  richText: PayloadRichTextDataType;
-  richTextColors?: PayloadRichTextColors;
-  richTextWeights?: PayloadRichTextWeights;
-  richTextSizes?: PayloadRichTextSizes;
-};
+export type PayloadTextSectionType =
+  | {
+      richText: PayloadRichTextDataType;
+      richTextColors?: PayloadRichTextColors;
+      richTextWeights?: PayloadRichTextWeights;
+      richTextSizes?: PayloadRichTextSizes;
+    }
+  | string;
 
 export const fonts = {
   montserrat: "font-montserrat",

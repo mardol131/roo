@@ -20,11 +20,14 @@ export default function HomePage({}: Props) {
       <WebsiteHeader />
       <WebsiteHeaderMobile />
       <HeroBackgroundImage
-        headingOne="Víc objednávek."
-        headingTwo="Míň dohadování."
-        text="ROO je nová platforma, kde tě najdou lidé, co plánují akce – svatby, firemky, oslavy. Vytvoříš si profil, zadáš konkrétní nabídky a můžeš začít přijímat poptávky."
-        buttonText="Přidej se na waitlist"
-        buttonUrl="#hello"
+        heading={{
+          headingOne: "Víc objednávek.",
+          headingTwo: "Míň dohadování.",
+        }}
+        text={{
+          text: "ROO je nová platforma, kde tě najdou lidé, co plánují akce – svatby, firemky, oslavy. Vytvoříš si profil, zadáš konkrétní nabídky a můžeš začít přijímat poptávky.",
+        }}
+        button={{ text: "Přidej se na waitlist", size: "2xl", link: "" }}
         image={image.src}
       />
       <CardsSection
@@ -34,20 +37,17 @@ export default function HomePage({}: Props) {
         }}
         cards={[
           {
-            heading: "Gastro",
             text: "Děláš cadtering, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
             color: "primary",
             href: "/",
           },
           {
-            heading: "Gastro",
             text: "Děláš caterinag, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
             color: "secondary",
           },
           {
-            heading: "Gastro",
             text: "Děláš cateriwng, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
             color: "tertiary",
@@ -55,25 +55,18 @@ export default function HomePage({}: Props) {
         ]}
       />
       <TextImageSection
-        heading={{
-          align: "start",
-          headingOne:
-            "Kolik zpráv, mailů a telefonátů tě dělí od jedný zakázky?",
-        }}
-        textOne="Děláš super práci. Ale všechno okolo ti bere čas i energii. 
-ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
-        textTwo="Vždyť to znáš. Zpráva na Instagramu. Pak e-mail. Pak se neozvou. Nebo chtějí slevu. Z jednoho klienta je deset interakcí – a výsledek nejistý."
+        text="Hello"
         image={image.src}
-        textColor="white"
         imageSide="left"
-        button={{ text: "Přidej se mezi první dodavatele Roo", url: "/main" }}
+        button={{ text: "Přidej se mezi první dodavatele Roo", link: "/main" }}
         overlay={{ overlayColor: "primaryTertiary" }}
       />
       <MasonrySection
+        overlay={{ overlayColor: "white" }}
         text="Vždyť to znáš. Zpráva na Instagramu. Pak e-mail. Pak se neozvou. Nebo chtějí slevu. Z jednoho klienta je deset interakcí – a výsledek nejistý."
         bubbles={[
           {
-            heading: "S tímhle vám můžeme pomoct",
+            text: "S tímhle vám můžeme pomoct",
             color: "primary",
             column: {
               start: 3,
@@ -159,20 +152,11 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         ]}
       />
       <TextImageSection
-        heading={{
-          align: "start",
-          size: "lg",
-          headingOne:
-            "Kolik zpráv, mailů a telefonátů tě dělí od jedný zakázky?",
-        }}
-        textOne="Děláš super práci. Ale všechno okolo ti bere čas i energii. 
-ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
-        textColor="white"
+        text={"Kolik zpráv, mailů a telefonátů tě dělí od jedný zakázky?"}
         overlay={{ overlayColor: "primarySecondary" }}
-        textTwo="Vždyť to znáš. Zpráva na Instagramu. Pak e-mail. Pak se neozvou. Nebo chtějí slevu. Z jednoho klienta je deset interakcí – a výsledek nejistý."
         image={image.src}
         imageSide="right"
-        button={{ text: "Přidej se mezi první dodavatele Roo", url: "/main" }}
+        button={{ text: "Přidej se mezi první dodavatele Roo", link: "/main" }}
       />
       <ComparisonSection
         heading={{
@@ -220,19 +204,16 @@ ROO ti přináší lidi, co ví, co chtějí – a chtějí to od tebe."
         }}
         cards={[
           {
-            heading: "Gastro",
             text: "Děláš catering, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
             color: "primary",
           },
           {
-            heading: "Gastro",
             text: "Děláš catering, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
             color: "primary",
           },
           {
-            heading: "Gastro",
             text: "Děláš catering, máš foodtruck nebo bar na eventy",
             icon: "Anniversary",
             color: "primary",

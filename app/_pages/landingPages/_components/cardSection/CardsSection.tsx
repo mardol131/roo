@@ -9,7 +9,7 @@ import { textAlign, TextAlignType } from "@/app/_design/orientation";
 import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
 
 export type CardSectionCardProps = {
-  text: PayloadTextSectionType;
+  text: PayloadTextSectionType | string;
   align?: TextAlignType;
   icon?: IconsList;
   color: TextColorType;
@@ -31,7 +31,11 @@ function Card(props: CardSectionCardProps) {
             className={` ${props.color && textColor[props.color]} w-20 h-20`}
           />
         )}
-        <PayloadRichTextGenerator text={props.text} />
+        {typeof props.text === "string" ? (
+          <p>{props.text}</p>
+        ) : (
+          <PayloadRichTextGenerator text={props.text} />
+        )}
       </Link>
     );
   }
@@ -46,7 +50,11 @@ function Card(props: CardSectionCardProps) {
           className={` ${props.color && textColor[props.color]} w-20 h-20`}
         />
       )}
-      <PayloadRichTextGenerator text={props.text} />
+      {typeof props.text === "string" ? (
+        <p>{props.text}</p>
+      ) : (
+        <PayloadRichTextGenerator text={props.text} />
+      )}{" "}
     </div>
   );
 }

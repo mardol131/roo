@@ -11,7 +11,7 @@ export type ListingTypeData = {
   value: ListingType;
 };
 
-export const serviceCardsData: {
+export const listingCardsData: {
   gastro: ListingTypeData;
   entertainment: ListingTypeData;
   place: ListingTypeData;
@@ -46,9 +46,9 @@ export const serviceCardsData: {
 };
 
 export const listingTypeArray: ListingTypeData[] = [
-  serviceCardsData.gastro,
-  serviceCardsData.place,
-  serviceCardsData.entertainment,
+  listingCardsData.gastro,
+  listingCardsData.place,
+  listingCardsData.entertainment,
 ];
 
 export type ListingType = "gastro" | "place" | "entertainment";

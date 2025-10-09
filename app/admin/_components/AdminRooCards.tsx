@@ -27,7 +27,7 @@ export function AdminRooCard() {
 
         <Button
           text="Přejít na článek"
-          color="gradientTwo"
+          bgColor="primarySecondary"
           size="lg"
           rounding="full"
         />
@@ -61,7 +61,7 @@ export function AdminRooCardTwo() {
 
         <Button
           text="Přejít na článek"
-          color="gradientTwo"
+          bgColor="primarySecondary"
           size="lg"
           rounding="full"
         />

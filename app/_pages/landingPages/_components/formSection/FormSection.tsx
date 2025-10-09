@@ -165,8 +165,8 @@ export default function FormSection(props: FormSectionProps) {
             className="w-70"
             text={props.button.text}
             size="xl"
-            color="gradientTwo"
             rounding="full"
+            bgColor="primarySecondary"
           />
         </div>
       </form>

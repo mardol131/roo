@@ -9,12 +9,12 @@ import {
 import Text from "@/app/_global/atoms/Text";
 import Gastro from "@/app/_icons/Gastro";
 import { useAppSelector } from "@/app/_redux/hooks";
-import { serviceCardsData, ServiceType } from "@/app/_types/business/services";
+import { ListingType, listingCardsData } from "@/app/_types/business/services";
 import { ReactNode } from "react";
 
 export type ServiceTypeCardProps = {
-  onClick: (value: ServiceType) => void;
-  value: ServiceType;
+  onClick: (value: ListingType) => void;
+  value: ListingType;
   isActive: boolean;
   delayMs?: string;
 };
@@ -25,7 +25,7 @@ export function ServiceTypeCard({
   isActive,
   delayMs,
 }: ServiceTypeCardProps) {
-  const data = serviceCardsData[value];
+  const data = listingCardsData[value];
 
   const color = isActive ? "text-white" : textColor[data.color];
   const bgColor = isActive ? colorsAndGradients[data.bgColor] : "bg-white";

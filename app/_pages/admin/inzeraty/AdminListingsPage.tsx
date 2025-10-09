@@ -49,8 +49,8 @@ export default function AdminListingsPage({}: Props) {
       </div>
       <div className="flex justify-end">
         <Button
+          bgColor="primarySecondary"
           text="Vytvořit nový inzerát"
-          color="gradientTwo"
           size="lg"
           rounding="full"
         />

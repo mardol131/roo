@@ -32,8 +32,10 @@ export default function MasonrySection(props: MasonrySectionProps) {
                 <MasonryBubbleText
                   key={
                     bubble.text
-                      ? bubble.text.richText.root?.children[0].children[0]
-                          .text + i
+                      ? typeof bubble.text === "string"
+                        ? bubble.text
+                        : bubble.text.richText.root?.children[0].children[0]
+                            .text + i
                       : i
                   }
                   {...bubble}

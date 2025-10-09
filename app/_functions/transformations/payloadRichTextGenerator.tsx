@@ -9,8 +9,17 @@ type PayloadRichTextGeneratorProps = {
 
 export function PayloadRichTextGenerator(props: PayloadRichTextGeneratorProps) {
   const text = props.text;
-  const componentsArray = props.text.richText.root.children.map(
-    (children, i) => {
+
+  if (typeof text === "string") {
+    return (
+      <div
+        className={`${props.className} flex flex-col ${props.gap || "gap-5"}`}
+      >
+        {text}
+      </div>
+    );
+  } else {
+    const componentsArray = text.richText.root.children.map((children, i) => {
       let content: string = "";
       children.children.map((textContent) => {
         content = content + textContent.text;
@@ -101,12 +110,14 @@ export function PayloadRichTextGenerator(props: PayloadRichTextGeneratorProps) {
             </p>
           );
       }
-    }
-  );
+    });
 
-  return (
-    <div className={`${props.className} flex flex-col ${props.gap || "gap-5"}`}>
-      {componentsArray}
-    </div>
-  );
+    return (
+      <div
+        className={`${props.className} flex flex-col ${props.gap || "gap-5"}`}
+      >
+        {componentsArray}
+      </div>
+    );
+  }
 }
