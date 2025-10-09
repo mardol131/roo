@@ -36,19 +36,11 @@ function GenerateStepNumbers() {
     }
   }
 
-  function Tooltip({ text }: { text: string }) {
-    return (
-      <div className="absolute bg-tertiary p-2 rounded-md shadow-lg font-semibold">
-        <Text text={text} color="white" level="label4" />
-      </div>
-    );
-  }
-
   return NewListingStepsArray.map((step, i) => {
     return (
       <Fragment key={i / 48929}>
         {Divider(i)}
-        <div className="relative">
+        <div>
           {i < stepsPassed ? (
             <>
               {i < stepsPassed && (
@@ -73,7 +65,6 @@ function GenerateStepNumbers() {
               {i + 1}
             </button>
           )}
-          <Tooltip text={step} />
         </div>
       </Fragment>
     );
