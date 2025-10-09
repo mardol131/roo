@@ -7,7 +7,7 @@ import AdminWrapper from "@/app/admin/_components/wrappers/AdminWrapper";
 import React, { useState } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 import { AdminFormInput } from "../AdminFormInput";
-import AdminFormPartWrapper from "@/app/admin/_components/wrappers/FormPartWrapper";
+import AdminFormPartWrapper from "@/app/admin/_components/wrappers/AdminFormPartWrapper";
 
 type Props = {};
 
@@ -35,6 +35,9 @@ export default function ServiceNameStep({}: Props) {
           size="xl"
           textColor="white"
           rounding="full"
+          onClick={() => {
+            changeStepHandler("listingSpecification");
+          }}
         />
       </AdminFormWrapper>
     </AdminWrapper>

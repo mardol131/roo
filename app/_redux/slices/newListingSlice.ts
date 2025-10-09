@@ -1,33 +1,33 @@
-import { ServiceType } from "@/app/_types/business/services";
+import { ListingType } from "@/app/_types/business/services";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export type NewListingStepsType =
   | "companyData"
-  | "serviceType"
-  | "serviceName"
-  | "serviceLocation";
+  | "listingType"
+  | "listingName"
+  | "listingSpecification"
+  | "listingLocation";
 
 export const NewListingStepsArray: NewListingStepsType[] = [
   "companyData",
-  "serviceType",
-  "serviceName",
-  "serviceLocation",
+  "listingType",
+  "listingName",
+  "listingSpecification",
+  "listingLocation",
 ];
 
 export type NewListingSlice = {
-  currentStep: NewListingStepsType;
-  services: ServiceType[];
-  currentService: ServiceType | null;
-  step: number;
+  step: NewListingStepsType;
+  listings: ListingType[];
+  currentListingType: ListingType | null;
   data: any;
 };
 
 const initialState: NewListingSlice = {
-  currentStep: "companyData",
-  services: [],
-  currentService: null,
-  step: 0,
+  step: "companyData",
+  listings: [],
+  currentListingType: null,
   data: {
     1: {},
   },
@@ -37,32 +37,32 @@ export function changeStepAction(
   state: NewListingSlice,
   action: PayloadAction<NewListingStepsType>
 ) {
-  state.currentStep = action.payload;
+  state.step = action.payload;
 }
 
 export function updateServiceTypesAction(
   state: NewListingSlice,
-  action: PayloadAction<ServiceType>
+  action: PayloadAction<ListingType>
 ) {
-  const serviceIndex = state.services.findIndex(
+  const serviceIndex = state.listings.findIndex(
     (service) => service === action.payload
   );
 
-  const serviceArray = state.services;
+  const serviceArray = state.listings;
 
   if (serviceIndex === -1) {
-    state.services = [...state.services, action.payload];
+    state.listings = [...state.listings, action.payload];
   } else {
     serviceArray.splice(serviceIndex, 1);
-    state.services = [...serviceArray];
+    state.listings = [...serviceArray];
   }
 }
 
 export function changeCurrentServiceAction(
   state: NewListingSlice,
-  action: PayloadAction<ServiceType | null>
+  action: PayloadAction<ListingType | null>
 ) {
-  state.currentService = action.payload;
+  state.currentListingType = action.payload;
 }
 
 export const newListing = createSlice({
@@ -72,12 +72,6 @@ export const newListing = createSlice({
     changeStep: changeStepAction,
     updateServiceType: updateServiceTypesAction,
     changeCurrentService: changeCurrentServiceAction,
-    nextStep: (state) => {
-      state.step += 1;
-    },
-    prevStep: (state) => {
-      if (state.step > 0) state.step -= 1;
-    },
   },
 });
 

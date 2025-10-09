@@ -11,7 +11,7 @@ import AdminFormWrapper from "@/app/admin/_components/wrappers/AdminFormWrapper"
 
 import { AdminFormCheckbox, AdminFormInput } from "../AdminFormInput";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import AdminFormPartWrapper from "@/app/admin/_components/wrappers/FormPartWrapper";
+import AdminFormPartWrapper from "@/app/admin/_components/wrappers/AdminFormPartWrapper";
 
 type Props = {};
 
@@ -28,27 +28,29 @@ export default function ServiceInitialDataStep({}: Props) {
           width={2000}
           height={2000}
           alt="success"
-          className="w-full h-full object-cover absolute top-0 left-0 z-0"
+          className="w-full opacity-60 h-full object-cover absolute top-0 left-0 z-0"
         />
-        <div className="bg-white rounded-medium z-10 max-w-200 w-full p-10 py-18 flex flex-col items-center gap-10">
-          <Text level="h2" text="Gratulujeme!" color="primary" />
-          <Text
-            level="paragraph1"
-            text="Už jsi o krok blíž k úspěšnému profilu! Pojďme teď nastavit tvůj první inzerát."
-            color="black"
-            className="text-center"
-          />
-          <Button
-            onClick={() => {
-              changeStepHandler("serviceType");
-            }}
-            text="Pokračovat"
-            size="2xl"
-            bgColor="secondaryPrimaryTertiary"
-            textColor="white"
-            rounding="full"
-          />
-        </div>
+        <AdminFormPartWrapper>
+          <div className="bg-white rounded-medium z-10 max-w-200 w-full p-10 py-18 flex flex-col items-center gap-10">
+            <Text level="h2" text="Gratulujeme!" color="primary" />
+            <Text
+              level="paragraph1"
+              text="Už jsi o krok blíž k úspěšnému profilu! Pojďme teď nastavit tvůj první inzerát."
+              color="black"
+              className="text-center"
+            />
+            <Button
+              onClick={() => {
+                changeStepHandler("listingType");
+              }}
+              text="Pokračovat"
+              size="2xl"
+              bgColor="secondaryPrimaryTertiary"
+              textColor="white"
+              rounding="full"
+            />
+          </div>
+        </AdminFormPartWrapper>
       </div>
     );
   }
@@ -179,7 +181,7 @@ export default function ServiceInitialDataStep({}: Props) {
             >
               <Button
                 type="submit"
-                text="Registrovat se"
+                text="Pokračovat"
                 size="2xl"
                 bgColor="tertiaryPrimarySecondary"
                 rounding="full"

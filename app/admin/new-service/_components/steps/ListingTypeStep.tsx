@@ -12,7 +12,7 @@ import Gastro from "@/app/_icons/Gastro";
 import KidParty from "@/app/_icons/KidParty";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { newListing } from "@/app/_redux/slices/newListingSlice";
-import { ServiceType, serviceTypeArray } from "@/app/_types/business/services";
+import { ListingType, listingTypeArray } from "@/app/_types/business/services";
 import AdminFormWrapper from "@/app/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/admin/_components/wrappers/AdminWrapper";
 import React, { useState } from "react";
@@ -23,16 +23,14 @@ import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 type Props = {};
 
 export default function ServiceTypeStep({}: Props) {
-  const {
-    currentStep: step,
-    services,
-    currentService,
-  } = useAppSelector((state) => state.newListing);
+  const { listings, currentListingType } = useAppSelector(
+    (state) => state.newListing
+  );
   const dispatch = useAppDispatch();
   const { changeStepHandler } = useNewListingSteps();
   const [pickOne, setPickOne] = useState(false);
 
-  function updateStateHandler(value: ServiceType) {
+  function updateStateHandler(value: ListingType) {
     dispatch(newListing.actions.updateServiceType(value));
   }
 
@@ -41,29 +39,25 @@ export default function ServiceTypeStep({}: Props) {
   }
 
   function anotherStepHandler() {
-    if (services.length > 1) {
+    if (listings.length > 1) {
       dispatch(newListing.actions.changeCurrentService(null));
       setPickOne(true);
-    } else if (services.length === 1) {
-      dispatch(newListing.actions.changeCurrentService(services[0]));
-      changeStepHandler("serviceName");
-    } else if (!services.length) {
+    } else if (listings.length === 1) {
+      dispatch(newListing.actions.changeCurrentService(listings[0]));
+      changeStepHandler("listingName");
+    } else if (!listings.length) {
       console.log("Vyberte službu");
     }
   }
 
-  function updateCurrentService(value: ServiceType) {
+  function updateCurrentService(value: ListingType) {
     dispatch(newListing.actions.changeCurrentService(value));
   }
 
   function startFormularHandler() {
-    if (currentService) {
-      changeStepHandler("serviceName");
+    if (currentListingType) {
+      changeStepHandler("listingName");
     }
-  }
-
-  function previousStepHandler() {
-    changeStepHandler("serviceType");
   }
 
   if (pickOne) {
@@ -75,13 +69,16 @@ export default function ServiceTypeStep({}: Props) {
         >
           <>
             <div className="flex w-full justify-center gap-5 max-w-250">
-              {services.map((service) => {
+              {listings.map((listing, i) => {
+                const delay = i * 50;
+
                 return (
                   <ServiceTypeCard
-                    isActive={currentService === service}
-                    key={service}
-                    value={service}
+                    isActive={currentListingType === listing}
+                    key={listing}
+                    value={listing}
                     onClick={updateCurrentService}
+                    delayMs={delay.toString()}
                   />
                 );
               })}
@@ -98,7 +95,7 @@ export default function ServiceTypeStep({}: Props) {
               </div>
               <div onClick={startFormularHandler}>
                 <Button
-                  text="Začít s vyplňováním"
+                  text="Pokračovat"
                   bgColor="secondaryPrimaryTertiary"
                   size="xl"
                   rounding="full"
@@ -120,18 +117,21 @@ export default function ServiceTypeStep({}: Props) {
       >
         <>
           <div className="grid grid-cols-3 w-full justify-items-center gap-5 max-w-250">
-            {serviceTypeArray.map((service) => {
+            {listingTypeArray.map((listing, i) => {
+              const delay = i * 50;
+
               return (
                 <ServiceTypeCard
-                  isActive={services.some((value) => value === service)}
-                  key={service}
-                  value={service}
+                  isActive={listings.some((value) => value === listing.value)}
+                  key={listing.text}
+                  value={listing.value}
                   onClick={updateStateHandler}
+                  delayMs={delay.toString()}
                 />
               );
             })}
           </div>
-          {services.length > 0 && (
+          {listings.length > 0 && (
             <div onClick={anotherStepHandler}>
               <Button
                 text="Pokračovat"

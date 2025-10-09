@@ -1,8 +1,12 @@
 import Text from "@/app/_global/atoms/Text";
 import { useAppSelector } from "@/app/_redux/hooks";
-import { NewListingStepsArray } from "@/app/_redux/slices/newListingSlice";
-import React, { ReactNode } from "react";
+import {
+  NewListingStepsArray,
+  NewListingStepsType,
+} from "@/app/_redux/slices/newListingSlice";
+import React, { Fragment, ReactNode } from "react";
 import { FaCheck } from "react-icons/fa6";
+import { useNewListingSteps } from "../../new-service/_hooks/useNewListingSteps";
 
 type Props = {
   heading: string;
@@ -11,55 +15,67 @@ type Props = {
 };
 
 function GenerateStepNumbers() {
-  const { currentStep } = useAppSelector((state) => state.newListing);
+  const { step: currentStep } = useAppSelector((state) => state.newListing);
+  const { changeStepHandler } = useNewListingSteps();
 
   const stepsPassed = NewListingStepsArray.findIndex(
     (step) => step === currentStep
   );
 
-  return NewListingStepsArray.map((step, i) => {
-    function Divider() {
-      if (i > 0) {
-        if (i > stepsPassed) {
-          return <div key={i} className="bg-zinc-300 h-[2px] grow-[1]"></div>;
-        } else {
-          return <div key={i} className="bg-primary h-[2px] grow-[1]"></div>;
-        }
+  function Divider(i: number) {
+    if (i > 0) {
+      if (i > stepsPassed) {
+        return (
+          <div key={i / 1563} className="bg-zinc-300 h-[2px] grow-[1]"></div>
+        );
+      } else {
+        return (
+          <div key={i / 84956} className="bg-primary h-[2px] grow-[1]"></div>
+        );
       }
     }
+  }
 
+  function Tooltip({ text }: { text: string }) {
     return (
-      <>
-        {Divider()}
-        {i < stepsPassed ? (
-          <>
-            {i < stepsPassed && (
-              <>
-                <div
-                  key={i}
-                  className="border-2 text-white bg-primary font-bold border-primary w-10 h-10 rounded-full flex items-center justify-center"
-                >
-                  <FaCheck className="text-2xl" />
-                </div>
-              </>
-            )}
-          </>
-        ) : step === currentStep ? (
-          <div
-            key={i}
-            className="border-2 text-primary font-bold border-primary w-10 h-10 rounded-full flex items-center justify-center"
-          >
-            {i + 1}
-          </div>
-        ) : (
-          <div
-            key={i}
-            className="border-2 text-zinc-300 font-bold border-zinc-300 w-10 h-10 rounded-full flex items-center justify-center"
-          >
-            {i + 1}
-          </div>
-        )}
-      </>
+      <div className="absolute bg-tertiary p-2 rounded-md shadow-lg font-semibold">
+        <Text text={text} color="white" level="label4" />
+      </div>
+    );
+  }
+
+  return NewListingStepsArray.map((step, i) => {
+    return (
+      <Fragment key={i / 48929}>
+        {Divider(i)}
+        <div className="relative">
+          {i < stepsPassed ? (
+            <>
+              {i < stepsPassed && (
+                <>
+                  <button
+                    onClick={() => {
+                      changeStepHandler(step);
+                    }}
+                    className="border-2 cursor-pointer text-white bg-primary font-bold border-primary w-10 h-10 rounded-full flex items-center justify-center"
+                  >
+                    <FaCheck className="text-2xl" />
+                  </button>
+                </>
+              )}
+            </>
+          ) : step === currentStep ? (
+            <button className="border-2 text-primary font-bold border-primary w-10 h-10 rounded-full flex items-center justify-center">
+              {i + 1}
+            </button>
+          ) : (
+            <button className="border-2 text-zinc-300 font-bold border-zinc-300 w-10 h-10 rounded-full flex items-center justify-center">
+              {i + 1}
+            </button>
+          )}
+          <Tooltip text={step} />
+        </div>
+      </Fragment>
     );
   });
 }
@@ -72,7 +88,7 @@ export default function AdminFormWrapper({
   return (
     <div className="w-full h-full flex flex-col items-center justify-start gap-10">
       <div className="flex w-full flex-col items-center text-center gap-3">
-        <div className="w-full text-lg bg-white flex justify-between items-center rounded-medium shadow-lg p-3">
+        <div className="w-full text-lg bg-white flex justify-between items-center rounded-medium shadow-lg shadow-black/5 p-3">
           {GenerateStepNumbers()}
         </div>
         <Text

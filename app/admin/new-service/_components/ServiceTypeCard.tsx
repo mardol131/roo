@@ -16,15 +16,15 @@ export type ServiceTypeCardProps = {
   onClick: (value: ServiceType) => void;
   value: ServiceType;
   isActive: boolean;
+  delayMs?: string;
 };
 
 export function ServiceTypeCard({
   onClick,
   value,
   isActive,
+  delayMs,
 }: ServiceTypeCardProps) {
-  const { services } = useAppSelector((state) => state.newListing);
-
   const data = serviceCardsData[value];
 
   const color = isActive ? "text-white" : textColor[data.color];
@@ -32,10 +32,11 @@ export function ServiceTypeCard({
 
   return (
     <div
+      style={{ animationDelay: delayMs ? `${delayMs}ms` : "0" }}
       onClick={() => {
         onClick(value);
       }}
-      className={`${bgColor} ${color} hover:scale-102 animate cursor-pointer px-8 py-12 max-w-100 rounded-large text-center flex flex-col gap-5 items-center shadow-lg`}
+      className={`${bgColor} ${color} flex-1 animate-popup hover:scale-102 animate cursor-pointer px-8 py-12 max-w-100 rounded-large text-center flex flex-col gap-5 items-center shadow-lg`}
     >
       <div className="w-20 h-20">
         <Gastro className="" fill="currentColor" />

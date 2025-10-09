@@ -41,6 +41,16 @@
   --radius-large: var(--radius-3xl);
 
   --spacing-adminGap: 1rem;
+
+  --animate-popup: popup 200ms ease-in-out both;
+  @keyframes popup {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 }
 
 .listingGridColumns {
