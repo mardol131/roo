@@ -1,6 +1,6 @@
 "use client";
 
-import { Checkbox } from "@/app/_global/filters/Checkbox";
+import Text from "@/app/_global/atoms/Text";
 
 export type AdminFormInputType = {
   label: string;
@@ -8,7 +8,8 @@ export type AdminFormInputType = {
   name: string;
   placeholder?: string;
   value?: string | number;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
 };
 
 export function AdminFormInput({
@@ -18,11 +19,15 @@ export function AdminFormInput({
   placeholder,
   value,
   onChange,
+  disabled,
 }: AdminFormInputType) {
   return (
     <div className="p-1 px-2 flex flex-col ">
       <label className="text-primary font-semibold">{label}</label>
       <input
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
         placeholder={placeholder}
         id={name}
         name={name}
@@ -36,20 +41,27 @@ export function AdminFormInput({
 export type AdminFormCheckboxType = {
   text: string;
   name: string;
-  value?: string | number;
-  onChange?: () => void;
+  checked?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export function AdminFormCheckbox({
   text,
   name,
-  value,
+  checked,
   onChange,
 }: AdminFormCheckboxType) {
   return (
-    <label className="flex gap-5">
-      <input type="checkbox" />
-      <p>{text}</p>
+    <label className="flex gap-4 cursor-pointer">
+      <input
+        id={name}
+        className="shrink-0"
+        type="checkbox"
+        name={name}
+        checked={checked}
+        onChange={onChange}
+      />
+      <Text level="label3" text={text} color={"black"} />
     </label>
   );
 }

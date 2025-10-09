@@ -6,7 +6,6 @@ import AdminFormWrapper from "@/app/admin/_components/wrappers/AdminFormWrapper"
 import AdminWrapper from "@/app/admin/_components/wrappers/AdminWrapper";
 import React, { useEffect, useRef, useState } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import { AdminFormInput } from "../AdminFormInput";
 import AdminFormPartWrapper from "@/app/admin/_components/wrappers/AdminFormPartWrapper";
 import Text from "@/app/_global/atoms/Text";
 import { FaXmark } from "react-icons/fa6";
@@ -58,6 +57,26 @@ function SpecTagModal(props: SpecTagProps) {
     </button>
   );
 }
+
+const mockData: SpecTagType[] = [
+  { name: "Hotel", value: "hotel" },
+  { name: "Hrad", value: "hrad" },
+  { name: "Stodola", value: "stodola" },
+  { name: "Stan", value: "stan" },
+  { name: "Sad", value: "sad" },
+  { name: "Stáj", value: "staj" },
+  { name: "Stáj", value: "s" },
+  { name: "Stáj", value: "d" },
+  { name: "Stáj", value: "w" },
+  { name: "Stáj", value: "q" },
+  { name: "Stáj", value: "e" },
+  { name: "Stáj", value: "u" },
+  { name: "Stáj", value: "r" },
+  { name: "Stáj", value: "t" },
+  { name: "Stáj", value: "z" },
+  { name: "Stáj", value: "k" },
+  { name: "Stáj", value: "l" },
+];
 
 export default function ServiceSpecificationStep({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
@@ -124,29 +143,9 @@ export default function ServiceSpecificationStep({}: Props) {
     } else {
       setSearchSpec([]);
     }
-  }, [input]);
+  }, [input, specs]);
 
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const mockData: SpecTagType[] = [
-    { name: "Hotel", value: "hotel" },
-    { name: "Hrad", value: "hrad" },
-    { name: "Stodola", value: "stodola" },
-    { name: "Stan", value: "stan" },
-    { name: "Sad", value: "sad" },
-    { name: "Stáj", value: "staj" },
-    { name: "Stáj", value: "s" },
-    { name: "Stáj", value: "d" },
-    { name: "Stáj", value: "w" },
-    { name: "Stáj", value: "q" },
-    { name: "Stáj", value: "e" },
-    { name: "Stáj", value: "u" },
-    { name: "Stáj", value: "r" },
-    { name: "Stáj", value: "t" },
-    { name: "Stáj", value: "z" },
-    { name: "Stáj", value: "k" },
-    { name: "Stáj", value: "l" },
-  ];
 
   return (
     <AdminWrapper>
@@ -178,8 +177,8 @@ export default function ServiceSpecificationStep({}: Props) {
                 onChange={(e) => {
                   setInput(e.target.value);
                 }}
+                placeholder="Vložte specifikaci"
                 type="text"
-                size={input?.length || 1}
                 className="focus:outline-0 ml-5 text-lg font-semibold border-borderLight flex items-center justify-start"
               />
               {specModalActive && (

@@ -88,7 +88,9 @@ export default function AdminFormWrapper({
           color="black"
           className="mt-8 font-semibold"
         />
-        {subheading && <Text level="paragraph3" text={subheading} />}
+        {subheading && (
+          <Text color="black" level="paragraph3" text={subheading} />
+        )}
       </div>
       {children}
     </div>
