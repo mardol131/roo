@@ -23,10 +23,18 @@ import {
   useRouter,
   useSearchParams,
 } from "next/navigation";
+import { userLogin } from "@/app/_api/payload";
 
 type Props = {};
 
 export function UpperHeader() {
+  async function login() {
+    await userLogin({
+      email: "dolezalmartin131@gmail.com",
+      password: "C9jArhOwKM8cUa",
+    });
+  }
+
   return (
     <div className="w-full max-w-contentWrapper grid grid-cols-[1fr_3fr_1fr] items-center">
       <Link href={"/"}>
@@ -61,12 +69,18 @@ export function UpperHeader() {
         >
           Pro dodavatele
         </Link>
-        <Link
-          href={"/admin"}
+        <button
+          onClick={login}
           className="bg-secondary rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
         >
           <FaUser />
-        </Link>
+        </button>
+        <button
+          onClick={login}
+          className="bg-secondary rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
+        >
+          <FaUser />
+        </button>
       </div>
     </div>
   );
