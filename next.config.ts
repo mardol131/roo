@@ -18,8 +18,12 @@ const nextConfig: NextConfig = {
         destination: "/admin/new-service",
       },
       {
-        source: "/admin/registrace",
-        destination: "/admin/signup",
+        source: "/prihlasit-se",
+        destination: "/login",
+      },
+      {
+        source: "/registrovat-se",
+        destination: "/signup",
       },
     ];
   },

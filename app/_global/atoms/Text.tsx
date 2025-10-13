@@ -1,7 +1,7 @@
 import { textColor, TextColorType } from "@/app/_design/colors";
 import React from "react";
 
-type HeadingLevelType =
+export type HeadingLevelType =
   | "h1"
   | "h2"
   | "h3"
@@ -26,7 +26,7 @@ type Props = {
 };
 
 export default function Text(props: Props) {
-  const color = props.color && textColor[props.color];
+  const color = props.color ? textColor[props.color] : "";
   const classes = `${props.className} ${color}`;
 
   switch (props.level) {
