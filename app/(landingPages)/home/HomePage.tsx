@@ -2,8 +2,9 @@ type Props = {};
 
 import React from "react";
 import image from "@/app/_images/heroOne.jpg";
+import weddingImage from "@/app/_images/wedddingImage.jpg";
 
-import { HeroOne } from "../_components/heroSections/HeroOne";
+import { HeroBubbleLeft } from "../_components/heroSections/HeroBubbleLeft";
 import { CardsSection } from "../_components/cardSection/CardsSection";
 
 import { WebsiteHeader } from "../_components/header/WebsiteHeader";
@@ -12,17 +13,17 @@ import TextImageSection from "../_components/textImageSections/TextImageSection"
 import ComparisonSection from "../_components/comparisonSection/ComparisonSection";
 import FormSection from "../_components/formSection/FormSection";
 import MasonrySection from "../_components/masonrySection/MasonrySection";
-import { HeroTwo } from "../_components/heroSections/HeroTwo";
+import { HeroClean } from "../_components/heroSections/HeroClean";
+import { HeroImageBubbleRight } from "../_components/heroSections/HeroImageBubbleRight";
 
 export default function HomePage({}: Props) {
   return (
     <>
-      {" "}
       <WebsiteHeader />
       <WebsiteHeaderMobile />
-      <HeroOne
+      <HeroImageBubbleRight
         heading={{
-          headingOne: { text: "Víc objednávek.", level: "h1" },
+          headingOne: { text: "Víc objednávek.", level: "h1", color: "black" },
           headingTwo: {
             text: "Míň dohadování.",
             level: "h1",
@@ -40,13 +41,41 @@ export default function HomePage({}: Props) {
           text: "Přidej se na waitlist",
           size: "2xl",
           link: "",
-          bgColor: "primarySecondary",
+          bgColor: "white",
           rounding: "full",
-          textColor: "white",
+          textColor: "black",
+        }}
+        image={weddingImage.src}
+        bgColor="white"
+      />{" "}
+      <HeroBubbleLeft
+        heading={{
+          headingOne: { text: "Víc objednávek.", level: "h1", color: "white" },
+          headingTwo: {
+            text: "Míň dohadování.",
+            level: "h1",
+            fontWeight: "lg",
+            color: "white",
+          },
+        }}
+        text={{
+          color: "white",
+          fontWeight: "lg",
+          level: "paragraph1",
+          text: "ROO je nová platforma, kde tě najdou lidé, co plánují akce – svatby, firemky, oslavy. Vytvoříš si profil, zadáš konkrétní nabídky a můžeš začít přijímat poptávky.",
+        }}
+        button={{
+          text: "Přidej se na waitlist",
+          size: "2xl",
+          link: "",
+          bgColor: "white",
+          rounding: "full",
+          textColor: "black",
         }}
         image={image.src}
+        bgColor="primarySecondaryOpac"
       />
-      <HeroTwo
+      <HeroClean
         heading={{
           headingOne: { text: "Víc objednávek.", level: "h1" },
           headingTwo: {
@@ -78,15 +107,15 @@ export default function HomePage({}: Props) {
             bgColor: "primarySecondary",
             rounding: "full",
             textColor: "white",
-            iconLeft: "Anniversary",
+            iconLeft: "AArrowDown",
           },
           {
             text: "Přidej se na waitlist",
             size: "2xl",
             link: "",
-            bgColor: "primarySecondary",
+            bgColor: "white",
             rounding: "full",
-            textColor: "white",
+            textColor: "black",
           },
         ]}
         image={image.src}

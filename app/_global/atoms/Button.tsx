@@ -7,9 +7,10 @@ import {
   TextColorType,
 } from "@/app/_design/colors";
 import { rounding, RoundingType } from "@/app/_design/rounding";
-import { iconsList, IconsList } from "@/app/_icons/_iconsList";
+import { LucideIconsType } from "@/app/_icons/_iconsList";
 import Link from "next/link";
 import React from "react";
+import * as LucideIcons from "lucide-react";
 
 export type ButtonPropsType = {
   text?: string;
@@ -22,8 +23,8 @@ export type ButtonPropsType = {
   link?: string;
   onClick?: () => void;
   stretch?: boolean;
-  iconLeft?: IconsList;
-  iconRight?: IconsList;
+  iconLeft?: LucideIconsType;
+  iconRight?: LucideIconsType;
 };
 
 export type ButtonSize = keyof typeof buttonSizeList;
@@ -43,10 +44,12 @@ export default function Button(props: ButtonPropsType) {
   const buttonSize = props.size && buttonSizeList[props.size];
   const buttonRounding = props.rounding && rounding[props.rounding];
   const buttonTextColor = props.textColor && textColor[props.textColor];
-  const IconLeft = props.iconLeft && iconsList[props.iconLeft];
-  const IconRight = props.iconRight && iconsList[props.iconRight];
+  const IconLeft = props.iconLeft && LucideIcons[props.iconLeft];
+  const IconRight = props.iconRight && LucideIcons[props.iconRight];
 
-  const buttonClassname = `font-semibold hover:scale-105 animate cursor-pointer shadow-md flex items-center gap-2 ${
+  const buttonClassname = `font-semibold hover:scale-105 ${
+    props.bgColor === "white" && "border border-borderLight"
+  } animate cursor-pointer shadow-md flex items-center gap-2 ${
     props.stretch && "w-full"
   } ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor}`;
 
@@ -67,4 +70,12 @@ export default function Button(props: ButtonPropsType) {
   } else {
     return buttoncContent;
   }
+}
+
+export function GenerateButtons({ buttons }: { buttons: ButtonPropsType[] }) {
+  return (
+    <div className="flex gap-3">
+      {buttons && buttons.map((button, i) => <Button key={i} {...button} />)}
+    </div>
+  );
 }

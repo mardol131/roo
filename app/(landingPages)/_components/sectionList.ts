@@ -3,7 +3,7 @@ import ComparisonSection, {
   ComparisonSectionProps,
 } from "./comparisonSection/ComparisonSection";
 import FormSection, { FormSectionProps } from "./formSection/FormSection";
-import { HeroOne, HeroOneProps } from "./heroSections/HeroOne";
+import { HeroOne, HeroOneProps } from "./heroSections/HeroBubbleLeft";
 import MasonrySection, {
   MasonrySectionProps,
 } from "./masonrySection/MasonrySection";

@@ -7,7 +7,7 @@ import {
 import { MasonryBubbleText, MasonryBubbleTextProps } from "./MasonryBubbleText";
 import { OverlayType } from "@/app/_types/objects";
 import Button, { ButtonPropsType } from "@/app/_global/atoms/Button";
-import { generateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 
 export type MasonrySectionProps = {
   textsTop?: TextProps[];
@@ -21,7 +21,7 @@ export default function MasonrySection(props: MasonrySectionProps) {
   return (
     <LandingSectionWrapper overlay={props.overlay}>
       <div className="max-w-landingWrapper w-full h-full flex flex-col items-center gap-10">
-        {props.textsTop && generateTexts(props.textsTop)}
+        {props.textsTop && <GenerateTexts texts={props.textsTop} />}
         <div className="w-full md:grid grid-cols-4 auto-rows-fr flex flex-col text-center gap-5">
           {props.bubbles.map((bubble, i) => {
             if ("image" in bubble) {
@@ -33,7 +33,7 @@ export default function MasonrySection(props: MasonrySectionProps) {
             }
           })}
         </div>
-        {props.textsBottom && generateTexts(props.textsBottom)}
+        {props.textsBottom && <GenerateTexts texts={props.textsBottom} />}
         {props.button?.text && <Button {...props.button} />}
       </div>
     </LandingSectionWrapper>

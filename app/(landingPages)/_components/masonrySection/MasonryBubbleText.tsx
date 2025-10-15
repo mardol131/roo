@@ -4,7 +4,7 @@ import {
 } from "@/app/_design/colors";
 import { PayloadTextSectionType } from "@/app/_design/text";
 import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
-import { generateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 
 export type MasonryBubbleTextProps = {
   texts: TextProps[];
@@ -32,7 +32,7 @@ export function MasonryBubbleText(props: MasonryBubbleTextProps) {
         props.bgColor && colorsAndGradients[props.bgColor]
       } p-10 rounded-large shadow-lg flex flex-col gap-4 items-center justify-center`}
     >
-      {generateTexts(props.texts)}
+      <GenerateTexts texts={props.texts} />
     </div>
   );
 }

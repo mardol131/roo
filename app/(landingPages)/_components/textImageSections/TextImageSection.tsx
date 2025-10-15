@@ -13,7 +13,7 @@ import { Sides } from "@/app/_design/orientation";
 import { OverlayType } from "@/app/_types/objects";
 import { PayloadTextSectionType, TextSettingsType } from "@/app/_design/text";
 import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
-import Text, { generateTexts, TextProps } from "@/app/_global/atoms/Text";
+import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 
 export type TextImageSectionProps = {
   heading: LandingHeadingProps;
@@ -35,7 +35,7 @@ export default function TextImageSection(props: TextImageSectionProps) {
           } row-start-1 flex flex-col items-start gap-8 col-span-1`}
         >
           <LandingHeading {...props.heading} />
-          {generateTexts(props.texts)}
+          <GenerateTexts texts={props.texts} />
           {props.buttonUndertext?.text && <Button {...props.buttonUndertext} />}
         </div>
         {props.image && (

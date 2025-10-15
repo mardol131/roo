@@ -118,7 +118,7 @@ export default function Text(props: TextProps) {
   }
 }
 
-export function generateTexts(texts: TextProps[]) {
+export function GenerateTexts({ texts }: { texts: TextProps[] }) {
   return texts.map((text, i) => {
     return <Text {...text} key={i} />;
   });

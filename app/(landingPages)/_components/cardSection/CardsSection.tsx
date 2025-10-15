@@ -7,7 +7,7 @@ import { OverlayType } from "@/app/_types/objects";
 import { PayloadTextSectionType } from "@/app/_design/text";
 import { textAlign, TextAlignType } from "@/app/_design/orientation";
 import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
-import Text, { generateTexts, TextProps } from "@/app/_global/atoms/Text";
+import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 
 export type CardSectionCardProps = {
   heading: TextProps;
@@ -34,7 +34,9 @@ function Card(props: CardSectionCardProps) {
         />
       )}
       <Text {...props.heading} />
-      <div>{generateTexts(props.texts)}</div>
+      <div>
+        <GenerateTexts texts={props.texts} />
+      </div>
     </div>
   );
 
