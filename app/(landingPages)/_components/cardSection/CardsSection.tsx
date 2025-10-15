@@ -7,60 +7,46 @@ import { OverlayType } from "@/app/_types/objects";
 import { PayloadTextSectionType } from "@/app/_design/text";
 import { textAlign, TextAlignType } from "@/app/_design/orientation";
 import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
+import Text, { generateTexts, TextProps } from "@/app/_global/atoms/Text";
 
 export type CardSectionCardProps = {
-  text: PayloadTextSectionType | string;
+  heading: TextProps;
+  texts: TextProps[];
   align?: TextAlignType;
   icon?: IconsList;
   color: TextColorType;
   href?: string;
+  mobileOrientation: "col" | "row";
 };
 
 function Card(props: CardSectionCardProps) {
   const Icon = props.icon && iconsList[props.icon];
-  if (props.href) {
-    return (
-      <Link
-        className={`${
-          props.align && textAlign[props.align]
-        } border hover:scale-105 flex flex-col items-center animate shadow-lg bg-white border-borderLight rounded-medium md:p-12 p-8 gap-4`}
-        href={props.href}
-      >
-        {Icon && (
-          <Icon
-            className={` ${props.color && textColor[props.color]} w-20 h-20`}
-          />
-        )}
-        {typeof props.text === "string" ? (
-          <p>{props.text}</p>
-        ) : (
-          <PayloadRichTextGenerator text={props.text} />
-        )}
-      </Link>
-    );
-  }
-  return (
+
+  const cardContent = (
     <div
-      className={`${
-        props.align && textAlign[props.align]
-      } border flex flex-col items-center hover:scale-105 animate shadow-lg bg-white border-borderLight rounded-medium md:p-12 p-8 gap-4`}
+      className={`${props.align && textAlign[props.align]} border ${
+        props.mobileOrientation === "col" ? "flex-col" : " md:flex-col flex-row"
+      } flex  items-center hover:scale-105 animate shadow-lg bg-white border-borderLight rounded-medium md:p-14 p-8 gap-4`}
     >
       {Icon && (
         <Icon
           className={` ${props.color && textColor[props.color]} w-20 h-20`}
         />
       )}
-      {typeof props.text === "string" ? (
-        <p>{props.text}</p>
-      ) : (
-        <PayloadRichTextGenerator text={props.text} />
-      )}{" "}
+      <Text {...props.heading} />
+      <div>{generateTexts(props.texts)}</div>
     </div>
   );
+
+  if (props.href) {
+    return <Link href={props.href}>{cardContent}</Link>;
+  }
+  return cardContent;
 }
 
 export type CardsSectionProps = {
-  heading: LandingHeadingProps;
+  headingOne: TextProps;
+  headingTwo: TextProps;
   cards: CardSectionCardProps[];
   overlay?: OverlayType;
 };
@@ -70,7 +56,10 @@ export function CardsSection(props: CardsSectionProps) {
   return (
     <LandingSectionWrapper overlay={props.overlay}>
       <div className="flex flex-col gap-20 text-center items-center justify-center w-full max-w-landingWrapper">
-        <LandingHeading {...props.heading} />
+        <div>
+          <Text {...props.headingOne} />
+          <Text {...props.headingTwo} />
+        </div>
         <div className="grid md:grid-cols-[repeat(auto-fit,minmax(17rem,1fr))] gap-15 max-w-300">
           {props.cards.map((card, i) => {
             return <Card key={i} {...card} />;

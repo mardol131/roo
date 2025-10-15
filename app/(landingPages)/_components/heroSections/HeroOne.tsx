@@ -7,16 +7,17 @@ import {
 } from "@/app/_design/colors";
 import Button, { ButtonPropsType } from "@/app/_global/atoms/Button";
 import { TextSettingsType } from "@/app/_design/text";
+import Text, { TextProps } from "@/app/_global/atoms/Text";
 
-export type HeroBackgroundImageProps = {
+export type HeroOneProps = {
   heading: LandingHeadingProps;
-  text: TextSettingsType;
+  text: TextProps;
   button: ButtonPropsType;
   image: string;
   bgColor?: ColorsAndGradientsType;
 };
 
-export function HeroBackgroundImage(props: HeroBackgroundImageProps) {
+export function HeroOne(props: HeroOneProps) {
   return (
     <div
       style={{
@@ -35,13 +36,7 @@ export function HeroBackgroundImage(props: HeroBackgroundImageProps) {
       >
         <div className="md:min-h-200 min-h-140 max-w-170 flex flex-col items-center text-center w-full justify-center gap-5 p-5">
           <LandingHeading {...props.heading} />
-          <p
-            className={`${
-              props.text.color && textColor[props.text.color]
-            } md:text-2xl text-lg font-semibold`}
-          >
-            {props.text.text}
-          </p>
+          <Text {...props.text} />
           {props.button.text && <Button {...props.button} />}
         </div>
       </div>

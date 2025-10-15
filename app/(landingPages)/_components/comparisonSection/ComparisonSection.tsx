@@ -13,11 +13,11 @@ export type ComparisonSectionProps = {
   heading: LandingHeadingProps;
   for: {
     heading: string;
-    points: { text: string; id: string }[];
+    points: { text: string }[];
   };
   against: {
     heading: string;
-    points: { text: string; id: string }[];
+    points: { text: string }[];
   };
   overlay?: OverlayType;
 };
@@ -25,17 +25,17 @@ export type ComparisonSectionProps = {
 export default function ComparisonSection(props: ComparisonSectionProps) {
   return (
     <LandingSectionWrapper overlay={props.overlay}>
-      <div className="flex flex-col gap-10 text-center items-center justify-center w-full max-w-landingWrapper">
+      <div className="flex flex-col gap-20 text-center items-center justify-center w-full max-w-landingWrapper">
         <LandingHeading {...props.heading} />
         <div className="grid md:grid-cols-2 gap-4 w-full text-white">
-          <div className="bg-linear-30 from-secondary to-primary md:p-15 p-5 rounded-medium shadow-lg flex flex-col gap-5">
+          <div className="bg-linear-30 from-secondary to-primary md:p-15 p-5 rounded-medium shadow-lg justify-between flex flex-col gap-5">
             <h3 className="text-4xl font-bold">{props.against.heading}</h3>
             <div className="flex flex-col gap-4 items-center">
-              {props.against.points.map((point) => {
+              {props.against.points.map((point, i) => {
                 return (
                   <div
                     className="flex items-center justify-center gap-4"
-                    key={point.id}
+                    key={i}
                   >
                     <FaXmark className="text-3xl" />
                     <p className="text-2xl font-semibold">{point.text}</p>
@@ -44,14 +44,14 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
               })}
             </div>
           </div>
-          <div className="bg-linear-30 from-primary to-tertiary md:p-15 p-5 rounded-medium shadow-lg flex flex-col gap-5">
+          <div className="bg-linear-30 from-primary to-tertiary md:p-15 p-5 rounded-medium shadow-lg flex flex-col justify-between gap-5">
             <h3 className="text-4xl font-bold">{props.for.heading}</h3>
             <div className="flex flex-col gap-4 items-center">
-              {props.for.points.map((point) => {
+              {props.for.points.map((point, i) => {
                 return (
                   <div
                     className="flex items-center justify-center gap-4"
-                    key={point.id}
+                    key={i}
                   >
                     <ImCheckmark className="text-3xl" />
                     <p className="text-2xl font-semibold">{point.text}</p>

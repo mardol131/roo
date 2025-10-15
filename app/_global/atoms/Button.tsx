@@ -7,6 +7,7 @@ import {
   TextColorType,
 } from "@/app/_design/colors";
 import { rounding, RoundingType } from "@/app/_design/rounding";
+import { iconsList, IconsList } from "@/app/_icons/_iconsList";
 import Link from "next/link";
 import React from "react";
 
@@ -20,9 +21,12 @@ export type ButtonPropsType = {
   type?: "submit" | "button" | "reset";
   link?: string;
   onClick?: () => void;
+  stretch?: boolean;
+  iconLeft?: IconsList;
+  iconRight?: IconsList;
 };
 
-type ButtonSize = keyof typeof buttonSizeList;
+export type ButtonSize = keyof typeof buttonSizeList;
 
 const buttonSizeList = {
   "4xl": "px-7 py-5 text-4xl",
@@ -39,30 +43,28 @@ export default function Button(props: ButtonPropsType) {
   const buttonSize = props.size && buttonSizeList[props.size];
   const buttonRounding = props.rounding && rounding[props.rounding];
   const buttonTextColor = props.textColor && textColor[props.textColor];
+  const IconLeft = props.iconLeft && iconsList[props.iconLeft];
+  const IconRight = props.iconRight && iconsList[props.iconRight];
 
-  const buttonClassname =
-    "font-semibold  hover:scale-105 animate cursor-pointer shadow-md";
+  const buttonClassname = `font-semibold hover:scale-105 animate cursor-pointer shadow-md flex items-center gap-2 ${
+    props.stretch && "w-full"
+  } ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor}`;
+
+  const buttoncContent = (
+    <button
+      onClick={props.onClick}
+      type={props.type || "button"}
+      className={buttonClassname}
+    >
+      {IconLeft && <IconLeft />}
+      {props.text}
+      {IconRight && <IconRight />}
+    </button>
+  );
 
   if (props.link) {
-    return (
-      <Link
-        onClick={props.onClick}
-        href={props.link}
-        type={props.type || "button"}
-        className={`${props.className} ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor} ${buttonClassname}`}
-      >
-        {props.text}
-      </Link>
-    );
+    return <Link href={props.link}>{buttoncContent}</Link>;
   } else {
-    return (
-      <button
-        onClick={props.onClick}
-        type={props.type || "button"}
-        className={`${props.className} ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor} ${buttonClassname}`}
-      >
-        {props.text}
-      </button>
-    );
+    return buttoncContent;
   }
 }

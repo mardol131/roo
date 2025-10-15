@@ -4,10 +4,11 @@ import {
 } from "@/app/_design/colors";
 import { PayloadTextSectionType } from "@/app/_design/text";
 import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
+import { generateTexts, TextProps } from "@/app/_global/atoms/Text";
 
 export type MasonryBubbleTextProps = {
-  text: PayloadTextSectionType;
-  color?: ColorsAndGradientsType;
+  texts: TextProps[];
+  bgColor?: ColorsAndGradientsType;
   column?: {
     start: number;
     end: number;
@@ -28,10 +29,10 @@ export function MasonryBubbleText(props: MasonryBubbleTextProps) {
         gridRowEnd: props.row?.end,
       }}
       className={`${
-        props.color && colorsAndGradients[props.color]
+        props.bgColor && colorsAndGradients[props.bgColor]
       } p-10 rounded-large shadow-lg flex flex-col gap-4 items-center justify-center`}
     >
-      <PayloadRichTextGenerator text={props.text} />
+      {generateTexts(props.texts)}
     </div>
   );
 }

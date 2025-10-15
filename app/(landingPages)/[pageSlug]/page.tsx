@@ -1,13 +1,10 @@
 import React from "react";
-import { getLandingPage } from "../_api/payload";
-import {
-  sectionListString,
-  PayloadSectionsType,
-} from "../_pages/landingPages/_components/_sectionList";
-import { WebsiteHeader } from "../_pages/landingPages/_components/header/WebsiteHeader";
-import { WebsiteHeaderMobile } from "../_pages/landingPages/_components/header/WebsiteHeaderMobile";
 import { redirect } from "next/navigation";
-
+import { getLandingPage } from "@/app/_api/payload";
+import { PayloadSectionsType } from "../_components/sectionList";
+import { sectionsObject } from "../_components/sectionList";
+import { WebsiteHeader } from "../_components/header/WebsiteHeader";
+import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
 type Props = {
   params: {
     pageSlug: string;
@@ -33,17 +30,17 @@ export default async function page({ params }: Props) {
   const sectionsToRender = sections.map((section, i) => {
     switch (section.blockType) {
       case "cardssection":
-        return <sectionListString.cardssection key={i} {...section} />;
+        return <sectionsObject.cardssection key={i} {...section} />;
       case "comparisonsection":
-        return <sectionListString.comparisonsection key={i} {...section} />;
+        return <sectionsObject.comparisonsection key={i} {...section} />;
       case "formsection":
-        return <sectionListString.formsection key={i} {...section} />;
-      case "herobackgroundimage":
-        return <sectionListString.herobackgroundimage key={i} {...section} />;
+        return <sectionsObject.formsection key={i} {...section} />;
+      case "heroOne":
+        return <sectionsObject.heroOne key={i} {...section} />;
       case "textimagesection":
-        return <sectionListString.textimagesection key={i} {...section} />;
+        return <sectionsObject.textimagesection key={i} {...section} />;
       case "masonrysection":
-        return <sectionListString.masonrysection key={i} {...section} />;
+        return <sectionsObject.masonrysection key={i} {...section} />;
       default:
         return null; // případný fallback
     }

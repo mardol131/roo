@@ -1,6 +1,6 @@
 import { ColorsAndGradientsType } from "../_design/colors";
 
 export type OverlayType = {
-  overlayColor: ColorsAndGradientsType;
+  overlayColor?: ColorsAndGradientsType;
   image?: string;
 };

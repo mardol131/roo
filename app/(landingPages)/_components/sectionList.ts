@@ -3,10 +3,7 @@ import ComparisonSection, {
   ComparisonSectionProps,
 } from "./comparisonSection/ComparisonSection";
 import FormSection, { FormSectionProps } from "./formSection/FormSection";
-import {
-  HeroBackgroundImage,
-  HeroBackgroundImageProps,
-} from "./heroSections/HeroBackgroundImage";
+import { HeroOne, HeroOneProps } from "./heroSections/HeroOne";
 import MasonrySection, {
   MasonrySectionProps,
 } from "./masonrySection/MasonrySection";
@@ -14,11 +11,11 @@ import TextImageSection, {
   TextImageSectionProps,
 } from "./textImageSections/TextImageSection";
 
-export const sectionList = {
+export const sectionsList = {
   CardsSection,
   ComparisonSection,
   FormSection,
-  HeroBackgroundImage,
+  HeroOne,
   TextImageSection,
   MasonrySection,
 };
@@ -27,23 +24,23 @@ type SectionMap = {
   cardssection: CardsSectionProps;
   comparisonsection: ComparisonSectionProps;
   formsection: FormSectionProps;
-  herobackgroundimage: HeroBackgroundImageProps;
+  heroOne: HeroOneProps;
   textimagesection: TextImageSectionProps;
   masonrysection: MasonrySectionProps;
 };
 
-export const sectionListString: {
+export const sectionsObject: {
   [K in keyof SectionMap]: React.FC<SectionMap[K]>;
 } = {
   cardssection: CardsSection,
   comparisonsection: ComparisonSection,
   formsection: FormSection,
-  herobackgroundimage: HeroBackgroundImage,
+  heroOne: HeroOne,
   textimagesection: TextImageSection,
   masonrysection: MasonrySection,
 };
 
-export type SectionListType = keyof typeof sectionListString;
+export type SectionListType = keyof typeof sectionsObject;
 
 export type PayloadSectionsType = {
   [K in keyof SectionMap]: SectionMap[K] & { blockType: K };

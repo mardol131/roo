@@ -1,15 +1,13 @@
 import React from "react";
 import Heading from "../atoms/Text";
-import ButtonWebhook from "../buttons/ButtonWebhook";
-import { ButtonDesign } from "../atoms/ButtonDesign";
-import { colorsAndGradients } from "@/app/_design/colors";
+import Button, { ButtonPropsType } from "../atoms/Button";
 
 type Props = {
   heading: string;
   text: string;
   buttonText: string;
   webhookUrl: string;
-  buttonDesign: ButtonDesign;
+  button: ButtonPropsType;
 };
 
 export default function EmailCta(props: Props) {
@@ -26,12 +24,7 @@ export default function EmailCta(props: Props) {
             placeholder="jan.novak@gmail.com"
           />
         </div>
-        <ButtonWebhook
-          size="big"
-          text={props.buttonText}
-          design={props.buttonDesign}
-          webhookUrl={props.webhookUrl}
-        />
+        <Button {...props.button} />
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 import React from "react";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 
-import Button from "@/app/_global/atoms/Button";
+import Button, { ButtonPropsType } from "@/app/_global/atoms/Button";
 import { ColorsAndGradientsType } from "@/app/_design/colors";
 import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
 import { OverlayType } from "@/app/_types/objects";
+import Text, { TextProps } from "@/app/_global/atoms/Text";
 
 type FormTextInputProps = {
   blockType: "formtextinput";
@@ -66,7 +67,7 @@ function FormSelectInput(props: FormSelectInputProps) {
 
 type FormCheckboxInputProps = {
   blockType: "formcheckboxinput";
-  label: string;
+  label: TextProps;
   value: string;
   spanTwo?: "true" | "false";
 };
@@ -76,11 +77,11 @@ function FormCheckboxInput(props: FormCheckboxInputProps) {
     <div
       className={`${
         props.spanTwo === "true" && "col-span-2"
-      }  p-3 flex gap-10 items-center`}
+      } cursor-pointer flex gap-10 items-center`}
     >
       <input type="checkbox" id={props.value} name={props.value} />
       <label htmlFor={props.value} className="text-textMedium font-semibold">
-        {props.label}
+        <Text {...props.label} />
       </label>
     </div>
   );
@@ -88,12 +89,9 @@ function FormCheckboxInput(props: FormCheckboxInputProps) {
 
 export type FormSectionProps = {
   heading: LandingHeadingProps;
-  text: string;
-  image?: string;
+  text: TextProps;
   overlay?: OverlayType;
-  button: {
-    text: string;
-  };
+  button: ButtonPropsType;
   webhook: string;
   fields: (
     | FormTextInputProps
@@ -103,7 +101,6 @@ export type FormSectionProps = {
 };
 
 export default function FormSection(props: FormSectionProps) {
-  console.log(props);
   const fields = props.fields.map((field, i) => {
     switch (field.blockType) {
       case "formtextinput":
@@ -124,50 +121,11 @@ export default function FormSection(props: FormSectionProps) {
         className="max-w-170 flex flex-col w-full gap-10 bg-white md:p-15 p-5 py-10 rounded-large shadow-lg"
       >
         <LandingHeading {...props.heading} />
-        <div className="flex flex-col text-center gap-5">
-          <p className="text-lg">{props.text}</p>
-        </div>
-        <div className="grid grid-cols-2 gap-5">
-          {fields}
-          {/* <FormTextInput label="Jméno" placeholder="Jméno" />
-          <FormTextInput label="Jméno" placeholder="Jméno" />
-          <FormTextInput label="Jméno" placeholder="Jméno" spanTwo />
-
-          <FormTextInput label="Jméno" placeholder="Jméno" spanTwo />
-          <FormTextInput label="Jméno" placeholder="Jméno" />
-          <FormTextInput label="Jméno" placeholder="Jméno" />
-          <FormSelectInput
-            label="Vyberte kategorii"
-            placeholder="-- vaše kategorie --"
-            options={[{ text: "Restaurace", value: "restaurant" }]}
-            spanTwo
-          />
-          <FormSelectInput
-            label="Vyberte kategorii"
-            placeholder="-- vaše kategorie --"
-            options={[{ text: "Restaurace", value: "restaurant" }]}
-            spanTwo
-          />
-          <FormCheckboxInput
-            label="Souhlasím se zpracování osobních údajů společností The Roosters s.r.o."
-            value="GDPR"
-            spanTwo
-          />
-          <FormCheckboxInput
-            label="Souhlasím se zpracování osobních údajů společností The Roosters s.r.o."
-            value="marketing"
-            spanTwo
-          /> */}
-        </div>
+        <Text {...props.text} />
+        <div className="grid grid-cols-2 gap-5">{fields}</div>
         <div className="flex justify-center">
           {" "}
-          <Button
-            className="w-70"
-            text={props.button.text}
-            size="xl"
-            rounding="full"
-            bgColor="primarySecondary"
-          />
+          <Button {...props.button} />
         </div>
       </form>
     </LandingSectionWrapper>
