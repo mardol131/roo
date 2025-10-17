@@ -30,10 +30,10 @@ export type ButtonPropsType = {
 export type ButtonSize = keyof typeof buttonSizeList;
 
 const buttonSizeList = {
-  "4xl": "px-7 py-5 text-4xl",
-  "3xl": "px-5 py-3 text-3xl",
-  "2xl": "px-5 py-3 text-2xl",
-  xl: "px-5 py-3 text-xl",
+  "4xl": "px-7 py-5 md:text-4xl text-2xl",
+  "3xl": "px-5 py-3 md:text-3xl text-1xl",
+  "2xl": "px-5 py-3 md:text-2xl text-xl",
+  xl: "px-5 py-3 md:text-xl text-lg",
   lg: "px-4 py-2 text-lg",
   md: "px-3 py-1 text-base",
   sm: "px-2 py-1 text-sm",
@@ -72,9 +72,15 @@ export default function Button(props: ButtonPropsType) {
   }
 }
 
-export function GenerateButtons({ buttons }: { buttons: ButtonPropsType[] }) {
+export function GenerateButtons({
+  buttons,
+  className,
+}: {
+  buttons: ButtonPropsType[];
+  className?: string;
+}) {
   return (
-    <div className="flex gap-3">
+    <div className={`flex gap-3 flex-wrap ${className}`}>
       {buttons && buttons.map((button, i) => <Button key={i} {...button} />)}
     </div>
   );

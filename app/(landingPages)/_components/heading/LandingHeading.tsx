@@ -13,7 +13,7 @@ export type LandingHeadingProps = {
 export default function LandingHeading(props: LandingHeadingProps) {
   return (
     <div className="w-full">
-      <Text {...props.headingOne} />
+      <Text {...props.headingOne} className="mb-3" />
       {props.headingTwo && <Text {...props.headingTwo} />}
     </div>
   );

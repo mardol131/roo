@@ -15,6 +15,7 @@ import FormSection from "../_components/formSection/FormSection";
 import MasonrySection from "../_components/masonrySection/MasonrySection";
 import { HeroClean } from "../_components/heroSections/HeroClean";
 import { HeroImageBubbleRight } from "../_components/heroSections/HeroImageBubbleRight";
+import { BubbleImageSection } from "../_components/bubbleImageSection/BubbleImageSection";
 
 export default function HomePage({}: Props) {
   return (
@@ -47,7 +48,7 @@ export default function HomePage({}: Props) {
         }}
         image={weddingImage.src}
         bgColor="white"
-      />{" "}
+      />
       <HeroBubbleLeft
         heading={{
           headingOne: { text: "Víc objednávek.", level: "h1", color: "white" },
@@ -76,6 +77,7 @@ export default function HomePage({}: Props) {
         bgColor="primarySecondaryOpac"
       />
       <HeroClean
+        overlay={{ image: image.src, overlayColor: "whiteOpac" }}
         heading={{
           headingOne: { text: "Víc objednávek.", level: "h1" },
           headingTwo: {
@@ -118,7 +120,6 @@ export default function HomePage({}: Props) {
             textColor: "black",
           },
         ]}
-        image={image.src}
       />
       <CardsSection
         headingOne={{
@@ -181,6 +182,84 @@ export default function HomePage({}: Props) {
             color: "tertiary",
             href: "/",
             mobileOrientation: "col",
+          },
+        ]}
+      />
+      <BubbleImageSection
+        textPosition="right"
+        heading={{
+          headingOne: { text: "Víc objednávek.", level: "h1", color: "white" },
+          headingTwo: {
+            text: "Míň dohadování.",
+            level: "h1",
+            fontWeight: "lg",
+            color: "white",
+          },
+        }}
+        bgColor="primaryTertiary"
+        image={image.src}
+        texts={[
+          {
+            color: "white",
+            fontWeight: "lg",
+            level: "paragraph1",
+            text: "ROO je nová platforma, kde tě najdou lidé, co plánují akce – svatby, firemky, oslavy. Vytvoříš si profil, zadáš konkrétní nabídky a můžeš začít přijímat poptávky.",
+          },
+          {
+            color: "white",
+            fontWeight: "lg",
+            level: "paragraph1",
+            text: "Vytvoříš si profil, zadáš konkrétní nabídky a můžeš začít přijímat poptávky.",
+          },
+        ]}
+        buttons={[
+          {
+            text: "Přidej se na waitlist",
+            size: "2xl",
+            link: "",
+            bgColor: "primarySecondary",
+            rounding: "full",
+            textColor: "white",
+            iconLeft: "AArrowDown",
+          },
+        ]}
+      />
+      <BubbleImageSection
+        textPosition="left"
+        heading={{
+          headingOne: { text: "Víc objednávek.", level: "h1", color: "white" },
+          headingTwo: {
+            text: "Míň dohadování.",
+            level: "h1",
+            fontWeight: "lg",
+            color: "white",
+          },
+        }}
+        bgColor="primaryTertiary"
+        image={image.src}
+        texts={[
+          {
+            color: "white",
+            fontWeight: "lg",
+            level: "paragraph1",
+            text: "ROO je nová platforma, kde tě najdou lidé, co plánují akce – svatby, firemky, oslavy. Vytvoříš si profil, zadáš konkrétní nabídky a můžeš začít přijímat poptávky.",
+          },
+          {
+            color: "white",
+            fontWeight: "lg",
+            level: "paragraph1",
+            text: "Vytvoříš si profil, zadáš konkrétní nabídky a můžeš začít přijímat poptávky.",
+          },
+        ]}
+        buttons={[
+          {
+            text: "Přidej se na waitlist",
+            size: "2xl",
+            link: "",
+            bgColor: "primarySecondary",
+            rounding: "full",
+            textColor: "white",
+            iconLeft: "AArrowDown",
           },
         ]}
       />
@@ -408,7 +487,7 @@ export default function HomePage({}: Props) {
           bgColor: "white",
           textColor: "black",
           rounding: "full",
-          size: "xl",
+          size: "2xl",
           stretch: true,
         }}
       />
@@ -504,14 +583,14 @@ export default function HomePage({}: Props) {
             blockType: "formcheckboxinput",
             label: {
               text: "Souhlasím se zpracování osobních údajů společností The Roosters s.r.o.",
-              level: "label4",
+              level: "label7",
             },
             value: "gdpr",
             spanTwo: "true",
           },
           {
             blockType: "formcheckboxinput",
-            label: { text: "Chci dostávat newsletter", level: "label4" },
+            label: { text: "Chci dostávat newsletter", level: "label7" },
             value: "marketing",
             spanTwo: "true",
           },

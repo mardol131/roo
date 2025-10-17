@@ -22,9 +22,10 @@ export function HeroImageBubbleRight(props: HeroOneProps) {
   const bgColor = props.bgColor && colorsAndGradients[props.bgColor];
 
   return (
-    <div className={`${bgColor} relative grid grid-cols-2 overflow-hidden`}>
+    <div
+      className={`${bgColor} lg:min-h-0 min-h-screen flex flex-col justify-center relative lg:grid grid-cols-2 overflow-hidden`}
+    >
       <div className={` w-full flex items-center justify-center`}>
-        {" "}
         <div className="md:min-h-200 min-h-140 max-w-170 flex flex-col items-center text-center w-full justify-center gap-5 p-5">
           <LandingHeading {...props.heading} />
           <Text {...props.text} />
@@ -36,7 +37,7 @@ export function HeroImageBubbleRight(props: HeroOneProps) {
         width={2000}
         height={2000}
         alt="hero"
-        className="absolute -right-20 max-w-250 top-1/2 -translate-y-1/2 h-[130%] border-8 border-primary object-cover rounded-l-full"
+        className="absolute lg:block hidden  -right-20 2xl:max-w-250 xl:max-w-200 lg:max-w-150  top-1/2 -translate-y-1/2 h-[130%] border-8 border-primary object-cover rounded-l-full"
       />
 
       <div className="absolute right-0 bottom-0 md:-mb-20 md:-mr-15 -mb-5 -mr-5 md:w-80 md:h-80 w-30 h-30 shadow-[0px_0px_15px_4px] shadow-black/50 rounded-full bg-linear-60 from-primary to-tertiary"></div>

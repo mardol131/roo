@@ -62,7 +62,7 @@ export function CardsSection(props: CardsSectionProps) {
           <Text {...props.headingOne} />
           <Text {...props.headingTwo} />
         </div>
-        <div className="grid md:grid-cols-[repeat(auto-fit,minmax(17rem,1fr))] gap-15 max-w-300">
+        <div className="grid lg:grid-cols-[repeat(auto-fit,minmax(17rem,1fr))] gap-10 max-w-300">
           {props.cards.map((card, i) => {
             return <Card key={i} {...card} />;
           })}

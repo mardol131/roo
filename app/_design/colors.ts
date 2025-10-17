@@ -26,6 +26,7 @@ export const colorsAndGradients = {
   secondary: "bg-secondary",
   primary: "bg-primary",
   tertiary: "bg-tertiary",
+  whiteOpac: "bg-white/50",
   primarySecondaryOpac: "bg-linear-30 from-primary/70 to-secondary/70",
   primaryTertiaryOpac: "bg-linear-30 from-primary/70 to-tertiary/70",
   secondaryTertiaryOpac: "bg-linear-30 from-secondary/70 to-tertiary/70",

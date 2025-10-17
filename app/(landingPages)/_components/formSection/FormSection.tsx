@@ -122,9 +122,8 @@ export default function FormSection(props: FormSectionProps) {
       >
         <LandingHeading {...props.heading} />
         <Text {...props.text} />
-        <div className="grid grid-cols-2 gap-5">{fields}</div>
+        <div className="md:grid flex flex-col grid-cols-2 gap-5">{fields}</div>
         <div className="flex justify-center">
-          {" "}
           <Button {...props.button} />
         </div>
       </form>

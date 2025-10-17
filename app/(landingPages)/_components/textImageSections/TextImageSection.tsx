@@ -52,7 +52,7 @@ export default function TextImageSection(props: TextImageSectionProps) {
           />
         )}
       </div>
-      <div className="mt-15 w-full max-w-landingWrapper">
+      <div className="mt-15 text-center">
         {props.buttonUnderSection?.text && (
           <Button {...props.buttonUnderSection} />
         )}

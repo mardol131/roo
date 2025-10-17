@@ -27,7 +27,7 @@ export function HeroBubbleLeft(props: HeroOneProps) {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
-      className="relative md:grid grid-cols-2 overflow-hidden"
+      className="relative md:grid grid-cols-[3fr_2fr] overflow-hidden"
     >
       <div
         className={`${bgColor} relative shadow-2xl w-full md:my-10 md:rounded-r-[300px] flex items-center justify-center `}
