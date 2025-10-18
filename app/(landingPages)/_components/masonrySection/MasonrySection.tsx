@@ -6,7 +6,7 @@ import {
 } from "./MasonryBubbleImage";
 import { MasonryBubbleText, MasonryBubbleTextProps } from "./MasonryBubbleText";
 import { OverlayType } from "@/app/_types/objects";
-import Button, { ButtonPropsType } from "@/app/_global/atoms/Button";
+import Button, { ButtonProps } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 
 export type MasonrySectionProps = {
@@ -14,7 +14,7 @@ export type MasonrySectionProps = {
   textsBottom?: TextProps[];
   bubbles: (MasonryBubbleImageProps | MasonryBubbleTextProps)[];
   overlay: OverlayType;
-  button?: ButtonPropsType;
+  button?: ButtonProps;
 };
 
 export default function MasonrySection(props: MasonrySectionProps) {

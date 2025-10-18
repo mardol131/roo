@@ -1,7 +1,7 @@
 import React from "react";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 import Image from "next/image";
-import Button, { ButtonPropsType } from "@/app/_global/atoms/Button";
+import Button, { ButtonProps } from "@/app/_global/atoms/Button";
 import Link from "next/link";
 import {
   ColorsAndGradientsType,
@@ -21,8 +21,8 @@ export type TextImageSectionProps = {
   overlay?: OverlayType;
   image?: string;
   imageSide: Sides;
-  buttonUndertext?: ButtonPropsType;
-  buttonUnderSection?: ButtonPropsType;
+  buttonUndertext?: ButtonProps;
+  buttonUnderSection?: ButtonProps;
 };
 
 export default function TextImageSection(props: TextImageSectionProps) {

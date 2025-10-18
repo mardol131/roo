@@ -3,7 +3,8 @@ import ComparisonSection, {
   ComparisonSectionProps,
 } from "./comparisonSection/ComparisonSection";
 import FormSection, { FormSectionProps } from "./formSection/FormSection";
-import { HeroOne, HeroOneProps } from "./heroSections/HeroBubbleLeft";
+import { HeroBubbleLeft, HeroOneProps } from "./heroSections/HeroBubbleLeft";
+import { HeroClean } from "./heroSections/HeroClean";
 import MasonrySection, {
   MasonrySectionProps,
 } from "./masonrySection/MasonrySection";
@@ -15,7 +16,7 @@ export const sectionsList = {
   CardsSection,
   ComparisonSection,
   FormSection,
-  HeroOne,
+  HeroBubbleLeft,
   TextImageSection,
   MasonrySection,
 };
@@ -24,7 +25,7 @@ type SectionMap = {
   cardssection: CardsSectionProps;
   comparisonsection: ComparisonSectionProps;
   formsection: FormSectionProps;
-  heroOne: HeroOneProps;
+  HeroBubbleLeft: HeroOneProps;
   textimagesection: TextImageSectionProps;
   masonrysection: MasonrySectionProps;
 };
@@ -35,7 +36,7 @@ export const sectionsObject: {
   cardssection: CardsSection,
   comparisonsection: ComparisonSection,
   formsection: FormSection,
-  heroOne: HeroOne,
+  HeroBubbleLeft: HeroBubbleLeft,
   textimagesection: TextImageSection,
   masonrysection: MasonrySection,
 };

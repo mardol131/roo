@@ -5,7 +5,7 @@ import {
   ColorsAndGradientsType,
   textColor,
 } from "@/app/_design/colors";
-import Button, { ButtonPropsType } from "@/app/_global/atoms/Button";
+import Button, { ButtonProps } from "@/app/_global/atoms/Button";
 import { TextSettingsType } from "@/app/_design/text";
 import Text, { TextProps } from "@/app/_global/atoms/Text";
 import Image from "next/image";
@@ -13,7 +13,7 @@ import Image from "next/image";
 export type HeroOneProps = {
   heading: LandingHeadingProps;
   text: TextProps;
-  button: ButtonPropsType;
+  button: ButtonProps;
   image: string;
   bgColor?: ColorsAndGradientsType;
 };

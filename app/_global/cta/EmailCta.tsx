@@ -1,13 +1,13 @@
 import React from "react";
 import Heading from "../atoms/Text";
-import Button, { ButtonPropsType } from "../atoms/Button";
+import Button, { ButtonProps } from "../atoms/Button";
 
 type Props = {
   heading: string;
   text: string;
   buttonText: string;
   webhookUrl: string;
-  button: ButtonPropsType;
+  button: ButtonProps;
 };
 
 export default function EmailCta(props: Props) {

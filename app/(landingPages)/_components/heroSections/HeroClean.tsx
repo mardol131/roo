@@ -1,6 +1,6 @@
 import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
 import { ColorsAndGradientsType } from "@/app/_design/colors";
-import { ButtonPropsType, GenerateButtons } from "@/app/_global/atoms/Button";
+import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import { OverlayType } from "@/app/_types/objects";
 export type HeroTwoProps = {
   heading: LandingHeadingProps;
   texts: TextProps[];
-  buttons?: ButtonPropsType[];
+  buttons?: ButtonProps[];
   image?: string;
   bgColor?: ColorsAndGradientsType;
   overlay?: OverlayType;

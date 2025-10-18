@@ -61,7 +61,7 @@ export type TextProps = {
 };
 
 export default function Text(props: TextProps) {
-  const color = props.color && textColor[props.color];
+  const color = props.color ? textColor[props.color] : textColor.black;
   //   const align = props.textAlign && textAlign[props.textAlign];
   const weight = props.fontWeight && fontWeight[props.fontWeight];
   const font = props.font && fontType[props.font];
@@ -96,13 +96,13 @@ export default function Text(props: TextProps) {
     case "label4":
       return <p className={`${classes} md:text-3xl text-2xl`}>{props.text}</p>;
     case "label5":
-      return <p className={`${classes}text-xl`}>{props.text}</p>;
+      return <p className={`${classes} md:text-2xl text-xl`}>{props.text}</p>;
     case "label6":
-      return <p className={`${classes}text-lg`}>{props.text}</p>;
+      return <p className={`${classes} text-xl`}>{props.text}</p>;
     case "label7":
-      return <p className={`${classes}text-base`}>{props.text}</p>;
+      return <p className={`${classes} text-base`}>{props.text}</p>;
     case "label8":
-      return <p className={`${classes}text-sm`}>{props.text}</p>;
+      return <p className={`${classes} text-sm`}>{props.text}</p>;
     case "paragraph1":
       return <p className={`${classes} md:text-2xl text-xl`}>{props.text}</p>;
     case "paragraph2":

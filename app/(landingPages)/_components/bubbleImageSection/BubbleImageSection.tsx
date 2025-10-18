@@ -6,7 +6,7 @@ import {
   textColor,
 } from "@/app/_design/colors";
 import Button, {
-  ButtonPropsType,
+  ButtonProps,
   GenerateButtons,
 } from "@/app/_global/atoms/Button";
 import { TextSettingsType } from "@/app/_design/text";
@@ -18,7 +18,7 @@ import { Sides } from "@/app/_design/orientation";
 export type HeroOneProps = {
   heading: LandingHeadingProps;
   texts: TextProps[];
-  buttons: ButtonPropsType[];
+  buttons: ButtonProps[];
   image: string;
   bgColor?: ColorsAndGradientsType;
   textPosition?: Sides;

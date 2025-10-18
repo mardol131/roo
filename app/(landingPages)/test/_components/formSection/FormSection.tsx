@@ -1,11 +1,13 @@
 import React from "react";
-import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 
 import Button, { ButtonProps } from "@/app/_global/atoms/Button";
-import { ColorsAndGradientsType } from "@/app/_design/colors";
-import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
+import {
+  colorsAndGradients,
+  ColorsAndGradientsType,
+} from "@/app/_design/colors";
 import { OverlayType } from "@/app/_types/objects";
-import Text, { TextProps } from "@/app/_global/atoms/Text";
+import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
 type FormTextInputProps = {
   blockType: "formtextinput";
@@ -88,8 +90,7 @@ function FormCheckboxInput(props: FormCheckboxInputProps) {
 }
 
 export type FormSectionProps = {
-  heading: LandingHeadingProps;
-  text: TextProps;
+  texts: TextProps[];
   overlay?: OverlayType;
   button: ButtonProps;
   webhook: string;
@@ -114,19 +115,38 @@ export default function FormSection(props: FormSectionProps) {
     }
   });
 
+  const overlay =
+    props.overlay?.overlayColor &&
+    colorsAndGradients[props.overlay.overlayColor];
+
   return (
-    <LandingSectionWrapper overlay={props.overlay}>
-      <form
-        action={props.webhook}
-        className="max-w-170 flex flex-col w-full gap-10 bg-white md:p-15 p-5 py-10 rounded-large shadow-lg"
+    <LandingSectionWrapper>
+      <div
+        style={{
+          backgroundImage: `url(${props.overlay?.image})`,
+          backgroundSize: "cover",
+        }}
+        className="w-full overflow-hidden rounded-3xl shadow-xl"
       >
-        <LandingHeading {...props.heading} />
-        <Text {...props.text} />
-        <div className="md:grid flex flex-col grid-cols-2 gap-5">{fields}</div>
-        <div className="flex justify-center">
-          <Button {...props.button} />
-        </div>
-      </form>
+        <div
+          className={` ${overlay} relative z-0 w-full h-full flex items-center justify-center overflow-hidden p-10 py-20`}
+        >
+          <form
+            action={props.webhook}
+            className="max-w-170 flex flex-col items-center w-full gap-10 bg-white md:p-15 p-5 py-10 rounded-large shadow-lg"
+          >
+            <div className="flex flex-col gap-5 text-center">
+              {<GenerateTexts texts={props.texts} />}
+            </div>
+            <div className="md:grid flex flex-col grid-cols-2 gap-5">
+              {fields}
+            </div>
+            <div className="flex justify-center">
+              <Button {...props.button} />
+            </div>
+          </form>
+        </div>{" "}
+      </div>
     </LandingSectionWrapper>
   );
 }

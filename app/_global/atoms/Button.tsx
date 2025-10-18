@@ -12,8 +12,8 @@ import Link from "next/link";
 import React from "react";
 import * as LucideIcons from "lucide-react";
 
-export type ButtonPropsType = {
-  text?: string;
+export type ButtonProps = {
+  text: string;
   textColor?: TextColorType;
   bgColor?: ColorsAndGradientsType;
   size?: ButtonSize;
@@ -39,7 +39,7 @@ const buttonSizeList = {
   sm: "px-2 py-1 text-sm",
 };
 
-export default function Button(props: ButtonPropsType) {
+export default function Button(props: ButtonProps) {
   const buttonBgColor = props.bgColor && colorsAndGradients[props.bgColor];
   const buttonSize = props.size && buttonSizeList[props.size];
   const buttonRounding = props.rounding && rounding[props.rounding];
@@ -76,7 +76,7 @@ export function GenerateButtons({
   buttons,
   className,
 }: {
-  buttons: ButtonPropsType[];
+  buttons: ButtonProps[];
   className?: string;
 }) {
   return (
