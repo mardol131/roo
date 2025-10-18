@@ -4,11 +4,14 @@ import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
 import React from "react";
+import { FormTextInputProps } from "../formSection/FormSection";
+import { GenerateWidgets, WidgetType } from "../widgets/widgets";
 
 type Props = {
   texts: TextProps[];
   overlay: OverlayType;
   buttons?: ButtonProps[];
+  widgets?: WidgetType[];
 };
 
 export default function BannerSection(props: Props) {
@@ -29,6 +32,7 @@ export default function BannerSection(props: Props) {
           className={` ${bgColor} relative z-0 h-full w-full gap-5 p-15 flex flex-col items-start justify-center overflow-hidden`}
         >
           <GenerateTexts texts={props.texts} />
+          {props.widgets && <GenerateWidgets widgets={props.widgets} />}
           {props.buttons && <GenerateButtons buttons={props.buttons} />}
         </div>
       </div>

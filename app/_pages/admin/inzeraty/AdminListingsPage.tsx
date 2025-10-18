@@ -1,15 +1,11 @@
-import { AdminListingCard } from "@/app/admin/_components/AdminListingCard";
 import React from "react";
-import { FaChevronDown } from "react-icons/fa6";
-import Image from "next/image";
-import image from "@/app/_images/test.jpg";
-import Link from "next/link";
-import ButtonDesign from "@/app/_global/atoms/ButtonDesign";
+
 import { FaListAlt } from "react-icons/fa";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { PiUserList } from "react-icons/pi";
 import { LuPartyPopper } from "react-icons/lu";
 import Button from "@/app/_global/atoms/Button";
+import { AdminListingCard } from "@/app/(admin)/admin/_components/AdminListingCard";
 type Props = {};
 
 export default function AdminListingsPage({}: Props) {

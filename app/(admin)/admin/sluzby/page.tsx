@@ -1,5 +1,5 @@
-import { RooService } from "@/app/admin/sluzby/_components/RooService";
 import React from "react";
+import { RooService } from "./_components/RooService";
 
 type Props = {};
 

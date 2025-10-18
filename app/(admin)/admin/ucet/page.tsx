@@ -1,5 +1,5 @@
-import AccountPage from "@/app/admin/ucet/_components/AccountPage";
 import React from "react";
+import AccountPage from "./_components/AccountPage";
 
 type Props = {};
 

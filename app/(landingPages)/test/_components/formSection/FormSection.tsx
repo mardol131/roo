@@ -9,14 +9,14 @@ import { OverlayType } from "@/app/_types/objects";
 import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
-type FormTextInputProps = {
+export type FormTextInputProps = {
   blockType: "formtextinput";
   label: string;
   placeholder: string;
   spanTwo?: "true" | "false";
 };
 
-function FormTextInput(props: FormTextInputProps) {
+export function FormTextInput(props: FormTextInputProps) {
   return (
     <div
       className={`${
@@ -24,7 +24,7 @@ function FormTextInput(props: FormTextInputProps) {
       } border-2 border-borderLight p-3 flex flex-col rounded-medium`}
     >
       <label className="text-primary font-semibold">{props.label}</label>
-      <input type="" placeholder={props.placeholder}></input>
+      <input type="text" placeholder={props.placeholder}></input>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import Image from "next/image";
 import image from "@/app/_images/test.jpg";
 import { FaRegImage } from "react-icons/fa6";
-import AdminCheckbox from "@/app/admin/_components/inputs/AdminCheckbox";
+import AdminCheckbox from "@/app/(admin)/admin/_components/inputs/AdminCheckbox";
 
 type Props = {};
 

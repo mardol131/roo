@@ -51,12 +51,10 @@ export default function page({}: Props) {
           <AdminFormCheckbox
             text="Souhlasím s obchodními podmínkami a Zpracováním osobních údajů"
             name="terms"
-            level="label4"
           />
           <AdminFormCheckbox
             text="Chci dostávat personalizovaná marketingová sdělení "
             name="marketing"
-            level="label4"
           />
         </div>
         <Button

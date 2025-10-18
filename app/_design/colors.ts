@@ -24,8 +24,11 @@ export type ColorsAndGradientsType = keyof typeof colorsAndGradients;
 export const colorsAndGradients = {
   white: "bg-white",
   secondary: "bg-secondary",
+  secondaryOpac: "bg-secondary/50",
   primary: "bg-primary",
+  primaryOpac: "bg-primary/50",
   tertiary: "bg-tertiary",
+  tertiaryOpac: "bg-tertiary/50",
   whiteOpac: "bg-white/50",
   primarySecondaryOpac: "bg-linear-30 from-primary/70 to-secondary/70",
   primaryTertiaryOpac: "bg-linear-30 from-primary/70 to-tertiary/70",

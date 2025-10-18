@@ -10,6 +10,7 @@ import FaqSection from "./_components/faqSection/FaqSection";
 import FormSection from "./_components/formSection/FormSection";
 import ImageTextVerticalSection from "./_components/imageTextVerticalSection/ImageTextVerticalSection";
 import ComparisonSection from "./_components/comparisonSection/ComparisonSection";
+import TextSection from "./_components/textSection/TextSection";
 
 type Props = {};
 
@@ -143,6 +144,32 @@ export default function page({}: Props) {
           },
         ]}
       />
+      <BannerSection
+        overlay={{ overlayColor: "primarySecondaryOpac", image: image.src }}
+        texts={[
+          {
+            text: "Víc objednávek.",
+            level: "h2",
+            color: "white",
+            fontWeight: "xl",
+          },
+          {
+            text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde veritatis aperiam sint earum, eos voluptate.",
+            level: "paragraph2",
+            color: "white",
+            fontWeight: "lg",
+          },
+        ]}
+        buttons={[
+          {
+            text: "Tak nečekej a pojď se k nám přidat",
+            size: "xl",
+            bgColor: "white",
+            textColor: "black",
+            rounding: "full",
+          },
+        ]}
+      />
       <ImageTextSection
         textSide="left"
         imagePart={{
@@ -226,31 +253,62 @@ export default function page({}: Props) {
           },
         ]}
       />
-      <BannerSection
-        overlay={{ overlayColor: "primarySecondaryOpac", image: image.src }}
+      <ComparisonSection
         texts={[
           {
-            text: "Víc objednávek.",
-            level: "h2",
-            color: "white",
+            text: "Chceš to srovnat?",
+            level: "label5",
             fontWeight: "xl",
+            color: "primary",
           },
           {
-            text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde veritatis aperiam sint earum, eos voluptate.",
-            level: "paragraph2",
-            color: "white",
+            text: "Tvůj profil v ROO říká všechno, co organizátor potřebuje slyšet – bez ptaní.",
+            level: "h2",
             fontWeight: "lg",
           },
         ]}
-        buttons={[
-          {
-            text: "Tak nečekej a pojď se k nám přidat",
-            size: "xl",
-            bgColor: "white",
-            textColor: "black",
-            rounding: "full",
+        for={{
+          overlay: {
+            overlayColor: "primaryOpac",
+            image: image.src,
           },
-        ]}
+          texts: [
+            {
+              text: "Co uvidí klient v ROO?",
+              level: "h3",
+              fontWeight: "xl",
+              color: "white",
+            },
+          ],
+          points: [
+            { text: "Jméno balíčku a typ akce" },
+            { text: "Cena a rozsah služby" },
+            { text: "Co je i není zahrnuto" },
+            { text: "Dostupné termíny" },
+            { text: "Lokace, kapacita, preference" },
+          ],
+        }}
+        against={{
+          overlay: {
+            overlayColor: "secondaryOpac",
+            image: image.src,
+          },
+          texts: [
+            {
+              text: "Co dnes klient často neví?",
+              level: "h3",
+              fontWeight: "xl",
+              color: "white",
+            },
+          ],
+          points: [
+            { text: "Co přesně nabízíš" },
+            { text: "Co je v ceně" },
+            { text: "Pro kolik lidí je to ideální" },
+            { text: "Kdy máš volno" },
+            { text: "Kolik to celé stojí" },
+          ],
+        }}
       />
       <FaqSection
         texts={[
@@ -381,54 +439,86 @@ export default function page({}: Props) {
           },
         ]}
       />
-      <ComparisonSection
+      <TextSection
+        buttons={[
+          {
+            text: "Přidej se na waitlist",
+            size: "2xl",
+            bgColor: "primary",
+            textColor: "white",
+            rounding: "full",
+          },
+        ]}
         texts={[
           {
-            text: "Chceš to srovnat?",
-            level: "label5",
+            text: "Máš víc než jen jeden prostor?",
+            level: "h2",
+            fontWeight: "xl",
+            color: "black",
+          },
+          {
+            text: "ROO s tím počítá.",
+            level: "h2",
             fontWeight: "xl",
             color: "primary",
           },
           {
-            text: "Tvůj profil v ROO říká všechno, co organizátor potřebuje slyšet – bez ptaní.",
+            text: "Některá místa jsou jednoduchá, jiná mají víc částí.",
+            level: "paragraph2",
+            fontWeight: "md",
+            color: "black",
+          },
+          {
+            text: "Ať máš areál se třemi budovami, hotel s více salonky nebo zahradu a sál, v ROO si můžeš vytvořit tolik nabídek, kolik dává smysl: jednu pro celý areál, další pro samostatné objekty, a klidně i pro kombinace",
+            level: "paragraph2",
+            fontWeight: "md",
+            color: "black",
+          },
+          {
+            text: "Každá nabídka má vlastní fotky, popis, cenu i kapacitu.",
+            level: "paragraph1",
+            fontWeight: "xl",
+            color: "black",
+          },
+          {
+            text: "Klient si vybere přesně to, co hledá – a ty máš přehled, co nabízíš.",
+            level: "paragraph1",
+            fontWeight: "xl",
+            color: "black",
+          },
+        ]}
+      />
+      <BannerSection
+        overlay={{ overlayColor: "primarySecondaryOpac", image: image.src }}
+        texts={[
+          {
+            text: "Víc objednávek.",
             level: "h2",
+            color: "white",
+            fontWeight: "xl",
+          },
+          {
+            text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, unde veritatis aperiam sint earum, eos voluptate.",
+            level: "paragraph2",
+            color: "white",
             fontWeight: "lg",
           },
         ]}
-        for={{
-          texts: [
-            {
-              text: "Co uvidí klient v ROO?",
-              level: "h3",
-              fontWeight: "xl",
-              color: "white",
+        widgets={[
+          {
+            type: "inputWidget",
+            label: "Váš email",
+            placeholder: "jannovak@gmail.com",
+            webhook: "www.li.com",
+            button: {
+              text: "Chci dostávat novinky",
+              size: "md",
+              bgColor: "white",
+              textColor: "black",
+              rounding: "full",
             },
-          ],
-          points: [
-            { text: "Jméno balíčku a typ akce" },
-            { text: "Cena a rozsah služby" },
-            { text: "Co je i není zahrnuto" },
-            { text: "Dostupné termíny" },
-            { text: "Lokace, kapacita, preference" },
-          ],
-        }}
-        against={{
-          texts: [
-            {
-              text: "Co dnes klient často neví?",
-              level: "h3",
-              fontWeight: "xl",
-              color: "white",
-            },
-          ],
-          points: [
-            { text: "Co přesně nabízíš" },
-            { text: "Co je v ceně" },
-            { text: "Pro kolik lidí je to ideální" },
-            { text: "Kdy máš volno" },
-            { text: "Kolik to celé stojí" },
-          ],
-        }}
+          },
+        ]}
       />
     </>
   );

@@ -1,6 +1,7 @@
 "use client";
 
-import Text, { HeadingLevelType } from "@/app/_global/atoms/Text";
+import { HeadingLevelType } from "@/app/_design/text";
+import Text from "@/app/_global/atoms/Text";
 
 export type AdminFormInputType = {
   label: string;
@@ -69,7 +70,7 @@ export function AdminFormCheckbox({
         checked={checked}
         onChange={onChange}
       />
-      <Text level={level ? level : "label4"} text={text} color={"black"} />
+      <Text level="h3" text={text} color={"black"} />
     </label>
   );
 }

@@ -35,8 +35,7 @@ export default async function page({ params }: Props) {
         return <sectionsObject.comparisonsection key={i} {...section} />;
       case "formsection":
         return <sectionsObject.formsection key={i} {...section} />;
-      case "heroOne":
-        return <sectionsObject.heroOne key={i} {...section} />;
+
       case "textimagesection":
         return <sectionsObject.textimagesection key={i} {...section} />;
       case "masonrysection":
@@ -48,11 +47,7 @@ export default async function page({ params }: Props) {
 
   return (
     <div>
-      <>
-        <WebsiteHeader />
-        <WebsiteHeaderMobile />
-        {sectionsToRender}
-      </>
+      <>{sectionsToRender}</>
     </div>
   );
 }

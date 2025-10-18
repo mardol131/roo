@@ -20,8 +20,8 @@ import { BubbleImageSection } from "../_components/bubbleImageSection/BubbleImag
 export default function HomePage({}: Props) {
   return (
     <>
-      <WebsiteHeader />
-      <WebsiteHeaderMobile />
+      {/* <WebsiteHeader />
+      <WebsiteHeaderMobile /> */}
       <HeroImageBubbleRight
         heading={{
           headingOne: { text: "Víc objednávek.", level: "h1", color: "black" },
