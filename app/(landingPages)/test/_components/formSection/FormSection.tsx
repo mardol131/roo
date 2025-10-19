@@ -7,7 +7,7 @@ import {
 } from "@/app/_design/colors";
 import { OverlayType } from "@/app/_types/objects";
 import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
-import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wrappers/LandingSectionWrapper";
 
 export type FormTextInputProps = {
   blockType: "formtextinput";
@@ -129,7 +129,7 @@ export default function FormSection(props: FormSectionProps) {
         className="w-full overflow-hidden rounded-3xl shadow-xl"
       >
         <div
-          className={` ${overlay} relative z-0 w-full h-full flex items-center justify-center overflow-hidden p-10 py-20`}
+          className={` ${overlay} relative z-0 w-full h-full flex items-center justify-center overflow-hidden md:p-10 md:py-20 p-5`}
         >
           <form
             action={props.webhook}

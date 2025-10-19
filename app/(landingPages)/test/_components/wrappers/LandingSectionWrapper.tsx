@@ -18,10 +18,10 @@ export function LandingSectionWrapper(props: SectionWrapperProps) {
       className={`${props.classNameOuter} ${
         props.overlay?.overlayColor &&
         colorsAndGradients[props.overlay.overlayColor]
-      } relative z-0 w-full flex items-center justify-center overflow-hidden`}
+      } relative z-0 w-full flex items-center justify-center overflow-hidden p-5`}
     >
       <div
-        className={`${props.classNameInner} flex items-center justify-center h-full max-w-contentWrapper w-full p-5 py-20`}
+        className={`${props.classNameInner} flex items-center justify-center h-full max-w-contentWrapper w-full py-20`}
       >
         {props.children}
       </div>

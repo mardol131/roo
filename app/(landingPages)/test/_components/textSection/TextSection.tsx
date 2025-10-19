@@ -1,4 +1,4 @@
-import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wrappers/LandingSectionWrapper";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import React from "react";

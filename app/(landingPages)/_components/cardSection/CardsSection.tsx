@@ -1,5 +1,5 @@
 import { iconsList, IconsList } from "@/app/_icons/_iconsList";
-import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "../../test/_components/wrappers/LandingSectionWrapper";
 import { textColor, TextColorType } from "@/app/_design/colors";
 import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
 import Link from "next/link";

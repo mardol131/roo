@@ -1,4 +1,4 @@
-import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wrappers/LandingSectionWrapper";
 import { Sides } from "@/app/_design/orientation";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
@@ -112,7 +112,11 @@ export default function ImageTextSection(props: Props) {
   }
   return (
     <LandingSectionWrapper overlay={props.overlay}>
-      <div className="grid grid-cols-2 gap-40 items-center">
+      <div
+        className={`md:grid flex ${
+          props.textSide === "left" ? "flex-col" : "flex-col-reverse"
+        } grid-cols-2 md:gap-40 gap-10 items-center`}
+      >
         {props.textSide === "left" && (
           <>
             <div className="flex flex-col gap-5">

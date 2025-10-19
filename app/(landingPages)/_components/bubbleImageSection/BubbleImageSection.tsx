@@ -12,7 +12,7 @@ import Button, {
 import { TextSettingsType } from "@/app/_design/text";
 import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import Image from "next/image";
-import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "../../test/_components/wrappers/LandingSectionWrapper";
 import { Sides } from "@/app/_design/orientation";
 
 export type HeroOneProps = {

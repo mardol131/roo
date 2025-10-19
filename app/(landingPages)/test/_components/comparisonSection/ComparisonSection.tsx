@@ -9,7 +9,7 @@ import {
 import { OverlayType } from "@/app/_types/objects";
 import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { Check } from "lucide-react";
-import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wrappers/LandingSectionWrapper";
 
 export type ComparisonSectionProps = {
   texts: TextProps[];
@@ -62,9 +62,10 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
               backgroundImage: `url(${props.against.overlay.image})`,
               backgroundSize: "cover",
             }}
+            className="rounded-medium shadow-lg overflow-hidden"
           >
             <div
-              className={`${bgAgainst} h-full md:p-15 p-10 rounded-medium shadow-lg items-start justify-between text-start flex flex-col gap-5`}
+              className={`${bgAgainst} h-full md:p-15 p-7  items-start justify-between text-start flex flex-col gap-5`}
             >
               <div>
                 <GenerateTexts texts={props.against.texts} />
@@ -81,9 +82,10 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
               backgroundImage: `url(${props.for.overlay.image})`,
               backgroundSize: "cover",
             }}
+            className="rounded-medium shadow-lg overflow-hidden"
           >
             <div
-              className={`${bgFor} h-full md:p-15 p-10 rounded-medium shadow-lg items-start justify-between text-start flex flex-col gap-5`}
+              className={`${bgFor} h-full md:p-15 p-7 rounded-medium shadow-lg items-start justify-between text-start flex flex-col gap-5`}
             >
               <div>
                 <GenerateTexts texts={props.for.texts} />

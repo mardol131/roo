@@ -2,7 +2,7 @@ import LandingHeading, { LandingHeadingProps } from "../heading/LandingHeading";
 import { ColorsAndGradientsType } from "@/app/_design/colors";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
-import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "../../test/_components/wrappers/LandingSectionWrapper";
 import Image from "next/image";
 import { OverlayType } from "@/app/_types/objects";
 

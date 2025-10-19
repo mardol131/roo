@@ -1,6 +1,9 @@
+"use client";
+
+import { apiPost } from "@/app/_api/general";
 import Button, { ButtonProps } from "@/app/_global/atoms/Button";
-import { TextProps } from "@/app/_global/atoms/Text";
-import React from "react";
+import Text, { TextProps } from "@/app/_global/atoms/Text";
+import React, { useState } from "react";
 
 export const WidgetsList = {
   InputWidget,
@@ -14,27 +17,48 @@ export type InputWidgetProps = {
   placeholder: string;
   webhook: string;
   button: ButtonProps;
+  successText: TextProps;
 };
 
 export default function InputWidget(props: InputWidgetProps) {
-  return (
-    <>
-      <form
-        action={props.webhook}
-        className={`bg-white border-2 min-w-[50%]  border-borderLight p-1 flex justify-between items-center rounded-full`}
-      >
-        <div className="flex flex-col w-full pl-8">
-          <label className="text-primary font-semibold">{props.label}</label>
-          <input
-            type="email"
-            className="focus:outline-0"
-            placeholder={props.placeholder}
-          ></input>
-        </div>
-        <Button {...props.button} className="text-center justify-self-end" />
-      </form>
-    </>
-  );
+  const [success, setSuccess] = useState(false);
+  const [input, setInput] = useState<string | null>();
+
+  async function submitHandler() {
+    const response = await apiPost(props.webhook, { input: input });
+
+    setSuccess(true);
+  }
+
+  if (success) {
+    return <Text {...props.successText} />;
+  } else {
+    return (
+      <>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            submitHandler();
+          }}
+          className={`bg-white border-2 min-w-[50%] max-md:w-full  border-borderLight p-1 flex max-md:flex-col max-md:gap-5 justify-between items-center md:rounded-full rounded-lg`}
+        >
+          <div className="flex flex-col max-md:items-center w-full md:pl-8">
+            <label className="text-primary font-semibold">{props.label}</label>
+            <input
+              type="email"
+              className="focus:outline-0 max-md:text-center"
+              placeholder={props.placeholder}
+            ></input>
+          </div>
+          <Button
+            type="submit"
+            {...props.button}
+            className="text-center justify-self-end"
+          />
+        </form>
+      </>
+    );
+  }
 }
 
 type GenerateWidgetsProps = {

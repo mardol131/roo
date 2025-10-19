@@ -1,25 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import { FaThList } from "react-icons/fa";
-import {
-  FaHandHolding,
-  FaHandHoldingHand,
-  FaHouse,
-  FaRegStar,
-  FaStar,
-  FaUser,
-  FaXmark,
-} from "react-icons/fa6";
-import image from "@/app/_images/test.jpg";
-import Link from "next/link";
-import logo from "@/public/logo.png";
-import {
-  AdminRooCard,
-  AdminRooCardTwo,
-} from "@/app/admin/_components/AdminRooCards";
-import Button from "@/app/_global/atoms/Button";
-import { AdminListingCardSmall } from "@/app/admin/_components/AdminListingCard";
-import { AdminNewsCard } from "@/app/admin/_components/AdminNewsCard";
 
 type Props = {};
 

@@ -31,7 +31,7 @@ export default function Catalog(props: Props) {
           text="  Lorem ipsum dolor sit amet consectetur adipisicing elit."
           buttonText="Odebírat novinky"
           webhookUrl="dsa898"
-          buttonDesign="gradient"
+          button={{ text: "Odebírat" }}
         />
         <CategorySection />
         <CategorySection />

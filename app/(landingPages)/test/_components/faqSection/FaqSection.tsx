@@ -1,4 +1,4 @@
-import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wrappers/LandingSectionWrapper";
 import React from "react";
 import { FaqQuestion, QuestionProps } from "./_components/FaqQuestion";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
@@ -11,7 +11,7 @@ type Props = {
 export default function FaqSection(props: Props) {
   return (
     <LandingSectionWrapper>
-      <div className="flex flex-col max-w-[60%] gap-10 w-full">
+      <div className="flex flex-col md:max-w-[60%] gap-10 w-full">
         {props.texts && (
           <div className="text-center">
             <GenerateTexts texts={props.texts} />

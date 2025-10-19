@@ -1,4 +1,4 @@
-import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wrappers/LandingSectionWrapper";
 import { colorsAndGradients } from "@/app/_design/colors";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
@@ -29,7 +29,7 @@ export default function BannerSection(props: Props) {
         className="w-full rounded-xl overflow-hidden shadow-xl"
       >
         <div
-          className={` ${bgColor} relative z-0 h-full w-full gap-5 p-15 flex flex-col items-start justify-center overflow-hidden`}
+          className={` ${bgColor} relative z-0 h-full w-full gap-5 md:p-15 p-5 flex flex-col items-start justify-center overflow-hidden`}
         >
           <GenerateTexts texts={props.texts} />
           {props.widgets && <GenerateWidgets widgets={props.widgets} />}

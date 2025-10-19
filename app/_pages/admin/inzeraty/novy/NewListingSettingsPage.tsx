@@ -1,5 +1,5 @@
+import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
 import React from "react";
-import AdminWrapper from "../../../../admin/_components/wrappers/AdminWrapper";
 
 type Props = {};
 

@@ -30,6 +30,18 @@ export const colorsAndGradients = {
   tertiary: "bg-tertiary",
   tertiaryOpac: "bg-tertiary/50",
   whiteOpac: "bg-white/50",
+
+  blackTransparent: "bg-linear-60 from-black/70 to-transparent",
+  transparentBlack: "bg-linear-60 from-transparent to-black/70",
+
+  primaryTransparent: "bg-linear-30 from-primary/70 to-transparent",
+  secondaryTransparent: "bg-linear-30 from-secondary/70 to-transparent",
+  tertiaryTransparent: "bg-linear-30 from-tertiary/70 to-transparent",
+
+  transparentPrimary: "bg-linear-30 from-transparent to-primary/70",
+  transparentSecondary: "bg-linear-30 from-transparent to-secondary/70",
+  transparentTertiary: "bg-linear-30 from-transparent to-tertiary/70",
+
   primarySecondaryOpac: "bg-linear-30 from-primary/70 to-secondary/70",
   primaryTertiaryOpac: "bg-linear-30 from-primary/70 to-tertiary/70",
   secondaryTertiaryOpac: "bg-linear-30 from-secondary/70 to-tertiary/70",

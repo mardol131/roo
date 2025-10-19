@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "../../test/_components/wrappers/LandingSectionWrapper";
 import { MdClose } from "react-icons/md";
 import { IoMdCheckmark } from "react-icons/io";
 import { ImCheckmark } from "react-icons/im";

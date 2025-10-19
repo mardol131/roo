@@ -1,16 +1,16 @@
 import React from "react";
 import { WebsiteHeader } from "../_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
-import HeroSection from "./_components/heroSection/HeroSection";
+import HeroSection from "./_components/heroBubbleSection/HeroSection";
 import IconsTextSection from "./_components/iconsTextSection/IconsTextSection";
 import ImageTextSection from "./_components/imageTextSection/ImageTextSection";
 import image from "@/app/_images/heroOne.jpg";
 import BannerSection from "./_components/bannerSection/BannerSection";
 import FaqSection from "./_components/faqSection/FaqSection";
 import FormSection from "./_components/formSection/FormSection";
-import ImageTextVerticalSection from "./_components/imageTextVerticalSection/ImageTextVerticalSection";
 import ComparisonSection from "./_components/comparisonSection/ComparisonSection";
 import TextSection from "./_components/textSection/TextSection";
+import MasonrySection from "./_components/masonrySection/MasonrySection";
 
 type Props = {};
 
@@ -28,11 +28,11 @@ export default function page({}: Props) {
       />
       <WebsiteHeaderMobile
         button={{
-          text: "Přidej se k nám",
-          size: "md",
-          bgColor: "primarySecondary",
+          text: "Přidej se k rodině",
           textColor: "white",
+          size: "lg",
           rounding: "full",
+          bgColor: "primary",
         }}
       />
       <HeroSection
@@ -73,6 +73,7 @@ export default function page({}: Props) {
           },
         ]}
       />
+
       <IconsTextSection
         texts={[
           {
@@ -250,6 +251,172 @@ export default function page({}: Props) {
             bgColor: "primary",
             textColor: "white",
             rounding: "full",
+          },
+        ]}
+      />
+      <MasonrySection
+        textsBottom={[
+          {
+            text: "Není to tvoje práce říkat lidem, co vlastně chtějí. ROO přivádí klienty, co už to ví – nebo díky nám to umí říct.",
+            level: "label3",
+          },
+        ]}
+        overlay={{ overlayColor: "white" }}
+        bubbles={[
+          {
+            texts: [
+              {
+                text: "„Posílali jsme poptávku minulý týden, nedošla?“",
+                level: "label2",
+                color: "white",
+                fontWeight: "xl",
+              },
+            ],
+            bgColor: "primarySecondary",
+            column: {
+              start: 1,
+              end: 2,
+            },
+            row: {
+              start: 1,
+              end: 4,
+            },
+          },
+          {
+            texts: [
+              {
+                text: "„Máte něco levnějšího?“",
+                level: "label4",
+                color: "white",
+                fontWeight: "xl",
+              },
+            ],
+            bgColor: "primaryTertiary",
+            column: {
+              start: 2,
+              end: 4,
+            },
+            row: {
+              start: 1,
+              end: 2,
+            },
+          },
+          {
+            texts: [
+              {
+                text: "„My ještě nevíme přesně kdy, ale zhruba jo.“",
+                level: "label4",
+                color: "white",
+                fontWeight: "xl",
+              },
+            ],
+            bgColor: "tertiarySecondary",
+            column: {
+              start: 2,
+              end: 3,
+            },
+            row: {
+              start: 2,
+              end: 3,
+            },
+          },
+          {
+            texts: [
+              {
+                text: "„Máme budget tak dva tisíce… na všechno.“",
+                level: "label4",
+                color: "white",
+                fontWeight: "xl",
+              },
+            ],
+            bgColor: "secondaryPrimary",
+            column: {
+              start: 3,
+              end: 4,
+            },
+            row: {
+              start: 2,
+              end: 3,
+            },
+          },
+          {
+            image: image.src,
+            alt: "image",
+            row: { start: 1, end: 3 },
+            column: { start: 4, end: 5 },
+          },
+          {
+            texts: [
+              {
+                text: "„To si ještě probereme s partou.“",
+                level: "label4",
+                color: "white",
+                fontWeight: "xl",
+              },
+            ],
+            bgColor: "tertiaryPrimary",
+            column: {
+              start: 1,
+              end: 2,
+            },
+            row: {
+              start: 4,
+              end: 5,
+            },
+          },
+          {
+            image: image.src,
+            alt: "image",
+            row: { start: 3, end: 5 },
+            column: { start: 2, end: 3 },
+          },
+          {
+            texts: [
+              {
+                text: "Znáš tyhle věty?",
+                level: "label2",
+                color: "primarySecondary",
+                fontWeight: "xl",
+              },
+              {
+                text: "Tak přesně proti nim ROO vzniklo.",
+                level: "label3",
+              },
+            ],
+            bgColor: "white",
+            column: {
+              start: 3,
+              end: 5,
+            },
+            row: {
+              start: 3,
+              end: 5,
+            },
+          },
+          {
+            texts: [
+              {
+                text: "„Je to pro 50 lidí, ale možná jich bude 30.“",
+                level: "label3",
+                color: "white",
+                fontWeight: "xl",
+              },
+            ],
+            bgColor: "secondaryTertiary",
+            column: {
+              start: 1,
+              end: 4,
+            },
+            row: {
+              start: 5,
+              end: 6,
+            },
+          },
+          {
+            image: image.src,
+            alt: "image",
+            row: { start: 5, end: 6 },
+            column: { start: 4, end: 5 },
           },
         ]}
       />
@@ -513,9 +680,15 @@ export default function page({}: Props) {
             button: {
               text: "Chci dostávat novinky",
               size: "md",
-              bgColor: "white",
-              textColor: "black",
+              bgColor: "primarySecondary",
+              textColor: "white",
               rounding: "full",
+            },
+            successText: {
+              text: "Děkujeme za důvěru!",
+              level: "label5",
+              color: "white",
+              fontWeight: "xl",
             },
           },
         ]}

@@ -1,5 +1,5 @@
 import React from "react";
-import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
+import { LandingSectionWrapper } from "../../test/_components/wrappers/LandingSectionWrapper";
 import Image from "next/image";
 import Button, { ButtonProps } from "@/app/_global/atoms/Button";
 import Link from "next/link";

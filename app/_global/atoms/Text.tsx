@@ -2,6 +2,27 @@ import { textColor, TextColorType } from "@/app/_design/colors";
 import { textAlign, TextAlignType } from "@/app/_design/orientation";
 import React from "react";
 
+export const TextLevels = {
+  h1: "h1",
+  h2: "h2",
+  h3: "h3",
+  h4: "h4",
+  h5: "h5",
+  label1: "label1",
+  label2: "label2",
+  label3: "label3",
+  label4: "label4",
+  label5: "label5",
+  label6: "label6",
+  label7: "label7",
+  label8: "label8",
+  paragraph1: "paragraph1",
+  paragraph2: "paragraph2",
+  paragraph3: "paragraph3",
+  paragraph4: "paragraph4",
+  paragraph5: "paragraph5",
+};
+
 export type TextLevelType =
   | "h1"
   | "h2"
@@ -70,7 +91,7 @@ export default function Text(props: TextProps) {
   switch (props.level) {
     case "h1":
       return (
-        <h1 className={`${classes} md:text-7xl text-5xl`}>{props.text}</h1>
+        <h1 className={`${classes} md:text-7xl text-[2.5rem]`}>{props.text}</h1>
       );
     case "h2":
       return (
