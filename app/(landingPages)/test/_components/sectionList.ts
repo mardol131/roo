@@ -11,13 +11,14 @@ import TextSection from "./textSection/TextSection";
 export const sectionsList = {
   BannerSection,
   ComparisonSection,
+  TextSection,
   FormSection,
   HeroBubbleSection,
   ImageTextSection,
+  MasonrySection,
+
   FaqSection,
   IconsTextSection,
-  MasonrySection,
-  TextSection,
 };
 
 export type SectionsListType = typeof sectionsList;

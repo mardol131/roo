@@ -30,6 +30,8 @@ export default async function page({ params }: Props) {
     switch (section.blockType) {
       case "BannerSection":
         return <sectionsList.BannerSection key={i} {...section} />;
+      case "TextSection":
+        return <sectionsList.TextSection key={i} {...section} />;
       case "ComparisonSection":
         return <sectionsList.ComparisonSection key={i} {...section} />;
       case "FaqSection":
@@ -45,8 +47,6 @@ export default async function page({ params }: Props) {
         return <sectionsList.ImageTextSection key={i} {...section} />;
       case "MasonrySection":
         return <sectionsList.MasonrySection key={i} {...section} />;
-      case "TextSection":
-        return <sectionsList.TextSection key={i} {...section} />;
 
       default:
         return null; // případný fallback

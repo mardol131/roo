@@ -7,11 +7,12 @@ import {
   colorsAndGradients,
   ColorsAndGradientsType,
 } from "@/app/_design/colors";
+import { ImageType } from "@/app/_types/objects";
 
 type Props = {
   texts: TextProps[];
   buttons?: ButtonProps[];
-  image: ImageProps;
+  image: ImageType;
   bgColor?: ColorsAndGradientsType;
 };
 

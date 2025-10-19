@@ -1,13 +1,13 @@
-import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wrappers/LandingSectionWrapper";
 import { Sides } from "@/app/_design/orientation";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import Image, { ImageProps } from "next/image";
 import React from "react";
+import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 
 type ImageOneProps = {
-  type: "imageOne";
+  blockType: "imageOne";
   image: ImageType;
 };
 
@@ -24,7 +24,7 @@ function ImageOne(props: ImageOneProps) {
 }
 
 type ImageGridProps = {
-  type: "imageGrid";
+  blockType: "imageGrid";
   imageOne: ImageType;
   imageTwo: ImageType;
   imageThree: ImageType;
@@ -82,7 +82,7 @@ function ImageGrid(props: ImageGridProps) {
 }
 
 type ImageThreeProps = {
-  type: "imageThree";
+  blockType: "imageThree";
   imageOne: ImageProps;
   imageTwo: ImageProps;
   imageThree: ImageProps;
@@ -92,7 +92,7 @@ type ImagePartListProps = ImageOneProps | ImageGridProps;
 
 type Props = {
   texts: TextProps[];
-  imagePart: ImagePartListProps;
+  imagePart: ImagePartListProps[];
   buttons?: ButtonProps[];
   textSide: Sides;
   overlay?: OverlayType;
@@ -100,7 +100,7 @@ type Props = {
 
 export default function ImageTextSection(props: Props) {
   function getImagePart(field: ImagePartListProps) {
-    switch (field.type) {
+    switch (field.blockType) {
       case "imageGrid":
         return <ImageGrid {...field} />;
       case "imageOne":
@@ -124,14 +124,14 @@ export default function ImageTextSection(props: Props) {
               {props.buttons && <GenerateButtons buttons={props.buttons} />}
             </div>
             <div className="justify-self-end w-full">
-              {getImagePart(props.imagePart)}
+              {getImagePart(props.imagePart[0])}
             </div>
           </>
         )}
         {props.textSide === "right" && (
           <>
             <div className="justify-self-end w-full">
-              {getImagePart(props.imagePart)}
+              {getImagePart(props.imagePart[0])}
             </div>
             <div className="flex flex-col gap-5">
               <GenerateTexts texts={props.texts} />
