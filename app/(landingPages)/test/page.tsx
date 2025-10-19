@@ -173,10 +173,12 @@ export default function page({}: Props) {
       />
       <ImageTextSection
         textSide="left"
-        imagePart={{
-          type: "imageOne",
-          image: { src: image.src, alt: "image" },
-        }}
+        imagePart={[
+          {
+            blockType: "imageOne",
+            image: { src: image.src, alt: "image" },
+          },
+        ]}
         texts={[
           {
             text: "Kolik zpráv, mailů a telefonátů tě dělí od jedný zakázky?",
@@ -207,13 +209,15 @@ export default function page({}: Props) {
       />
       <ImageTextSection
         textSide="right"
-        imagePart={{
-          type: "imageGrid",
-          imageOne: { src: image.src, alt: "image" },
-          imageTwo: { src: image.src, alt: "image" },
-          imageThree: { src: image.src, alt: "image" },
-          imageFour: { src: image.src, alt: "image" },
-        }}
+        imagePart={[
+          {
+            blockType: "imageGrid",
+            imageOne: { src: image.src, alt: "image" },
+            imageTwo: { src: image.src, alt: "image" },
+            imageThree: { src: image.src, alt: "image" },
+            imageFour: { src: image.src, alt: "image" },
+          },
+        ]}
         texts={[
           {
             text: "Online výloha, co prodává za tebe",
