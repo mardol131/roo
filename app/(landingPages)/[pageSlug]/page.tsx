@@ -10,6 +10,9 @@ import {
   SectionPropsMap,
   sectionsList,
 } from "@/app/(landingPages)/test/_components/sectionList";
+import { WebsiteHeader } from "../_components/header/WebsiteHeader";
+import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
+import { ButtonProps } from "@/app/_global/atoms/Button";
 
 export default async function page({ params }: Props) {
   const { pageSlug } = params;
@@ -25,6 +28,8 @@ export default async function page({ params }: Props) {
     redirect("/");
   }
   const sections: SectionPropsMap[] = data.docs[0].sections;
+  const buttonDesktop: ButtonProps = data.docs[0].header.desktopHeaderButton;
+  const buttonMobile: ButtonProps = data.docs[0].header.mobileHeaderButton;
 
   const sectionsToRender = sections.map((section, i) => {
     switch (section.blockType) {
@@ -55,7 +60,9 @@ export default async function page({ params }: Props) {
 
   return (
     <div>
-      <>{sectionsToRender}</>
+      <WebsiteHeader button={buttonDesktop} />
+      <WebsiteHeaderMobile button={buttonMobile} />
+      {sectionsToRender}
     </div>
   );
 }
