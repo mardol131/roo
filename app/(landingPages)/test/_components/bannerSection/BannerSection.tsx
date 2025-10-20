@@ -23,7 +23,7 @@ export default function BannerSection(props: Props) {
     <LandingSectionWrapper>
       <div
         style={{
-          backgroundImage: `url(${props.overlay.image})`,
+          backgroundImage: `url(${props.overlay.image?.src})`,
           backgroundSize: "cover",
         }}
         className="w-full rounded-xl overflow-hidden shadow-xl"

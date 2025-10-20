@@ -36,7 +36,9 @@ export default function page({}: Props) {
         }}
       />
       <HeroSection
-        image={{ src: image.src, alt: "hero" }}
+        overlay={{
+          image: { src: image.src, alt: "hero" },
+        }}
         texts={[
           {
             text: "Víc objednávek.",
@@ -146,7 +148,10 @@ export default function page({}: Props) {
         ]}
       />
       <BannerSection
-        overlay={{ overlayColor: "primarySecondaryOpac", image: image.src }}
+        overlay={{
+          overlayColor: "primarySecondaryOpac",
+          image: { src: image.src, alt: "image" },
+        }}
         texts={[
           {
             text: "Víc objednávek.",
@@ -441,7 +446,7 @@ export default function page({}: Props) {
         for={{
           overlay: {
             overlayColor: "primaryOpac",
-            image: image.src,
+            image: { src: image.src, alt: "image" },
           },
           texts: [
             {
@@ -462,7 +467,7 @@ export default function page({}: Props) {
         against={{
           overlay: {
             overlayColor: "secondaryOpac",
-            image: image.src,
+            image: { src: image.src, alt: "image" },
           },
           texts: [
             {
@@ -546,7 +551,10 @@ export default function page({}: Props) {
             level: "paragraph1",
           },
         ]}
-        overlay={{ overlayColor: "primarySecondaryOpac", image: image.src }}
+        overlay={{
+          overlayColor: "primarySecondaryOpac",
+          image: { src: image.src, alt: "image" },
+        }}
         button={{
           text: "Přidat se",
           textColor: "white",
@@ -660,7 +668,10 @@ export default function page({}: Props) {
         ]}
       />
       <BannerSection
-        overlay={{ overlayColor: "primarySecondaryOpac", image: image.src }}
+        overlay={{
+          overlayColor: "primarySecondaryOpac",
+          image: { src: image.src, alt: "image" },
+        }}
         texts={[
           {
             text: "Víc objednávek.",

@@ -123,7 +123,7 @@ export default function FormSection(props: FormSectionProps) {
     <LandingSectionWrapper>
       <div
         style={{
-          backgroundImage: `url(${props.overlay?.image})`,
+          backgroundImage: `url(${props.overlay?.image?.src})`,
           backgroundSize: "cover",
         }}
         className="w-full overflow-hidden rounded-3xl shadow-xl"

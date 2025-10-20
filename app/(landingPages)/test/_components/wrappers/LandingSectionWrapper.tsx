@@ -32,7 +32,7 @@ export function LandingSectionWrapper(props: SectionWrapperProps) {
     return (
       <div
         style={{
-          backgroundImage: `url(${props.overlay.image})`,
+          backgroundImage: `url(${props.overlay.image.src})`,
           backgroundSize: "cover",
         }}
       >

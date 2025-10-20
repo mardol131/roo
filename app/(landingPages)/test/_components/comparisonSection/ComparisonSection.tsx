@@ -59,7 +59,7 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
         <div className="grid md:grid-cols-2 gap-4 w-full text-white">
           <div
             style={{
-              backgroundImage: `url(${props.against.overlay.image})`,
+              backgroundImage: `url(${props.against.overlay.image?.src})`,
               backgroundSize: "cover",
             }}
             className="rounded-medium shadow-lg overflow-hidden"
@@ -79,7 +79,7 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
           </div>
           <div
             style={{
-              backgroundImage: `url(${props.for.overlay.image})`,
+              backgroundImage: `url(${props.for.overlay.image?.src})`,
               backgroundSize: "cover",
             }}
             className="rounded-medium shadow-lg overflow-hidden"

@@ -7,23 +7,25 @@ import {
   colorsAndGradients,
   ColorsAndGradientsType,
 } from "@/app/_design/colors";
-import { ImageType } from "@/app/_types/objects";
+import { ImageType, OverlayType } from "@/app/_types/objects";
 
 type Props = {
   texts: TextProps[];
   buttons?: ButtonProps[];
-  image: ImageType;
-  bgColor?: ColorsAndGradientsType;
+  overlay?: OverlayType;
 };
 
 export default function HeroBubbleSection(props: Props) {
-  const bgColor = props.bgColor && colorsAndGradients[props.bgColor];
+  const bgColor =
+    props.overlay?.overlayColor &&
+    colorsAndGradients[props.overlay?.overlayColor];
 
   return (
     <LandingSectionWrapper>
       <div
         style={{
-          backgroundImage: `url(${props.image.src})`,
+          backgroundImage:
+            props.overlay?.image?.src && `url(${props.overlay?.image.src})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
