@@ -17,6 +17,7 @@ export function LandingSectionWrapper(props: SectionWrapperProps) {
   const bgColor =
     props.overlay?.overlayColor &&
     colorsAndGradients[props.overlay.overlayColor];
+
   const classnameOuter = `${props.classNameOuter} ${bgColor} ${props.overlay?.overlayClassname}`;
 
   const image = props.overlay?.image;
