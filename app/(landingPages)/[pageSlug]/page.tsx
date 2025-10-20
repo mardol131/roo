@@ -1,11 +1,7 @@
 import React from "react";
 import { redirect } from "next/navigation";
 import { getLandingPage } from "@/app/_api/payload";
-type Props = {
-  params: {
-    pageSlug: string;
-  };
-};
+type Props = { params: Promise<{ pageSlug: string }> };
 import {
   SectionPropsMap,
   sectionsList,
@@ -15,12 +11,14 @@ import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
 import { ButtonProps } from "@/app/_global/atoms/Button";
 
 export default async function page({ params }: Props) {
-  const { pageSlug } = params;
+  const { pageSlug } = await params;
+  console.log(pageSlug);
+
   let data;
   try {
     const response = await getLandingPage(pageSlug);
-    data = response;
     console.log(response);
+    data = response;
     if (!response.docs.length) {
       redirect("/");
     }

@@ -2,7 +2,7 @@ import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wra
 import { textColor, TextColorType } from "@/app/_design/colors";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { IconsList, iconsList } from "@/app/_icons/_iconsList";
-import { ImageType } from "@/app/_types/objects";
+import { ImageType, OverlayType } from "@/app/_types/objects";
 import Image from "next/image";
 import React from "react";
 
@@ -31,11 +31,12 @@ function IconsTextCard(props: IconsTextProps) {
 type Props = {
   iconsTextCards: IconsTextProps[];
   texts?: TextProps[];
+  overlay?: OverlayType;
 };
 
 export default function IconsTextSection(props: Props) {
   return (
-    <LandingSectionWrapper>
+    <LandingSectionWrapper overlay={props.overlay}>
       <div className="w-full flex flex-col items-center gap-10">
         {props.texts && (
           <div className="flex flex-col items-center text-center md:max-w-[60%] gap-4">

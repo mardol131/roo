@@ -5,6 +5,7 @@ import { ImageType, OverlayType } from "@/app/_types/objects";
 import Image, { ImageProps } from "next/image";
 import React from "react";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
+import { colorsAndGradients } from "@/app/_design/colors";
 
 type ImageOneProps = {
   blockType: "imageOne";
@@ -14,7 +15,7 @@ type ImageOneProps = {
 function ImageOne(props: ImageOneProps) {
   return (
     <Image
-      className=" w-full rounded-lg shadow-lg aspect-square object-cover object-center"
+      className=" w-full object-cover object-center"
       src={props.image.src}
       alt={props.image.alt}
       width={1000}
@@ -95,14 +96,13 @@ type Props = {
   imagePart: ImagePartListProps[];
   buttons?: ButtonProps[];
   textSide: Sides;
-  overlay?: OverlayType;
+  outerOverlay?: OverlayType;
+  innerOverlay?: OverlayType;
 };
 
 export default function ImageTextSection(props: Props) {
   function getImagePart(field: ImagePartListProps) {
     switch (field.blockType) {
-      case "imageGrid":
-        return <ImageGrid {...field} />;
       case "imageOne":
         return <ImageOne {...field} />;
 
@@ -110,35 +110,51 @@ export default function ImageTextSection(props: Props) {
         return null;
     }
   }
+
+  const innerImage = props.innerOverlay?.image;
+  const innerBg = props.innerOverlay?.overlayColor
+    ? colorsAndGradients[props.innerOverlay?.overlayColor]
+    : props.innerOverlay?.overlayClassname &&
+      props.innerOverlay?.overlayClassname;
   return (
-    <LandingSectionWrapper overlay={props.overlay}>
+    <LandingSectionWrapper overlay={props.outerOverlay}>
       <div
-        className={`md:grid flex ${
-          props.textSide === "left" ? "flex-col" : "flex-col-reverse"
-        } grid-cols-2 md:gap-40 gap-10 items-center`}
+        style={{
+          backgroundImage: `url(${innerImage?.src})`,
+          backgroundSize: "cover",
+        }}
+        className={`w-full overflow-hidden rounded-2xl ${
+          (innerImage?.src || innerBg) && "shadow-xl"
+        }`}
       >
-        {props.textSide === "left" && (
-          <>
-            <div className="flex flex-col gap-5">
-              <GenerateTexts texts={props.texts} />
-              {props.buttons && <GenerateButtons buttons={props.buttons} />}
-            </div>
-            <div className="justify-self-end w-full">
-              {getImagePart(props.imagePart[0])}
-            </div>
-          </>
-        )}
-        {props.textSide === "right" && (
-          <>
-            <div className="justify-self-end w-full">
-              {getImagePart(props.imagePart[0])}
-            </div>
-            <div className="flex flex-col gap-5">
-              <GenerateTexts texts={props.texts} />
-              {props.buttons && <GenerateButtons buttons={props.buttons} />}
-            </div>
-          </>
-        )}
+        <div
+          className={`${innerBg && innerBg + " p-10 "} md:grid flex ${
+            props.textSide === "left" ? "flex-col" : "flex-col-reverse"
+          } w-full z-10 grid-cols-2 md:gap-40 gap-10 items-center`}
+        >
+          {props.textSide === "left" && (
+            <>
+              <div className="flex flex-col gap-5">
+                <GenerateTexts texts={props.texts} />
+                {props.buttons && <GenerateButtons buttons={props.buttons} />}
+              </div>
+              <div className="justify-self-end w-full">
+                {getImagePart(props.imagePart[0])}
+              </div>
+            </>
+          )}
+          {props.textSide === "right" && (
+            <>
+              <div className="justify-self-end w-full">
+                {getImagePart(props.imagePart[0])}
+              </div>
+              <div className="flex flex-col gap-5">
+                <GenerateTexts texts={props.texts} />
+                {props.buttons && <GenerateButtons buttons={props.buttons} />}
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </LandingSectionWrapper>
   );

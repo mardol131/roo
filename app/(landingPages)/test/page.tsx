@@ -36,7 +36,7 @@ export default function page({}: Props) {
         }}
       />
       <HeroSection
-        overlay={{
+        innerOverlay={{
           image: { src: image.src, alt: "hero" },
         }}
         texts={[
@@ -216,11 +216,8 @@ export default function page({}: Props) {
         textSide="right"
         imagePart={[
           {
-            blockType: "imageGrid",
-            imageOne: { src: image.src, alt: "image" },
-            imageTwo: { src: image.src, alt: "image" },
-            imageThree: { src: image.src, alt: "image" },
-            imageFour: { src: image.src, alt: "image" },
+            blockType: "imageOne",
+            image: { src: image.src, alt: "image" },
           },
         ]}
         texts={[

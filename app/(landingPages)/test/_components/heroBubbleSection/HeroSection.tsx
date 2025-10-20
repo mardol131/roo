@@ -12,25 +12,30 @@ import { ImageType, OverlayType } from "@/app/_types/objects";
 type Props = {
   texts: TextProps[];
   buttons?: ButtonProps[];
-  overlay?: OverlayType;
+  innerOverlay?: OverlayType;
 };
 
 export default function HeroBubbleSection(props: Props) {
-  const bgColor =
-    props.overlay?.overlayColor &&
-    colorsAndGradients[props.overlay?.overlayColor];
+  const bgColor = props.innerOverlay?.overlayColor
+    ? colorsAndGradients[props.innerOverlay?.overlayColor]
+    : props.innerOverlay?.overlayClassname;
+
+  const image = props.innerOverlay?.image;
+
+  console.log(props);
 
   return (
     <LandingSectionWrapper>
-      <div
-        style={{
-          backgroundImage:
-            props.overlay?.image?.src && `url(${props.overlay?.image.src})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-        className="relative w-full rounded-4xl overflow-hidden shadow-2xl"
-      >
+      <div className="relative w-full rounded-4xl overflow-hidden shadow-2xl">
+        {image?.src && (
+          <Image
+            src={image.src}
+            alt={image.alt || "alt-image"}
+            width={1000}
+            height={1000}
+            className="absolute w-full h-full object-cover object-center"
+          />
+        )}
         <div
           className={`relative min-h-150 w-full md:grid grid-cols-2 flex items-center p-10  ${
             bgColor || " bg-linear-90 from-black to-transparent"

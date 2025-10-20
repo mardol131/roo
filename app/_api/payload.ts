@@ -26,6 +26,7 @@ export async function postPayloadApi(payload: any, query: string) {
 }
 
 export async function getLandingPage(slug: string) {
+  console.log(slug);
   const query = `/pages?where[pageSlug][equals]=${slug}&limit=1`;
 
   const data = await getPayloadApi(query);

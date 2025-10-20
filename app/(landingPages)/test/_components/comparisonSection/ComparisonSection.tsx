@@ -42,13 +42,13 @@ function CheckItem({
 }
 
 export default function ComparisonSection(props: ComparisonSectionProps) {
-  const bgFor =
-    props.for.overlay?.overlayColor &&
-    colorsAndGradients[props.for.overlay?.overlayColor];
+  const bgFor = props.for.overlay?.overlayColor
+    ? colorsAndGradients[props.for.overlay?.overlayColor]
+    : props.for.overlay.overlayClassname;
 
-  const bgAgainst =
-    props.against.overlay?.overlayColor &&
-    colorsAndGradients[props.against.overlay?.overlayColor];
+  const bgAgainst = props.against.overlay?.overlayColor
+    ? colorsAndGradients[props.against.overlay?.overlayColor]
+    : props.against.overlay.overlayClassname;
 
   return (
     <LandingSectionWrapper overlay={props.overlay}>
@@ -62,7 +62,7 @@ export default function ComparisonSection(props: ComparisonSectionProps) {
               backgroundImage: `url(${props.against.overlay.image?.src})`,
               backgroundSize: "cover",
             }}
-            className="rounded-medium shadow-lg overflow-hidden"
+            className="relative rounded-medium shadow-lg overflow-hidden"
           >
             <div
               className={`${bgAgainst} h-full md:p-15 p-7  items-start justify-between text-start flex flex-col gap-5`}
