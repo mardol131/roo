@@ -43,7 +43,7 @@ export function WebsiteHeaderMobile({ button }: Props) {
               setShowDropdown(!showDropdown);
             }}
           >
-            <LuMenu className="text-black text-3xl" />
+            <LuMenu className="text-primary text-3xl" />
           </button>
         </div>
         {showDropdown && (

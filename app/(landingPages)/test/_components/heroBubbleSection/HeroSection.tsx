@@ -27,7 +27,7 @@ export default function HeroBubbleSection(props: Props) {
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
-        className="relative w-full rounded-4xl overflow-hidden"
+        className="relative w-full rounded-4xl overflow-hidden shadow-2xl"
       >
         <div
           className={`relative min-h-150 w-full md:grid grid-cols-2 flex items-center p-10  ${
