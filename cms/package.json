@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "@roo/cms",
   "version": "1.0.0",
   "description": "A blank template to get started with Payload 3.0",
   "license": "MIT",
@@ -22,6 +22,7 @@
     "@payloadcms/next": "3.55.1",
     "@payloadcms/payload-cloud": "3.55.1",
     "@payloadcms/richtext-lexical": "3.55.1",
+    "@roo/shared": "workspace:*",
     "@payloadcms/ui": "3.55.1",
     "cross-env": "^10.0.0",
     "dotenv": "17.2.2",

@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-
+  transpilePackages: ["@roo/shared"],
   async rewrites() {
     return [
       {

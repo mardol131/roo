@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@roo/shared": ["shared/src"],
+      "@roo/shared/*": ["shared/src/*"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true
+  }
+}
