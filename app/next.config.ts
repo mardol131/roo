@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -9,6 +10,17 @@ const nextConfig: NextConfig = {
         hostname: "**",
       },
     ],
+  },
+  turbopack: {
+    root: path.resolve(__dirname), // ✅ pevně nastavený absolutní root
+  },
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "@": path.resolve(__dirname, "app"),
+      "@public": path.resolve(__dirname, "public"),
+    };
+    return config;
   },
   transpilePackages: ["@roo/shared"],
   async rewrites() {

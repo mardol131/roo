@@ -1,14 +1,13 @@
 import React from "react";
 import { redirect } from "next/navigation";
-import { getLandingPage } from "@/app/_api/payload";
-type Props = { params: Promise<{ pageSlug: string }> };
-import {
-  SectionPropsMap,
-  sectionsList,
-} from "@/app/(landingPages)/test/_components/sectionList";
+
 import { WebsiteHeader } from "../_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
-import { ButtonProps } from "@/app/_global/atoms/Button";
+import { getLandingPage } from "../../_api/payload";
+import { SectionPropsMap, sectionsList } from "../test/_components/sectionList";
+import { ButtonProps } from "../../_global/atoms/Button";
+
+type Props = { params: Promise<{ pageSlug: string }> };
 
 export default async function page({ params }: Props) {
   const { pageSlug } = await params;
