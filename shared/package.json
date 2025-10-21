@@ -2,5 +2,8 @@
   "name": "@roo/shared",
   "version": "1.0.0",
   "type": "module",
-  "main": "src/index.ts"
+  "main": "src/index.ts",
+  "dependencies": {
+    "sharp": "0.34.3"
+  }
 }
