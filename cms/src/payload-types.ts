@@ -74,6 +74,7 @@ export interface Config {
     places: Place;
     categories: Category;
     pages: Page;
+    media: Media;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -87,6 +88,7 @@ export interface Config {
     places: PlacesSelect<false> | PlacesSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -454,8 +456,9 @@ export interface Page {
             | null;
           overlayClassname?: string | null;
           image?: {
-            src?: string | null;
+            imageUpload?: (string | null) | Media;
             alt?: string | null;
+            src?: string | null;
           };
           advice:
             | {
@@ -807,8 +810,9 @@ export interface Page {
               | null;
             overlayClassname?: string | null;
             image?: {
-              src?: string | null;
+              imageUpload?: (string | null) | Media;
               alt?: string | null;
+              src?: string | null;
             };
             advice:
               | {
@@ -938,8 +942,9 @@ export interface Page {
               | null;
             overlayClassname?: string | null;
             image?: {
-              src?: string | null;
+              imageUpload?: (string | null) | Media;
               alt?: string | null;
+              src?: string | null;
             };
             advice:
               | {
@@ -999,8 +1004,9 @@ export interface Page {
             | null;
           overlayClassname?: string | null;
           image?: {
-            src?: string | null;
+            imageUpload?: (string | null) | Media;
             alt?: string | null;
+            src?: string | null;
           };
           advice:
             | {
@@ -1495,8 +1501,9 @@ export interface Page {
             | null;
           overlayClassname?: string | null;
           image?: {
-            src?: string | null;
+            imageUpload?: (string | null) | Media;
             alt?: string | null;
+            src?: string | null;
           };
           advice:
             | {
@@ -1579,8 +1586,9 @@ export interface Page {
         iconsTextCards?:
           | {
               image?: {
-                src?: string | null;
+                imageUpload?: (string | null) | Media;
                 alt?: string | null;
+                src?: string | null;
               };
               texts?:
                 | {
@@ -1697,8 +1705,9 @@ export interface Page {
             | null;
           overlayClassname?: string | null;
           image?: {
-            src?: string | null;
+            imageUpload?: (string | null) | Media;
             alt?: string | null;
+            src?: string | null;
           };
           advice:
             | {
@@ -1928,8 +1937,9 @@ export interface Page {
             | null;
           overlayClassname?: string | null;
           image?: {
-            src?: string | null;
+            imageUpload?: (string | null) | Media;
             alt?: string | null;
+            src?: string | null;
           };
           advice:
             | {
@@ -1988,8 +1998,9 @@ export interface Page {
             | null;
           overlayClassname?: string | null;
           image?: {
-            src?: string | null;
+            imageUpload?: (string | null) | Media;
             alt?: string | null;
+            src?: string | null;
           };
           advice:
             | {
@@ -2612,8 +2623,9 @@ export interface Page {
             | null;
           overlayClassname?: string | null;
           image?: {
-            src?: string | null;
+            imageUpload?: (string | null) | Media;
             alt?: string | null;
+            src?: string | null;
           };
           advice:
             | {
@@ -2672,8 +2684,9 @@ export interface Page {
             | null;
           overlayClassname?: string | null;
           image?: {
-            src?: string | null;
+            imageUpload?: (string | null) | Media;
             alt?: string | null;
+            src?: string | null;
           };
           advice:
             | {
@@ -2692,6 +2705,25 @@ export interface Page {
   )[];
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  alt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2727,6 +2759,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: string | Page;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: string | Media;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -2916,8 +2952,9 @@ export interface PagesSelect<T extends boolean = true> {
                     image?:
                       | T
                       | {
-                          src?: T;
+                          imageUpload?: T;
                           alt?: T;
+                          src?: T;
                         };
                     advice?: T;
                   };
@@ -3018,8 +3055,9 @@ export interface PagesSelect<T extends boolean = true> {
                           image?:
                             | T
                             | {
-                                src?: T;
+                                imageUpload?: T;
                                 alt?: T;
+                                src?: T;
                               };
                           advice?: T;
                         };
@@ -3056,8 +3094,9 @@ export interface PagesSelect<T extends boolean = true> {
                           image?:
                             | T
                             | {
-                                src?: T;
+                                imageUpload?: T;
                                 alt?: T;
+                                src?: T;
                               };
                           advice?: T;
                         };
@@ -3070,8 +3109,9 @@ export interface PagesSelect<T extends boolean = true> {
                     image?:
                       | T
                       | {
-                          src?: T;
+                          imageUpload?: T;
                           alt?: T;
+                          src?: T;
                         };
                     advice?: T;
                   };
@@ -3238,8 +3278,9 @@ export interface PagesSelect<T extends boolean = true> {
                     image?:
                       | T
                       | {
-                          src?: T;
+                          imageUpload?: T;
                           alt?: T;
+                          src?: T;
                         };
                     advice?: T;
                   };
@@ -3273,8 +3314,9 @@ export interface PagesSelect<T extends boolean = true> {
                           image?:
                             | T
                             | {
-                                src?: T;
+                                imageUpload?: T;
                                 alt?: T;
+                                src?: T;
                               };
                           texts?:
                             | T
@@ -3303,8 +3345,9 @@ export interface PagesSelect<T extends boolean = true> {
                     image?:
                       | T
                       | {
-                          src?: T;
+                          imageUpload?: T;
                           alt?: T;
+                          src?: T;
                         };
                     advice?: T;
                   };
@@ -3372,8 +3415,9 @@ export interface PagesSelect<T extends boolean = true> {
                     image?:
                       | T
                       | {
-                          src?: T;
+                          imageUpload?: T;
                           alt?: T;
+                          src?: T;
                         };
                     advice?: T;
                   };
@@ -3385,8 +3429,9 @@ export interface PagesSelect<T extends boolean = true> {
                     image?:
                       | T
                       | {
-                          src?: T;
+                          imageUpload?: T;
                           alt?: T;
+                          src?: T;
                         };
                     advice?: T;
                   };
@@ -3554,8 +3599,9 @@ export interface PagesSelect<T extends boolean = true> {
                     image?:
                       | T
                       | {
-                          src?: T;
+                          imageUpload?: T;
                           alt?: T;
+                          src?: T;
                         };
                     advice?: T;
                   };
@@ -3567,8 +3613,9 @@ export interface PagesSelect<T extends boolean = true> {
                     image?:
                       | T
                       | {
-                          src?: T;
+                          imageUpload?: T;
                           alt?: T;
+                          src?: T;
                         };
                     advice?: T;
                   };
@@ -3578,6 +3625,24 @@ export interface PagesSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

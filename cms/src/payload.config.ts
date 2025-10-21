@@ -14,6 +14,7 @@ import { Places } from './collections/places'
 import { Categories } from './collections/categories'
 import { Pages } from './collections/pages'
 import dotenv from 'dotenv'
+import { Media } from './collections/media'
 dotenv.config()
 
 const filename = fileURLToPath(import.meta.url)
@@ -32,7 +33,7 @@ export default buildConfig({
       collections: ['pages'],
     },
   },
-  collections: [Users, Posts, Listings, SubListings, Places, Categories, Pages],
+  collections: [Users, Posts, Listings, SubListings, Places, Categories, Pages, Media],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

@@ -2,12 +2,13 @@ import { buttonSizeList, buttonTypeList, roundingList } from '@/design/button'
 import { colorsAndGradients, textColor } from '@/design/colors'
 import { textAlign } from '@/design/orientation'
 import { headingLevels, landingHeading } from '@/design/text'
-import { getOptionsFromObject } from '../functions/getOptionsFromObject'
 import { Field } from 'payload'
 import { ButtonBlock } from '../_blocks/buttonBlock'
 import { buttonType, rounding } from '../types/buttonTypes'
 import { fontWeight } from '../types/textTypes'
 import { InputWidgetBlock } from '../_blocks/widgetsBlocks'
+import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
+import payload from 'payload'
 
 export const overlayField: Field = {
   label: 'Pozadí sekce',
@@ -21,6 +22,57 @@ export const overlayField: Field = {
         { name: 'overlayColor', type: 'select', options: getOptionsFromObject(colorsAndGradients) },
         { name: 'image', type: 'text' },
       ],
+    },
+  ],
+}
+
+export const imageField: Field = {
+  label: 'Obrázek',
+  type: 'collapsible',
+  admin: { initCollapsed: true },
+  fields: [
+    {
+      name: 'image',
+      type: 'group',
+      fields: [
+        { name: 'imageUpload', type: 'upload', relationTo: 'media' },
+        { name: 'alt', type: 'text', admin: { readOnly: true } },
+        { name: 'src', type: 'text', admin: { readOnly: true } },
+      ],
+      hooks: {
+        beforeChange: [
+          async ({ value, originalDoc, req }) => {
+            if (!value?.imageUpload) return value
+
+            if (value?.imageUpload === originalDoc.imageUpload) {
+              return value
+            }
+            // // 1️⃣ Získáš data nahraného obrázku z kolekce `media`
+            const media = await req.payload.findByID({
+              collection: 'media',
+              id: value.imageUpload,
+            })
+
+            console.log(media)
+
+            // 2️⃣ Lokální cesta nebo URL (záleží na tvém Payload storage adapteru)
+            const localUrl = media?.url || media?.filename
+            if (!localUrl) return value
+
+            console.log(localUrl)
+
+            // 3️⃣ Uploadni na CDN (např. Cloudinary, Bunny, S3...)
+            // const cdnUrl = await uploadToCdn(localUrl)
+
+            // 4️⃣ Vrať aktualizovanou hodnotu groupy
+            return {
+              ...value,
+              src: media.filename,
+              alt: media.alt,
+            }
+          },
+        ],
+      },
     },
   ],
 }
@@ -314,22 +366,6 @@ export function getRichTextField(name?: string) {
   }
 
   return richTextField
-}
-
-export const imageField: Field = {
-  label: 'Obrázek',
-  type: 'collapsible',
-  admin: { initCollapsed: true },
-  fields: [
-    {
-      name: 'image',
-      type: 'group',
-      fields: [
-        { name: 'src', type: 'text' },
-        { name: 'alt', type: 'text' },
-      ],
-    },
-  ],
 }
 
 // export type ButtonPropsType = {
