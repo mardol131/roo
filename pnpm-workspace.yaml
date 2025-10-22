@@ -1,5 +1,2 @@
 packages:
-  - 'app'
-  - 'backend'
-  - 'cms'
-  - 'shared'
+  - "*/"
