@@ -12,7 +12,21 @@ export const Media: CollectionConfig = {
       return doc.placeholder as string
     },
   },
+  admin: {
+    useAsTitle: 'filename',
+    defaultColumns: ['placeholder', 'image', 'alt'],
+  },
   fields: [
+    {
+      name: 'placeholder',
+      type: 'text',
+      admin: {
+        readOnly: true,
+        components: {
+          Cell: '@/cells/Placeholder', // Důležité: cesta jako string
+        },
+      },
+    },
     {
       name: 'url',
       type: 'text',
@@ -27,16 +41,6 @@ export const Media: CollectionConfig = {
       type: 'text',
       admin: {
         readOnly: true,
-      },
-    },
-    {
-      name: 'placeholder',
-      type: 'text',
-      admin: {
-        readOnly: true,
-        components: {
-          Cell: '@/cells/Placeholder', // Důležité: cesta jako string
-        },
       },
     },
   ],
@@ -61,31 +65,49 @@ export const Media: CollectionConfig = {
         const bunnyStorageUrl = process.env.BUNNY_STORAGE_URL
         const baseCdnUrl = process.env.CDN_URL
 
-        const uploadUrl = `${bunnyStorageUrl}/${bunnyZone}/${filename}`
-
+        const uploadUrl = `${bunnyStorageUrl}/${bunnyZone}/cms/${filename}`
+        console.log(process.env.CDN_API_STORAGE_SECRET)
         // Upload
         await axios.put(uploadUrl, newFileData.buffer, {
           headers: {
-            AccessKey: process.env.CDN_API_SECRET!,
+            AccessKey: process.env.CDN_API_STORAGE_SECRET!,
             'Content-Type': 'application/octet-stream',
           },
         })
 
         // Nastav data pro uložení do databáze
-        const imageCdnUrl = `${baseCdnUrl}/${filename}`
+        const imageCdnUrl = `${baseCdnUrl}/cms/${filename}`
+
+        const placeholderUrl = `${imageCdnUrl}?width=200`
 
         // Můžeš tu klidně přidat placeholder variantu (např. ?width=200)
-        const placeholderUrl = `${imageCdnUrl}?width=200`
 
         data.url = imageCdnUrl
         data.placeholder = placeholderUrl
         data.mimeType = newFileData.mimetype
-        data.image = imageCdnUrl
+        data.image = filename
         data.filename = filename
 
         // Není potřeba vracet req.file, protože nic neukládáš lokálně
         delete req.file
         return data
+      },
+    ],
+    afterRead: [
+      async ({ doc }) => {
+        if (doc.placeholderUrl) {
+          const res = await fetch(doc.placeholderUrl, { method: 'HEAD' })
+          if (!res.ok) {
+            console.warn(`Invalid placeholder URL for ${doc.id}: ${doc.placeholderUrl}`)
+            const baseCdnUrl = process.env.CDN_URL
+
+            const imageCdnUrl = `${baseCdnUrl}/cms/${doc.filename}`
+
+            const placeholderUrl = `${imageCdnUrl}?width=200`
+            doc.placeholder = placeholderUrl
+          }
+        }
+        return doc
       },
     ],
   },

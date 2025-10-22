@@ -2,7 +2,8 @@ import React from 'react'
 
 const PlaceholderCell = ({ rowData }: { rowData: any }) => {
   console.log(rowData)
-  const src = rowData?.placeholder
+  const src = `${process.env.CDN_URL}/cms/${rowData?.image}`
+  console.log(src)
   if (!src) return null
 
   return (

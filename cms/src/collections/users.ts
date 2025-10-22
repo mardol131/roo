@@ -23,12 +23,7 @@ export const Users: CollectionConfig = {
     // Email added by default
     // Add more fields as needed
   ],
-
-  hooks: {
-    beforeOperation: [
-      () => {
-        console.log('Payload secret:', process.env.PAYLOAD_SECRET)
-      },
-    ],
+  access: {
+    create: () => true,
   },
 }

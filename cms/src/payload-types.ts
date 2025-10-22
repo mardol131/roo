@@ -2712,9 +2712,9 @@ export interface Page {
  */
 export interface Media {
   id: string;
+  placeholder?: string | null;
   alt?: string | null;
   image?: string | null;
-  placeholder?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -3633,9 +3633,9 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
+  placeholder?: T;
   alt?: T;
   image?: T;
-  placeholder?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
