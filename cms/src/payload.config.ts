@@ -15,20 +15,27 @@ import { Categories } from './collections/categories'
 import { Pages } from './collections/pages'
 import dotenv from 'dotenv'
 import { Media } from './collections/media'
-dotenv.config()
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+if (process.env.VERCEL !== '1') {
+  const rootEnvPath = path.resolve(__dirname, '../../.env')
+  dotenv.config({ path: rootEnvPath })
+  console.log('🔹 ENV načteno z rootu')
+} else {
+  console.warn('⚠️ Root .env nebyl nalezen')
+}
 
 export default buildConfig({
   admin: {
     user: Users.slug,
     importMap: {
-      baseDir: path.resolve(dirname),
+      baseDir: path.resolve(__dirname),
     },
     livePreview: {
       url: ({ data }) => {
-        return `http://localhost:3000/${data.pageSlug}`
+        return `${process.env.WEBSITE}/${data.pageSlug}`
       },
       collections: ['pages'],
     },
@@ -37,7 +44,7 @@ export default buildConfig({
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
-    outputFile: path.resolve(dirname, 'payload-types.ts'),
+    outputFile: path.resolve(__dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',

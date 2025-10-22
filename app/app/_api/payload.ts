@@ -1,9 +1,7 @@
 import { jwtVerify } from "jose";
 
-const PAYLOAD_URL = "http://localhost:3001";
-
 export async function getPayloadApi(query: string) {
-  const data = await fetch(`${PAYLOAD_URL}/api/${query}`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/${query}`, {
     method: "get",
     mode: "cors",
     headers: { "Content-Type": "application/json" },
@@ -14,7 +12,7 @@ export async function getPayloadApi(query: string) {
 }
 
 export async function postPayloadApi(payload: any, query: string) {
-  const data = await fetch(`${PAYLOAD_URL}/api/${query}`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/${query}`, {
     method: "post",
     mode: "cors",
     body: JSON.stringify(payload),
@@ -26,7 +24,6 @@ export async function postPayloadApi(payload: any, query: string) {
 }
 
 export async function getLandingPage(slug: string) {
-  console.log(slug);
   const query = `/pages?where[pageSlug][equals]=${slug}&limit=1`;
 
   const data = await getPayloadApi(query);
@@ -41,13 +38,16 @@ type UserLoginprops = {
 export async function userLogin(data: UserLoginprops) {
   const query = "/users/login";
 
-  const response = await fetch(`${PAYLOAD_URL}/api${query}`, {
-    method: "post",
-    mode: "cors",
-    body: JSON.stringify(data),
-    credentials: "include",
-    headers: { "Content-Type": "application/json" },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_CMS_URL}/api${query}`,
+    {
+      method: "post",
+      mode: "cors",
+      body: JSON.stringify(data),
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    }
+  );
 
   const json = await response.json();
 
