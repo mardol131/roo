@@ -93,22 +93,5 @@ export const Media: CollectionConfig = {
         return data
       },
     ],
-    afterRead: [
-      async ({ doc }) => {
-        if (doc.placeholderUrl) {
-          const res = await fetch(doc.placeholderUrl, { method: 'HEAD' })
-          if (!res.ok) {
-            console.warn(`Invalid placeholder URL for ${doc.id}: ${doc.placeholderUrl}`)
-            const baseCdnUrl = process.env.CDN_URL
-
-            const imageCdnUrl = `${baseCdnUrl}/cms/${doc.filename}`
-
-            const placeholderUrl = `${imageCdnUrl}?width=200`
-            doc.placeholder = placeholderUrl
-          }
-        }
-        return doc
-      },
-    ],
   },
 }
