@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["react", "react-dom"],
     "baseUrl": ".",
     "paths": {
       "@roo/shared": ["shared/src"],
@@ -7,6 +8,9 @@
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "target": "ES2022",
     "strict": true
   },
   "files": [],
