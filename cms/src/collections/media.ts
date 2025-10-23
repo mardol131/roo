@@ -14,7 +14,6 @@ export const Media: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'filename',
-    defaultColumns: ['placeholder', 'image', 'alt'],
   },
   fields: [
     {
