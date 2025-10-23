@@ -1,6 +1,8 @@
 import { jwtVerify } from "jose";
 
 export async function getPayloadApi(query: string) {
+  console.log("hello", query);
+
   const data = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/${query}`, {
     method: "get",
     mode: "cors",
@@ -25,7 +27,6 @@ export async function postPayloadApi(payload: any, query: string) {
 
 export async function getLandingPage(slug: string) {
   const query = `/pages?where[pageSlug][equals]=${slug}&limit=1`;
-
   const data = await getPayloadApi(query);
   return data;
 }

@@ -22,6 +22,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    externalDir: true,
+  },
   turbopack: {
     root: path.resolve(__dirname),
   },
@@ -30,6 +33,7 @@ const nextConfig: NextConfig = {
       ...(config.resolve.alias || {}),
       "@": path.resolve(__dirname, "app"),
       "@public": path.resolve(__dirname, "public"),
+      "@roo/shared": path.resolve(__dirname, "../shared"),
     };
     return config;
   },

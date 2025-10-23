@@ -23,6 +23,8 @@ export default function HeroBubbleSection(props: Props) {
 
   const image = props.innerOverlay?.image;
 
+  console.log(process.env.NEXT_PUBLIC_CDN_URL);
+
   return (
     <LandingSectionWrapper>
       <div className="relative w-full rounded-4xl overflow-hidden shadow-2xl">

@@ -11,12 +11,10 @@ type Props = { params: Promise<{ pageSlug: string }> };
 
 export default async function page({ params }: Props) {
   const { pageSlug } = await params;
-  console.log(pageSlug);
 
   let data;
   try {
     const response = await getLandingPage(pageSlug);
-    console.log(response);
     data = response;
     if (!response.docs.length) {
       redirect("/");
