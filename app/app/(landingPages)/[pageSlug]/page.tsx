@@ -23,6 +23,8 @@ export default async function page({ params }: Props) {
     redirect("/");
   }
   const sections: SectionPropsMap[] = data.docs[0].sections;
+  console.log(sections);
+
   const buttonDesktop: ButtonProps = data.docs[0].header.desktopHeaderButton;
   const buttonMobile: ButtonProps = data.docs[0].header.mobileHeaderButton;
 

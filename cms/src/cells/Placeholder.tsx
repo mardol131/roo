@@ -2,7 +2,7 @@ import React from 'react'
 
 const PlaceholderCell = ({ rowData }: { rowData: any }) => {
   console.log(rowData)
-  const src = `${process.env.CDN_URL}/cms/${rowData?.image}`
+  const src = `${process.env.NEXT_PUBLIC_CDN_URL}/cms/${rowData?.image}`
   console.log(src)
   if (!src) return null
 

@@ -5,25 +5,31 @@ import { IconsList, iconsList } from "@/app/_icons/_iconsList";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import Image from "next/image";
 import React from "react";
+import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 
 type IconsTextProps = {
   image: ImageType;
   texts: TextProps[];
+  buttons?: ButtonProps[];
 };
 
 function IconsTextCard(props: IconsTextProps) {
   return (
-    <div className="flex flex-col items-center gap-10 max-w-70">
-      <Image
-        src={props.image.src}
-        alt={props.image.alt}
-        width={300}
-        height={300}
-        className="w-70 h-70 object-cover object-center"
-      />
-      <div className="flex flex-col items-center gap-2 text-center">
+    <div className="flex flex-col items-center justify-between gap-10 max-w-70 h-full">
+      <div className="flex flex-col items-center gap-5 text-center">
+        {props.image.src && (
+          <Image
+            src={getImageSrc(props.image.src, "cms")}
+            alt={props.image.alt}
+            width={500}
+            height={500}
+            className="w-50 h-50 object-cover object-center"
+          />
+        )}
         <GenerateTexts texts={props.texts} />
       </div>
+      {props.buttons && <GenerateButtons buttons={props.buttons} />}
     </div>
   );
 }

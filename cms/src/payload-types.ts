@@ -1653,6 +1653,97 @@ export interface Page {
                     blockType: 'TextBlock';
                   }[]
                 | null;
+              buttons?:
+                | {
+                    text: string;
+                    textColor?:
+                      | (
+                          | 'secondary'
+                          | 'primary'
+                          | 'tertiary'
+                          | 'black'
+                          | 'white'
+                          | 'textLight'
+                          | 'primarySecondaryOpac'
+                          | 'primaryTertiaryOpac'
+                          | 'secondaryTertiaryOpac'
+                          | 'secondaryPrimaryOpac'
+                          | 'tertiaryPrimaryOpac'
+                          | 'tertiarySecondaryOpac'
+                          | 'primarySecondaryTertiaryOpac'
+                          | 'primaryTertiarySecondaryOpac'
+                          | 'secondaryPrimaryTertiaryOpac'
+                          | 'secondaryTertiryPrimaryOpac'
+                          | 'tertiaryPrimarySecondaryOpac'
+                          | 'tertiarySecondaryPrimaryOpac'
+                          | 'primarySecondary'
+                          | 'primaryTertiary'
+                          | 'secondaryTertiary'
+                          | 'secondaryPrimary'
+                          | 'tertiaryPrimary'
+                          | 'tertiarySecondary'
+                          | 'primarySecondaryTertiary'
+                          | 'primaryTertiarySecondary'
+                          | 'secondaryPrimaryTertiary'
+                          | 'secondaryTertiryPrimary'
+                          | 'tertiaryPrimarySecondary'
+                          | 'tertiarySecondaryPrimary'
+                        )
+                      | null;
+                    bgColor?:
+                      | (
+                          | 'white'
+                          | 'secondary'
+                          | 'secondaryOpac'
+                          | 'primary'
+                          | 'primaryOpac'
+                          | 'tertiary'
+                          | 'tertiaryOpac'
+                          | 'whiteOpac'
+                          | 'blackTransparent'
+                          | 'transparentBlack'
+                          | 'primaryTransparent'
+                          | 'secondaryTransparent'
+                          | 'tertiaryTransparent'
+                          | 'transparentPrimary'
+                          | 'transparentSecondary'
+                          | 'transparentTertiary'
+                          | 'primarySecondaryOpac'
+                          | 'primaryTertiaryOpac'
+                          | 'secondaryTertiaryOpac'
+                          | 'secondaryPrimaryOpac'
+                          | 'tertiaryPrimaryOpac'
+                          | 'tertiarySecondaryOpac'
+                          | 'primarySecondaryTertiaryOpac'
+                          | 'primaryTertiarySecondaryOpac'
+                          | 'secondaryPrimaryTertiaryOpac'
+                          | 'secondaryTertiryPrimaryOpac'
+                          | 'tertiaryPrimarySecondaryOpac'
+                          | 'tertiarySecondaryPrimaryOpac'
+                          | 'primarySecondary'
+                          | 'primaryTertiary'
+                          | 'secondaryTertiary'
+                          | 'secondaryPrimary'
+                          | 'tertiaryPrimary'
+                          | 'tertiarySecondary'
+                          | 'primarySecondaryTertiary'
+                          | 'primaryTertiarySecondary'
+                          | 'secondaryPrimaryTertiary'
+                          | 'secondaryTertiryPrimary'
+                          | 'tertiaryPrimarySecondary'
+                          | 'tertiarySecondaryPrimary'
+                        )
+                      | null;
+                    size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+                    rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+                    className?: string | null;
+                    type?: ('submit' | 'button' | 'reset') | null;
+                    link?: string | null;
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: 'ButtonBlock';
+                  }[]
+                | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'IconsTextSection';
@@ -3331,6 +3422,24 @@ export interface PagesSelect<T extends boolean = true> {
                                       text?: T;
                                       className?: T;
                                       fontWeight?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          buttons?:
+                            | T
+                            | {
+                                ButtonBlock?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      textColor?: T;
+                                      bgColor?: T;
+                                      size?: T;
+                                      rounding?: T;
+                                      className?: T;
+                                      type?: T;
+                                      link?: T;
                                       id?: T;
                                       blockName?: T;
                                     };

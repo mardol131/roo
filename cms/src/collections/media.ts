@@ -62,7 +62,7 @@ export const Media: CollectionConfig = {
         const filename = newFileData.filename
         const bunnyZone = process.env.BUNNY_STORAGE_ZONE
         const bunnyStorageUrl = process.env.BUNNY_STORAGE_URL
-        const baseCdnUrl = process.env.CDN_URL
+        const baseCdnUrl = process.env.NEXT_PUBLIC_CDN_URL
 
         const uploadUrl = `${bunnyStorageUrl}/${bunnyZone}/cms/${filename}`
         console.log(process.env.CDN_API_STORAGE_SECRET)

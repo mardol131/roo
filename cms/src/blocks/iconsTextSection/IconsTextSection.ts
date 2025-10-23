@@ -1,6 +1,8 @@
 import { Block } from 'payload'
 import {
   buttonField,
+  buttonsField,
+  getButtonField,
   getOverlayField,
   headingField,
   imageField,
@@ -12,7 +14,7 @@ import { textsField } from '../_blocks/textBlock'
 const IconsTextCardBlock: Block = {
   slug: 'IconsTextSection',
   labels: { singular: 'Ikona s textem', plural: 'Ikona s textem' },
-  fields: [imageField, textsField],
+  fields: [imageField, textsField, buttonsField],
 }
 
 export const IconsTextSectionBlock: Block = {

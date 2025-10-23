@@ -1,1 +1,1 @@
-export declare function getImageSrc(name: string, route?: string): string;
+export declare function getImageSrc(name: string, route?: "cms"): string;
