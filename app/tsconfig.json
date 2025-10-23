@@ -22,7 +22,6 @@
     "paths": {
       "@/*": ["app/*"],
       "@public/*": ["public/*"],
-      "@roo/shared": ["../shared/src/index.ts"],
       "@roo/shared/*": ["../shared/src/*"]
     }
   },

@@ -30,8 +30,8 @@ export default function HeroBubbleSection(props: Props) {
           <Image
             src={getImageSrc(image.src, "cms")}
             alt={image.alt || "alt-image"}
-            width={1000}
-            height={1000}
+            width={1500}
+            height={1500}
             className="absolute w-full h-full object-cover object-center"
           />
         )}
