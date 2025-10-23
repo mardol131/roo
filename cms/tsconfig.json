@@ -23,12 +23,6 @@
     "target": "ES2022",
     "types": ["react", "react-dom"]
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "next-env.d.ts",
-    "src/**/*"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next-env.d.ts", "src/**/*"],
   "exclude": ["node_modules"]
 }

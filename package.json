@@ -2,6 +2,12 @@
   "name": "roo",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "app",
+    "cms",
+    "shared"
+  ],
+  "packageManager": "pnpm@10.0.0",
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
@@ -13,6 +19,7 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.0",
     "prettier": "^3.0.0",
+    "turbo": "^2.5.8",
     "typescript": "^5.0.0"
   },
   "dependencies": {

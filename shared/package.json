@@ -2,7 +2,11 @@
   "name": "@roo/shared",
   "version": "1.0.0",
   "type": "module",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --build"
+  },
   "dependencies": {
     "sharp": "0.34.3"
   }

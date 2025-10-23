@@ -8,6 +8,7 @@ import {
   ColorsAndGradientsType,
 } from "@/app/_design/colors";
 import { ImageType, OverlayType } from "@/app/_types/objects";
+import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 
 type Props = {
   texts: TextProps[];
@@ -22,14 +23,12 @@ export default function HeroBubbleSection(props: Props) {
 
   const image = props.innerOverlay?.image;
 
-  console.log(props);
-
   return (
     <LandingSectionWrapper>
       <div className="relative w-full rounded-4xl overflow-hidden shadow-2xl">
         {image?.src && (
           <Image
-            src={image.src}
+            src={getImageSrc(image.src, "cms")}
             alt={image.alt || "alt-image"}
             width={1000}
             height={1000}
