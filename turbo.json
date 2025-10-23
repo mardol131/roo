@@ -3,7 +3,21 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": [
+        "CMS_URL",
+        "PAYLOAD_SECRET",
+        "WEBSITE",
+        "NEXT_PUBLIC_CMS_URL",
+        "NEXT_PUBLIC_WEBSITE",
+        "DATABASE_URI",
+        "BUNNY_STORAGE_URL",
+        "BUNNY_STORAGE_ZONE",
+        "CDN_API_STORAGE_SECRET",
+        "CDN_URL",
+        "NEXT_PUBLIC_BUNNY_STORAGE_URL",
+        "NEXT_PUBLIC_CDN_URL"
+      ]
     },
     "check-types": {
       "dependsOn": ["^check-types"]
