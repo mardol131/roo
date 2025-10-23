@@ -1,6 +1,0 @@
-{
-  "buildCommand": "turbo run build --filter=@roo/app",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "framework": "nextjs",
-  "outputDirectory": "app/.next"
-}
