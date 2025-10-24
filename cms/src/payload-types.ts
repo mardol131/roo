@@ -236,6 +236,21 @@ export interface Page {
   title: string;
   description: string;
   pageSlug: string;
+  canonical: string;
+  og?: {
+    'og:title'?: string | null;
+    'og:description'?: string | null;
+    'og:image'?: string | null;
+    'og:url'?: string | null;
+    'og:type'?: string | null;
+  };
+  twitter?: {
+    'twitter:title'?: string | null;
+    'twitter:description'?: string | null;
+    'twitter:image'?: string | null;
+    'twitter:card'?: string | null;
+  };
+  JSON_LD?: string | null;
   header: {
     desktopHeaderButton: {
       text: string;
@@ -409,7 +424,7 @@ export interface Page {
               blockType: 'TextBlock';
             }[]
           | null;
-        overlay: {
+        overlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -460,7 +475,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -763,7 +778,7 @@ export interface Page {
                 id?: string | null;
               }[]
             | null;
-          overlay: {
+          overlay?: {
             overlayColor?:
               | (
                   | 'white'
@@ -814,7 +829,7 @@ export interface Page {
               alt?: string | null;
               src?: string | null;
             };
-            advice:
+            advice?:
               | {
                   [k: string]: unknown;
                 }
@@ -895,7 +910,7 @@ export interface Page {
                 id?: string | null;
               }[]
             | null;
-          overlay: {
+          overlay?: {
             overlayColor?:
               | (
                   | 'white'
@@ -946,7 +961,7 @@ export interface Page {
               alt?: string | null;
               src?: string | null;
             };
-            advice:
+            advice?:
               | {
                   [k: string]: unknown;
                 }
@@ -957,7 +972,7 @@ export interface Page {
               | null;
           };
         };
-        overlay: {
+        overlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -1008,7 +1023,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -1161,7 +1176,7 @@ export interface Page {
               blockType: 'TextBlock';
             }[]
           | null;
-        overlay: {
+        overlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -1212,7 +1227,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -1282,6 +1297,8 @@ export interface Page {
               name: string;
               placeholder: string;
               spanTwo?: ('true' | 'false') | null;
+              type?: ('text' | 'email' | 'password') | null;
+              required?: ('true' | 'false') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'formtextinput';
@@ -1289,6 +1306,7 @@ export interface Page {
           | {
               label: string;
               placeholder: string;
+              value: string;
               spanTwo?: ('true' | 'false') | null;
               options: {
                 text: string;
@@ -1297,6 +1315,7 @@ export interface Page {
                 blockName?: string | null;
                 blockType: 'formselectoptions';
               }[];
+              required?: ('true' | 'false') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'formselectinput';
@@ -1367,6 +1386,7 @@ export interface Page {
                 | null;
               value: string;
               spanTwo?: ('true' | 'false') | null;
+              required?: ('true' | 'false') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'formcheckboxinput';
@@ -1438,6 +1458,7 @@ export interface Page {
                   | null;
                 value: string;
                 spanTwo?: ('true' | 'false') | null;
+                required?: ('true' | 'false') | null;
                 id?: string | null;
                 blockName?: string | null;
                 blockType: 'formcheckboxinput';
@@ -1506,6 +1527,7 @@ export interface Page {
                   }[]
                 | null;
               spanTwo?: ('true' | 'false') | null;
+              required?: ('true' | 'false') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'formmultiplecheckboxinput';
@@ -1670,7 +1692,7 @@ export interface Page {
               blockType: 'ButtonBlock';
             }[]
           | null;
-        innerOverlay: {
+        innerOverlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -1721,7 +1743,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -1965,7 +1987,7 @@ export interface Page {
               blockType: 'IconsTextSection';
             }[]
           | null;
-        overlay: {
+        overlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -2016,7 +2038,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -2198,7 +2220,7 @@ export interface Page {
             }[]
           | null;
         textSide?: ('left' | 'right') | null;
-        outerOverlay: {
+        outerOverlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -2249,7 +2271,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -2259,7 +2281,7 @@ export interface Page {
             | boolean
             | null;
         };
-        innerOverlay: {
+        innerOverlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -2310,7 +2332,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -2884,7 +2906,7 @@ export interface Page {
               blockType: 'ButtonBlock';
             }[]
           | null;
-        innerOverlay: {
+        innerOverlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -2935,7 +2957,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -2945,7 +2967,7 @@ export interface Page {
             | boolean
             | null;
         };
-        outerOverlay: {
+        outerOverlay?: {
           overlayColor?:
             | (
                 | 'white'
@@ -2996,7 +3018,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
           };
-          advice:
+          advice?:
             | {
                 [k: string]: unknown;
               }
@@ -3005,6 +3027,16 @@ export interface Page {
             | number
             | boolean
             | null;
+        };
+        imageTop?: {
+          imageUpload?: (string | null) | Media;
+          alt?: string | null;
+          src?: string | null;
+        };
+        imageBottom?: {
+          imageUpload?: (string | null) | Media;
+          alt?: string | null;
+          src?: string | null;
         };
         id?: string | null;
         blockName?: string | null;
@@ -3205,6 +3237,25 @@ export interface PagesSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   pageSlug?: T;
+  canonical?: T;
+  og?:
+    | T
+    | {
+        'og:title'?: T;
+        'og:description'?: T;
+        'og:image'?: T;
+        'og:url'?: T;
+        'og:type'?: T;
+      };
+  twitter?:
+    | T
+    | {
+        'twitter:title'?: T;
+        'twitter:description'?: T;
+        'twitter:image'?: T;
+        'twitter:card'?: T;
+      };
+  JSON_LD?: T;
   header?:
     | T
     | {
@@ -3516,6 +3567,8 @@ export interface PagesSelect<T extends boolean = true> {
                           name?: T;
                           placeholder?: T;
                           spanTwo?: T;
+                          type?: T;
+                          required?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3524,6 +3577,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | {
                           label?: T;
                           placeholder?: T;
+                          value?: T;
                           spanTwo?: T;
                           options?:
                             | T
@@ -3537,6 +3591,7 @@ export interface PagesSelect<T extends boolean = true> {
                                       blockName?: T;
                                     };
                               };
+                          required?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3560,6 +3615,7 @@ export interface PagesSelect<T extends boolean = true> {
                               };
                           value?: T;
                           spanTwo?: T;
+                          required?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3589,6 +3645,7 @@ export interface PagesSelect<T extends boolean = true> {
                                           };
                                       value?: T;
                                       spanTwo?: T;
+                                      required?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3609,6 +3666,7 @@ export interface PagesSelect<T extends boolean = true> {
                                     };
                               };
                           spanTwo?: T;
+                          required?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4019,6 +4077,20 @@ export interface PagesSelect<T extends boolean = true> {
                           src?: T;
                         };
                     advice?: T;
+                  };
+              imageTop?:
+                | T
+                | {
+                    imageUpload?: T;
+                    alt?: T;
+                    src?: T;
+                  };
+              imageBottom?:
+                | T
+                | {
+                    imageUpload?: T;
+                    alt?: T;
+                    src?: T;
                   };
               id?: T;
               blockName?: T;

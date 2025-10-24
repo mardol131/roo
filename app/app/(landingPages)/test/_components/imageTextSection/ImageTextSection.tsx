@@ -39,7 +39,6 @@ function ImageGrid(props: ImageGridProps) {
   while (rotations.length < 4) {
     rotations.push(props.rotate ? Math.floor(Math.random() * 5) : 0);
   }
-  console.log(rotations);
 
   return (
     <div className="grid grid-cols-2 gap-4">
@@ -102,7 +101,6 @@ type Props = {
 };
 
 export default function ImageTextSection(props: Props) {
-  console.log(props);
   function getImagePart(field: ImagePartListProps) {
     switch (field.blockType) {
       case "imageOne":

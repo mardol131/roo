@@ -18,8 +18,10 @@ export type FormTextInputProps = {
   blockType: "formtextinput";
   label: string;
   name: string;
+  type?: "text" | "email" | "password";
   placeholder: string;
   spanTwo?: "true" | "false";
+  required?: "true" | "false";
 };
 
 export function FormTextInput(props: FormTextInputProps) {
@@ -32,8 +34,9 @@ export function FormTextInput(props: FormTextInputProps) {
       <label className="text-primary font-semibold">{props.label}</label>
       <input
         name={props.name}
-        type="text"
+        type={props.type || "text"}
         placeholder={props.placeholder}
+        required={props.required === "true" || false}
       ></input>
     </div>
   );
@@ -47,9 +50,11 @@ type SelectOptionType = {
 type FormSelectInputProps = {
   blockType: "formselectinput";
   label: string;
+  value: string;
   placeholder: string;
   spanTwo?: "true" | "false";
   options: SelectOptionType[];
+  required?: "true" | "false";
 };
 
 function FormSelectInput(props: FormSelectInputProps) {
@@ -61,7 +66,11 @@ function FormSelectInput(props: FormSelectInputProps) {
     >
       <label className="text-primary font-semibold">{props.label}</label>
 
-      <select name="pets" id="pet-select">
+      <select
+        required={props.required === "true" || false}
+        name={props.value}
+        id={props.value}
+      >
         <option value="" className="text-textPlaceholder">
           {props.placeholder}
         </option>
@@ -82,10 +91,12 @@ type FormCheckboxInputProps = {
   label: TextProps[];
   value: string;
   spanTwo?: "true" | "false";
+  required?: "true" | "false";
+  onChange?: (isChecked: boolean, value: string) => void;
+  name?: string;
 };
 
 function FormCheckboxInput(props: FormCheckboxInputProps) {
-  console.log(props);
   return (
     <div
       className={`${
@@ -94,9 +105,16 @@ function FormCheckboxInput(props: FormCheckboxInputProps) {
     >
       <input
         type="checkbox"
+        onChange={(e) => {
+          if (props.onChange) {
+            props.onChange(e.target.checked, props.value);
+          }
+        }}
         className="cursor-pointer"
         id={props.value}
-        name={props.value}
+        name={props.name || props.value}
+        value={props.value}
+        required={props.required === "true" || false}
       />
       <label
         htmlFor={props.value}
@@ -113,9 +131,30 @@ type FormMultipleCheckboxInputProps = {
   checkboxes: FormCheckboxInputProps[];
   label: TextProps[];
   spanTwo?: "true" | "false";
+  required?: "true" | "false";
+  value: string;
 };
 
 function FormMultipleCheckboxInput(props: FormMultipleCheckboxInputProps) {
+  const [values, setValues] = useState<string[]>([]);
+
+  function hasValueHandler(isChecked: boolean, value: string) {
+    console.log(values);
+    console.log(isChecked);
+    if (isChecked) {
+      setValues([...values, value]);
+    } else if (!isChecked) {
+      const index = values.indexOf(value);
+
+      if (index !== -1) {
+        setValues((prev) => prev.filter((v) => v !== value));
+      }
+    }
+  }
+
+  const isRequired =
+    props.required === "true" && values.length === 0 ? "true" : "false";
+
   return (
     <div
       className={`${
@@ -129,7 +168,15 @@ function FormMultipleCheckboxInput(props: FormMultipleCheckboxInputProps) {
         className={`${props.spanTwo === "true" ? "grid md:grid-cols-2 gap-x-5" : "flex flex-col"} gap-2 w-full`}
       >
         {props.checkboxes.map((item, i) => {
-          return <FormCheckboxInput key={i} {...item} />;
+          return (
+            <FormCheckboxInput
+              key={item.value + item.label}
+              {...item}
+              required={isRequired}
+              onChange={hasValueHandler}
+              name={props.value}
+            />
+          );
         })}
       </div>
     </div>
@@ -179,6 +226,7 @@ export default function FormSection(props: FormSectionProps) {
 
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    console.log(Object.fromEntries(formData));
     try {
       const response = await axios.post(props.webhook, formData);
 
@@ -194,7 +242,7 @@ export default function FormSection(props: FormSectionProps) {
   return (
     <LandingSectionWrapper>
       <div className=" relative w-full overflow-hidden rounded-3xl shadow-xl">
-        {props.overlay?.image && (
+        {props.overlay?.image?.src && (
           <Image
             src={getImageSrc(props.overlay?.image?.src, "cms")}
             width={1500}

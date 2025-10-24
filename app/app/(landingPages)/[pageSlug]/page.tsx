@@ -1,4 +1,4 @@
-import React from "react";
+import React, { cache } from "react";
 import { redirect } from "next/navigation";
 
 import { WebsiteHeader } from "../_components/header/WebsiteHeader";
@@ -6,15 +6,80 @@ import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
 import { getLandingPage } from "../../_api/payload";
 import { SectionPropsMap, sectionsList } from "../test/_components/sectionList";
 import { ButtonProps } from "../../_global/atoms/Button";
+import Head from "next/head";
+
+export const getPost = cache(async (pageSlug: string) => {
+  const response = await getLandingPage(pageSlug);
+  return response;
+});
 
 type Props = { params: Promise<{ pageSlug: string }> };
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { pageSlug: string };
+}) {
+  const response = await getPost(params.pageSlug);
+  const post = response.docs[0];
+  const title = post.title;
+  const description = post.description;
+  const og = post.og;
+  const validOgTypes = [
+    "website",
+    "article",
+    "book",
+    "music.song",
+    "music.album",
+    "music.playlist",
+    "music.radio_station",
+    "video.movie",
+    "video.episode",
+    "video.tv_show",
+    "video.other",
+  ];
+
+  const ogType = validOgTypes.includes(og["og:type"])
+    ? og["og:type"]
+    : "website";
+  const twitter = post.twitter;
+  const jsonld = post.JSON_LD;
+  console.log(post);
+  return {
+    title: title || "ROO",
+    description: description || "",
+    openGraph: og
+      ? {
+          title: og["og:title"] || title,
+          description: og["og:description"] || description,
+          url: og["og:url"],
+          images: og["og:image"] ? [{ url: og["og:image"] }] : undefined,
+          type: ogType || "website",
+        }
+      : undefined,
+    twitter: twitter
+      ? {
+          card: twitter["twitter:card"] || "summary_large_image",
+          title: twitter["twitter:title"] || title,
+          description: twitter["twitter:description"] || description,
+          images: twitter["twitter:image"]
+            ? [twitter["twitter:image"]]
+            : undefined,
+        }
+      : undefined,
+    other: jsonld
+      ? {
+          "script:ld+json": JSON.stringify(jsonld),
+        }
+      : undefined,
+  };
+}
+
 export default async function page({ params }: Props) {
   const { pageSlug } = await params;
-
+  const response = await getPost(pageSlug);
   let data;
   try {
-    const response = await getLandingPage(pageSlug);
     data = response;
     if (!response.docs.length) {
       redirect("/");
@@ -22,9 +87,9 @@ export default async function page({ params }: Props) {
   } catch {
     redirect("/");
   }
-  const sections: SectionPropsMap[] = data.docs[0].sections;
-  console.log(sections);
+  console.log(data.docs[0]);
 
+  const sections: SectionPropsMap[] = data.docs[0].sections;
   const buttonDesktop: ButtonProps = data.docs[0].header.desktopHeaderButton;
   const buttonMobile: ButtonProps = data.docs[0].header.mobileHeaderButton;
 

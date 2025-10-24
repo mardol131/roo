@@ -9,6 +9,8 @@ export const FormTextInputBlock: Block = {
     { name: 'name', type: 'text', required: true },
     { name: 'placeholder', type: 'text', required: true },
     { name: 'spanTwo', type: 'select', options: ['true', 'false'], label: 'Dva sloupce?' },
+    { name: 'type', type: 'select', options: ['text', 'email', 'password'] },
+    { name: 'required', type: 'select', options: ['true', 'false'] },
   ],
 }
 
@@ -27,8 +29,10 @@ export const FormSelectInputBlock: Block = {
   fields: [
     { name: 'label', type: 'text', required: true },
     { name: 'placeholder', type: 'text', required: true },
+    { name: 'value', type: 'text', required: true },
     { name: 'spanTwo', type: 'select', options: ['true', 'false'], label: 'Dva sloupce?' },
     { name: 'options', type: 'blocks', blocks: [FormSelectOptionsBlock], required: true },
+    { name: 'required', type: 'select', options: ['true', 'false'] },
   ],
 }
 
@@ -39,6 +43,7 @@ export const FormCheckboxInputBlock: Block = {
     getTextsField('label'),
     { name: 'value', type: 'text', required: true },
     { name: 'spanTwo', type: 'select', options: ['true', 'false'], label: 'Dva sloupce?' },
+    { name: 'required', type: 'select', options: ['true', 'false'] },
   ],
 }
 
@@ -49,5 +54,6 @@ export const FormMultipleCheckboxInputBlock: Block = {
     { name: 'checkboxes', type: 'blocks', blocks: [FormCheckboxInputBlock], required: true },
     getTextsField('label'),
     { name: 'spanTwo', type: 'select', options: ['true', 'false'], label: 'Dva sloupce?' },
+    { name: 'required', type: 'select', options: ['true', 'false'] },
   ],
 }

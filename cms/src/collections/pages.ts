@@ -18,24 +18,120 @@ export const Pages: CollectionConfig = {
   },
   fields: [
     {
-      label: 'Meta title',
-      name: 'title',
-      type: 'text',
-      required: true,
+      label: 'Údaje o stránce',
+      type: 'collapsible',
+      admin: {
+        initCollapsed: true,
+      },
+      fields: [
+        {
+          label: 'Meta title',
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          label: 'Meta description',
+          name: 'description',
+          type: 'text',
+          required: true,
+        },
+        {
+          label: 'Slug',
+          name: 'pageSlug',
+          type: 'text',
+          required: true,
+        },
+        {
+          label: 'Canonical',
+          name: 'canonical',
+          type: 'text',
+          required: true,
+        },
+        {
+          label: 'OG',
+          type: 'collapsible',
+          admin: {
+            initCollapsed: true,
+          },
+          fields: [
+            {
+              label: 'OG',
+              name: 'og',
+              type: 'group',
+              fields: [
+                {
+                  label: 'og:title',
+                  name: 'og:title',
+                  type: 'text',
+                },
+                {
+                  label: 'og:description',
+                  name: 'og:description',
+                  type: 'text',
+                },
+                {
+                  label: 'og:image',
+                  name: 'og:image',
+                  type: 'text',
+                },
+                {
+                  label: 'og:url',
+                  name: 'og:url',
+                  type: 'text',
+                },
+                {
+                  label: 'og:type',
+                  name: 'og:type',
+                  type: 'text',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: 'Twitter',
+          type: 'collapsible',
+          admin: {
+            initCollapsed: true,
+          },
+          fields: [
+            {
+              label: 'Twitter',
+              name: 'twitter',
+              type: 'group',
+              fields: [
+                {
+                  label: 'twitter:title',
+                  name: 'twitter:title',
+                  type: 'text',
+                },
+                {
+                  label: 'twitter:description',
+                  name: 'twitter:description',
+                  type: 'text',
+                },
+                {
+                  label: 'twitter:image',
+                  name: 'twitter:image',
+                  type: 'text',
+                },
+                {
+                  label: 'twitter:card',
+                  name: 'twitter:card',
+                  type: 'text',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          label: 'JSON-LD',
+          name: 'JSON_LD',
+          type: 'text',
+        },
+      ],
     },
-    {
-      label: 'Meta description',
-      name: 'description',
-      type: 'text',
-      required: true,
-    },
-    {
-      label: 'Slug',
-      name: 'pageSlug',
-      type: 'text',
-      required: true,
-    },
-
     {
       label: 'Tlačítka do záhlaví',
       name: 'header',
