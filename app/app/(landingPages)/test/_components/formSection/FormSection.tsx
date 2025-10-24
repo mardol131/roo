@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FormEvent } from "react";
+import React, { FormEvent, useRef, useState } from "react";
 
 import Button, { ButtonProps } from "@/app/_global/atoms/Button";
 import {
@@ -12,6 +12,7 @@ import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { LandingSectionWrapper } from "@/app/(landingPages)/test/_components/wrappers/LandingSectionWrapper";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
+import axios from "axios";
 
 export type FormTextInputProps = {
   blockType: "formtextinput";
@@ -149,6 +150,10 @@ export type FormSectionProps = {
 };
 
 export default function FormSection(props: FormSectionProps) {
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
+
   const fields = props.fields.map((field, i) => {
     switch (field.blockType) {
       case "formtextinput":
@@ -168,9 +173,22 @@ export default function FormSection(props: FormSectionProps) {
     props.overlay?.overlayColor &&
     colorsAndGradients[props.overlay.overlayColor];
 
-  function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
+  async function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
+    setIsSuccess(false);
+    setIsError(false);
+
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    try {
+      const response = await axios.post(props.webhook, formData);
+
+      if (response.statusText === "OK") {
+        setIsSuccess(true);
+        formRef.current?.reset();
+      }
+    } catch {
+      setIsError(true);
+    }
   }
 
   return (
@@ -189,6 +207,7 @@ export default function FormSection(props: FormSectionProps) {
           className={` ${overlay} relative z-0 w-full h-full flex items-center justify-center overflow-hidden md:p-10 md:py-20 p-3`}
         >
           <form
+            ref={formRef}
             onSubmit={(e) => {
               onSubmitHandler(e);
             }}
@@ -200,8 +219,18 @@ export default function FormSection(props: FormSectionProps) {
             <div className="md:grid w-full flex flex-col grid-cols-2 gap-5">
               {fields}
             </div>
-            <div className="flex justify-center">
+            <div className="flex flex-col justify-center items-center gap-4">
               <Button {...props.button} type="submit" />
+              {isSuccess && (
+                <Text text="Děkujeme!" level="paragraph3" fontWeight="xl" />
+              )}
+              {isError && (
+                <Text
+                  text="Něco se nepovedlo, zkuste to prosím později."
+                  level="paragraph3"
+                  fontWeight="xl"
+                />
+              )}
             </div>
           </form>
         </div>
