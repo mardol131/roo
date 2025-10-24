@@ -7,11 +7,8 @@ import { getLandingPage } from "../../_api/payload";
 import { SectionPropsMap, sectionsList } from "../test/_components/sectionList";
 import { ButtonProps } from "../../_global/atoms/Button";
 import Head from "next/head";
-
-export const getPost = cache(async (pageSlug: string) => {
-  const response = await getLandingPage(pageSlug);
-  return response;
-});
+import { getPost } from "../_functions/getPost";
+import { Metadata } from "next";
 
 type Props = { params: Promise<{ pageSlug: string }> };
 
@@ -19,7 +16,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { pageSlug: string };
-}) {
+}): Promise<Metadata> {
   const response = await getPost(params.pageSlug);
   const post = response.docs[0];
   const title = post.title;
