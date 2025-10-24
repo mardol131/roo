@@ -16,7 +16,7 @@ type IconsTextProps = {
 
 function IconsTextCard(props: IconsTextProps) {
   return (
-    <div className="flex flex-col items-center justify-between gap-10 max-w-70 h-full">
+    <div className="flex flex-col items-center justify-between gap-5 max-w-70 h-auto">
       <div className="flex flex-col items-center gap-5 text-center">
         {props.image.src && (
           <Image
@@ -24,7 +24,7 @@ function IconsTextCard(props: IconsTextProps) {
             alt={props.image.alt}
             width={500}
             height={500}
-            className="w-50 h-50 object-cover object-center"
+            className="max-w-50 max-h-50 h-full w-full object-cover object-center"
           />
         )}
         <GenerateTexts texts={props.texts} />
@@ -43,13 +43,13 @@ type Props = {
 export default function IconsTextSection(props: Props) {
   return (
     <LandingSectionWrapper overlay={props.overlay}>
-      <div className="w-full flex flex-col items-center gap-10">
+      <div className="w-full flex flex-col items-center gap-15">
         {props.texts && (
           <div className="flex flex-col items-center text-center md:max-w-[60%] gap-4">
             <GenerateTexts texts={props.texts} />
           </div>
         )}
-        <div className="flex max-lg:flex-col max-lg:items-center max-lg:gap-10 w-full justify-around">
+        <div className="flex max-lg:flex-col max-lg:items-center max-lg:gap-10 w-full h-full justify-around">
           {props.iconsTextCards.map((card, i) => {
             return <IconsTextCard key={i} {...card} />;
           })}

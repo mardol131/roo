@@ -1161,7 +1161,7 @@ export interface Page {
               blockType: 'TextBlock';
             }[]
           | null;
-        overlay?: {
+        overlay: {
           overlayColor?:
             | (
                 | 'white'
@@ -1206,7 +1206,21 @@ export interface Page {
                 | 'tertiarySecondaryPrimary'
               )
             | null;
-          image?: string | null;
+          overlayClassname?: string | null;
+          image?: {
+            imageUpload?: (string | null) | Media;
+            alt?: string | null;
+            src?: string | null;
+          };
+          advice:
+            | {
+                [k: string]: unknown;
+              }
+            | unknown[]
+            | string
+            | number
+            | boolean
+            | null;
         };
         button: {
           text: string;
@@ -1265,6 +1279,7 @@ export interface Page {
         fields: (
           | {
               label: string;
+              name: string;
               placeholder: string;
               spanTwo?: ('true' | 'false') | null;
               id?: string | null;
@@ -1287,12 +1302,213 @@ export interface Page {
               blockType: 'formselectinput';
             }
           | {
-              label: string;
+              label?:
+                | {
+                    level?:
+                      | (
+                          | 'h1'
+                          | 'h2'
+                          | 'h3'
+                          | 'h4'
+                          | 'h5'
+                          | 'label1'
+                          | 'label2'
+                          | 'label3'
+                          | 'label4'
+                          | 'label5'
+                          | 'label6'
+                          | 'label7'
+                          | 'label8'
+                          | 'paragraph1'
+                          | 'paragraph2'
+                          | 'paragraph3'
+                          | 'paragraph4'
+                          | 'paragraph5'
+                        )
+                      | null;
+                    color:
+                      | 'secondary'
+                      | 'primary'
+                      | 'tertiary'
+                      | 'black'
+                      | 'white'
+                      | 'textLight'
+                      | 'primarySecondaryOpac'
+                      | 'primaryTertiaryOpac'
+                      | 'secondaryTertiaryOpac'
+                      | 'secondaryPrimaryOpac'
+                      | 'tertiaryPrimaryOpac'
+                      | 'tertiarySecondaryOpac'
+                      | 'primarySecondaryTertiaryOpac'
+                      | 'primaryTertiarySecondaryOpac'
+                      | 'secondaryPrimaryTertiaryOpac'
+                      | 'secondaryTertiryPrimaryOpac'
+                      | 'tertiaryPrimarySecondaryOpac'
+                      | 'tertiarySecondaryPrimaryOpac'
+                      | 'primarySecondary'
+                      | 'primaryTertiary'
+                      | 'secondaryTertiary'
+                      | 'secondaryPrimary'
+                      | 'tertiaryPrimary'
+                      | 'tertiarySecondary'
+                      | 'primarySecondaryTertiary'
+                      | 'primaryTertiarySecondary'
+                      | 'secondaryPrimaryTertiary'
+                      | 'secondaryTertiryPrimary'
+                      | 'tertiaryPrimarySecondary'
+                      | 'tertiarySecondaryPrimary';
+                    text: string;
+                    className?: string | null;
+                    fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: 'TextBlock';
+                  }[]
+                | null;
               value: string;
               spanTwo?: ('true' | 'false') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'formcheckboxinput';
+            }
+          | {
+              checkboxes: {
+                label?:
+                  | {
+                      level?:
+                        | (
+                            | 'h1'
+                            | 'h2'
+                            | 'h3'
+                            | 'h4'
+                            | 'h5'
+                            | 'label1'
+                            | 'label2'
+                            | 'label3'
+                            | 'label4'
+                            | 'label5'
+                            | 'label6'
+                            | 'label7'
+                            | 'label8'
+                            | 'paragraph1'
+                            | 'paragraph2'
+                            | 'paragraph3'
+                            | 'paragraph4'
+                            | 'paragraph5'
+                          )
+                        | null;
+                      color:
+                        | 'secondary'
+                        | 'primary'
+                        | 'tertiary'
+                        | 'black'
+                        | 'white'
+                        | 'textLight'
+                        | 'primarySecondaryOpac'
+                        | 'primaryTertiaryOpac'
+                        | 'secondaryTertiaryOpac'
+                        | 'secondaryPrimaryOpac'
+                        | 'tertiaryPrimaryOpac'
+                        | 'tertiarySecondaryOpac'
+                        | 'primarySecondaryTertiaryOpac'
+                        | 'primaryTertiarySecondaryOpac'
+                        | 'secondaryPrimaryTertiaryOpac'
+                        | 'secondaryTertiryPrimaryOpac'
+                        | 'tertiaryPrimarySecondaryOpac'
+                        | 'tertiarySecondaryPrimaryOpac'
+                        | 'primarySecondary'
+                        | 'primaryTertiary'
+                        | 'secondaryTertiary'
+                        | 'secondaryPrimary'
+                        | 'tertiaryPrimary'
+                        | 'tertiarySecondary'
+                        | 'primarySecondaryTertiary'
+                        | 'primaryTertiarySecondary'
+                        | 'secondaryPrimaryTertiary'
+                        | 'secondaryTertiryPrimary'
+                        | 'tertiaryPrimarySecondary'
+                        | 'tertiarySecondaryPrimary';
+                      text: string;
+                      className?: string | null;
+                      fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'TextBlock';
+                    }[]
+                  | null;
+                value: string;
+                spanTwo?: ('true' | 'false') | null;
+                id?: string | null;
+                blockName?: string | null;
+                blockType: 'formcheckboxinput';
+              }[];
+              label?:
+                | {
+                    level?:
+                      | (
+                          | 'h1'
+                          | 'h2'
+                          | 'h3'
+                          | 'h4'
+                          | 'h5'
+                          | 'label1'
+                          | 'label2'
+                          | 'label3'
+                          | 'label4'
+                          | 'label5'
+                          | 'label6'
+                          | 'label7'
+                          | 'label8'
+                          | 'paragraph1'
+                          | 'paragraph2'
+                          | 'paragraph3'
+                          | 'paragraph4'
+                          | 'paragraph5'
+                        )
+                      | null;
+                    color:
+                      | 'secondary'
+                      | 'primary'
+                      | 'tertiary'
+                      | 'black'
+                      | 'white'
+                      | 'textLight'
+                      | 'primarySecondaryOpac'
+                      | 'primaryTertiaryOpac'
+                      | 'secondaryTertiaryOpac'
+                      | 'secondaryPrimaryOpac'
+                      | 'tertiaryPrimaryOpac'
+                      | 'tertiarySecondaryOpac'
+                      | 'primarySecondaryTertiaryOpac'
+                      | 'primaryTertiarySecondaryOpac'
+                      | 'secondaryPrimaryTertiaryOpac'
+                      | 'secondaryTertiryPrimaryOpac'
+                      | 'tertiaryPrimarySecondaryOpac'
+                      | 'tertiarySecondaryPrimaryOpac'
+                      | 'primarySecondary'
+                      | 'primaryTertiary'
+                      | 'secondaryTertiary'
+                      | 'secondaryPrimary'
+                      | 'tertiaryPrimary'
+                      | 'tertiarySecondary'
+                      | 'primarySecondaryTertiary'
+                      | 'primaryTertiarySecondary'
+                      | 'secondaryPrimaryTertiary'
+                      | 'secondaryTertiryPrimary'
+                      | 'tertiaryPrimarySecondary'
+                      | 'tertiarySecondaryPrimary';
+                    text: string;
+                    className?: string | null;
+                    fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: 'TextBlock';
+                  }[]
+                | null;
+              spanTwo?: ('true' | 'false') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'formmultiplecheckboxinput';
             }
         )[];
         id?: string | null;
@@ -1880,9 +2096,10 @@ export interface Page {
           | null;
         imagePart?:
           | {
-              image: {
-                src: string;
-                alt: string;
+              image?: {
+                imageUpload?: (string | null) | Media;
+                alt?: string | null;
+                src?: string | null;
               };
               id?: string | null;
               blockName?: string | null;
@@ -3266,7 +3483,15 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     overlayColor?: T;
-                    image?: T;
+                    overlayClassname?: T;
+                    image?:
+                      | T
+                      | {
+                          imageUpload?: T;
+                          alt?: T;
+                          src?: T;
+                        };
+                    advice?: T;
                   };
               button?:
                 | T
@@ -3288,6 +3513,7 @@ export interface PagesSelect<T extends boolean = true> {
                       | T
                       | {
                           label?: T;
+                          name?: T;
                           placeholder?: T;
                           spanTwo?: T;
                           id?: T;
@@ -3317,8 +3543,71 @@ export interface PagesSelect<T extends boolean = true> {
                     formcheckboxinput?:
                       | T
                       | {
-                          label?: T;
+                          label?:
+                            | T
+                            | {
+                                TextBlock?:
+                                  | T
+                                  | {
+                                      level?: T;
+                                      color?: T;
+                                      text?: T;
+                                      className?: T;
+                                      fontWeight?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
                           value?: T;
+                          spanTwo?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    formmultiplecheckboxinput?:
+                      | T
+                      | {
+                          checkboxes?:
+                            | T
+                            | {
+                                formcheckboxinput?:
+                                  | T
+                                  | {
+                                      label?:
+                                        | T
+                                        | {
+                                            TextBlock?:
+                                              | T
+                                              | {
+                                                  level?: T;
+                                                  color?: T;
+                                                  text?: T;
+                                                  className?: T;
+                                                  fontWeight?: T;
+                                                  id?: T;
+                                                  blockName?: T;
+                                                };
+                                          };
+                                      value?: T;
+                                      spanTwo?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          label?:
+                            | T
+                            | {
+                                TextBlock?:
+                                  | T
+                                  | {
+                                      level?: T;
+                                      color?: T;
+                                      text?: T;
+                                      className?: T;
+                                      fontWeight?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
                           spanTwo?: T;
                           id?: T;
                           blockName?: T;
@@ -3492,8 +3781,9 @@ export interface PagesSelect<T extends boolean = true> {
                           image?:
                             | T
                             | {
-                                src?: T;
+                                imageUpload?: T;
                                 alt?: T;
+                                src?: T;
                               };
                           id?: T;
                           blockName?: T;

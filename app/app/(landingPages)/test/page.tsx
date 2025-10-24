@@ -535,7 +535,7 @@ export default function page({}: Props) {
           },
         ]}
       />
-      <FormSection
+      {/* <FormSection
         texts={[
           {
             text: "Přidej se na čekačku",
@@ -614,7 +614,7 @@ export default function page({}: Props) {
             spanTwo: "true",
           },
         ]}
-      />
+      /> */}
       <TextSection
         buttons={[
           {

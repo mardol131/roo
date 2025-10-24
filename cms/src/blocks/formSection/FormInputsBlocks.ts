@@ -1,10 +1,12 @@
 import { Block } from 'payload'
+import { getTextsField } from '../_blocks/textBlock'
 
 export const FormTextInputBlock: Block = {
   slug: 'formtextinput',
   labels: { singular: 'Textové pole', plural: 'Textové pole' },
   fields: [
     { name: 'label', type: 'text', required: true },
+    { name: 'name', type: 'text', required: true },
     { name: 'placeholder', type: 'text', required: true },
     { name: 'spanTwo', type: 'select', options: ['true', 'false'], label: 'Dva sloupce?' },
   ],
@@ -34,8 +36,18 @@ export const FormCheckboxInputBlock: Block = {
   slug: 'formcheckboxinput',
   labels: { singular: 'Checkbox', plural: 'Checkboxi' },
   fields: [
-    { name: 'label', type: 'text', required: true },
+    getTextsField('label'),
     { name: 'value', type: 'text', required: true },
+    { name: 'spanTwo', type: 'select', options: ['true', 'false'], label: 'Dva sloupce?' },
+  ],
+}
+
+export const FormMultipleCheckboxInputBlock: Block = {
+  slug: 'formmultiplecheckboxinput',
+  labels: { singular: 'Vícenásobný checkbox', plural: 'Vícenásobné checkboxi' },
+  fields: [
+    { name: 'checkboxes', type: 'blocks', blocks: [FormCheckboxInputBlock], required: true },
+    getTextsField('label'),
     { name: 'spanTwo', type: 'select', options: ['true', 'false'], label: 'Dva sloupce?' },
   ],
 }

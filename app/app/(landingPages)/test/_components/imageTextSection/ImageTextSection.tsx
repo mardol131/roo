@@ -6,6 +6,7 @@ import Image, { ImageProps } from "next/image";
 import React from "react";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 import { colorsAndGradients } from "@/app/_design/colors";
+import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 
 type ImageOneProps = {
   blockType: "imageOne";
@@ -16,7 +17,7 @@ function ImageOne(props: ImageOneProps) {
   return (
     <Image
       className=" w-full object-cover object-center"
-      src={props.image.src}
+      src={getImageSrc(props.image.src, "cms")}
       alt={props.image.alt}
       width={1000}
       height={1000}
@@ -101,6 +102,7 @@ type Props = {
 };
 
 export default function ImageTextSection(props: Props) {
+  console.log(props);
   function getImagePart(field: ImagePartListProps) {
     switch (field.blockType) {
       case "imageOne":
@@ -123,8 +125,8 @@ export default function ImageTextSection(props: Props) {
           backgroundImage: `url(${innerImage?.src})`,
           backgroundSize: "cover",
         }}
-        className={`w-full overflow-hidden rounded-2xl ${
-          (innerImage?.src || innerBg) && "shadow-xl"
+        className={`w-full overflow-hidden ${
+          (innerImage?.src || innerBg) && "shadow-xl p-10 rounded-xl"
         }`}
       >
         <div
@@ -132,7 +134,7 @@ export default function ImageTextSection(props: Props) {
             props.textSide === "left" ? "flex-col" : "flex-col-reverse"
           } w-full z-10 grid-cols-2 md:gap-40 gap-10 items-center`}
         >
-          {props.textSide === "left" && (
+          {(props.textSide === "left" || props.textSide === undefined) && (
             <>
               <div className="flex flex-col gap-5">
                 <GenerateTexts texts={props.texts} />

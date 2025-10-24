@@ -1,7 +1,8 @@
 import { Block } from 'payload'
-import { buttonField, headingField, overlayField } from '../_global/fields'
+import { buttonField, getOverlayField, headingField, overlayField } from '../_global/fields'
 import {
   FormCheckboxInputBlock,
+  FormMultipleCheckboxInputBlock,
   FormSelectInputBlock,
   FormTextInputBlock,
 } from './FormInputsBlocks'
@@ -12,13 +13,18 @@ export const FormSectionBlock: Block = {
   slug: 'FormSection',
   fields: [
     textsField,
-    overlayField,
+    getOverlayField(),
     buttonField,
     { name: 'webhook', type: 'text', required: true },
     {
       name: 'fields',
       type: 'blocks',
-      blocks: [FormTextInputBlock, FormSelectInputBlock, FormCheckboxInputBlock],
+      blocks: [
+        FormTextInputBlock,
+        FormSelectInputBlock,
+        FormCheckboxInputBlock,
+        FormMultipleCheckboxInputBlock,
+      ],
       required: true,
     },
   ],

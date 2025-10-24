@@ -1,5 +1,11 @@
 import { Block, Field } from 'payload'
-import { buttonsField, getOverlayField, getRichTextField, overlayField } from '../_global/fields'
+import {
+  buttonsField,
+  getOverlayField,
+  getRichTextField,
+  imageField,
+  overlayField,
+} from '../_global/fields'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { sides } from '@/design/orientation'
 import { textsField } from '../_blocks/textBlock'
@@ -7,16 +13,7 @@ import { textsField } from '../_blocks/textBlock'
 const imageOneBlock: Block = {
   labels: { singular: 'Jeden obrázek', plural: 'Jeden obrázek' },
   slug: 'imageOne',
-  fields: [
-    {
-      name: 'image',
-      type: 'group',
-      fields: [
-        { name: 'src', type: 'text', required: true },
-        { name: 'alt', type: 'text', required: true },
-      ],
-    },
-  ],
+  fields: [imageField],
 }
 
 const imageGridBlock: Block = {
