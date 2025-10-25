@@ -14,7 +14,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { pageSlug: string };
-}) {
+}): Promise<Metadata> {
   const response = await getPost(params.pageSlug);
   const post = response.docs[0];
   const title = post.title;
@@ -70,9 +70,11 @@ export async function generateMetadata({
   };
 }
 
-type Props = { params: { pageSlug: string } };
-
-export default async function page({ params }: Props) {
+export default async function page({
+  params,
+}: {
+  params: { pageSlug: string };
+}) {
   const { pageSlug } = params;
   const response = await getPost(pageSlug);
   let data;
