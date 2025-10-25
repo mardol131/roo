@@ -10,8 +10,6 @@ import Head from "next/head";
 import { getPost } from "../_functions/getPost";
 import { Metadata } from "next";
 
-type Props = { params: Promise<{ pageSlug: string }> };
-
 export async function generateMetadata({
   params,
 }: {
@@ -72,8 +70,10 @@ export async function generateMetadata({
   };
 }
 
+type Props = { params: { pageSlug: string } };
+
 export default async function page({ params }: Props) {
-  const { pageSlug } = await params;
+  const { pageSlug } = params;
   const response = await getPost(pageSlug);
   let data;
   try {
