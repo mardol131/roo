@@ -1,14 +1,12 @@
-import React, { cache } from "react";
 import { redirect } from "next/navigation";
 
+import { Metadata } from "next";
+import { ButtonProps } from "../../_global/atoms/Button";
 import { WebsiteHeader } from "../_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
-import { getLandingPage } from "../../_api/payload";
-import { SectionPropsMap, sectionsList } from "../test/_components/sectionList";
-import { ButtonProps } from "../../_global/atoms/Button";
-import Head from "next/head";
 import { getPost } from "../_functions/getPost";
-import { Metadata } from "next";
+import { SectionPropsMap, sectionsList } from "../test/_components/sectionList";
+import { UTMInit } from "@roo/shared/src/functions/analytics/UTMInit";
 
 type PageComponentProps = {
   params: Promise<{
@@ -78,6 +76,7 @@ export async function generateMetadata({
 export default async function page({ params }: PageComponentProps) {
   const { pageSlug } = await params;
   const response = await getPost(pageSlug);
+  console.log(response);
   let data;
   try {
     data = response;
@@ -121,10 +120,13 @@ export default async function page({ params }: PageComponentProps) {
   });
 
   return (
-    <div>
-      <WebsiteHeader button={buttonDesktop} />
-      <WebsiteHeaderMobile button={buttonMobile} />
-      {sectionsToRender}
-    </div>
+    <>
+      <UTMInit />
+      <div>
+        <WebsiteHeader button={buttonDesktop} />
+        <WebsiteHeaderMobile button={buttonMobile} />
+        {sectionsToRender}
+      </div>
+    </>
   );
 }

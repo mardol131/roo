@@ -65,7 +65,6 @@ export const Media: CollectionConfig = {
         const baseCdnUrl = process.env.NEXT_PUBLIC_CDN_URL
 
         const uploadUrl = `${bunnyStorageUrl}/${bunnyZone}/cms/${filename}`
-        console.log(process.env.CDN_API_STORAGE_SECRET)
         // Upload
         await axios.put(uploadUrl, newFileData.buffer, {
           headers: {

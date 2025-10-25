@@ -233,6 +233,11 @@ export interface Place {
  */
 export interface Page {
   id: string;
+  image?: {
+    imageUpload?: (string | null) | Media;
+    alt?: string | null;
+    src?: string | null;
+  };
   title: string;
   description: string;
   pageSlug: string;
@@ -3234,6 +3239,13 @@ export interface CategoriesSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  image?:
+    | T
+    | {
+        imageUpload?: T;
+        alt?: T;
+        src?: T;
+      };
   title?: T;
   description?: T;
   pageSlug?: T;

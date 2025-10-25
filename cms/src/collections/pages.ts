@@ -9,7 +9,8 @@ import { MasonrySectionBlock } from '../blocks/masonrySection/MasonrySectionBloc
 
 import type { CollectionConfig } from 'payload'
 import { TextSectionBlock } from '../blocks/textSection/textSection'
-import { getButtonField } from '../blocks/_global/fields'
+import { getButtonField, getImageField } from '../blocks/_global/fields'
+import { getImageSrc } from '@roo/shared/functions/media/getImageSrc'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -24,6 +25,16 @@ export const Pages: CollectionConfig = {
         initCollapsed: true,
       },
       fields: [
+        getImageField('image', 'Náhledový obrázek stránky'),
+        {
+          name: 'placeholder',
+          type: 'ui',
+          admin: {
+            components: {
+              Cell: '@/cells/PagesPlaceholder',
+            },
+          },
+        },
         {
           label: 'Meta title',
           name: 'title',
@@ -174,15 +185,19 @@ export const Pages: CollectionConfig = {
           if (!data.description) {
             data.description = data.title
           }
-          return data
+
+          if (!data?.canonical) {
+            data.canonical = `${process.env.NEXT_PUBLIC_WEBSITE}/${data.pageSlug}`
+          }
         }
+        return data
       },
     ],
   },
   access: {
     read: () => true,
-    create: () => true,
-    delete: () => true,
-    update: () => true,
+    create: () => false,
+    delete: () => false,
+    update: () => false,
   },
 }

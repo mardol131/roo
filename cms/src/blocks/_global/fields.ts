@@ -77,9 +77,9 @@ export const imageField: Field = {
   ],
 }
 
-export function getImageField(name?: string) {
+export function getImageField(name?: string, label?: string) {
   const imageField: Field = {
-    label: 'Obrázek',
+    label: label || 'Obrázek',
     type: 'collapsible',
     admin: { initCollapsed: true },
     fields: [
