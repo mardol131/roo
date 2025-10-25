@@ -10,12 +10,17 @@ import Head from "next/head";
 import { getPost } from "../_functions/getPost";
 import { Metadata } from "next";
 
+type PageComponentProps = {
+  params: Promise<{
+    pageSlug: string;
+  }>;
+};
+
 export async function generateMetadata({
   params,
-}: {
-  params: { pageSlug: string };
-}): Promise<Metadata> {
-  const response = await getPost(params.pageSlug);
+}: PageComponentProps): Promise<Metadata> {
+  const { pageSlug } = await params;
+  const response = await getPost(pageSlug);
   const post = response.docs[0];
   const title = post.title;
   const description = post.description;
@@ -70,12 +75,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function page({
-  params,
-}: {
-  params: { pageSlug: string };
-}) {
-  const { pageSlug } = params;
+export default async function page({ params }: PageComponentProps) {
+  const { pageSlug } = await params;
   const response = await getPost(pageSlug);
   let data;
   try {
