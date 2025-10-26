@@ -9,4 +9,6 @@ export type OverlayType = {
 export type ImageType = {
   src: string;
   alt: string;
+  shadow?: "true" | "false";
+  rounded?: "true" | "false";
 };

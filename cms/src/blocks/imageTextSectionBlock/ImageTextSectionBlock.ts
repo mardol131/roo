@@ -1,6 +1,7 @@
 import { Block, Field } from 'payload'
 import {
   buttonsField,
+  getImageField,
   getOverlayField,
   getRichTextField,
   imageField,
@@ -13,7 +14,7 @@ import { textsField } from '../_blocks/textBlock'
 const imageOneBlock: Block = {
   labels: { singular: 'Jeden obrázek', plural: 'Jeden obrázek' },
   slug: 'imageOne',
-  fields: [imageField],
+  fields: [getImageField()],
 }
 
 const imageGridBlock: Block = {

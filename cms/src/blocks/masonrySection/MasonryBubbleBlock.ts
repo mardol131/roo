@@ -1,5 +1,5 @@
 import { Block } from 'payload'
-import { columnField, getRichTextField, rowField } from '../_global/fields'
+import { columnField, getImageField, getRichTextField, rowField } from '../_global/fields'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { colorsAndGradients } from '@/design/colors'
 import { textsField } from '../_blocks/textBlock'
@@ -18,5 +18,5 @@ export const MasonryBubbleBlock: Block = {
 export const MasonryBubbleImageBlock: Block = {
   slug: 'masonrybubbleimage',
   labels: { singular: 'Masonry obrázek', plural: 'Masonry obrázek' },
-  fields: [{ name: 'image', type: 'text', required: true }, columnField, rowField],
+  fields: [getImageField(), columnField, rowField],
 }

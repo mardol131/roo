@@ -90,6 +90,8 @@ export function getImageField(name?: string, label?: string) {
           { name: 'imageUpload', type: 'upload', relationTo: 'media' },
           { name: 'alt', type: 'text', admin: { readOnly: true } },
           { name: 'src', type: 'text', admin: { readOnly: true } },
+          { name: 'rounded', type: 'select', options: ['true', 'false'] },
+          { name: 'shadow', type: 'select', options: ['true', 'false'] },
         ],
         hooks: {
           beforeChange: [

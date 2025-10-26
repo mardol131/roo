@@ -5,7 +5,7 @@ import {
   FormCheckboxInput,
   FormTextareaInput,
   FormTextInput,
-} from "../../test/_components/formSection/FormSection";
+} from "../../_components/formSection/FormSection";
 import Button from "@/app/_global/atoms/Button";
 
 type Props = {};

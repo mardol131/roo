@@ -1,13 +1,14 @@
 import {
   ImageBlockProps,
   TextBlockProps,
-} from "@/app/(landingPages)/test/_components/textSection/TextSection";
+} from "@/app/(landingPages)/_components/textSection/TextSection";
 import { textColor, TextColorType } from "@/app/_design/colors";
 import { textAlign, TextAlignType } from "@/app/_design/orientation";
 import { ImageType } from "@/app/_types/objects";
 import Image from "next/image";
 import React from "react";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import sanitizeHtml from "sanitize-html";
 
 export const TextLevels = {
   h1: "h1",
@@ -95,10 +96,18 @@ export default function Text(props: TextProps) {
   const font = props.font && fontType[props.font];
   const classes = `${props.className} ${color} ${weight} ${font}`;
 
+  const htmlSafeText = sanitizeHtml(props.text, {
+    allowedTags: ["strong"],
+    allowedAttributes: { a: ["href", "target"] },
+  });
+
   switch (props.level) {
     case "h1":
       return (
-        <h1 className={`${classes} md:text-7xl text-[2.5rem]`}>{props.text}</h1>
+        <h1
+          className={`${classes} md:text-7xl text-[2.5rem]`}
+          dangerouslySetInnerHTML={{ __html: htmlSafeText }}
+        ></h1>
       );
     case "h2":
       return (
@@ -132,7 +141,12 @@ export default function Text(props: TextProps) {
     case "label8":
       return <p className={`${classes} text-sm`}>{props.text}</p>;
     case "paragraph1":
-      return <p className={`${classes} md:text-2xl text-xl`}>{props.text}</p>;
+      return (
+        <p
+          className={`${classes} md:text-2xl text-xl`}
+          dangerouslySetInnerHTML={{ __html: htmlSafeText }}
+        ></p>
+      );
     case "paragraph2":
       return <p className={`${classes} text-xl`}>{props.text}</p>;
     case "paragraph3":
@@ -160,7 +174,7 @@ export function GenerateTexts(props: {
           alt={text.image.alt || "image-top"}
           width={1500}
           height={1500}
-          className="w-full max-w-300 h-auto my-10"
+          className={`${text.image.shadow === "true" && "shadow-xl"} ${text.image.rounded === "true" && "rounded-xl"} w-full max-w-300 h-auto my-10`}
         />
       );
     }

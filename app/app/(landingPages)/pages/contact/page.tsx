@@ -1,6 +1,6 @@
-import { WebsiteHeader } from "../../test/_components/header/WebsiteHeader";
-import { WebsiteHeaderMobile } from "../../test/_components/header/WebsiteHeaderMobile";
-import { LandingSectionWrapper } from "../../test/_components/wrappers/LandingSectionWrapper";
+import { WebsiteHeader } from "../../_components/header/WebsiteHeader";
+import { WebsiteHeaderMobile } from "../../_components/header/WebsiteHeaderMobile";
+import { LandingSectionWrapper } from "../../_components/wrappers/LandingSectionWrapper";
 
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";

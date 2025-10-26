@@ -237,6 +237,8 @@ export interface Page {
     imageUpload?: (string | null) | Media;
     alt?: string | null;
     src?: string | null;
+    rounded?: ('true' | 'false') | null;
+    shadow?: ('true' | 'false') | null;
   };
   title: string;
   description: string;
@@ -1394,6 +1396,8 @@ export interface Page {
                           imageUpload?: (string | null) | Media;
                           alt?: string | null;
                           src?: string | null;
+                          rounded?: ('true' | 'false') | null;
+                          shadow?: ('true' | 'false') | null;
                         };
                         id?: string | null;
                         blockName?: string | null;
@@ -1478,6 +1482,8 @@ export interface Page {
                             imageUpload?: (string | null) | Media;
                             alt?: string | null;
                             src?: string | null;
+                            rounded?: ('true' | 'false') | null;
+                            shadow?: ('true' | 'false') | null;
                           };
                           id?: string | null;
                           blockName?: string | null;
@@ -1560,6 +1566,8 @@ export interface Page {
                           imageUpload?: (string | null) | Media;
                           alt?: string | null;
                           src?: string | null;
+                          rounded?: ('true' | 'false') | null;
+                          shadow?: ('true' | 'false') | null;
                         };
                         id?: string | null;
                         blockName?: string | null;
@@ -2163,6 +2171,8 @@ export interface Page {
                 imageUpload?: (string | null) | Media;
                 alt?: string | null;
                 src?: string | null;
+                rounded?: ('true' | 'false') | null;
+                shadow?: ('true' | 'false') | null;
               };
               id?: string | null;
               blockName?: string | null;
@@ -2456,6 +2466,8 @@ export interface Page {
                     imageUpload?: (string | null) | Media;
                     alt?: string | null;
                     src?: string | null;
+                    rounded?: ('true' | 'false') | null;
+                    shadow?: ('true' | 'false') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -2531,6 +2543,8 @@ export interface Page {
                     imageUpload?: (string | null) | Media;
                     alt?: string | null;
                     src?: string | null;
+                    rounded?: ('true' | 'false') | null;
+                    shadow?: ('true' | 'false') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -2660,7 +2674,13 @@ export interface Page {
               blockType: 'masonrybubble';
             }
           | {
-              image: string;
+              image?: {
+                imageUpload?: (string | null) | Media;
+                alt?: string | null;
+                src?: string | null;
+                rounded?: ('true' | 'false') | null;
+                shadow?: ('true' | 'false') | null;
+              };
               column: {
                 start: number;
                 end: number;
@@ -2885,6 +2905,8 @@ export interface Page {
                     imageUpload?: (string | null) | Media;
                     alt?: string | null;
                     src?: string | null;
+                    rounded?: ('true' | 'false') | null;
+                    shadow?: ('true' | 'false') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -3105,16 +3127,6 @@ export interface Page {
             | boolean
             | null;
         };
-        imageTop?: {
-          imageUpload?: (string | null) | Media;
-          alt?: string | null;
-          src?: string | null;
-        };
-        imageBottom?: {
-          imageUpload?: (string | null) | Media;
-          alt?: string | null;
-          src?: string | null;
-        };
         id?: string | null;
         blockName?: string | null;
         blockType: 'TextSection';
@@ -3317,6 +3329,8 @@ export interface PagesSelect<T extends boolean = true> {
         imageUpload?: T;
         alt?: T;
         src?: T;
+        rounded?: T;
+        shadow?: T;
       };
   title?: T;
   description?: T;
@@ -3705,6 +3719,8 @@ export interface PagesSelect<T extends boolean = true> {
                                             imageUpload?: T;
                                             alt?: T;
                                             src?: T;
+                                            rounded?: T;
+                                            shadow?: T;
                                           };
                                       id?: T;
                                       blockName?: T;
@@ -3748,6 +3764,8 @@ export interface PagesSelect<T extends boolean = true> {
                                                         imageUpload?: T;
                                                         alt?: T;
                                                         src?: T;
+                                                        rounded?: T;
+                                                        shadow?: T;
                                                       };
                                                   id?: T;
                                                   blockName?: T;
@@ -3783,6 +3801,8 @@ export interface PagesSelect<T extends boolean = true> {
                                             imageUpload?: T;
                                             alt?: T;
                                             src?: T;
+                                            rounded?: T;
+                                            shadow?: T;
                                           };
                                       id?: T;
                                       blockName?: T;
@@ -3965,6 +3985,8 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                rounded?: T;
+                                shadow?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -4046,6 +4068,8 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                rounded?: T;
+                                shadow?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -4074,6 +4098,8 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                rounded?: T;
+                                shadow?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -4119,7 +4145,15 @@ export interface PagesSelect<T extends boolean = true> {
                     masonrybubbleimage?:
                       | T
                       | {
-                          image?: T;
+                          image?:
+                            | T
+                            | {
+                                imageUpload?: T;
+                                alt?: T;
+                                src?: T;
+                                rounded?: T;
+                                shadow?: T;
+                              };
                           column?:
                             | T
                             | {
@@ -4189,6 +4223,8 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                rounded?: T;
+                                shadow?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -4239,20 +4275,6 @@ export interface PagesSelect<T extends boolean = true> {
                           src?: T;
                         };
                     advice?: T;
-                  };
-              imageTop?:
-                | T
-                | {
-                    imageUpload?: T;
-                    alt?: T;
-                    src?: T;
-                  };
-              imageBottom?:
-                | T
-                | {
-                    imageUpload?: T;
-                    alt?: T;
-                    src?: T;
                   };
               id?: T;
               blockName?: T;

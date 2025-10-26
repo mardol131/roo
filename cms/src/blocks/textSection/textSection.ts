@@ -17,7 +17,5 @@ export const TextSectionBlock: Block = {
     buttonsField,
     getOverlayField('innerOverlay', 'Vnitřní overlay'),
     getOverlayField('outerOverlay', 'Vnější overlay'),
-    getImageField('imageTop'),
-    getImageField('imageBottom'),
   ],
 }
