@@ -1,6 +1,6 @@
 import React from "react";
-import { WebsiteHeader } from "../_components/header/WebsiteHeader";
-import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
+import { WebsiteHeader } from "./_components/header/WebsiteHeader";
+import { WebsiteHeaderMobile } from "./_components/header/WebsiteHeaderMobile";
 import HeroSection from "./_components/heroBubbleSection/HeroSection";
 import IconsTextSection from "./_components/iconsTextSection/IconsTextSection";
 import ImageTextSection from "./_components/imageTextSection/ImageTextSection";

@@ -4,10 +4,18 @@ import Link from "next/link";
 import logo from "@/public/logo.png";
 
 type Props = {
-  button: ButtonProps;
+  button?: ButtonProps;
 };
 
 export function WebsiteHeader({ button }: Props) {
+  const buttonProps = button || {
+    text: "Přidej se k nám",
+    size: "xl",
+    rounding: "full",
+    bgColor: "primaryTertiary",
+    textColor: "white",
+  };
+
   return (
     <div className="hidden z-50 w-full sticky top-0 md:flex justify-center pt-4 px-4 -mb-10">
       <div className="bg-white border border-borderLight max-w-contentWrapper w-full flex justify-between items-center rounded-full px-5 shadow-lg">
@@ -34,7 +42,7 @@ export function WebsiteHeader({ button }: Props) {
             Kontakt
           </Link>
         </div>
-        <Button {...button} />
+        <Button {...buttonProps} />
       </div>
     </div>
   );

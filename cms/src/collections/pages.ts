@@ -11,6 +11,7 @@ import type { CollectionConfig } from 'payload'
 import { TextSectionBlock } from '../blocks/textSection/textSection'
 import { getButtonField, getImageField } from '../blocks/_global/fields'
 import { getImageSrc } from '@roo/shared/functions/media/getImageSrc'
+import { isAdminOrCreatedBy } from '@/functions/isAdminOrCreatedBy'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -187,7 +188,7 @@ export const Pages: CollectionConfig = {
           }
 
           if (!data?.canonical) {
-            data.canonical = `${process.env.NEXT_PUBLIC_WEBSITE}/${data.pageSlug}`
+            data.canonical = `${process.env.NEXT_PUBLIC_WEBSITE}/stranky/${data.pageSlug}`
           }
         }
         return data
@@ -196,8 +197,8 @@ export const Pages: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: () => false,
-    delete: () => false,
-    update: () => false,
+    create: isAdminOrCreatedBy,
+    delete: isAdminOrCreatedBy,
+    update: isAdminOrCreatedBy,
   },
 }

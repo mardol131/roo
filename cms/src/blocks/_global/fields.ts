@@ -94,7 +94,7 @@ export function getImageField(name?: string, label?: string) {
         hooks: {
           beforeChange: [
             async ({ value, originalDoc, req }) => {
-              if (!value?.imageUpload) return value
+              if (!value?.imageUpload) return { ...value, src: '', alt: '' }
 
               if (value?.imageUpload === originalDoc.imageUpload) {
                 return value
@@ -105,13 +105,9 @@ export function getImageField(name?: string, label?: string) {
                 id: value.imageUpload,
               })
 
-              console.log(media)
-
               // 2️⃣ Lokální cesta nebo URL (záleží na tvém Payload storage adapteru)
               const localUrl = media?.url || media?.filename
               if (!localUrl) return value
-
-              console.log(localUrl)
 
               // 3️⃣ Uploadni na CDN (např. Cloudinary, Bunny, S3...)
               // const cdnUrl = await uploadToCdn(localUrl)
@@ -224,7 +220,7 @@ export const buttonField: Field = {
   ],
 }
 
-export function getButtonField(name: string, admin?: string) {
+export function getButtonField(name: string, admin?: string, required?: boolean) {
   const field: Field = {
     label: admin || 'Tlačítko',
     type: 'collapsible',
@@ -234,7 +230,7 @@ export function getButtonField(name: string, admin?: string) {
         name: name,
         type: 'group',
         fields: [
-          { name: 'text', type: 'text', required: true },
+          { name: 'text', type: 'text', required: required },
           { name: 'textColor', type: 'select', options: getOptionsFromObject(textColor) },
           {
             name: 'bgColor',

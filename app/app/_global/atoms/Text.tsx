@@ -1,6 +1,13 @@
+import {
+  ImageBlockProps,
+  TextBlockProps,
+} from "@/app/(landingPages)/test/_components/textSection/TextSection";
 import { textColor, TextColorType } from "@/app/_design/colors";
 import { textAlign, TextAlignType } from "@/app/_design/orientation";
+import { ImageType } from "@/app/_types/objects";
+import Image from "next/image";
 import React from "react";
+import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 
 export const TextLevels = {
   h1: "h1",
@@ -139,8 +146,23 @@ export default function Text(props: TextProps) {
   }
 }
 
-export function GenerateTexts({ texts }: { texts: TextProps[] }) {
-  return texts.map((text, i) => {
-    return <Text {...text} key={i} />;
+export function GenerateTexts(props: {
+  texts: (TextBlockProps | ImageBlockProps)[];
+}) {
+  return props.texts.map((text, i) => {
+    if (text.blockType === "TextBlock") {
+      return <Text {...text} key={i} />;
+    } else if (text.blockType === "imageBlock") {
+      return (
+        <Image
+          key={i}
+          src={getImageSrc(text.image.src, "cms")}
+          alt={text.image.alt || "image-top"}
+          width={1500}
+          height={1500}
+          className="w-full max-w-300 h-auto my-10"
+        />
+      );
+    }
   });
 }

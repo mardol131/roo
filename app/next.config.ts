@@ -52,6 +52,14 @@ const nextConfig: NextConfig = {
         source: "/registrovat-se",
         destination: "/signup",
       },
+      {
+        source: "/stranky/kontakt",
+        destination: "/pages/contact",
+      },
+      {
+        source: "/stranky/:pageSlug",
+        destination: "/pages/:pageSlug",
+      },
     ];
   },
 };

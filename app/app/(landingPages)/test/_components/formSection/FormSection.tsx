@@ -42,6 +42,33 @@ export function FormTextInput(props: FormTextInputProps) {
   );
 }
 
+export type FormTextareaInputProps = {
+  blockType: "formtextinput";
+  label: string;
+  name: string;
+  placeholder: string;
+  spanTwo?: "true" | "false";
+  required?: "true" | "false";
+};
+
+export function FormTextareaInput(props: FormTextareaInputProps) {
+  return (
+    <div
+      className={`${
+        props.spanTwo === "true" && "col-span-2"
+      } border-2 h-50 border-borderLight p-3 flex flex-col rounded-medium`}
+    >
+      <label className="text-primary font-semibold">{props.label}</label>
+      <textarea
+        name={props.name}
+        placeholder={props.placeholder}
+        required={props.required === "true" || false}
+        className="h-full resize-none"
+      />
+    </div>
+  );
+}
+
 type SelectOptionType = {
   text: string;
   value: string;
@@ -57,7 +84,7 @@ type FormSelectInputProps = {
   required?: "true" | "false";
 };
 
-function FormSelectInput(props: FormSelectInputProps) {
+export function FormSelectInput(props: FormSelectInputProps) {
   return (
     <div
       className={`${
@@ -86,7 +113,7 @@ function FormSelectInput(props: FormSelectInputProps) {
   );
 }
 
-type FormCheckboxInputProps = {
+export type FormCheckboxInputProps = {
   blockType: "formcheckboxinput";
   label: TextProps[];
   value: string;
@@ -96,7 +123,7 @@ type FormCheckboxInputProps = {
   name?: string;
 };
 
-function FormCheckboxInput(props: FormCheckboxInputProps) {
+export function FormCheckboxInput(props: FormCheckboxInputProps) {
   return (
     <div
       className={`${
@@ -139,8 +166,6 @@ function FormMultipleCheckboxInput(props: FormMultipleCheckboxInputProps) {
   const [values, setValues] = useState<string[]>([]);
 
   function hasValueHandler(isChecked: boolean, value: string) {
-    console.log(values);
-    console.log(isChecked);
     if (isChecked) {
       setValues([...values, value]);
     } else if (!isChecked) {
@@ -184,7 +209,7 @@ function FormMultipleCheckboxInput(props: FormMultipleCheckboxInputProps) {
 }
 
 export type FormSectionProps = {
-  texts: TextProps[];
+  texts?: TextProps[];
   overlay?: OverlayType;
   button: ButtonProps;
   webhook: string;
@@ -241,7 +266,9 @@ export default function FormSection(props: FormSectionProps) {
 
   return (
     <LandingSectionWrapper>
-      <div className=" relative w-full overflow-hidden rounded-3xl shadow-xl">
+      <div
+        className={` relative w-full overflow-hidden rounded-3xl ${overlay && "shadow-xl"}`}
+      >
         {props.overlay?.image?.src && (
           <Image
             src={getImageSrc(props.overlay?.image?.src, "cms")}
@@ -252,7 +279,7 @@ export default function FormSection(props: FormSectionProps) {
           />
         )}
         <div
-          className={` ${overlay} relative z-0 w-full h-full flex items-center justify-center overflow-hidden md:p-10 md:py-20 p-3`}
+          className={` ${overlay} relative z-0 w-full h-full flex items-center justify-center overflow-hidden ${overlay && "md:p-10 md:py-20 p-3"}`}
         >
           <form
             ref={formRef}
@@ -262,7 +289,7 @@ export default function FormSection(props: FormSectionProps) {
             className="max-w-170 flex flex-col items-center w-full gap-10 bg-white md:p-10 p-5 py-10 rounded-large shadow-lg"
           >
             <div className="flex flex-col gap-5 text-center">
-              {<GenerateTexts texts={props.texts} />}
+              {props.texts && <GenerateTexts texts={props.texts} />}
             </div>
             <div className="md:grid w-full flex flex-col grid-cols-2 gap-5">
               {fields}

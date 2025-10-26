@@ -2,6 +2,7 @@ import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { Block, Field } from 'payload'
 
 import { fontWeight, textColor, textLevels } from '../types/textTypes'
+import { getImageField } from '../_global/fields'
 
 export const TextBlock: Block = {
   slug: 'TextBlock',
@@ -19,13 +20,18 @@ export const TextBlock: Block = {
   ],
 }
 
+export const ImageBlock: Block = {
+  slug: 'imageBlock',
+  fields: [getImageField()],
+}
+
 export const textsField: Field = { name: 'texts', type: 'blocks', blocks: [TextBlock] }
 
-export function getTextsField(name: string) {
+export function getTextsField(name?: string) {
   const field: Field = {
     label: 'Texty',
     type: 'collapsible',
-    fields: [{ name: name, type: 'blocks', blocks: [TextBlock] }],
+    fields: [{ name: name || 'texts', type: 'blocks', blocks: [TextBlock, ImageBlock] }],
     admin: { initCollapsed: true },
   }
   return field

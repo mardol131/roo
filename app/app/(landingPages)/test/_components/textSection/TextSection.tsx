@@ -7,8 +7,17 @@ import Image from "next/image";
 import React from "react";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 
+export type ImageBlockProps = {
+  blockType?: "imageBlock";
+  image: ImageType;
+};
+
+export type TextBlockProps = TextProps & {
+  blockType?: "TextBlock";
+};
+
 type Props = {
-  texts: TextProps[];
+  texts: (TextBlockProps | ImageBlockProps)[];
   buttons: ButtonProps[];
   outerOverlay?: OverlayType;
   innerOverlay?: OverlayType;
@@ -50,7 +59,7 @@ export default function TextSection(props: Props) {
           <div
             className={`${
               bgColor && bgColor + " p-10 "
-            } z-10 flex flex-col items-center gap-5 text-center w-full border-none`}
+            } z-10 flex flex-col items-center gap-5 text-center w-full max-w-300 border-none`}
           >
             <GenerateTexts texts={props.texts} />
             <div>

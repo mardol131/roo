@@ -1,8 +1,6 @@
 export function storeUtmParams() {
-    console.log("before");
     if (typeof window === "undefined")
         return;
-    console.log("after");
     const url = new URL(window.location.href);
     const params = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
     const utm = {};

@@ -1,12 +1,16 @@
 import { redirect } from "next/navigation";
 
 import { Metadata } from "next";
-import { ButtonProps } from "../../_global/atoms/Button";
-import { WebsiteHeader } from "../_components/header/WebsiteHeader";
-import { WebsiteHeaderMobile } from "../_components/header/WebsiteHeaderMobile";
-import { getPost } from "../_functions/getPost";
-import { SectionPropsMap, sectionsList } from "../test/_components/sectionList";
+
 import { UTMInit } from "@roo/shared/src/functions/analytics/UTMInit";
+import { getPost } from "../../_functions/getPost";
+import {
+  SectionPropsMap,
+  sectionsList,
+} from "../../test/_components/sectionList";
+import { ButtonProps } from "@/app/_global/atoms/Button";
+import { WebsiteHeader } from "../../test/_components/header/WebsiteHeader";
+import { WebsiteHeaderMobile } from "../../test/_components/header/WebsiteHeaderMobile";
 
 type PageComponentProps = {
   params: Promise<{

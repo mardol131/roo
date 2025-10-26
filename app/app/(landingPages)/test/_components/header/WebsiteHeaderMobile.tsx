@@ -10,7 +10,7 @@ import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { LuMenu } from "react-icons/lu";
 
 type Props = {
-  button: ButtonProps;
+  button?: ButtonProps;
 };
 
 export function WebsiteHeaderMobile({ button }: Props) {
@@ -21,6 +21,14 @@ export function WebsiteHeaderMobile({ button }: Props) {
     setShowDropdown(false);
   }
   useClickOutside(dropdownRef, closeDropdownHandler);
+
+  const buttonProps = button || {
+    text: "Přidej se k nám",
+    size: "xl",
+    rounding: "full",
+    bgColor: "primarySecondary",
+    textColor: "white",
+  };
 
   return (
     <div
@@ -61,7 +69,7 @@ export function WebsiteHeaderMobile({ button }: Props) {
               Kontakt
             </Link>
 
-            <Button {...button} />
+            <Button {...buttonProps} />
           </div>
         )}
       </div>
