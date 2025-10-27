@@ -33,7 +33,7 @@ export default function page({}: Props) {
         }}
       />
       <LandingSectionWrapper>
-        <div className="relative rounded-xl overflow-hidden shadow-xl">
+        <div className="relative rounded-xl overflow-hidden shadow-xl max-md:mt-10">
           <Image
             src={getImageSrc("celebrate.webp", "cms")}
             alt="Celebrate"

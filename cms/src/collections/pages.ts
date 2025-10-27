@@ -11,7 +11,7 @@ import type { CollectionConfig } from 'payload'
 import { TextSectionBlock } from '../blocks/textSection/textSection'
 import { getButtonField, getImageField } from '../blocks/_global/fields'
 import { getImageSrc } from '@roo/shared/functions/media/getImageSrc'
-import { isAdminOrCreatedBy } from '@/functions/isAdminOrCreatedBy'
+import { isAdminOrCreatedBy, whoHasAccess } from '@/functions/isAdminOrCreatedBy'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -197,8 +197,8 @@ export const Pages: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: isAdminOrCreatedBy,
-    delete: isAdminOrCreatedBy,
-    update: isAdminOrCreatedBy,
+    create: whoHasAccess(['admin', 'editor']),
+    delete: whoHasAccess(['admin', 'editor']),
+    update: whoHasAccess(['admin', 'editor']),
   },
 }

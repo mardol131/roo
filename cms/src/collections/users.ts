@@ -1,8 +1,8 @@
-import { roles } from '@/design/roles'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import type { CollectionConfig } from 'payload'
 import payload from 'payload'
 import dotenv from 'dotenv'
+import { roles } from '@roo/shared/auth/users'
 dotenv.config()
 
 export const Users: CollectionConfig = {
