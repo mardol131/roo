@@ -23,15 +23,14 @@ export function WebsiteHeaderMobile({ button }: Props) {
   }
   useClickOutside(dropdownRef, closeDropdownHandler);
 
-  const buttonProps: ButtonProps = button?.text
-    ? button
-    : {
-        text: "Přidej se k nám",
-        size: "xl",
-        rounding: "full",
-        bgColor: "primarySecondary",
-        textColor: "white",
-      };
+  const buttonProps: ButtonProps = {
+    text: button?.text || "Přidej se k nám",
+    size: button?.size || "xl",
+    rounding: button?.rounding || "full",
+    bgColor: button?.bgColor || "primarySecondary",
+    textColor: button?.textColor || "white",
+    link: button?.link || "pridej-se",
+  };
 
   return (
     <div

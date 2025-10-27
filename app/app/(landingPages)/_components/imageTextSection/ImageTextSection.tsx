@@ -130,7 +130,7 @@ export default function ImageTextSection(props: Props) {
         <div
           className={`${innerBg && innerBg + " p-10 "} md:grid flex ${
             props.textSide === "left" ? "flex-col" : "flex-col-reverse"
-          } w-full z-10 grid-cols-2 md:gap-40 gap-10 items-center`}
+          } w-full z-10 grid-cols-2 xl:gap-10 max-xl:gap-5 items-center`}
         >
           {(props.textSide === "left" || props.textSide === undefined) && (
             <>
@@ -138,17 +138,17 @@ export default function ImageTextSection(props: Props) {
                 <GenerateTexts texts={props.texts} />
                 {props.buttons && <GenerateButtons buttons={props.buttons} />}
               </div>
-              <div className="justify-self-end w-full">
+              <div className="justify-self-end w-full md:p-10">
                 {getImagePart(props.imagePart[0])}
               </div>
             </>
           )}
           {props.textSide === "right" && (
             <>
-              <div className="justify-self-end w-full">
+              <div className="justify-self-start w-full md:p-10">
                 {getImagePart(props.imagePart[0])}
               </div>
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-5 p-10 max-">
                 <GenerateTexts texts={props.texts} />
                 {props.buttons && <GenerateButtons buttons={props.buttons} />}
               </div>

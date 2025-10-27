@@ -9,15 +9,14 @@ type Props = {
 };
 
 export function WebsiteHeader({ button }: Props) {
-  const buttonProps: ButtonProps = button?.text
-    ? button
-    : {
-        text: "Přidej se k nám",
-        size: "xl",
-        rounding: "full",
-        bgColor: "primarySecondary",
-        textColor: "white",
-      };
+  const buttonProps: ButtonProps = {
+    text: button?.text || "Přidej se k nám",
+    size: button?.size || "xl",
+    rounding: button?.rounding || "full",
+    bgColor: button?.bgColor || "primarySecondary",
+    textColor: button?.textColor || "white",
+    link: button?.link || "pridej-se",
+  };
 
   return (
     <div className="hidden z-50 w-full sticky top-0 md:flex justify-center pt-4 px-4 -mb-10">

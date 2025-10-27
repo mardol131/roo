@@ -43,9 +43,8 @@ export default function HeroBubbleSection(props: Props) {
           }`}
         >
           <div className="flex flex-col justify-center h-full gap-5">
-            <div>
-              <GenerateTexts texts={props.texts} />
-            </div>
+            <GenerateTexts texts={props.texts} />
+
             {props.buttons && <GenerateButtons buttons={props.buttons} />}
           </div>
         </div>
