@@ -39,7 +39,7 @@ export default function HeroBubbleSection(props: Props) {
           />
         )}
         <div
-          className={`relative min-h-150 w-full md:grid grid-cols-2 flex items-center p-10  ${
+          className={`relative min-h-150 w-full md:grid grid-cols-[2fr_1fr] flex items-center md:p-10 p-4  ${
             bgColor || " bg-linear-90 from-black to-transparent"
           }`}
         >

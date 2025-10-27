@@ -37,6 +37,7 @@ export async function middleware(req: NextRequest) {
   }
 
   const url = req.nextUrl.clone();
+  console.log("url", url);
   url.pathname = `/stranky/co-je-roo`;
   return NextResponse.redirect(url);
 }

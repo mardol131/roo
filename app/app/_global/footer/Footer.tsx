@@ -17,6 +17,12 @@ import { usePathname } from "next/navigation";
 
 type Props = {};
 
+const footerLinkList: { text: string; link: string; target?: "_blank" }[] = [
+  { text: "GDPR", link: "/gdpr", target: "_blank" },
+  { text: "Obchodní podmínky", link: "/obchodni-podminky", target: "_blank" },
+  { text: "Kontakty", link: "/stranky/kontakt" },
+];
+
 export default function Footer({}: Props) {
   const path = usePathname();
   if (path.startsWith("/admin")) {
@@ -35,16 +41,23 @@ export default function Footer({}: Props) {
             className="w-20"
           />
           <p className="max-w-50">
-            ROO Events, The Roosters s.r.o, 2025 <br />© All Rights Reserved{" "}
+            ROO Events, The Roosters s.r.o, 2025 <br />© All Rights
+            Reserved{" "}
           </p>
         </div>
         <div className="font-semibold flex flex-col md:flex-row items-center md:gap-10 gap-3 text-sm justify-self-center">
-          <RooLink href={"/"} text="GDRP" />
-          <RooLink href={"/"} text="Obchodní podmínky" />
-          <RooLink href={"/"} text="Pro média" />
-          <RooLink href={"/"} text="Pro dodavatele" />
-          <RooLink href={"/"} text="Mapa webu" />
-          <RooLink href={"/"} text="Kontakty" />
+          {footerLinkList.map((item, i) => {
+            return (
+              <Link
+                className="hover:text-primary transition-all ease-in-out"
+                key={i}
+                href={item.link}
+                target={item.target || "_parent"}
+              >
+                {item.text}
+              </Link>
+            );
+          })}
         </div>
         <div className="flex text-xl gap-2 text-primary justify-self-end">
           <Link href={"/"}>

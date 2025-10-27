@@ -75,8 +75,10 @@ export default function ContactForm({}: Props) {
       <FormCheckboxInput
         label={[
           {
+            blockType: "TextBlock",
             text: "Souhlasím se zpracování osobních údajů společností The Roosters s.r.o.",
             level: "label6",
+            color: "black",
           },
         ]}
         blockType="formcheckboxinput"

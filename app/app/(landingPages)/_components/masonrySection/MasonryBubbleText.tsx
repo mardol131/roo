@@ -30,7 +30,7 @@ export function MasonryBubbleText(props: MasonryBubbleTextProps) {
       }}
       className={`${
         props.bgColor && colorsAndGradients[props.bgColor]
-      } p-6 rounded-large shadow-lg flex flex-col gap-4 items-center justify-center`}
+      } p-6 rounded-large shadow-xl flex flex-col gap-4 items-center justify-center`}
     >
       <GenerateTexts texts={props.texts} />
     </div>

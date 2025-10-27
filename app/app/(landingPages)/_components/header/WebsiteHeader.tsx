@@ -19,18 +19,18 @@ export function WebsiteHeader({ button }: Props) {
   };
 
   return (
-    <div className="hidden z-50 w-full sticky top-0 md:flex justify-center pt-4 px-4 -mb-10">
-      <div className="bg-white border border-borderLight max-w-contentWrapper w-full flex justify-between items-center rounded-full px-5 shadow-lg">
+    <div className="hidden z-50 w-full sticky top-0 lg:flex justify-center pt-4 px-4 -mb-10">
+      <div className="bg-white border border-borderLight max-w-contentWrapper w-full flex justify-between items-center rounded-full p-3 shadow-lg">
         <Link href={"/home"}>
           <Image
             src={logo}
             width={200}
             height={200}
             alt="logo"
-            className="w-19"
+            className="w-19 ml-4"
           />
         </Link>
-        <div className="flex items-center justify-center gap-10 text-lg font-semibold">
+        <div className="flex items-center justify-center gap-7 max-lg:gap-5 text-lg font-semibold">
           {headerLinkList.map((link, i) => {
             return (
               <Link

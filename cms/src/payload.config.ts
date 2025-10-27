@@ -34,8 +34,12 @@ export default buildConfig({
       baseDir: path.resolve(__dirname),
     },
     livePreview: {
-      url: ({ data }) => {
-        return `${process.env.WEBSITE}/${data.pageSlug}`
+      url: ({ data, collectionConfig }) => {
+        console.log('preview', collectionConfig)
+        if (collectionConfig?.slug === 'pages') {
+          return `${process.env.NEXT_PUBLIC_WEBSITE}/stranky/${data.pageSlug}`
+        }
+        return `${process.env.NEXT_PUBLIC_WEBSITE}/${data.pageSlug}`
       },
       collections: ['pages'],
     },

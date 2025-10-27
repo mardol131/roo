@@ -13,6 +13,7 @@ import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
 import axios from "axios";
+import { TextBlockProps } from "../textSection/TextSection";
 
 export type FormTextInputProps = {
   blockType: "formtextinput";
@@ -115,7 +116,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
 
 export type FormCheckboxInputProps = {
   blockType: "formcheckboxinput";
-  label: TextProps[];
+  label: TextBlockProps[];
   value: string;
   spanTwo?: "true" | "false";
   required?: "true" | "false";
@@ -124,6 +125,7 @@ export type FormCheckboxInputProps = {
 };
 
 export function FormCheckboxInput(props: FormCheckboxInputProps) {
+  console.log(props);
   return (
     <div
       className={`${

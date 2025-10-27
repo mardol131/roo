@@ -35,9 +35,9 @@ export function WebsiteHeaderMobile({ button }: Props) {
   return (
     <div
       ref={dropdownRef}
-      className="z-50 md:hidden w-full fixed flex justify-center px-4"
+      className="z-50 lg:hidden w-full fixed flex justify-center px-4"
     >
-      <div className="bg-white w-full border border-borderLight flex flex-col justify-between items-center rounded-b-xl px-7 shadow-xl">
+      <div className="bg-white w-full border border-borderLight flex flex-col justify-between items-center rounded-b-xl p-4 shadow-xl">
         <div className="w-full justify-between flex items-center">
           <Link href={"/home"}>
             <Image

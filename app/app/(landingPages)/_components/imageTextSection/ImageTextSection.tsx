@@ -124,7 +124,7 @@ export default function ImageTextSection(props: Props) {
           backgroundSize: "cover",
         }}
         className={`w-full overflow-hidden ${
-          (innerImage?.src || innerBg) && "shadow-xl p-10 rounded-xl"
+          (innerImage?.src || innerBg) && "shadow-xl md:p-10 p-4 rounded-xl"
         }`}
       >
         <div
@@ -148,7 +148,7 @@ export default function ImageTextSection(props: Props) {
               <div className="justify-self-start w-full md:p-10">
                 {getImagePart(props.imagePart[0])}
               </div>
-              <div className="flex flex-col gap-5 p-10 max-">
+              <div className="flex flex-col gap-5 md:p-10">
                 <GenerateTexts texts={props.texts} />
                 {props.buttons && <GenerateButtons buttons={props.buttons} />}
               </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./_global/header/Header";
 import StoreProvider from "./_redux/StoreProvider";
-import Footer from "./_global/header/Footer";
+import Footer from "./_global/footer/Footer";
 import ContentWrapper from "./_global/wrappers/ContentWrapper";
 
 export const metadata: Metadata = {
