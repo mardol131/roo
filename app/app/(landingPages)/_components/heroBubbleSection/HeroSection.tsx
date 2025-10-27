@@ -35,6 +35,7 @@ export default function HeroBubbleSection(props: Props) {
             width={1500}
             height={1500}
             className="absolute w-full h-full object-cover object-center"
+            priority={true}
           />
         )}
         <div
