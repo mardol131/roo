@@ -12,8 +12,20 @@
 
 @theme {
   --color-secondary: #ff9900;
+  --color-secondaryDark: #f2810e;
   --color-primary: #ff0066;
   --color-tertiary: #663399;
+  --color-tertiaryDark: #333366;
+
+  --color-specialBlue: #0099ff;
+  --color-specialGreen: #80f20e;
+
+  --color-rooGray: #343434;
+  --color-rooBlack: #181818;
+
+  --color-success: #48dc00;
+  --color-warning: #fcaa2e;
+  --color-danger: #ee094b;
   --color-qart: #333366;
 
   --color-adminPrimary: var(--color-pink-600);
@@ -107,7 +119,9 @@ p {
   border-radius: 50px; /*1*/
   border: 3px solid transparent; /*2*/
   background: linear-gradient(45deg, red, blue) border-box; /*3*/
-  mask: /*4*/ linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+  mask: /*4*/
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
   mask-composite: exclude; /*5*/
 }
 
