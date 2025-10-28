@@ -20,7 +20,7 @@ export async function convertToWebpBuffer(
 
   const outputBuffer = await sharp(buffer)
     .webp({
-      quality: 80,
+      quality: 90,
       effort: 4,
       nearLossless: true,
       smartSubsample: true,

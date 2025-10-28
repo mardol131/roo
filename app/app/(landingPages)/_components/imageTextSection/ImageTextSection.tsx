@@ -19,8 +19,8 @@ function ImageOne(props: ImageOneProps) {
       className={`${props.image.shadow === "true" && "shadow-xl"} ${props.image.rounded === "true" && "rounded-xl"} w-full object-cover object-center`}
       src={getImageSrc(props.image.src, "cms")}
       alt={props.image.alt}
-      width={1000}
-      height={1000}
+      width={2000}
+      height={2000}
     />
   );
 }
