@@ -8,6 +8,7 @@ import ContactForm from "./ContactForm";
 import Text from "@/app/_global/atoms/Text";
 import { Mail } from "lucide-react";
 import { LuMail } from "react-icons/lu";
+import StepsSection from "../../_components/stepsSection/StepsSection";
 
 type Props = {};
 
@@ -73,6 +74,36 @@ export default function page({}: Props) {
           </div>
         </div>
       </LandingSectionWrapper>
+      <StepsSection
+        steps={[
+          {
+            texts: [
+              { text: "Vytvoři nabídky", level: "h4", color: "secondary" },
+              {
+                text: "Hello there my dear friends",
+                level: "paragraph2",
+                color: "black",
+              },
+            ],
+            number: "1",
+            color: "primary",
+            connector: "true",
+          },
+          {
+            texts: [
+              { text: "Vytvoři nabídky", level: "h4", color: "secondary" },
+              {
+                text: "Hello there my dear friends",
+                level: "paragraph2",
+                color: "black",
+              },
+            ],
+            number: "1",
+            color: "primary",
+            connector: "true",
+          },
+        ]}
+      />
     </div>
   );
 }

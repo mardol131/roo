@@ -27,12 +27,13 @@ export const ImageBlock: Block = {
 
 export const textsField: Field = { name: 'texts', type: 'blocks', blocks: [TextBlock] }
 
-export function getTextsField(name?: string) {
+export function getTextsField(name?: string, required?: boolean) {
   const field: Field = {
     label: 'Texty',
     type: 'collapsible',
     fields: [{ name: name || 'texts', type: 'blocks', blocks: [TextBlock, ImageBlock] }],
     admin: { initCollapsed: true },
+    required: required || false,
   }
   return field
 }

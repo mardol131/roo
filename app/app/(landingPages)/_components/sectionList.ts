@@ -6,6 +6,7 @@ import HeroBubbleSection from "./heroBubbleSection/HeroSection";
 import IconsTextSection from "./iconsTextSection/IconsTextSection";
 import ImageTextSection from "./imageTextSection/ImageTextSection";
 import MasonrySection from "./masonrySection/MasonrySection";
+import StepsSection from "./stepsSection/StepsSection";
 import TextSection from "./textSection/TextSection";
 
 export const sectionsList = {
@@ -18,6 +19,7 @@ export const sectionsList = {
   MasonrySection,
   FaqSection,
   IconsTextSection,
+  StepsSection,
 };
 
 export type SectionsListType = typeof sectionsList;

@@ -12,6 +12,7 @@ import { TextSectionBlock } from '../blocks/textSection/textSection'
 import { getButtonField, getImageField } from '../blocks/_global/fields'
 import { getImageSrc } from '@roo/shared/functions/media/getImageSrc'
 import { isAdminOrCreatedBy, whoHasAccess } from '@/functions/isAdminOrCreatedBy'
+import { StepsSectionBlock } from '@/blocks/stepsSection/stepsSection'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -169,6 +170,7 @@ export const Pages: CollectionConfig = {
         ImageTextSectionBlock,
         MasonrySectionBlock,
         TextSectionBlock,
+        StepsSectionBlock,
       ],
     },
   ],

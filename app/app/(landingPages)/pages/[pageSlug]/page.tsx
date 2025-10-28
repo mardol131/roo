@@ -114,7 +114,8 @@ export default async function page({ params }: PageComponentProps) {
         return <sectionsList.ImageTextSection key={i} {...section} />;
       case "MasonrySection":
         return <sectionsList.MasonrySection key={i} {...section} />;
-
+      case "StepsSection":
+        return <sectionsList.StepsSection key={i} {...section} />;
       default:
         return null; // případný fallback
     }

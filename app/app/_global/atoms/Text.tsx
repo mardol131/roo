@@ -238,7 +238,7 @@ export function GenerateTexts(props: {
   texts: (TextBlockProps | ImageBlockProps)[];
 }) {
   return props.texts.map((text, i) => {
-    if (text.blockType === "TextBlock") {
+    if ("text" in text && "level" in text) {
       return <Text {...text} key={i} />;
     } else if (text.blockType === "imageBlock") {
       return (
