@@ -1,7 +1,7 @@
 import React from "react";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
-import { colors, ColorsType } from "@/app/_design/colors";
+import { colors, ColorsType } from "@roo/shared/src/design/colors";
 
 type StepProps = {
   number: string;
@@ -12,16 +12,17 @@ type StepProps = {
 
 export function Step(props: StepProps) {
   const color = props.color && colors[props.color];
+  console.log(color);
 
   return (
     <div className="flex w-full flex-col items-center">
       <div
         style={{ borderColor: color }}
-        className="flex max-sm:flex-col items-center sm:gap-10 gap-2 sm:p-1 p-5 border-6 sm:rounded-full rounded-3xl w-full"
+        className="flex max-sm:flex-col items-center sm:gap-10 gap-5 sm:p-1 p-5 sm:border-6 sm:rounded-full rounded-3xl w-full"
       >
         <div
           style={{ backgroundColor: color }}
-          className="h-full aspect-square min-h-30 flex items-center justify-center rounded-full"
+          className="h-full aspect-square min-h-30 flex items-center justify-center rounded-full max-sm:shadow-md"
         >
           <Text
             text={props.number}
@@ -35,7 +36,10 @@ export function Step(props: StepProps) {
         </div>
       </div>
       {props.connector === "true" && (
-        <div style={{ backgroundColor: color }} className="w-5 h-20"></div>
+        <div
+          style={{ backgroundColor: color }}
+          className="sm:w-5 w-2 rounded-full sm:rounded-none h-20"
+        ></div>
       )}
     </div>
   );

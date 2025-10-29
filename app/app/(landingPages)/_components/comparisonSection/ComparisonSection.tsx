@@ -1,15 +1,11 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
-import { FaCheck, FaXmark } from "react-icons/fa6";
-import { LandingHeadingType } from "@/app/_design/text";
-import {
-  colorsAndGradients,
-  ColorsAndGradientsType,
-} from "@/app/_design/colors";
-import { OverlayType } from "@/app/_types/objects";
-import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
-import { Check } from "lucide-react";
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
+
+import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { OverlayType } from "@/app/_types/objects";
+import { FaCheck, FaXmark } from "react-icons/fa6";
+import { colorsAndGradients } from "@roo/shared/src/design/colors";
 
 export type ComparisonSectionProps = {
   texts: TextProps[];

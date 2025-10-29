@@ -65,7 +65,7 @@ export default function ListingLocationStep({}: Props) {
       >
         <div className="w-full flex flex-col gap-5 items-center justify-center max-w-150">
           <AdminFormCheckbox
-            text="Adresa je stejná jako fakturační"
+            text={{ text: "Adresa je stejná jako fakturační", level: "label4" }}
             name="sameAddress"
             onChange={checkboxOnChangeHandler}
             checked={addressIsSameAsInvoicing}

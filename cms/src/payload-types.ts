@@ -261,17 +261,56 @@ export interface Page {
   header: {
     desktopHeaderButton?: {
       text?: string | null;
-      textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white' | 'textLight') | null;
+      textColor?:
+        | (
+            | 'primary'
+            | 'secondary'
+            | 'secondaryDark'
+            | 'tertiary'
+            | 'tertiaryDark'
+            | 'black'
+            | 'white'
+            | 'textLight'
+            | 'primarySecondaryOpac'
+            | 'primaryTertiaryOpac'
+            | 'secondaryTertiaryOpac'
+            | 'secondaryPrimaryOpac'
+            | 'tertiaryPrimaryOpac'
+            | 'tertiarySecondaryOpac'
+            | 'primarySecondaryTertiaryOpac'
+            | 'primaryTertiarySecondaryOpac'
+            | 'secondaryPrimaryTertiaryOpac'
+            | 'secondaryTertiryPrimaryOpac'
+            | 'tertiaryPrimarySecondaryOpac'
+            | 'tertiarySecondaryPrimaryOpac'
+            | 'primarySecondary'
+            | 'primaryTertiary'
+            | 'secondaryTertiary'
+            | 'secondaryPrimary'
+            | 'tertiaryPrimary'
+            | 'tertiarySecondary'
+            | 'primarySecondaryTertiary'
+            | 'primaryTertiarySecondary'
+            | 'secondaryPrimaryTertiary'
+            | 'secondaryTertiryPrimary'
+            | 'tertiaryPrimarySecondary'
+            | 'tertiarySecondaryPrimary'
+          )
+        | null;
       bgColor?:
         | (
             | 'white'
+            | 'whiteOpac'
             | 'secondary'
             | 'secondaryOpac'
+            | 'secondaryDark'
+            | 'secondaryDarkOpac'
             | 'primary'
             | 'primaryOpac'
             | 'tertiary'
             | 'tertiaryOpac'
-            | 'whiteOpac'
+            | 'tertiaryDark'
+            | 'tertiaryDarkOpac'
             | 'blackTransparent'
             | 'transparentBlack'
             | 'primaryTransparent'
@@ -311,20 +350,63 @@ export interface Page {
       className?: string | null;
       type?: ('submit' | 'button' | 'reset') | null;
       link?: string | null;
+      GT?: {
+        event?: string | null;
+        value?: string | null;
+      };
     };
     mobileHeaderButton?: {
       text?: string | null;
-      textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white' | 'textLight') | null;
+      textColor?:
+        | (
+            | 'primary'
+            | 'secondary'
+            | 'secondaryDark'
+            | 'tertiary'
+            | 'tertiaryDark'
+            | 'black'
+            | 'white'
+            | 'textLight'
+            | 'primarySecondaryOpac'
+            | 'primaryTertiaryOpac'
+            | 'secondaryTertiaryOpac'
+            | 'secondaryPrimaryOpac'
+            | 'tertiaryPrimaryOpac'
+            | 'tertiarySecondaryOpac'
+            | 'primarySecondaryTertiaryOpac'
+            | 'primaryTertiarySecondaryOpac'
+            | 'secondaryPrimaryTertiaryOpac'
+            | 'secondaryTertiryPrimaryOpac'
+            | 'tertiaryPrimarySecondaryOpac'
+            | 'tertiarySecondaryPrimaryOpac'
+            | 'primarySecondary'
+            | 'primaryTertiary'
+            | 'secondaryTertiary'
+            | 'secondaryPrimary'
+            | 'tertiaryPrimary'
+            | 'tertiarySecondary'
+            | 'primarySecondaryTertiary'
+            | 'primaryTertiarySecondary'
+            | 'secondaryPrimaryTertiary'
+            | 'secondaryTertiryPrimary'
+            | 'tertiaryPrimarySecondary'
+            | 'tertiarySecondaryPrimary'
+          )
+        | null;
       bgColor?:
         | (
             | 'white'
+            | 'whiteOpac'
             | 'secondary'
             | 'secondaryOpac'
+            | 'secondaryDark'
+            | 'secondaryDarkOpac'
             | 'primary'
             | 'primaryOpac'
             | 'tertiary'
             | 'tertiaryOpac'
-            | 'whiteOpac'
+            | 'tertiaryDark'
+            | 'tertiaryDarkOpac'
             | 'blackTransparent'
             | 'transparentBlack'
             | 'primaryTransparent'
@@ -364,6 +446,10 @@ export interface Page {
       className?: string | null;
       type?: ('submit' | 'button' | 'reset') | null;
       link?: string | null;
+      GT?: {
+        event?: string | null;
+        value?: string | null;
+      };
     };
   };
   sections: (
@@ -393,9 +479,11 @@ export interface Page {
                   )
                 | null;
               color:
-                | 'secondary'
                 | 'primary'
+                | 'secondary'
+                | 'secondaryDark'
                 | 'tertiary'
+                | 'tertiaryDark'
                 | 'black'
                 | 'white'
                 | 'textLight'
@@ -426,6 +514,7 @@ export interface Page {
               text: string;
               className?: string | null;
               fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              font?: ('montserrat' | 'nunito') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'TextBlock';
@@ -435,13 +524,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -532,13 +625,17 @@ export interface Page {
               bgColor?:
                 | (
                     | 'white'
+                    | 'whiteOpac'
                     | 'secondary'
                     | 'secondaryOpac'
+                    | 'secondaryDark'
+                    | 'secondaryDarkOpac'
                     | 'primary'
                     | 'primaryOpac'
                     | 'tertiary'
                     | 'tertiaryOpac'
-                    | 'whiteOpac'
+                    | 'tertiaryDark'
+                    | 'tertiaryDarkOpac'
                     | 'blackTransparent'
                     | 'transparentBlack'
                     | 'primaryTransparent'
@@ -588,19 +685,58 @@ export interface Page {
               label: string;
               placeholder: string;
               webhook: string;
-              button: {
-                text: string;
-                textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white' | 'textLight') | null;
+              button?: {
+                text?: string | null;
+                textColor?:
+                  | (
+                      | 'primary'
+                      | 'secondary'
+                      | 'secondaryDark'
+                      | 'tertiary'
+                      | 'tertiaryDark'
+                      | 'black'
+                      | 'white'
+                      | 'textLight'
+                      | 'primarySecondaryOpac'
+                      | 'primaryTertiaryOpac'
+                      | 'secondaryTertiaryOpac'
+                      | 'secondaryPrimaryOpac'
+                      | 'tertiaryPrimaryOpac'
+                      | 'tertiarySecondaryOpac'
+                      | 'primarySecondaryTertiaryOpac'
+                      | 'primaryTertiarySecondaryOpac'
+                      | 'secondaryPrimaryTertiaryOpac'
+                      | 'secondaryTertiryPrimaryOpac'
+                      | 'tertiaryPrimarySecondaryOpac'
+                      | 'tertiarySecondaryPrimaryOpac'
+                      | 'primarySecondary'
+                      | 'primaryTertiary'
+                      | 'secondaryTertiary'
+                      | 'secondaryPrimary'
+                      | 'tertiaryPrimary'
+                      | 'tertiarySecondary'
+                      | 'primarySecondaryTertiary'
+                      | 'primaryTertiarySecondary'
+                      | 'secondaryPrimaryTertiary'
+                      | 'secondaryTertiryPrimary'
+                      | 'tertiaryPrimarySecondary'
+                      | 'tertiarySecondaryPrimary'
+                    )
+                  | null;
                 bgColor?:
                   | (
                       | 'white'
+                      | 'whiteOpac'
                       | 'secondary'
                       | 'secondaryOpac'
+                      | 'secondaryDark'
+                      | 'secondaryDarkOpac'
                       | 'primary'
                       | 'primaryOpac'
                       | 'tertiary'
                       | 'tertiaryOpac'
-                      | 'whiteOpac'
+                      | 'tertiaryDark'
+                      | 'tertiaryDarkOpac'
                       | 'blackTransparent'
                       | 'transparentBlack'
                       | 'primaryTransparent'
@@ -640,6 +776,10 @@ export interface Page {
                 className?: string | null;
                 type?: ('submit' | 'button' | 'reset') | null;
                 link?: string | null;
+                GT?: {
+                  event?: string | null;
+                  value?: string | null;
+                };
               };
               successText?: string | null;
               id?: string | null;
@@ -677,9 +817,11 @@ export interface Page {
                   )
                 | null;
               color:
-                | 'secondary'
                 | 'primary'
+                | 'secondary'
+                | 'secondaryDark'
                 | 'tertiary'
+                | 'tertiaryDark'
                 | 'black'
                 | 'white'
                 | 'textLight'
@@ -710,6 +852,7 @@ export interface Page {
               text: string;
               className?: string | null;
               fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              font?: ('montserrat' | 'nunito') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'TextBlock';
@@ -741,9 +884,11 @@ export interface Page {
                     )
                   | null;
                 color:
-                  | 'secondary'
                   | 'primary'
+                  | 'secondary'
+                  | 'secondaryDark'
                   | 'tertiary'
+                  | 'tertiaryDark'
                   | 'black'
                   | 'white'
                   | 'textLight'
@@ -774,6 +919,7 @@ export interface Page {
                 text: string;
                 className?: string | null;
                 fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                font?: ('montserrat' | 'nunito') | null;
                 id?: string | null;
                 blockName?: string | null;
                 blockType: 'TextBlock';
@@ -789,13 +935,17 @@ export interface Page {
             overlayColor?:
               | (
                   | 'white'
+                  | 'whiteOpac'
                   | 'secondary'
                   | 'secondaryOpac'
+                  | 'secondaryDark'
+                  | 'secondaryDarkOpac'
                   | 'primary'
                   | 'primaryOpac'
                   | 'tertiary'
                   | 'tertiaryOpac'
-                  | 'whiteOpac'
+                  | 'tertiaryDark'
+                  | 'tertiaryDarkOpac'
                   | 'blackTransparent'
                   | 'transparentBlack'
                   | 'primaryTransparent'
@@ -873,9 +1023,11 @@ export interface Page {
                     )
                   | null;
                 color:
-                  | 'secondary'
                   | 'primary'
+                  | 'secondary'
+                  | 'secondaryDark'
                   | 'tertiary'
+                  | 'tertiaryDark'
                   | 'black'
                   | 'white'
                   | 'textLight'
@@ -906,6 +1058,7 @@ export interface Page {
                 text: string;
                 className?: string | null;
                 fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                font?: ('montserrat' | 'nunito') | null;
                 id?: string | null;
                 blockName?: string | null;
                 blockType: 'TextBlock';
@@ -921,13 +1074,17 @@ export interface Page {
             overlayColor?:
               | (
                   | 'white'
+                  | 'whiteOpac'
                   | 'secondary'
                   | 'secondaryOpac'
+                  | 'secondaryDark'
+                  | 'secondaryDarkOpac'
                   | 'primary'
                   | 'primaryOpac'
                   | 'tertiary'
                   | 'tertiaryOpac'
-                  | 'whiteOpac'
+                  | 'tertiaryDark'
+                  | 'tertiaryDarkOpac'
                   | 'blackTransparent'
                   | 'transparentBlack'
                   | 'primaryTransparent'
@@ -983,13 +1140,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -1070,9 +1231,11 @@ export interface Page {
                   )
                 | null;
               color:
-                | 'secondary'
                 | 'primary'
+                | 'secondary'
+                | 'secondaryDark'
                 | 'tertiary'
+                | 'tertiaryDark'
                 | 'black'
                 | 'white'
                 | 'textLight'
@@ -1103,6 +1266,7 @@ export interface Page {
               text: string;
               className?: string | null;
               fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              font?: ('montserrat' | 'nunito') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'TextBlock';
@@ -1145,9 +1309,11 @@ export interface Page {
                   )
                 | null;
               color:
-                | 'secondary'
                 | 'primary'
+                | 'secondary'
+                | 'secondaryDark'
                 | 'tertiary'
+                | 'tertiaryDark'
                 | 'black'
                 | 'white'
                 | 'textLight'
@@ -1178,6 +1344,7 @@ export interface Page {
               text: string;
               className?: string | null;
               fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              font?: ('montserrat' | 'nunito') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'TextBlock';
@@ -1187,13 +1354,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -1244,19 +1415,58 @@ export interface Page {
             | boolean
             | null;
         };
-        button: {
-          text: string;
-          textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white' | 'textLight') | null;
+        button?: {
+          text?: string | null;
+          textColor?:
+            | (
+                | 'primary'
+                | 'secondary'
+                | 'secondaryDark'
+                | 'tertiary'
+                | 'tertiaryDark'
+                | 'black'
+                | 'white'
+                | 'textLight'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
           bgColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -1296,6 +1506,10 @@ export interface Page {
           className?: string | null;
           type?: ('submit' | 'button' | 'reset') | null;
           link?: string | null;
+          GT?: {
+            event?: string | null;
+            value?: string | null;
+          };
         };
         webhook: string;
         fields: (
@@ -1354,9 +1568,11 @@ export interface Page {
                             )
                           | null;
                         color:
-                          | 'secondary'
                           | 'primary'
+                          | 'secondary'
+                          | 'secondaryDark'
                           | 'tertiary'
+                          | 'tertiaryDark'
                           | 'black'
                           | 'white'
                           | 'textLight'
@@ -1387,6 +1603,7 @@ export interface Page {
                         text: string;
                         className?: string | null;
                         fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                        font?: ('montserrat' | 'nunito') | null;
                         id?: string | null;
                         blockName?: string | null;
                         blockType: 'TextBlock';
@@ -1440,9 +1657,11 @@ export interface Page {
                               )
                             | null;
                           color:
-                            | 'secondary'
                             | 'primary'
+                            | 'secondary'
+                            | 'secondaryDark'
                             | 'tertiary'
+                            | 'tertiaryDark'
                             | 'black'
                             | 'white'
                             | 'textLight'
@@ -1473,6 +1692,7 @@ export interface Page {
                           text: string;
                           className?: string | null;
                           fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                          font?: ('montserrat' | 'nunito') | null;
                           id?: string | null;
                           blockName?: string | null;
                           blockType: 'TextBlock';
@@ -1524,9 +1744,11 @@ export interface Page {
                             )
                           | null;
                         color:
-                          | 'secondary'
                           | 'primary'
+                          | 'secondary'
+                          | 'secondaryDark'
                           | 'tertiary'
+                          | 'tertiaryDark'
                           | 'black'
                           | 'white'
                           | 'textLight'
@@ -1557,6 +1779,7 @@ export interface Page {
                         text: string;
                         className?: string | null;
                         fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                        font?: ('montserrat' | 'nunito') | null;
                         id?: string | null;
                         blockName?: string | null;
                         blockType: 'TextBlock';
@@ -1612,9 +1835,11 @@ export interface Page {
                   )
                 | null;
               color:
-                | 'secondary'
                 | 'primary'
+                | 'secondary'
+                | 'secondaryDark'
                 | 'tertiary'
+                | 'tertiaryDark'
                 | 'black'
                 | 'white'
                 | 'textLight'
@@ -1645,6 +1870,7 @@ export interface Page {
               text: string;
               className?: string | null;
               fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              font?: ('montserrat' | 'nunito') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'TextBlock';
@@ -1690,13 +1916,17 @@ export interface Page {
               bgColor?:
                 | (
                     | 'white'
+                    | 'whiteOpac'
                     | 'secondary'
                     | 'secondaryOpac'
+                    | 'secondaryDark'
+                    | 'secondaryDarkOpac'
                     | 'primary'
                     | 'primaryOpac'
                     | 'tertiary'
                     | 'tertiaryOpac'
-                    | 'whiteOpac'
+                    | 'tertiaryDark'
+                    | 'tertiaryDarkOpac'
                     | 'blackTransparent'
                     | 'transparentBlack'
                     | 'primaryTransparent'
@@ -1745,13 +1975,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -1832,9 +2066,11 @@ export interface Page {
                   )
                 | null;
               color:
-                | 'secondary'
                 | 'primary'
+                | 'secondary'
+                | 'secondaryDark'
                 | 'tertiary'
+                | 'tertiaryDark'
                 | 'black'
                 | 'white'
                 | 'textLight'
@@ -1865,6 +2101,7 @@ export interface Page {
               text: string;
               className?: string | null;
               fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              font?: ('montserrat' | 'nunito') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'TextBlock';
@@ -1902,9 +2139,11 @@ export interface Page {
                         )
                       | null;
                     color:
-                      | 'secondary'
                       | 'primary'
+                      | 'secondary'
+                      | 'secondaryDark'
                       | 'tertiary'
+                      | 'tertiaryDark'
                       | 'black'
                       | 'white'
                       | 'textLight'
@@ -1935,6 +2174,7 @@ export interface Page {
                     text: string;
                     className?: string | null;
                     fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                    font?: ('montserrat' | 'nunito') | null;
                     id?: string | null;
                     blockName?: string | null;
                     blockType: 'TextBlock';
@@ -1980,13 +2220,17 @@ export interface Page {
                     bgColor?:
                       | (
                           | 'white'
+                          | 'whiteOpac'
                           | 'secondary'
                           | 'secondaryOpac'
+                          | 'secondaryDark'
+                          | 'secondaryDarkOpac'
                           | 'primary'
                           | 'primaryOpac'
                           | 'tertiary'
                           | 'tertiaryOpac'
-                          | 'whiteOpac'
+                          | 'tertiaryDark'
+                          | 'tertiaryDarkOpac'
                           | 'blackTransparent'
                           | 'transparentBlack'
                           | 'primaryTransparent'
@@ -2040,13 +2284,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -2127,9 +2375,11 @@ export interface Page {
                   )
                 | null;
               color:
-                | 'secondary'
                 | 'primary'
+                | 'secondary'
+                | 'secondaryDark'
                 | 'tertiary'
+                | 'tertiaryDark'
                 | 'black'
                 | 'white'
                 | 'textLight'
@@ -2160,6 +2410,7 @@ export interface Page {
               text: string;
               className?: string | null;
               fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              font?: ('montserrat' | 'nunito') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'TextBlock';
@@ -2219,13 +2470,17 @@ export interface Page {
               bgColor?:
                 | (
                     | 'white'
+                    | 'whiteOpac'
                     | 'secondary'
                     | 'secondaryOpac'
+                    | 'secondaryDark'
+                    | 'secondaryDarkOpac'
                     | 'primary'
                     | 'primaryOpac'
                     | 'tertiary'
                     | 'tertiaryOpac'
-                    | 'whiteOpac'
+                    | 'tertiaryDark'
+                    | 'tertiaryDarkOpac'
                     | 'blackTransparent'
                     | 'transparentBlack'
                     | 'primaryTransparent'
@@ -2275,13 +2530,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -2336,13 +2595,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -2424,9 +2687,11 @@ export interface Page {
                       )
                     | null;
                   color:
-                    | 'secondary'
                     | 'primary'
+                    | 'secondary'
+                    | 'secondaryDark'
                     | 'tertiary'
+                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'textLight'
@@ -2457,6 +2722,7 @@ export interface Page {
                   text: string;
                   className?: string | null;
                   fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                  font?: ('montserrat' | 'nunito') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextBlock';
@@ -2501,9 +2767,11 @@ export interface Page {
                       )
                     | null;
                   color:
-                    | 'secondary'
                     | 'primary'
+                    | 'secondary'
+                    | 'secondaryDark'
                     | 'tertiary'
+                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'textLight'
@@ -2534,6 +2802,7 @@ export interface Page {
                   text: string;
                   className?: string | null;
                   fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                  font?: ('montserrat' | 'nunito') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextBlock';
@@ -2579,9 +2848,11 @@ export interface Page {
                         )
                       | null;
                     color:
-                      | 'secondary'
                       | 'primary'
+                      | 'secondary'
+                      | 'secondaryDark'
                       | 'tertiary'
+                      | 'tertiaryDark'
                       | 'black'
                       | 'white'
                       | 'textLight'
@@ -2612,6 +2883,7 @@ export interface Page {
                     text: string;
                     className?: string | null;
                     fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                    font?: ('montserrat' | 'nunito') | null;
                     id?: string | null;
                     blockName?: string | null;
                     blockType: 'TextBlock';
@@ -2620,13 +2892,17 @@ export interface Page {
               bgColor?:
                 | (
                     | 'white'
+                    | 'whiteOpac'
                     | 'secondary'
                     | 'secondaryOpac'
+                    | 'secondaryDark'
+                    | 'secondaryDarkOpac'
                     | 'primary'
                     | 'primaryOpac'
                     | 'tertiary'
                     | 'tertiaryOpac'
-                    | 'whiteOpac'
+                    | 'tertiaryDark'
+                    | 'tertiaryDarkOpac'
                     | 'blackTransparent'
                     | 'transparentBlack'
                     | 'primaryTransparent'
@@ -2698,13 +2974,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -2781,13 +3061,17 @@ export interface Page {
               bgColor?:
                 | (
                     | 'white'
+                    | 'whiteOpac'
                     | 'secondary'
                     | 'secondaryOpac'
+                    | 'secondaryDark'
+                    | 'secondaryDarkOpac'
                     | 'primary'
                     | 'primaryOpac'
                     | 'tertiary'
                     | 'tertiaryOpac'
-                    | 'whiteOpac'
+                    | 'tertiaryDark'
+                    | 'tertiaryDarkOpac'
                     | 'blackTransparent'
                     | 'transparentBlack'
                     | 'primaryTransparent'
@@ -2863,9 +3147,11 @@ export interface Page {
                       )
                     | null;
                   color:
-                    | 'secondary'
                     | 'primary'
+                    | 'secondary'
+                    | 'secondaryDark'
                     | 'tertiary'
+                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'textLight'
@@ -2896,6 +3182,7 @@ export interface Page {
                   text: string;
                   className?: string | null;
                   fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                  font?: ('montserrat' | 'nunito') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextBlock';
@@ -2954,13 +3241,17 @@ export interface Page {
               bgColor?:
                 | (
                     | 'white'
+                    | 'whiteOpac'
                     | 'secondary'
                     | 'secondaryOpac'
+                    | 'secondaryDark'
+                    | 'secondaryDarkOpac'
                     | 'primary'
                     | 'primaryOpac'
                     | 'tertiary'
                     | 'tertiaryOpac'
-                    | 'whiteOpac'
+                    | 'tertiaryDark'
+                    | 'tertiaryDarkOpac'
                     | 'blackTransparent'
                     | 'transparentBlack'
                     | 'primaryTransparent'
@@ -3009,13 +3300,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -3070,13 +3365,17 @@ export interface Page {
           overlayColor?:
             | (
                 | 'white'
+                | 'whiteOpac'
                 | 'secondary'
                 | 'secondaryOpac'
+                | 'secondaryDark'
+                | 'secondaryDarkOpac'
                 | 'primary'
                 | 'primaryOpac'
                 | 'tertiary'
                 | 'tertiaryOpac'
-                | 'whiteOpac'
+                | 'tertiaryDark'
+                | 'tertiaryDarkOpac'
                 | 'blackTransparent'
                 | 'transparentBlack'
                 | 'primaryTransparent'
@@ -3158,9 +3457,11 @@ export interface Page {
                       )
                     | null;
                   color:
-                    | 'secondary'
                     | 'primary'
+                    | 'secondary'
+                    | 'secondaryDark'
                     | 'tertiary'
+                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'textLight'
@@ -3191,6 +3492,7 @@ export interface Page {
                   text: string;
                   className?: string | null;
                   fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                  font?: ('montserrat' | 'nunito') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextBlock';
@@ -3235,9 +3537,11 @@ export interface Page {
                       )
                     | null;
                   color:
-                    | 'secondary'
                     | 'primary'
+                    | 'secondary'
+                    | 'secondaryDark'
                     | 'tertiary'
+                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'textLight'
@@ -3268,6 +3572,7 @@ export interface Page {
                   text: string;
                   className?: string | null;
                   fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                  font?: ('montserrat' | 'nunito') | null;
                   id?: string | null;
                   blockName?: string | null;
                   blockType: 'TextBlock';
@@ -3315,9 +3620,11 @@ export interface Page {
                             )
                           | null;
                         color:
-                          | 'secondary'
                           | 'primary'
+                          | 'secondary'
+                          | 'secondaryDark'
                           | 'tertiary'
+                          | 'tertiaryDark'
                           | 'black'
                           | 'white'
                           | 'textLight'
@@ -3348,6 +3655,7 @@ export interface Page {
                         text: string;
                         className?: string | null;
                         fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                        font?: ('montserrat' | 'nunito') | null;
                         id?: string | null;
                         blockName?: string | null;
                         blockType: 'TextBlock';
@@ -3366,7 +3674,20 @@ export interface Page {
                       }
                   )[]
                 | null;
-              color: 'secondary' | 'primary' | 'tertiary';
+              color:
+                | 'secondary'
+                | 'secondaryDark'
+                | 'primary'
+                | 'tertiary'
+                | 'tertiaryDark'
+                | 'specialBlue'
+                | 'specialGreen'
+                | 'white'
+                | 'rooGray'
+                | 'rooBlack'
+                | 'success'
+                | 'warning'
+                | 'danger';
               connector: 'true' | 'false';
               id?: string | null;
               blockName?: string | null;
@@ -3614,6 +3935,12 @@ export interface PagesSelect<T extends boolean = true> {
               className?: T;
               type?: T;
               link?: T;
+              GT?:
+                | T
+                | {
+                    event?: T;
+                    value?: T;
+                  };
             };
         mobileHeaderButton?:
           | T
@@ -3626,6 +3953,12 @@ export interface PagesSelect<T extends boolean = true> {
               className?: T;
               type?: T;
               link?: T;
+              GT?:
+                | T
+                | {
+                    event?: T;
+                    value?: T;
+                  };
             };
       };
   sections?:
@@ -3645,6 +3978,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3701,6 +4035,12 @@ export interface PagesSelect<T extends boolean = true> {
                                 className?: T;
                                 type?: T;
                                 link?: T;
+                                GT?:
+                                  | T
+                                  | {
+                                      event?: T;
+                                      value?: T;
+                                    };
                               };
                           successText?: T;
                           id?: T;
@@ -3724,6 +4064,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3742,6 +4083,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 text?: T;
                                 className?: T;
                                 fontWeight?: T;
+                                font?: T;
                                 id?: T;
                                 blockName?: T;
                               };
@@ -3781,6 +4123,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 text?: T;
                                 className?: T;
                                 fontWeight?: T;
+                                font?: T;
                                 id?: T;
                                 blockName?: T;
                               };
@@ -3837,6 +4180,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3870,6 +4214,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3899,6 +4244,12 @@ export interface PagesSelect<T extends boolean = true> {
                     className?: T;
                     type?: T;
                     link?: T;
+                    GT?:
+                      | T
+                      | {
+                          event?: T;
+                          value?: T;
+                        };
                   };
               webhook?: T;
               fields?:
@@ -3953,6 +4304,7 @@ export interface PagesSelect<T extends boolean = true> {
                                       text?: T;
                                       className?: T;
                                       fontWeight?: T;
+                                      font?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -3998,6 +4350,7 @@ export interface PagesSelect<T extends boolean = true> {
                                                   text?: T;
                                                   className?: T;
                                                   fontWeight?: T;
+                                                  font?: T;
                                                   id?: T;
                                                   blockName?: T;
                                                 };
@@ -4035,6 +4388,7 @@ export interface PagesSelect<T extends boolean = true> {
                                       text?: T;
                                       className?: T;
                                       fontWeight?: T;
+                                      font?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -4077,6 +4431,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4130,6 +4485,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4158,6 +4514,7 @@ export interface PagesSelect<T extends boolean = true> {
                                       text?: T;
                                       className?: T;
                                       fontWeight?: T;
+                                      font?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -4215,6 +4572,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4302,6 +4660,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4332,6 +4691,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4368,6 +4728,7 @@ export interface PagesSelect<T extends boolean = true> {
                                       text?: T;
                                       className?: T;
                                       fontWeight?: T;
+                                      font?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -4457,6 +4818,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4539,6 +4901,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4569,6 +4932,7 @@ export interface PagesSelect<T extends boolean = true> {
                           text?: T;
                           className?: T;
                           fontWeight?: T;
+                          font?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4606,6 +4970,7 @@ export interface PagesSelect<T extends boolean = true> {
                                       text?: T;
                                       className?: T;
                                       fontWeight?: T;
+                                      font?: T;
                                       id?: T;
                                       blockName?: T;
                                     };

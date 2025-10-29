@@ -165,11 +165,17 @@ export default function ServiceInitialDataStep({}: Props) {
           </div>
           <div className="flex flex-col items-center gap-4">
             <AdminFormCheckbox
-              text="Souhlasím s obchodními podmínkami a Zpracováním osobních údajů"
+              text={{
+                text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
+                level: "label4",
+              }}
               name="gdpr"
             />
             <AdminFormCheckbox
-              text="Chci dostávat personalizovaná marketingová sdělení"
+              text={{
+                text: "Chci dostávat personalizovaná marketingová sdělení",
+                level: "label4",
+              }}
               name="marketing"
             />
           </div>

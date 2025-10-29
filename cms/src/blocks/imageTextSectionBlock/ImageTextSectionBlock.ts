@@ -1,15 +1,8 @@
-import { Block, Field } from 'payload'
-import {
-  buttonsField,
-  getImageField,
-  getOverlayField,
-  getRichTextField,
-  imageField,
-  overlayField,
-} from '../_global/fields'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
-import { sides } from '@/design/orientation'
+import { Block } from 'payload'
 import { textsField } from '../_blocks/textBlock'
+import { buttonsField, getImageField, getOverlayField } from '../_global/fields'
+import { sides } from '@roo/shared/design/orientation'
 
 const imageOneBlock: Block = {
   labels: { singular: 'Jeden obrázek', plural: 'Jeden obrázek' },

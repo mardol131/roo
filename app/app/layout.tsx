@@ -4,6 +4,7 @@ import Header from "./_global/header/Header";
 import StoreProvider from "./_redux/StoreProvider";
 import Footer from "./_global/footer/Footer";
 import ContentWrapper from "./_global/wrappers/ContentWrapper";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs">
+      <GoogleTagManager gtmId="" />
       <body>
         <StoreProvider>
           <Header />

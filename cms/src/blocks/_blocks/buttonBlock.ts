@@ -1,11 +1,9 @@
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
-import { iconsListString } from '@/icons/iconsList'
+import { colorsAndGradients } from '@roo/shared/design/colors'
 import { Block } from 'payload'
-import { textAlign } from '@/design/orientation'
-import { getRichTextField } from '../_global/fields'
-import { fontWeight, textColor, textLevels } from '../types/textTypes'
-import { colorsAndGradients } from '@/design/colors'
-import { buttonSizeList, buttonType, rounding } from '../types/buttonTypes'
+import { textColor } from '../types/textTypes'
+import { buttonSizeList, buttonTypeList } from '@roo/shared/design/button'
+import { roundingList } from '@roo/shared/design/rounding'
 
 export const ButtonBlock: Block = {
   slug: 'ButtonBlock',
@@ -18,9 +16,9 @@ export const ButtonBlock: Block = {
       options: getOptionsFromObject(colorsAndGradients),
     },
     { name: 'size', type: 'select', options: getOptionsFromObject(buttonSizeList) },
-    { name: 'rounding', type: 'select', options: getOptionsFromObject(rounding) },
+    { name: 'rounding', type: 'select', options: getOptionsFromObject(roundingList) },
     { name: 'className', type: 'text' },
-    { name: 'type', type: 'select', options: getOptionsFromObject(buttonType) },
+    { name: 'type', type: 'select', options: getOptionsFromObject(buttonTypeList) },
     { name: 'link', type: 'text' },
   ],
 }

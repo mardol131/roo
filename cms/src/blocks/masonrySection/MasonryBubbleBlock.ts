@@ -1,8 +1,8 @@
-import { Block } from 'payload'
-import { columnField, getImageField, getRichTextField, rowField } from '../_global/fields'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
-import { colorsAndGradients } from '@/design/colors'
+import { Block } from 'payload'
 import { textsField } from '../_blocks/textBlock'
+import { columnField, getImageField, rowField } from '../_global/fields'
+import { colorsAndGradients } from '@roo/shared/design/colors'
 
 export const MasonryBubbleBlock: Block = {
   slug: 'masonrybubble',

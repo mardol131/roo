@@ -1,14 +1,11 @@
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
-import React from "react";
-import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
-import Image, { ImageProps } from "next/image";
+
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
-import {
-  colorsAndGradients,
-  ColorsAndGradientsType,
-} from "@/app/_design/colors";
-import { ImageType, OverlayType } from "@/app/_types/objects";
+import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { OverlayType } from "@/app/_types/objects";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import Image from "next/image";
+import { colorsAndGradients } from "@roo/shared/src/design/colors";
 
 type Props = {
   texts: TextProps[];
@@ -23,7 +20,7 @@ export default function HeroBubbleSection(props: Props) {
 
   const image = props.innerOverlay?.image;
 
-  console.log(process.env.NEXT_PUBLIC_CDN_URL);
+  console.log(props);
 
   return (
     <LandingSectionWrapper>
@@ -40,7 +37,7 @@ export default function HeroBubbleSection(props: Props) {
         )}
         <div
           className={`relative min-h-150 w-full md:grid grid-cols-[2fr_1fr] flex items-center md:p-10 p-4  ${
-            bgColor || " bg-linear-90 from-black to-transparent"
+            bgColor || " bg-linear-90 from-rooBlack to-transparent"
           }`}
         >
           <div className="flex flex-col justify-center h-full gap-5">

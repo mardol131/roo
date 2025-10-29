@@ -1,12 +1,10 @@
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
-import { colorsAndGradients } from "@/app/_design/colors";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
-import React from "react";
-import { FormTextInputProps } from "../formSection/FormSection";
-import { GenerateWidgets, WidgetType } from "../widgets/widgets";
 import Image from "next/image";
+import { GenerateWidgets, WidgetType } from "../widgets/widgets";
+import { colorsAndGradients } from "@roo/shared/src/design/colors";
 
 type Props = {
   texts: TextProps[];

@@ -1,11 +1,9 @@
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
-import { colorsAndGradients } from "@/app/_design/colors";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import Image from "next/image";
-import React from "react";
-import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import { colorsAndGradients } from "@roo/shared/src/design/colors";
 
 export type ImageBlockProps = {
   blockType?: "imageBlock";

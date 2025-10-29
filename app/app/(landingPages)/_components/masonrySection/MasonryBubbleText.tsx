@@ -1,10 +1,8 @@
+import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import {
   colorsAndGradients,
   ColorsAndGradientsType,
-} from "@/app/_design/colors";
-import { PayloadTextSectionType } from "@/app/_design/text";
-import { PayloadRichTextGenerator } from "@/app/_functions/transformations/payloadRichTextGenerator";
-import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+} from "@roo/shared/src/design/colors";
 
 export type MasonryBubbleTextProps = {
   texts: TextProps[];

@@ -1,5 +1,4 @@
 import { Block } from 'payload'
-import { buttonField, headingField, overlayField } from '../_global/fields'
 
 import { textsField } from '../_blocks/textBlock'
 

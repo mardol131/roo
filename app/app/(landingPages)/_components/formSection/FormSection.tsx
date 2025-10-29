@@ -1,19 +1,17 @@
 "use client";
 
-import React, { FormEvent, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
+
+import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
 import Button, { ButtonProps } from "@/app/_global/atoms/Button";
-import {
-  colorsAndGradients,
-  ColorsAndGradientsType,
-} from "@/app/_design/colors";
-import { OverlayType } from "@/app/_types/objects";
 import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
-import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
+import { OverlayType } from "@/app/_types/objects";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
-import Image from "next/image";
 import axios from "axios";
+import Image from "next/image";
 import { TextBlockProps } from "../textSection/TextSection";
+import { colorsAndGradients } from "@roo/shared/src/design/colors";
 
 export type FormTextInputProps = {
   blockType: "formtextinput";
@@ -125,7 +123,6 @@ export type FormCheckboxInputProps = {
 };
 
 export function FormCheckboxInput(props: FormCheckboxInputProps) {
-  console.log(props);
   return (
     <div
       className={`${

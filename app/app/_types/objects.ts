@@ -1,4 +1,4 @@
-import { ColorsAndGradientsType } from "../_design/colors";
+import { ColorsAndGradientsType } from "@roo/shared/src/design/colors";
 
 export type OverlayType = {
   overlayColor?: ColorsAndGradientsType;

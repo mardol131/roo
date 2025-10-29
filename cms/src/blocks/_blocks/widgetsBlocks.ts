@@ -1,5 +1,5 @@
 import { Block, Field } from 'payload'
-import { buttonField } from '../_global/fields'
+import { getButtonField } from '../_global/fields'
 
 export const InputWidgetBlock: Block = {
   slug: 'inputWidget',
@@ -7,7 +7,7 @@ export const InputWidgetBlock: Block = {
     { name: 'label', type: 'text', required: true },
     { name: 'placeholder', type: 'text', required: true },
     { name: 'webhook', type: 'text', required: true },
-    buttonField,
+    getButtonField(),
     { name: 'successText', type: 'text' },
   ],
 }

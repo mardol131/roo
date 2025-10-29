@@ -1,12 +1,9 @@
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
-import { textColor, TextColorType } from "@/app/_design/colors";
-import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
-import { IconsList, iconsList } from "@/app/_icons/_iconsList";
-import { ImageType, OverlayType } from "@/app/_types/objects";
-import Image from "next/image";
-import React from "react";
-import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
+import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { ImageType, OverlayType } from "@/app/_types/objects";
+import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import Image from "next/image";
 
 type IconsTextProps = {
   image: ImageType;

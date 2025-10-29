@@ -1,7 +1,6 @@
 "use client";
 
-import { HeadingLevelType } from "@/app/_design/text";
-import Text from "@/app/_global/atoms/Text";
+import Text, { TextProps } from "@/app/_global/atoms/Text";
 
 export type AdminFormInputType = {
   label: string;
@@ -46,11 +45,10 @@ export function AdminFormInput({
 }
 
 export type AdminFormCheckboxType = {
-  text: string;
+  text: TextProps;
   name: string;
   checked?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  level?: HeadingLevelType;
 };
 
 export function AdminFormCheckbox({
@@ -58,7 +56,6 @@ export function AdminFormCheckbox({
   name,
   checked,
   onChange,
-  level,
 }: AdminFormCheckboxType) {
   return (
     <label className="flex gap-4 cursor-pointer">
@@ -70,7 +67,7 @@ export function AdminFormCheckbox({
         checked={checked}
         onChange={onChange}
       />
-      <Text level="h3" text={text} color={"black"} />
+      <Text {...text} />
     </label>
   );
 }

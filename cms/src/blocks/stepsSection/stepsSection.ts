@@ -1,15 +1,7 @@
-import { Block } from 'payload'
-import {
-  buttonsField,
-  getImageField,
-  getOverlayField,
-  imageField,
-  overlayField,
-} from '../_global/fields'
-import { getTextsField, TextBlock, textsField } from '../_blocks/textBlock'
-import { widgetsField } from '../_blocks/widgetsBlocks'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
-import { colors } from '@/design/colors'
+import { Block } from 'payload'
+import { getTextsField } from '../_blocks/textBlock'
+import { colors } from '@roo/shared/design/colors'
 
 export const StepBlock: Block = {
   slug: 'StepBlock',

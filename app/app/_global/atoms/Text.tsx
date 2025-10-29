@@ -2,83 +2,17 @@ import {
   ImageBlockProps,
   TextBlockProps,
 } from "@/app/(landingPages)/_components/textSection/TextSection";
-import { textColor, TextColorType } from "@/app/_design/colors";
-import { textAlign, TextAlignType } from "@/app/_design/orientation";
-import { ImageType } from "@/app/_types/objects";
-import Image from "next/image";
-import React from "react";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import Image from "next/image";
 import sanitizeHtml from "sanitize-html";
-
-export const TextLevels = {
-  h1: "h1",
-  h2: "h2",
-  h3: "h3",
-  h4: "h4",
-  h5: "h5",
-  label1: "label1",
-  label2: "label2",
-  label3: "label3",
-  label4: "label4",
-  label5: "label5",
-  label6: "label6",
-  label7: "label7",
-  label8: "label8",
-  paragraph1: "paragraph1",
-  paragraph2: "paragraph2",
-  paragraph3: "paragraph3",
-  paragraph4: "paragraph4",
-  paragraph5: "paragraph5",
-};
-
-export type TextLevelType =
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "label1"
-  | "label2"
-  | "label3"
-  | "label4"
-  | "label5"
-  | "label6"
-  | "label7"
-  | "label8"
-  | "paragraph1"
-  | "paragraph2"
-  | "paragraph3"
-  | "paragraph4"
-  | "paragraph5";
-
-export const fontWeight = {
-  sm: "font-",
-  md: "font-medium",
-  lg: "font-semibold",
-  xl: "font-bold",
-  "2xl": "font-bold",
-};
-export type FontWeightType = keyof typeof fontWeight;
-
-export const fontSize = {
-  sm: "text-sm",
-  md: "text-base",
-  lg: "text-lg",
-  xl: "text-xl",
-  "2xl": "text-2xl",
-  "3xl": "text-3xl",
-  "4xl": "text-4xl",
-  "5xl": "text-5xl",
-  "6xl": "text-6xl",
-  "7xl": "text-7xl",
-};
-
-export const fontType = {
-  montserrat: "font-montserrat",
-  nunito: "font-nunito",
-};
-
-export type FontType = keyof typeof fontType;
+import { textColor, TextColorType } from "@roo/shared/src/design/colors";
+import {
+  fontType,
+  FontType,
+  fontWeight,
+  FontWeightType,
+  TextLevelType,
+} from "@roo/shared/src/design/texts";
 
 export type TextProps = {
   level: TextLevelType;
@@ -91,13 +25,18 @@ export type TextProps = {
 
 export default function Text(props: TextProps) {
   const color = props.color ? textColor[props.color] : textColor.black;
+
+  let font: string | undefined = props.level.startsWith("h")
+    ? "font-montserrat"
+    : "font-nunito";
+
   //   const align = props.textAlign && textAlign[props.textAlign];
   const weight = props.fontWeight && fontWeight[props.fontWeight];
-  const font = props.font && fontType[props.font];
+  font = props.font && fontType[props.font];
   const classes = `${props.className} ${color} ${weight} ${font}`;
 
   const htmlSafeText = sanitizeHtml(props.text, {
-    allowedTags: ["strong", "span", "a"],
+    allowedTags: ["strong", "span", "a", "br"],
     allowedAttributes: { a: ["href", "target"], span: ["class"] },
   });
 

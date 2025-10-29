@@ -1,16 +1,9 @@
 "use client";
 
-import {
-  colorsAndGradients,
-  ColorsAndGradientsType,
-  textColor,
-  TextColorType,
-} from "@/app/_design/colors";
 import Text from "@/app/_global/atoms/Text";
 import Gastro from "@/app/_icons/Gastro";
-import { useAppSelector } from "@/app/_redux/hooks";
-import { ListingType, listingCardsData } from "@/app/_types/business/services";
-import { ReactNode } from "react";
+import { listingCardsData, ListingType } from "@/app/_types/business/services";
+import { colorsAndGradients, textColor } from "@roo/shared/src/design/colors";
 
 export type ServiceTypeCardProps = {
   onClick: (value: ListingType) => void;

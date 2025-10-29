@@ -1,6 +1,5 @@
 export const roles = {
     admin: "admin",
-    editor: "editor",
     customer: "customer",
     advertiser: "advertiser",
 };

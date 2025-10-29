@@ -1,16 +1,16 @@
 "use client";
-
+import { roundingList, RoundingType } from "@roo/shared/src/design/rounding";
+import { LucideIconsType } from "@/app/_icons/_iconsList";
+import Link from "next/link";
+import React from "react";
+import * as LucideIcons from "lucide-react";
 import {
   colorsAndGradients,
   ColorsAndGradientsType,
   textColor,
   TextColorType,
-} from "@/app/_design/colors";
-import { rounding, RoundingType } from "@/app/_design/rounding";
-import { LucideIconsType } from "@/app/_icons/_iconsList";
-import Link from "next/link";
-import React from "react";
-import * as LucideIcons from "lucide-react";
+} from "@roo/shared/src/design/colors";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export type ButtonProps = {
   text: string;
@@ -25,6 +25,10 @@ export type ButtonProps = {
   stretch?: boolean;
   iconLeft?: LucideIconsType;
   iconRight?: LucideIconsType;
+  GT?: {
+    event: string;
+    value: string;
+  };
 };
 
 export type ButtonSize = keyof typeof buttonSizeList;
@@ -42,7 +46,7 @@ const buttonSizeList = {
 export default function Button(props: ButtonProps) {
   const buttonBgColor = props.bgColor && colorsAndGradients[props.bgColor];
   const buttonSize = props.size && buttonSizeList[props.size];
-  const buttonRounding = props.rounding && rounding[props.rounding];
+  const buttonRounding = props.rounding && roundingList[props.rounding];
   const buttonTextColor = props.textColor && textColor[props.textColor];
   const IconLeft = props.iconLeft && LucideIcons[props.iconLeft];
   const IconRight = props.iconRight && LucideIcons[props.iconRight];
@@ -53,9 +57,19 @@ export default function Button(props: ButtonProps) {
     props.stretch && "w-full"
   } ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor}`;
 
+  function onClickHandler() {
+    if (props.GT) {
+      sendGTMEvent({ event: props.GT.event, value: props.GT.value });
+    }
+
+    if (props.onClick) {
+      props.onClick();
+    }
+  }
+
   const buttoncContent = (
     <button
-      onClick={props.onClick}
+      onClick={onClickHandler}
       type={props.type || "button"}
       className={buttonClassname}
     >

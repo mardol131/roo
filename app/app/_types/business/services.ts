@@ -1,5 +1,8 @@
-import { ColorsAndGradientsType, TextColorType } from "@/app/_design/colors";
 import Gastro from "@/app/_icons/Gastro";
+import {
+  ColorsAndGradientsType,
+  TextColorType,
+} from "@roo/shared/src/design/colors";
 
 export type ListingTypeData = {
   heading: string;

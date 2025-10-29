@@ -49,11 +49,17 @@ export default function page({}: Props) {
         </div>
         <div>
           <AdminFormCheckbox
-            text="Souhlasím s obchodními podmínkami a Zpracováním osobních údajů"
+            text={{
+              text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
+              level: "label4",
+            }}
             name="terms"
           />
           <AdminFormCheckbox
-            text="Chci dostávat personalizovaná marketingová sdělení "
+            text={{
+              text: "Chci dostávat personalizovaná marketingová sdělení",
+              level: "label4",
+            }}
             name="marketing"
           />
         </div>

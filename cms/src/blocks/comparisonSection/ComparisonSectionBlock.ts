@@ -1,6 +1,6 @@
 import { Block } from 'payload'
-import { getOverlayField, headingField, overlayField } from '../_global/fields'
 import { textsField } from '../_blocks/textBlock'
+import { getOverlayField } from '../_global/fields'
 
 export const ComparisonSectionBlock: Block = {
   slug: 'ComparisonSection',

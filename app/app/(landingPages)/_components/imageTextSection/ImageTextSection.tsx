@@ -1,12 +1,11 @@
-import { Sides } from "@/app/_design/orientation";
 import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
-import Image, { ImageProps } from "next/image";
-import React from "react";
-import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
-import { colorsAndGradients } from "@/app/_design/colors";
+import { colorsAndGradients } from "@roo/shared/src/design/colors";
+import { SidesType } from "@roo/shared/src/design/orientation";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import Image, { ImageProps } from "next/image";
+import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 
 type ImageOneProps = {
   blockType: "imageOne";
@@ -95,7 +94,7 @@ type Props = {
   texts: TextProps[];
   imagePart: ImagePartListProps[];
   buttons?: ButtonProps[];
-  textSide: Sides;
+  textSide: SidesType;
   outerOverlay?: OverlayType;
   innerOverlay?: OverlayType;
 };
@@ -134,7 +133,7 @@ export default function ImageTextSection(props: Props) {
         >
           {(props.textSide === "left" || props.textSide === undefined) && (
             <>
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-8">
                 <GenerateTexts texts={props.texts} />
                 {props.buttons && <GenerateButtons buttons={props.buttons} />}
               </div>
@@ -148,7 +147,7 @@ export default function ImageTextSection(props: Props) {
               <div className="justify-self-start w-full md:p-10">
                 {getImagePart(props.imagePart[0])}
               </div>
-              <div className="flex flex-col gap-5 md:p-10">
+              <div className="flex flex-col gap-8">
                 <GenerateTexts texts={props.texts} />
                 {props.buttons && <GenerateButtons buttons={props.buttons} />}
               </div>
