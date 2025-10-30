@@ -96,7 +96,6 @@ export function LowerHeader() {
 
   return (
     <>
-      {" "}
       <div className="p-2 bg-optionsBar border-1 font-semibold border-borderLight shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-textPlaceholder w-full max-w-lowerHeader rounded-full">
         <div className="grid grid-cols-4 w-full gap-2 content-stretch">
           <LowerHeaderButton
