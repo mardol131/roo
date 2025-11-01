@@ -2381,6 +2381,61 @@ export interface Page {
                     blockType: 'ButtonBlock';
                   }[]
                 | null;
+              isCard?: ('true' | 'false') | null;
+              overlay?: {
+                overlayColor?:
+                  | (
+                      | 'white'
+                      | 'whiteOpac'
+                      | 'success'
+                      | 'warning'
+                      | 'danger'
+                      | 'secondary'
+                      | 'secondaryOpac'
+                      | 'secondaryDark'
+                      | 'secondaryDarkOpac'
+                      | 'primary'
+                      | 'primaryOpac'
+                      | 'tertiary'
+                      | 'tertiaryOpac'
+                      | 'tertiaryDark'
+                      | 'tertiaryDarkOpac'
+                      | 'blackTransparent'
+                      | 'transparentBlack'
+                      | 'primaryTransparent'
+                      | 'secondaryTransparent'
+                      | 'tertiaryTransparent'
+                      | 'transparentPrimary'
+                      | 'transparentSecondary'
+                      | 'transparentTertiary'
+                      | 'primarySecondaryOpac'
+                      | 'primaryTertiaryOpac'
+                      | 'secondaryTertiaryOpac'
+                      | 'secondaryPrimaryOpac'
+                      | 'tertiaryPrimaryOpac'
+                      | 'tertiarySecondaryOpac'
+                      | 'primarySecondaryTertiaryOpac'
+                      | 'primaryTertiarySecondaryOpac'
+                      | 'secondaryPrimaryTertiaryOpac'
+                      | 'secondaryTertiryPrimaryOpac'
+                      | 'tertiaryPrimarySecondaryOpac'
+                      | 'tertiarySecondaryPrimaryOpac'
+                      | 'primarySecondary'
+                      | 'primaryTertiary'
+                      | 'secondaryTertiary'
+                      | 'secondaryPrimary'
+                      | 'tertiaryPrimary'
+                      | 'tertiarySecondary'
+                      | 'primarySecondaryTertiary'
+                      | 'primaryTertiarySecondary'
+                      | 'secondaryPrimaryTertiary'
+                      | 'secondaryTertiryPrimary'
+                      | 'tertiaryPrimarySecondary'
+                      | 'tertiarySecondaryPrimary'
+                    )
+                  | null;
+                image?: string | null;
+              };
               id?: string | null;
               blockName?: string | null;
               blockType: 'IconsTextSection';
@@ -4734,6 +4789,13 @@ export interface PagesSelect<T extends boolean = true> {
                                       id?: T;
                                       blockName?: T;
                                     };
+                              };
+                          isCard?: T;
+                          overlay?:
+                            | T
+                            | {
+                                overlayColor?: T;
+                                image?: T;
                               };
                           id?: T;
                           blockName?: T;
