@@ -12,18 +12,27 @@ import axios from "axios";
 import Image from "next/image";
 import { TextBlockProps } from "../textSection/TextSection";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
+import FormWaitlistTemplate from "./templates/FormWaitlistTemplate";
+import FormEmailCollectionTemplate from "./templates/FormEmailCollectionTemplate";
 
 export type FormTextInputProps = {
   blockType: "formtextinput";
   label: string;
   name: string;
-  type?: "text" | "email" | "password";
+  type?: "text" | "email" | "password" | "phone";
   placeholder: string;
   spanTwo?: "true" | "false";
   required?: "true" | "false";
 };
 
 export function FormTextInput(props: FormTextInputProps) {
+  const type = props.type || "text";
+
+  function changeHandler(e: React.ChangeEvent<HTMLInputElement>) {
+    if (props.type === "phone") {
+      e.target.value = e.target.value.replace(/[^0-9]/g, "").slice(0, 9);
+    }
+  }
   return (
     <div
       className={`${
@@ -31,18 +40,30 @@ export function FormTextInput(props: FormTextInputProps) {
       } border-2 border-borderLight p-3 flex flex-col rounded-medium`}
     >
       <label className="text-primary font-semibold">{props.label}</label>
-      <input
-        name={props.name}
-        type={props.type || "text"}
-        placeholder={props.placeholder}
-        required={props.required === "true" || false}
-      ></input>
+      <div className="flex items-center justify-start gap-2">
+        {props.type === "phone" && (
+          <>
+            <select name="code" id="code" className="font-semibold">
+              <option value="+420">+420</option>
+              <option value="+421">+421</option>
+            </select>
+          </>
+        )}
+        <input
+          name={props.name}
+          type={type}
+          placeholder={props.placeholder}
+          required={props.required === "true" || false}
+          defaultValue=""
+          onChange={changeHandler}
+        ></input>
+      </div>
     </div>
   );
 }
 
 export type FormTextareaInputProps = {
-  blockType: "formtextinput";
+  blockType: "formtextarea";
   label: string;
   name: string;
   placeholder: string;
@@ -152,7 +173,7 @@ export function FormCheckboxInput(props: FormCheckboxInputProps) {
   );
 }
 
-type FormMultipleCheckboxInputProps = {
+export type FormMultipleCheckboxInputProps = {
   blockType: "formmultiplecheckboxinput";
   checkboxes: FormCheckboxInputProps[];
   label: TextProps[];
@@ -161,7 +182,9 @@ type FormMultipleCheckboxInputProps = {
   value: string;
 };
 
-function FormMultipleCheckboxInput(props: FormMultipleCheckboxInputProps) {
+export function FormMultipleCheckboxInput(
+  props: FormMultipleCheckboxInputProps
+) {
   const [values, setValues] = useState<string[]>([]);
 
   function hasValueHandler(isChecked: boolean, value: string) {
@@ -207,6 +230,21 @@ function FormMultipleCheckboxInput(props: FormMultipleCheckboxInputProps) {
   );
 }
 
+type FormTemplateProps = {
+  blockType: "formtemplate";
+  template: "waitlist" | "email-collection";
+};
+
+function FormTemplate(props: FormTemplateProps) {
+  switch (props.template) {
+    case "email-collection":
+      return <FormEmailCollectionTemplate />;
+
+    case "waitlist":
+      return <FormWaitlistTemplate />;
+  }
+}
+
 export type FormSectionProps = {
   texts?: TextProps[];
   overlay?: OverlayType;
@@ -217,8 +255,26 @@ export type FormSectionProps = {
     | FormSelectInputProps
     | FormCheckboxInputProps
     | FormMultipleCheckboxInputProps
+    | FormTemplateProps
+    | FormTextareaInputProps
   )[];
 };
+
+export function formDataToObject(formData: FormData) {
+  const data: Record<string, any> = {};
+
+  for (const [key, value] of formData.entries()) {
+    if (data[key]) {
+      data[key] = Array.isArray(data[key])
+        ? [...data[key], value]
+        : [data[key], value];
+    } else {
+      data[key] = value;
+    }
+  }
+
+  return data;
+}
 
 export default function FormSection(props: FormSectionProps) {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -235,8 +291,12 @@ export default function FormSection(props: FormSectionProps) {
         return <FormCheckboxInput key={i} {...field} />;
       case "formmultiplecheckboxinput":
         return <FormMultipleCheckboxInput key={i} {...field} />;
+      case "formtemplate":
+        return <FormTemplate key={i} {...field} />;
+      case "formtextarea":
+        return <FormTextareaInput key={i} {...field} />;
       default:
-        return null; // fallback, TypeScript ví, že už by nemělo nastat
+        return null;
     }
   });
 
@@ -250,11 +310,13 @@ export default function FormSection(props: FormSectionProps) {
 
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    console.log(Object.fromEntries(formData));
     try {
-      const response = await axios.post(props.webhook, formData);
+      const response = await axios.post(
+        props.webhook,
+        formDataToObject(formData)
+      );
 
-      if (response.statusText === "OK") {
+      if (response.status === 200) {
         setIsSuccess(true);
         formRef.current?.reset();
       }
@@ -287,22 +349,30 @@ export default function FormSection(props: FormSectionProps) {
             }}
             className="max-w-170 flex flex-col items-center w-full gap-10 bg-white md:p-10 p-5 py-10 rounded-large shadow-lg"
           >
-            <div className="flex flex-col gap-5 text-center">
-              {props.texts && <GenerateTexts texts={props.texts} />}
-            </div>
+            {props.texts && (
+              <div className="flex flex-col gap-5 text-center">
+                {props.texts && <GenerateTexts texts={props.texts} />}
+              </div>
+            )}
             <div className="md:grid w-full flex flex-col grid-cols-2 gap-5">
               {fields}
             </div>
             <div className="flex flex-col justify-center items-center gap-4">
-              <Button {...props.button} type="submit" />
+              <Button {...props.button} disabled={isSuccess} type="submit" />
               {isSuccess && (
-                <Text text="Děkujeme!" level="paragraph3" fontWeight="xl" />
+                <Text
+                  text="Děkujeme!"
+                  level="paragraph3"
+                  fontWeight="lg"
+                  color="success"
+                />
               )}
               {isError && (
                 <Text
                   text="Něco se nepovedlo, zkuste to prosím později."
                   level="paragraph3"
-                  fontWeight="xl"
+                  fontWeight="lg"
+                  color="danger"
                 />
               )}
             </div>

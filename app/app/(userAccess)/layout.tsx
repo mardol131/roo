@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function layout({ children }: PropsWithChildren) {
   return (
-    <div className="relative grid grid-cols-2 w-full h-screen bg-linear-140 from-qart to-70% to-primary   p-20">
+    <div className="relative grid grid-cols-2 w-full h-screen bg-linear-140 from-tertiaryDark to-70% to-primary   p-20">
       <div className="flex flex-col items-start justify-between">
         <div className="col-span-2 flex items-center gap-10">
           <Image

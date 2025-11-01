@@ -1,9 +1,22 @@
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { colorsAndGradients } from '@roo/shared/design/colors'
-import { Block } from 'payload'
+import { Block, Field } from 'payload'
 import { textColor } from '../types/textTypes'
 import { buttonSizeList, buttonTypeList } from '@roo/shared/design/button'
 import { roundingList } from '@roo/shared/design/rounding'
+
+export const GTField: Field = {
+  label: 'Google Tag Event',
+  name: 'GT',
+  type: 'group',
+  fields: [
+    {
+      name: 'event',
+      type: 'text',
+    },
+    { name: 'value', type: 'text' },
+  ],
+}
 
 export const ButtonBlock: Block = {
   slug: 'ButtonBlock',
@@ -20,5 +33,6 @@ export const ButtonBlock: Block = {
     { name: 'className', type: 'text' },
     { name: 'type', type: 'select', options: getOptionsFromObject(buttonTypeList) },
     { name: 'link', type: 'text' },
+    GTField,
   ],
 }

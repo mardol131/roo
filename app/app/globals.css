@@ -40,7 +40,6 @@
   --color-success: #48dc00;
   --color-warning: #fcaa2e;
   --color-danger: #ee094b;
-  --color-qart: #333366;
 
   --color-borderLight: var(--color-gray-200);
 
@@ -157,10 +156,10 @@
 }
 
 .bg-blackTransparent {
-  @apply bg-linear-60 from-rooBlack to-transparent;
+  @apply bg-linear-60 from-rooBlack to-rooBlack/30;
 }
 .bg-transparentBlack {
-  @apply bg-linear-60 from-transparent to-rooBlack;
+  @apply bg-linear-60 from-rooBlack/30 to-rooBlack;
 }
 
 .bg-primaryTransparent {

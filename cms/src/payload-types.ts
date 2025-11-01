@@ -270,6 +270,9 @@ export interface Page {
             | 'tertiaryDark'
             | 'black'
             | 'white'
+            | 'success'
+            | 'warning'
+            | 'danger'
             | 'textLight'
             | 'primarySecondaryOpac'
             | 'primaryTertiaryOpac'
@@ -301,6 +304,9 @@ export interface Page {
         | (
             | 'white'
             | 'whiteOpac'
+            | 'success'
+            | 'warning'
+            | 'danger'
             | 'secondary'
             | 'secondaryOpac'
             | 'secondaryDark'
@@ -366,6 +372,9 @@ export interface Page {
             | 'tertiaryDark'
             | 'black'
             | 'white'
+            | 'success'
+            | 'warning'
+            | 'danger'
             | 'textLight'
             | 'primarySecondaryOpac'
             | 'primaryTertiaryOpac'
@@ -397,6 +406,9 @@ export interface Page {
         | (
             | 'white'
             | 'whiteOpac'
+            | 'success'
+            | 'warning'
+            | 'danger'
             | 'secondary'
             | 'secondaryOpac'
             | 'secondaryDark'
@@ -486,6 +498,9 @@ export interface Page {
                 | 'tertiaryDark'
                 | 'black'
                 | 'white'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
@@ -525,6 +540,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -626,6 +644,9 @@ export interface Page {
                 | (
                     | 'white'
                     | 'whiteOpac'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'secondary'
                     | 'secondaryOpac'
                     | 'secondaryDark'
@@ -675,6 +696,10 @@ export interface Page {
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
               link?: string | null;
+              GT?: {
+                event?: string | null;
+                value?: string | null;
+              };
               id?: string | null;
               blockName?: string | null;
               blockType: 'ButtonBlock';
@@ -696,6 +721,9 @@ export interface Page {
                       | 'tertiaryDark'
                       | 'black'
                       | 'white'
+                      | 'success'
+                      | 'warning'
+                      | 'danger'
                       | 'textLight'
                       | 'primarySecondaryOpac'
                       | 'primaryTertiaryOpac'
@@ -727,6 +755,9 @@ export interface Page {
                   | (
                       | 'white'
                       | 'whiteOpac'
+                      | 'success'
+                      | 'warning'
+                      | 'danger'
                       | 'secondary'
                       | 'secondaryOpac'
                       | 'secondaryDark'
@@ -824,6 +855,9 @@ export interface Page {
                 | 'tertiaryDark'
                 | 'black'
                 | 'white'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
@@ -891,6 +925,9 @@ export interface Page {
                   | 'tertiaryDark'
                   | 'black'
                   | 'white'
+                  | 'success'
+                  | 'warning'
+                  | 'danger'
                   | 'textLight'
                   | 'primarySecondaryOpac'
                   | 'primaryTertiaryOpac'
@@ -936,6 +973,9 @@ export interface Page {
               | (
                   | 'white'
                   | 'whiteOpac'
+                  | 'success'
+                  | 'warning'
+                  | 'danger'
                   | 'secondary'
                   | 'secondaryOpac'
                   | 'secondaryDark'
@@ -1030,6 +1070,9 @@ export interface Page {
                   | 'tertiaryDark'
                   | 'black'
                   | 'white'
+                  | 'success'
+                  | 'warning'
+                  | 'danger'
                   | 'textLight'
                   | 'primarySecondaryOpac'
                   | 'primaryTertiaryOpac'
@@ -1075,6 +1118,9 @@ export interface Page {
               | (
                   | 'white'
                   | 'whiteOpac'
+                  | 'success'
+                  | 'warning'
+                  | 'danger'
                   | 'secondary'
                   | 'secondaryOpac'
                   | 'secondaryDark'
@@ -1141,6 +1187,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -1238,6 +1287,9 @@ export interface Page {
                 | 'tertiaryDark'
                 | 'black'
                 | 'white'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
@@ -1316,6 +1368,9 @@ export interface Page {
                 | 'tertiaryDark'
                 | 'black'
                 | 'white'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
@@ -1355,6 +1410,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -1426,6 +1484,9 @@ export interface Page {
                 | 'tertiaryDark'
                 | 'black'
                 | 'white'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
@@ -1457,6 +1518,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -1575,6 +1639,9 @@ export interface Page {
                           | 'tertiaryDark'
                           | 'black'
                           | 'white'
+                          | 'success'
+                          | 'warning'
+                          | 'danger'
                           | 'textLight'
                           | 'primarySecondaryOpac'
                           | 'primaryTertiaryOpac'
@@ -1664,6 +1731,9 @@ export interface Page {
                             | 'tertiaryDark'
                             | 'black'
                             | 'white'
+                            | 'success'
+                            | 'warning'
+                            | 'danger'
                             | 'textLight'
                             | 'primarySecondaryOpac'
                             | 'primaryTertiaryOpac'
@@ -1751,6 +1821,9 @@ export interface Page {
                           | 'tertiaryDark'
                           | 'black'
                           | 'white'
+                          | 'success'
+                          | 'warning'
+                          | 'danger'
                           | 'textLight'
                           | 'primarySecondaryOpac'
                           | 'primaryTertiaryOpac'
@@ -1799,10 +1872,17 @@ export interface Page {
                   )[]
                 | null;
               spanTwo?: ('true' | 'false') | null;
+              value: string;
               required?: ('true' | 'false') | null;
               id?: string | null;
               blockName?: string | null;
               blockType: 'formmultiplecheckboxinput';
+            }
+          | {
+              template?: ('waitlist' | 'email-collection') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'formtemplate';
             }
         )[];
         id?: string | null;
@@ -1842,6 +1922,9 @@ export interface Page {
                 | 'tertiaryDark'
                 | 'black'
                 | 'white'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
@@ -1917,6 +2000,9 @@ export interface Page {
                 | (
                     | 'white'
                     | 'whiteOpac'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'secondary'
                     | 'secondaryOpac'
                     | 'secondaryDark'
@@ -1966,6 +2052,10 @@ export interface Page {
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
               link?: string | null;
+              GT?: {
+                event?: string | null;
+                value?: string | null;
+              };
               id?: string | null;
               blockName?: string | null;
               blockType: 'ButtonBlock';
@@ -1976,6 +2066,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -2073,6 +2166,9 @@ export interface Page {
                 | 'tertiaryDark'
                 | 'black'
                 | 'white'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
@@ -2146,6 +2242,9 @@ export interface Page {
                       | 'tertiaryDark'
                       | 'black'
                       | 'white'
+                      | 'success'
+                      | 'warning'
+                      | 'danger'
                       | 'textLight'
                       | 'primarySecondaryOpac'
                       | 'primaryTertiaryOpac'
@@ -2221,6 +2320,9 @@ export interface Page {
                       | (
                           | 'white'
                           | 'whiteOpac'
+                          | 'success'
+                          | 'warning'
+                          | 'danger'
                           | 'secondary'
                           | 'secondaryOpac'
                           | 'secondaryDark'
@@ -2270,6 +2372,10 @@ export interface Page {
                     className?: string | null;
                     type?: ('submit' | 'button' | 'reset') | null;
                     link?: string | null;
+                    GT?: {
+                      event?: string | null;
+                      value?: string | null;
+                    };
                     id?: string | null;
                     blockName?: string | null;
                     blockType: 'ButtonBlock';
@@ -2285,6 +2391,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -2382,6 +2491,9 @@ export interface Page {
                 | 'tertiaryDark'
                 | 'black'
                 | 'white'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
@@ -2471,6 +2583,9 @@ export interface Page {
                 | (
                     | 'white'
                     | 'whiteOpac'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'secondary'
                     | 'secondaryOpac'
                     | 'secondaryDark'
@@ -2520,6 +2635,10 @@ export interface Page {
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
               link?: string | null;
+              GT?: {
+                event?: string | null;
+                value?: string | null;
+              };
               id?: string | null;
               blockName?: string | null;
               blockType: 'ButtonBlock';
@@ -2531,6 +2650,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -2596,6 +2718,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -2694,6 +2819,9 @@ export interface Page {
                     | 'tertiaryDark'
                     | 'black'
                     | 'white'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'textLight'
                     | 'primarySecondaryOpac'
                     | 'primaryTertiaryOpac'
@@ -2774,6 +2902,9 @@ export interface Page {
                     | 'tertiaryDark'
                     | 'black'
                     | 'white'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'textLight'
                     | 'primarySecondaryOpac'
                     | 'primaryTertiaryOpac'
@@ -2855,6 +2986,9 @@ export interface Page {
                       | 'tertiaryDark'
                       | 'black'
                       | 'white'
+                      | 'success'
+                      | 'warning'
+                      | 'danger'
                       | 'textLight'
                       | 'primarySecondaryOpac'
                       | 'primaryTertiaryOpac'
@@ -2893,6 +3027,9 @@ export interface Page {
                 | (
                     | 'white'
                     | 'whiteOpac'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'secondary'
                     | 'secondaryOpac'
                     | 'secondaryDark'
@@ -2975,6 +3112,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -3062,6 +3202,9 @@ export interface Page {
                 | (
                     | 'white'
                     | 'whiteOpac'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'secondary'
                     | 'secondaryOpac'
                     | 'secondaryDark'
@@ -3111,6 +3254,10 @@ export interface Page {
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
               link?: string | null;
+              GT?: {
+                event?: string | null;
+                value?: string | null;
+              };
               id?: string | null;
               blockName?: string | null;
               blockType: 'ButtonBlock';
@@ -3154,6 +3301,9 @@ export interface Page {
                     | 'tertiaryDark'
                     | 'black'
                     | 'white'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'textLight'
                     | 'primarySecondaryOpac'
                     | 'primaryTertiaryOpac'
@@ -3242,6 +3392,9 @@ export interface Page {
                 | (
                     | 'white'
                     | 'whiteOpac'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'secondary'
                     | 'secondaryOpac'
                     | 'secondaryDark'
@@ -3291,6 +3444,10 @@ export interface Page {
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
               link?: string | null;
+              GT?: {
+                event?: string | null;
+                value?: string | null;
+              };
               id?: string | null;
               blockName?: string | null;
               blockType: 'ButtonBlock';
@@ -3301,6 +3458,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -3366,6 +3526,9 @@ export interface Page {
             | (
                 | 'white'
                 | 'whiteOpac'
+                | 'success'
+                | 'warning'
+                | 'danger'
                 | 'secondary'
                 | 'secondaryOpac'
                 | 'secondaryDark'
@@ -3464,6 +3627,9 @@ export interface Page {
                     | 'tertiaryDark'
                     | 'black'
                     | 'white'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'textLight'
                     | 'primarySecondaryOpac'
                     | 'primaryTertiaryOpac'
@@ -3544,6 +3710,9 @@ export interface Page {
                     | 'tertiaryDark'
                     | 'black'
                     | 'white'
+                    | 'success'
+                    | 'warning'
+                    | 'danger'
                     | 'textLight'
                     | 'primarySecondaryOpac'
                     | 'primaryTertiaryOpac'
@@ -3627,6 +3796,9 @@ export interface Page {
                           | 'tertiaryDark'
                           | 'black'
                           | 'white'
+                          | 'success'
+                          | 'warning'
+                          | 'danger'
                           | 'textLight'
                           | 'primarySecondaryOpac'
                           | 'primaryTertiaryOpac'
@@ -4011,6 +4183,12 @@ export interface PagesSelect<T extends boolean = true> {
                           className?: T;
                           type?: T;
                           link?: T;
+                          GT?:
+                            | T
+                            | {
+                                event?: T;
+                                value?: T;
+                              };
                           id?: T;
                           blockName?: T;
                         };
@@ -4409,7 +4587,15 @@ export interface PagesSelect<T extends boolean = true> {
                                     };
                               };
                           spanTwo?: T;
+                          value?: T;
                           required?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    formtemplate?:
+                      | T
+                      | {
+                          template?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -4450,6 +4636,12 @@ export interface PagesSelect<T extends boolean = true> {
                           className?: T;
                           type?: T;
                           link?: T;
+                          GT?:
+                            | T
+                            | {
+                                event?: T;
+                                value?: T;
+                              };
                           id?: T;
                           blockName?: T;
                         };
@@ -4533,6 +4725,12 @@ export interface PagesSelect<T extends boolean = true> {
                                       className?: T;
                                       type?: T;
                                       link?: T;
+                                      GT?:
+                                        | T
+                                        | {
+                                            event?: T;
+                                            value?: T;
+                                          };
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -4610,6 +4808,12 @@ export interface PagesSelect<T extends boolean = true> {
                           className?: T;
                           type?: T;
                           link?: T;
+                          GT?:
+                            | T
+                            | {
+                                event?: T;
+                                value?: T;
+                              };
                           id?: T;
                           blockName?: T;
                         };
@@ -4797,6 +5001,12 @@ export interface PagesSelect<T extends boolean = true> {
                           className?: T;
                           type?: T;
                           link?: T;
+                          GT?:
+                            | T
+                            | {
+                                event?: T;
+                                value?: T;
+                              };
                           id?: T;
                           blockName?: T;
                         };
@@ -4852,6 +5062,12 @@ export interface PagesSelect<T extends boolean = true> {
                           className?: T;
                           type?: T;
                           link?: T;
+                          GT?:
+                            | T
+                            | {
+                                event?: T;
+                                value?: T;
+                              };
                           id?: T;
                           blockName?: T;
                         };

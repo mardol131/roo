@@ -36,82 +36,82 @@ export type ColorsAndGradientsType = keyof typeof colorsAndGradients;
 
 export const colorsAndGradients = {
   white: "bg-white",
-  whiteOpac: "bg-white/50",
+  whiteOpac: "bg-whiteOpac",
+
+  success: "bg-success",
+  warning: "bg-warning",
+  danger: "bg-danger",
 
   secondary: "bg-secondary",
-  secondaryOpac: "bg-secondary/50",
+  secondaryOpac: "bg-secondaryOpac",
 
   secondaryDark: "bg-secondaryDark",
-  secondaryDarkOpac: "bg-secondaryDark/50",
+  secondaryDarkOpac: "bg-secondaryDarkOpac",
 
   primary: "bg-primary",
-  primaryOpac: "bg-primary/50",
+  primaryOpac: "bg-primaryOpac",
 
   tertiary: "bg-tertiary",
-  tertiaryOpac: "bg-tertiary/50",
+  tertiaryOpac: "tertiaryOpac",
 
   tertiaryDark: "bg-tertiaryDark",
-  tertiaryDarkOpac: "bg-tertiaryDark/50",
+  tertiaryDarkOpac: "bg-tertiaryDarkOpac",
 
-  blackTransparent: "bg-linear-60 from-rooBlack to-transparent",
-  transparentBlack: "bg-linear-60 from-transparent to-rooBlack",
+  blackTransparent: "bg-blackTransparent",
+  transparentBlack: "bg-transparentBlack",
 
-  primaryTransparent: "bg-linear-30 from-primary/70 to-transparent",
-  secondaryTransparent: "bg-linear-30 from-secondary/70 to-transparent",
-  tertiaryTransparent: "bg-linear-30 from-tertiary/70 to-transparent",
+  primaryTransparent: "bg-primaryTransparent",
+  secondaryTransparent: "bg-secondaryTransparent",
+  tertiaryTransparent: "bg-tertiaryTransparent",
 
-  transparentPrimary: "bg-linear-30 from-transparent to-primary/70",
-  transparentSecondary: "bg-linear-30 from-transparent to-secondary/70",
-  transparentTertiary: "bg-linear-30 from-transparent to-tertiary/70",
+  transparentPrimary: "bg-transparentPrimary",
+  transparentSecondary: "bg-transparentSecondary",
+  transparentTertiary: "bg-transparentTertiary",
 
-  primarySecondaryOpac: "bg-linear-30 from-primary/70 to-secondary/70",
-  primaryTertiaryOpac: "bg-linear-30 from-primary/70 to-tertiary/70",
-  secondaryTertiaryOpac: "bg-linear-30 from-secondary/70 to-tertiary/70",
-  secondaryPrimaryOpac: "bg-linear-30 from-secondary/70 to-primary/70",
-  tertiaryPrimaryOpac: "bg-linear-30 from-tertiary/70 to-primary/70",
-  tertiarySecondaryOpac: "bg-linear-30 from-tertiary/70 to-secondary/70",
-  primarySecondaryTertiaryOpac:
-    "bg-linear-30 from-primary/70 via-secondary/70 to-tertiary/70",
-  primaryTertiarySecondaryOpac:
-    "bg-linear-30 from-primary/70 via-tertiary/70 to-secondary/70",
-  secondaryPrimaryTertiaryOpac:
-    "bg-linear-30 from-secondary/70 via-primary/70 to-tertiary/70",
-  secondaryTertiryPrimaryOpac:
-    "bg-linear-30 from-secondary/70 via-tertiary/70 to-primary/70",
-  tertiaryPrimarySecondaryOpac:
-    "bg-linear-30 from-tertiary/70 via-primary/70 to-secondary/70",
-  tertiarySecondaryPrimaryOpac:
-    "bg-linear-30 from-tertiary/70 via-secondary/70 to-primary/70",
-  primarySecondary: "bg-linear-30 from-primary to-secondary",
-  primaryTertiary: "bg-linear-30 from-primary to-tertiary",
-  secondaryTertiary: "bg-linear-30 from-secondary to-tertiary",
-  secondaryPrimary: "bg-linear-30 from-secondary to-primary",
-  tertiaryPrimary: "bg-linear-30 from-tertiary to-primary",
-  tertiarySecondary: "bg-linear-30 from-tertiary to-secondary",
-  primarySecondaryTertiary:
-    "bg-linear-30 from-primary via-secondary to-tertiary",
-  primaryTertiarySecondary:
-    "bg-linear-30 from-primary via-tertiary to-secondary",
-  secondaryPrimaryTertiary:
-    "bg-linear-30 from-secondary via-primary to-tertiary",
-  secondaryTertiryPrimary:
-    "bg-linear-30 from-secondary via-tertiary to-primary",
-  tertiaryPrimarySecondary:
-    "bg-linear-30 from-tertiary via-primary to-secondary",
-  tertiarySecondaryPrimary:
-    "bg-linear-30 from-tertiary via-secondary to-primary",
+  primarySecondaryOpac: "bg-primarySecondaryOpac",
+  primaryTertiaryOpac: "bg-primaryTertiaryOpac",
+  secondaryTertiaryOpac: "bg-secondaryTertiaryOpac",
+  secondaryPrimaryOpac: "bg-secondaryPrimaryOpac",
+  tertiaryPrimaryOpac: "bg-tertiaryPrimaryOpac",
+  tertiarySecondaryOpac: "bg-tertiarySecondaryOpac",
+  primarySecondaryTertiaryOpac: "bg-primarySecondaryTertiaryOpac",
+  primaryTertiarySecondaryOpac: "bg-primaryTertiarySecondaryOpac",
+  secondaryPrimaryTertiaryOpac: "bg-secondaryPrimaryTertiaryOpac",
+  secondaryTertiryPrimaryOpac: "bg-secondaryTertiryPrimaryOpac",
+  tertiaryPrimarySecondaryOpac: "bg-tertiaryPrimarySecondaryOpac",
+  tertiarySecondaryPrimaryOpac: "bg-tertiarySecondaryPrimaryOpac",
+  primarySecondary: "bg-primarySecondary",
+  primaryTertiary: "bg-primaryTertiary",
+  secondaryTertiary: "bg-secondaryTertiary",
+  secondaryPrimary: "bg-secondaryPrimary",
+  tertiaryPrimary: "bg-tertiaryPrimary",
+  tertiarySecondary: "bg-tertiarySecondary",
+  primarySecondaryTertiary: "bg-primarySecondaryTertiary",
+  primaryTertiarySecondary: "bg-primaryTertiarySecondary",
+  secondaryPrimaryTertiary: "bg-secondaryPrimaryTertiary",
+  secondaryTertiryPrimary: "bg-secondaryTertiryPrimary",
+  tertiaryPrimarySecondary: "bg-tertiaryPrimarySecondary",
+  tertiarySecondaryPrimary: "bg-tertiarySecondaryPrimary",
 };
 
 export type TextColorType = keyof typeof textColor;
 
 export const textColor = {
   primary: "text-primary",
+
   secondary: "text-secondary",
   secondaryDark: "text-secondaryDark",
+
   tertiary: "text-tertiary",
   tertiaryDark: "text-tertiaryDark",
+
   black: "text-rooBlack",
   white: "text-white",
+
+  success: "text-success",
+  warning: "text-warning",
+  danger: "text-danger",
+
   textLight: "text-textLight",
   primarySecondaryOpac: "text-primarySecondaryOpac",
   primaryTertiaryOpac: "text-primaryTertiaryOpac",

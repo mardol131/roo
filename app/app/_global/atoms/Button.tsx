@@ -29,6 +29,7 @@ export type ButtonProps = {
     event: string;
     value: string;
   };
+  disabled?: boolean;
 };
 
 export type ButtonSize = keyof typeof buttonSizeList;
@@ -51,7 +52,7 @@ export default function Button(props: ButtonProps) {
   const IconLeft = props.iconLeft && LucideIcons[props.iconLeft];
   const IconRight = props.iconRight && LucideIcons[props.iconRight];
 
-  const buttonClassname = `font-semibold hover:scale-105 ${
+  const buttonClassname = `${props.disabled ? "opacity-50" : "hover:scale-105"} font-semibold  ${
     props.bgColor === "white" && "border border-borderLight"
   } animate cursor-pointer shadow-md flex items-center gap-2 ${
     props.stretch && "w-full"
@@ -69,6 +70,7 @@ export default function Button(props: ButtonProps) {
 
   const buttoncContent = (
     <button
+      disabled={props.disabled}
       onClick={onClickHandler}
       type={props.type || "button"}
       className={buttonClassname}

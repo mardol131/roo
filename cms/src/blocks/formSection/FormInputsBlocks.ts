@@ -54,6 +54,13 @@ export const FormMultipleCheckboxInputBlock: Block = {
     { name: 'checkboxes', type: 'blocks', blocks: [FormCheckboxInputBlock], required: true },
     getTextsField('label'),
     { name: 'spanTwo', type: 'select', options: ['true', 'false'], label: 'Dva sloupce?' },
+    { name: 'value', type: 'text', required: true },
     { name: 'required', type: 'select', options: ['true', 'false'] },
   ],
+}
+
+export const FormTemplateBlock: Block = {
+  slug: 'formtemplate',
+  labels: { singular: 'Šablona', plural: 'Šablony' },
+  fields: [{ name: 'template', type: 'select', options: ['waitlist', 'email-collection'] }],
 }

@@ -24,7 +24,7 @@ export default function MasonrySection(props: MasonrySectionProps) {
         <div className="flex flex-col items-center text-center">
           {props.textsTop && <GenerateTexts texts={props.textsTop} />}
         </div>
-        <div className="w-full lg:grid grid-cols-4 auto-rows-fr flex flex-col text-center gap-5">
+        <div className="w-full md:grid grid-cols-4 auto-rows-fr flex flex-col text-center gap-5">
           {props.bubbles.map((bubble, i) => {
             if ("image" in bubble) {
               return <MasonryBubbleImage key={i} {...bubble} />;

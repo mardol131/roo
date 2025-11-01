@@ -1,27 +1,54 @@
 "use client";
 
-import React, { FormEvent } from "react";
+import React, { FormEvent, useRef, useState } from "react";
 import {
   FormCheckboxInput,
+  formDataToObject,
   FormTextareaInput,
   FormTextInput,
 } from "../../_components/formSection/FormSection";
 import Button from "@/app/_global/atoms/Button";
+import Text from "@/app/_global/atoms/Text";
+import axios from "axios";
 
-type Props = {};
+type Props = {
+  webhook: string;
+};
 
-export default function ContactForm({}: Props) {
+export default function ContactForm(props: Props) {
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
+
   async function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
-    const data = new FormData(e.currentTarget);
+    setIsSuccess(false);
+    setIsError(false);
+
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    try {
+      const response = await axios.post(
+        props.webhook,
+        formDataToObject(formData)
+      );
+
+      if (response.status === 200) {
+        setIsSuccess(true);
+        formRef.current?.reset();
+      }
+    } catch {
+      setIsError(true);
+    }
   }
 
   return (
     <form
+      ref={formRef}
       onSubmit={(e) => {
         e.preventDefault();
         onSubmitHandler(e);
       }}
-      className="p-10 max-lg:p-3 shadow-xl rounded-xl border bg-white border-borderLight grid max-lg:flex max-lg:flex-col grid-cols-2 gap-5"
+      className="p-10 max-lg:p-3 max-lg:pb-10 shadow-xl rounded-xl border bg-white border-borderLight grid max-lg:flex max-lg:flex-col grid-cols-2 gap-5"
     >
       <FormTextInput
         label="Jméno"
@@ -46,7 +73,6 @@ export default function ContactForm({}: Props) {
         blockType="formtextinput"
         name="company"
         spanTwo="true"
-        required="true"
       />
       <FormTextInput
         label="Telefon"
@@ -54,7 +80,6 @@ export default function ContactForm({}: Props) {
         type="text"
         blockType="formtextinput"
         name="phone"
-        required="true"
       />
       <FormTextInput
         label="Email"
@@ -67,7 +92,7 @@ export default function ContactForm({}: Props) {
       <FormTextareaInput
         label="Zpráva"
         placeholder="Sem napiš, co máš na srdci"
-        blockType="formtextinput"
+        blockType="formtextarea"
         name="message"
         spanTwo="true"
         required="true"
@@ -86,7 +111,7 @@ export default function ContactForm({}: Props) {
         value="gdpr"
         spanTwo="true"
       />
-      <div className="flex items-center justify-center col-span-2">
+      <div className="col-span-2 flex flex-col justify-center items-center gap-4">
         <Button
           text="Přidej se k nám"
           size="xl"
@@ -94,7 +119,24 @@ export default function ContactForm({}: Props) {
           bgColor="primaryTertiary"
           textColor="white"
           type="submit"
+          disabled={isSuccess}
         />
+        {isSuccess && (
+          <Text
+            text="Děkujeme!"
+            level="paragraph3"
+            fontWeight="lg"
+            color="success"
+          />
+        )}
+        {isError && (
+          <Text
+            text="Něco se nepovedlo, zkuste to prosím později."
+            level="paragraph3"
+            fontWeight="lg"
+            color="danger"
+          />
+        )}
       </div>
     </form>
   );

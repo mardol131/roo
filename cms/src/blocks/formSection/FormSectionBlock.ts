@@ -5,6 +5,7 @@ import {
   FormCheckboxInputBlock,
   FormMultipleCheckboxInputBlock,
   FormSelectInputBlock,
+  FormTemplateBlock,
   FormTextInputBlock,
 } from './FormInputsBlocks'
 
@@ -24,6 +25,7 @@ export const FormSectionBlock: Block = {
         FormSelectInputBlock,
         FormCheckboxInputBlock,
         FormMultipleCheckboxInputBlock,
+        FormTemplateBlock,
       ],
       required: true,
     },
