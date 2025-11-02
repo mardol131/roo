@@ -18,6 +18,7 @@
   "references": [
     { "path": "./shared" },
     { "path": "./cms" },
-    { "path": "./app" }
+    { "path": "./app" },
+    { "path": "./backend" }
   ]
 }

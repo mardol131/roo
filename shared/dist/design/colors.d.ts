@@ -19,6 +19,9 @@ export type ColorsAndGradientsType = keyof typeof colorsAndGradients;
 export declare const colorsAndGradients: {
     white: string;
     whiteOpac: string;
+    success: string;
+    warning: string;
+    danger: string;
     secondary: string;
     secondaryOpac: string;
     secondaryDark: string;
@@ -71,6 +74,9 @@ export declare const textColor: {
     tertiaryDark: string;
     black: string;
     white: string;
+    success: string;
+    warning: string;
+    danger: string;
     textLight: string;
     primarySecondaryOpac: string;
     primaryTertiaryOpac: string;

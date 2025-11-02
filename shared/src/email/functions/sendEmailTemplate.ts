@@ -1,33 +1,49 @@
 import { Resend } from "resend";
+import {
+  emailTemplateList,
+  EmailTemplateListType,
+} from "../templates/_emailTemplateList";
 
-type ResendSendEmailOwnProps = {
+type ResendSendEmailBase = {
   from: string;
   to: string[];
   subject: string;
-  html: string;
-  template: string;
+  replyTo?: string;
 };
 
-type ResendSendEmailTemplateProps = {
-  from: string;
-  to: string[];
-  subject: string;
+type ResendSendEmailHtml = ResendSendEmailBase & {
   html: string;
-  template: string;
 };
 
-export async function resendSendEmail({
-  from,
-  to,
-  subject,
-  html,
-}: ResendSendEmailOwnProps | ResendSendEmailTemplateProps) {
+type ResendSendEmailTemplate = ResendSendEmailBase & {
+  template: EmailTemplateListType;
+};
+
+type ResendSendEmailProps = ResendSendEmailHtml | ResendSendEmailTemplate;
+
+export const resend = {
+  resendSendEmail,
+};
+
+export async function resendSendEmail(props: ResendSendEmailProps) {
   const resend = new Resend(process.env.RESEND_API_KEY);
+
+  const isHtmlEmail = "html" in props;
+
+  let html = "";
+
+  if (isHtmlEmail) {
+    html = props.html;
+  } else {
+    html = emailTemplateList[props.template];
+  }
+
   const { data, error } = await resend.emails.send({
-    from: from,
-    to: to,
-    subject: subject,
+    from: props.from,
+    to: props.to,
+    subject: props.subject,
     html: html,
+    replyTo: props.replyTo,
   });
 
   if (error) {
