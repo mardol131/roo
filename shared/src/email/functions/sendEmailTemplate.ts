@@ -4,28 +4,24 @@ import {
   EmailTemplateListType,
 } from "../templates/_emailTemplateList";
 
-type ResendSendEmailBase = {
+type SendEmailBase = {
   from: string;
   to: string[];
   subject: string;
   replyTo?: string;
 };
 
-type ResendSendEmailHtml = ResendSendEmailBase & {
+type SendEmailHtml = SendEmailBase & {
   html: string;
 };
 
-type ResendSendEmailTemplate = ResendSendEmailBase & {
+type SendEmailTemplate = SendEmailBase & {
   template: EmailTemplateListType;
 };
 
-type ResendSendEmailProps = ResendSendEmailHtml | ResendSendEmailTemplate;
+export type SendEmailProps = SendEmailHtml | SendEmailTemplate;
 
-export const resend = {
-  resendSendEmail,
-};
-
-export async function resendSendEmail(props: ResendSendEmailProps) {
+export async function sendEmail(props: SendEmailProps) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   const isHtmlEmail = "html" in props;
@@ -35,7 +31,8 @@ export async function resendSendEmail(props: ResendSendEmailProps) {
   if (isHtmlEmail) {
     html = props.html;
   } else {
-    html = emailTemplateList[props.template];
+    const getTemplate = emailTemplateList[props.template];
+    html = getTemplate();
   }
 
   const { data, error } = await resend.emails.send({

@@ -3,7 +3,7 @@ import { NewListingStepsArray } from "@/app/_redux/slices/newListingSlice";
 import React, { Fragment, ReactNode } from "react";
 import { FaCheck } from "react-icons/fa6";
 import { useNewListingSteps } from "../../new-service/_hooks/useNewListingSteps";
-import Text from "@/app/_global/atoms/Text";
+import Text from "@/app/_components/atoms/Text";
 
 type Props = {
   heading: string;

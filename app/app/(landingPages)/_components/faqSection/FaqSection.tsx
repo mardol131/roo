@@ -1,7 +1,7 @@
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 import React from "react";
 import { FaqQuestion, QuestionProps } from "./_components/FaqQuestion";
-import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 
 type Props = {
   texts?: TextProps[];

@@ -1,6 +1,6 @@
 "use client";
 
-import Text, { TextProps } from "@/app/_global/atoms/Text";
+import Text, { TextProps } from "@/app/_components/atoms/Text";
 
 export type AdminFormInputType = {
   label: string;

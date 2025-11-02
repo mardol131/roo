@@ -59,6 +59,6 @@ export default buildConfig({
     // storage-adapter-placeholder
   ],
   cors: {
-    origins: ['http://localhost:3000'],
+    origins: [process.env.NEXT_PUBLIC_WEBSITE!],
   },
 })

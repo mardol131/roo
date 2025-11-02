@@ -1,1 +1,3 @@
-export const registrationSuccessfulEmailTemplate = "hello";
+export function registrationSuccessfulEmailTemplate() {
+    return "<p>Hello</p>";
+}

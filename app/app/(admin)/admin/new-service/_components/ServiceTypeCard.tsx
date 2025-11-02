@@ -1,6 +1,6 @@
 "use client";
 
-import Text from "@/app/_global/atoms/Text";
+import Text from "@/app/_components/atoms/Text";
 import Gastro from "@/app/_icons/Gastro";
 import { listingCardsData, ListingType } from "@/app/_types/business/services";
 import { colorsAndGradients, textColor } from "@roo/shared/src/design/colors";

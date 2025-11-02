@@ -1,13 +1,13 @@
 "use client";
 
-import Button from "@/app/_global/atoms/Button";
+import Button from "@/app/_components/atoms/Button";
 
 import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
 import React, { useEffect, useRef, useState } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import Text from "@/app/_global/atoms/Text";
+import Text from "@/app/_components/atoms/Text";
 import { FaXmark } from "react-icons/fa6";
 
 type Props = {};

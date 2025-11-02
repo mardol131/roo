@@ -1,5 +1,5 @@
-import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
-import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { ButtonProps, GenerateButtons } from "@/app/_components/atoms/Button";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import { SidesType } from "@roo/shared/src/design/orientation";

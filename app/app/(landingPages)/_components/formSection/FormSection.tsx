@@ -4,8 +4,8 @@ import { FormEvent, useRef, useState } from "react";
 
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
-import Button, { ButtonProps } from "@/app/_global/atoms/Button";
-import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import Button, { ButtonProps } from "@/app/_components/atoms/Button";
+import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import axios from "axios";
@@ -14,6 +14,7 @@ import { TextBlockProps } from "../textSection/TextSection";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import FormWaitlistTemplate from "./templates/FormWaitlistTemplate";
 import FormEmailCollectionTemplate from "./templates/FormEmailCollectionTemplate";
+import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
 
 export type FormTextInputProps = {
   blockType: "formtextinput";
@@ -259,22 +260,6 @@ export type FormSectionProps = {
     | FormTextareaInputProps
   )[];
 };
-
-export function formDataToObject(formData: FormData) {
-  const data: Record<string, any> = {};
-
-  for (const [key, value] of formData.entries()) {
-    if (data[key]) {
-      data[key] = Array.isArray(data[key])
-        ? [...data[key], value]
-        : [data[key], value];
-    } else {
-      data[key] = value;
-    }
-  }
-
-  return data;
-}
 
 export default function FormSection(props: FormSectionProps) {
   const [isSuccess, setIsSuccess] = useState(false);

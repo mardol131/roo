@@ -1,4 +1,4 @@
-import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import {
   colorsAndGradients,
   ColorsAndGradientsType,

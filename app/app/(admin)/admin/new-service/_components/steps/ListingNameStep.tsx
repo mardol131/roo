@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/app/_global/atoms/Button";
+import Button from "@/app/_components/atoms/Button";
 
 import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";

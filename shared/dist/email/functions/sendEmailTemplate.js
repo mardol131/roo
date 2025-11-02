@@ -1,9 +1,6 @@
 import { Resend } from "resend";
 import { emailTemplateList, } from "../templates/_emailTemplateList";
-export const resend = {
-    resendSendEmail,
-};
-export async function resendSendEmail(props) {
+export async function sendEmail(props) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const isHtmlEmail = "html" in props;
     let html = "";
@@ -11,7 +8,8 @@ export async function resendSendEmail(props) {
         html = props.html;
     }
     else {
-        html = emailTemplateList[props.template];
+        const getTemplate = emailTemplateList[props.template];
+        html = getTemplate();
     }
     const { data, error } = await resend.emails.send({
         from: props.from,

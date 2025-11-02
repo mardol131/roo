@@ -30,7 +30,7 @@ export default function Footer({}: Props) {
   }
 
   return (
-    <div className="border-t border-borderLight px-10 pb-10 md:pb-0 flex justify-center">
+    <div className="border-t border-borderLight px-10 py-5 flex justify-center items-center">
       <div className="max-w-contentWrapper md:grid grid-cols-[2fr_5fr_2fr] flex flex-col justify-center gap-3 items-center w-full">
         <div className="flex md:flex-row flex-col text-sm items-center md:gap-5 gap-2 justify-center text-center md:text-start">
           <Image
@@ -40,7 +40,7 @@ export default function Footer({}: Props) {
             alt="logo"
             className="w-20"
           />
-          <p className="max-w-50">
+          <p className="max-w-50 text-[12px]">
             ROO Events, The Roosters s.r.o, 2025 <br />© All Rights
             Reserved{" "}
           </p>

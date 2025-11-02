@@ -1,7 +1,7 @@
 import React from "react";
 import Catalog from "./_components/Catalog";
 import StoreProvider from "@/app/_redux/StoreProvider";
-import Header from "@/app/_global/header/Header";
+import Header from "@/app/_components/header/Header";
 
 type Props = {};
 

@@ -5,7 +5,7 @@ import { Metadata } from "next";
 import { UTMInit } from "@roo/shared/src/functions/analytics/UTMInit";
 import { getPost } from "../../_functions/getPost";
 import { SectionPropsMap, sectionsList } from "../../_components/sectionList";
-import { ButtonProps } from "@/app/_global/atoms/Button";
+import { ButtonProps } from "@/app/_components/atoms/Button";
 import { WebsiteHeader } from "../../_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../../_components/header/WebsiteHeaderMobile";
 

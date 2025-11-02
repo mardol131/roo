@@ -1,9 +1,9 @@
-import SectionWrapper from "@/app/_global/wrappers/SectionWrapper";
+import SectionWrapper from "@/app/_components/wrappers/SectionWrapper";
 import React, { ReactNode } from "react";
 
 import image from "@/app/_images/test.jpg";
 import Image from "next/image";
-import Heading from "@/app/_global/atoms/Text";
+import Heading from "@/app/_components/atoms/Text";
 import { FaMapMarker, FaMapMarkerAlt } from "react-icons/fa";
 import { HiMiniUsers, HiUser, HiUsers } from "react-icons/hi2";
 import { GiForkKnifeSpoon, GiFruitTree } from "react-icons/gi";
@@ -17,10 +17,10 @@ import {
   FaShare,
   FaStar,
 } from "react-icons/fa6";
-import { FAQCard } from "@/app/_global/molecules/FAQCard";
+import { FAQCard } from "@/app/_components/molecules/FAQCard";
 import { ListingLongDescription } from "@/app/_pages/inzerat/[slug]/_components/ListingLongDescription";
 import { RiSoundModuleFill } from "react-icons/ri";
-import Lightbox from "@/app/_global/molecules/Lightbox";
+import Lightbox from "@/app/_components/molecules/Lightbox";
 import { PhotoGrid } from "@/app/_pages/inzerat/[slug]/_components/PhotoGrid";
 type Props = {};
 

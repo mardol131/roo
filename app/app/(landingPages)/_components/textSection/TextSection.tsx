@@ -1,6 +1,6 @@
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
-import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
-import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { ButtonProps, GenerateButtons } from "@/app/_components/atoms/Button";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import Image from "next/image";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";

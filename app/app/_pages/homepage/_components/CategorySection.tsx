@@ -1,8 +1,8 @@
 import React from "react";
 
 import { getPublicCollectionData } from "@/app/_functions/api/getPublicCollectionData";
-import ListingCard from "@/app/_global/cards/ListingCard";
-import SectionHeading from "@/app/_global/atoms/SectionHeading";
+import ListingCard from "@/app/_components/cards/ListingCard";
+import SectionHeading from "@/app/_components/atoms/SectionHeading";
 
 type Props = {};
 

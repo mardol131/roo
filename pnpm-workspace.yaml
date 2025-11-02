@@ -2,4 +2,3 @@ packages:
   - "app"
   - "cms"
   - "shared"
-  - "backend"

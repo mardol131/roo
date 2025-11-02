@@ -1,1 +1,1 @@
-export declare const registrationSuccessfulEmailTemplate: string;
+export declare function registrationSuccessfulEmailTemplate(): string;

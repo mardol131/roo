@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 
 import successBg from "../../../_images/successBg.jpg";
-import Button from "@/app/_global/atoms/Button";
+import Button from "@/app/_components/atoms/Button";
 import Image from "next/image";
-import Text from "@/app/_global/atoms/Text";
+import Text from "@/app/_components/atoms/Text";
 
 import { AdminFormCheckbox, AdminFormInput } from "../AdminFormInput";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";

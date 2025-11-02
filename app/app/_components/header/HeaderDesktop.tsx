@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaMagnifyingGlass, FaUser } from "react-icons/fa6";
@@ -24,10 +24,14 @@ import {
   useSearchParams,
 } from "next/navigation";
 import { userLogin } from "@/app/_api/payload";
+import Text from "../atoms/Text";
+import { useClickOutside } from "@/app/_hooks/useClickOutside";
 
-type Props = {};
+type UpperHeaderProps = {
+  openSettingsHandler: () => void;
+};
 
-export function UpperHeader() {
+export function UpperHeader(props: UpperHeaderProps) {
   async function login() {
     await userLogin({
       email: "dolezalmartin131@gmail.com",
@@ -36,30 +40,52 @@ export function UpperHeader() {
   }
 
   return (
-    <div className="w-full max-w-contentWrapper grid grid-cols-[1fr_3fr_1fr] items-center">
+    <div className="w-full max-w-contentWrapper grid grid-cols-[1fr_2fr_1fr] items-center">
       <Link href={"/"}>
-        <Image src={logo} width={100} height={100} alt="logo" />
+        <Image
+          src={logo}
+          width={100}
+          height={100}
+          alt="logo"
+          className="h-10 w-auto"
+        />
       </Link>
-      <div className="rounded-full bg-linear-30 from-secondary via-primary to-tertiary flex text-white font-semibold shadow-lg">
-        <Link
-          href={"/kategorie/venues"}
-          className="py-2 hover:scale-120 w-[32%] cursor-pointer ease-in-out transition-all flex items-center justify-center"
+      <div className="rounded-full bg-white grid grid-cols-[1fr_40px] p-1 text-white border border-borderLight font-semibold shadow-lg">
+        <div
+          onClick={props.openSettingsHandler}
+          className="grid grid-cols-[1fr_1fr_1fr_1fr_40px]"
         >
-          Venues
-        </Link>
-        <div className="w-0.5 bg-white"></div>
+          <Text
+            text="Vše"
+            level="label7"
+            color="black"
+            className="py-2  rounded-full w-full cursor-pointer ease-in-out transition-all flex items-center justify-center"
+          />
+          <Text
+            text="Kdekoliv"
+            level="label7"
+            color="black"
+            className="py-2  rounded-full w-full cursor-pointer ease-in-out transition-all flex items-center justify-center"
+          />
+          <Text
+            text="Kdykoliv"
+            level="label7"
+            color="black"
+            className="py-2  rounded-full w-full cursor-pointer ease-in-out transition-all flex items-center justify-center"
+          />
+
+          <Text
+            text="Přidat hosty"
+            level="label7"
+            color="black"
+            className="py-2  rounded-full w-full cursor-pointer ease-in-out transition-all flex items-center justify-center"
+          />
+        </div>
         <Link
-          href={"/kategorie/gastro"}
-          className="hover:scale-120 w-[33%]  cursor-pointer ease-in-out transition-all flex items-center justify-center"
+          href={"/catalog"}
+          className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center"
         >
-          Gastro
-        </Link>
-        <div className="w-0.5 bg-white"></div>
-        <Link
-          href={"/kategorie/weddings"}
-          className="py-2 w-[32%] hover:scale-120  cursor-pointer ease-in-out transition-all flex items-center justify-center"
-        >
-          Weddings
+          <FaMagnifyingGlass />
         </Link>
       </div>
       <div className="text-center flex justify-end gap-11 items-center">
@@ -69,12 +95,7 @@ export function UpperHeader() {
         >
           Pro dodavatele
         </Link>
-        <button
-          onClick={login}
-          className="bg-secondary rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
-        >
-          <FaUser />
-        </button>
+
         <button
           onClick={login}
           className="bg-secondary rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
@@ -96,7 +117,7 @@ export function LowerHeader() {
 
   return (
     <>
-      <div className="p-2 bg-optionsBar border-1 font-semibold border-borderLight shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-textPlaceholder w-full max-w-lowerHeader rounded-full">
+      <div className="p-2 bg-white border-1 font-semibold border-borderLight shadow-lg shadow-black/10 flex gap-3 min-h-18 content-stretch justify-items-start text-textPlaceholder w-full max-w-lowerHeader rounded-full">
         <div className="grid grid-cols-4 w-full gap-2 content-stretch">
           <LowerHeaderButton
             text="Typ akce?"
@@ -187,22 +208,52 @@ export function LowerHeaderButton(props: {
   }
 }
 
-export default function HeaderDesktop({}: Props) {
+export default function HeaderDesktop() {
+  const [eventSettingsOpen, setEventSettingsOpen] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
+
   const { currentStep } = useAppSelector((state) => state.lowerHeaderStep);
   const { slug } = useParams();
   const pathname = usePathname();
   const isLandingpage = pathname.startsWith("/home");
 
+  useEffect(() => {
+    let hasScrolled = false;
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setEventSettingsOpen(true);
+        hasScrolled = false;
+      } else if (window.scrollY > 0 && !hasScrolled) {
+        setEventSettingsOpen(false);
+        hasScrolled = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  function openSettingsHandler() {
+    setEventSettingsOpen(true);
+  }
+
+  function closeSettingsHandler() {
+    setEventSettingsOpen(false);
+  }
+
+  const headerRef = useRef(null);
+
+  useClickOutside(headerRef, closeSettingsHandler);
+
   if (!isLandingpage) {
     return (
       <div
-        className={`sticky top-0 bg-white z-50 px-[74px] flex flex-col items-center w-full border-b border-zinc-100 ${
-          !slug && "pb-5"
-        }`}
+        ref={headerRef}
+        className={`sticky top-0 bg-white z-50 px-[74px] flex flex-col items-center w-full border-b border-zinc-100 py-3`}
       >
-        <UpperHeader />
-        {!slug && (
-          <div className="relative flex flex-col gap-5 items-center justify-center w-full">
+        <UpperHeader openSettingsHandler={openSettingsHandler} />
+        {eventSettingsOpen && (
+          <div className="relative flex flex-col gap-5 mt-5 items-center justify-center w-full">
             <LowerHeader />
             <div className="relative w-full">
               {currentStep == "eventType" && <EventTypesWithIcons />}

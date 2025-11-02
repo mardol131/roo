@@ -1,8 +1,8 @@
 "use client";
 
 import { apiPost } from "@/app/_api/general";
-import Button, { ButtonProps } from "@/app/_global/atoms/Button";
-import Text, { TextProps } from "@/app/_global/atoms/Text";
+import Button, { ButtonProps } from "@/app/_components/atoms/Button";
+import Text, { TextProps } from "@/app/_components/atoms/Text";
 import React, { useState } from "react";
 
 export const WidgetsList = {

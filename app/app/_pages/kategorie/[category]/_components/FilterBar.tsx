@@ -3,8 +3,8 @@ import React, { ReactNode } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 import map from "@/app/_images/map.png";
-import { PriceRangeSlider } from "@/app/_global/filters/PriceRangeSlider";
-import CategoryFilter from "@/app/_global/molecules/CategoryFilter";
+import { PriceRangeSlider } from "@/app/_components/filters/PriceRangeSlider";
+import CategoryFilter from "@/app/_components/molecules/CategoryFilter";
 
 type FilterSectionWrapperProps = {
   children: ReactNode;

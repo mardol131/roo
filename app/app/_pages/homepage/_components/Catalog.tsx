@@ -2,8 +2,8 @@ import React from "react";
 import BubblesSection from "./BubblesSection";
 import image from "@/app/_images/test.jpg";
 import CategorySection from "./CategorySection";
-import EmailCta from "../../../_global/cta/EmailCta";
-import SectionWrapper from "../../../_global/wrappers/SectionWrapper";
+import EmailCta from "../../../_components/cta/EmailCta";
+import SectionWrapper from "../../../_components/wrappers/SectionWrapper";
 
 type Props = {};
 

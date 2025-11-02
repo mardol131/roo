@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./_global/header/Header";
+import Header from "./_components/header/Header";
 import StoreProvider from "./_redux/StoreProvider";
-import Footer from "./_global/footer/Footer";
-import ContentWrapper from "./_global/wrappers/ContentWrapper";
+import Footer from "./_components/footer/Footer";
+import ContentWrapper from "./_components/wrappers/ContentWrapper";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {

@@ -1,5 +1,5 @@
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
-import { TextProps } from "@/app/_global/atoms/Text";
+import { TextProps } from "@/app/_components/atoms/Text";
 import { ImageType } from "@/app/_types/objects";
 import React from "react";
 

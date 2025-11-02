@@ -5,7 +5,7 @@ import { LandingSectionWrapper } from "../../_components/wrappers/LandingSection
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
 import ContactForm from "./ContactForm";
-import Text from "@/app/_global/atoms/Text";
+import Text from "@/app/_components/atoms/Text";
 import { Mail } from "lucide-react";
 import { LuMail } from "react-icons/lu";
 import StepsSection from "../../_components/stepsSection/StepsSection";

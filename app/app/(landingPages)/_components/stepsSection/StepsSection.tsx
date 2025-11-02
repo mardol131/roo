@@ -1,6 +1,6 @@
 import React from "react";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
-import Text, { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { colors, ColorsType } from "@roo/shared/src/design/colors";
 
 type StepProps = {

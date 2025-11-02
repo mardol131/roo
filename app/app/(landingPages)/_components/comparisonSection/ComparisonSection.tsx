@@ -2,7 +2,7 @@ import React from "react";
 
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
-import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { FaCheck, FaXmark } from "react-icons/fa6";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";

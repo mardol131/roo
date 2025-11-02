@@ -1,6 +1,6 @@
 "use client";
 
-import Text from "@/app/_global/atoms/Text";
+import Text from "@/app/_components/atoms/Text";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 

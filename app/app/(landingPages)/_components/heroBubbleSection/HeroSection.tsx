@@ -1,7 +1,7 @@
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
-import { ButtonProps, GenerateButtons } from "@/app/_global/atoms/Button";
-import { GenerateTexts, TextProps } from "@/app/_global/atoms/Text";
+import { ButtonProps, GenerateButtons } from "@/app/_components/atoms/Button";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";

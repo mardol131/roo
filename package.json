@@ -5,8 +5,7 @@
   "workspaces": [
     "app",
     "cms",
-    "shared",
-    "backend"
+    "shared"
   ],
   "packageManager": "pnpm@10.0.0",
   "scripts": {

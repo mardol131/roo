@@ -1,19 +1,16 @@
 import { EmailTemplateListType } from "../templates/_emailTemplateList";
-type ResendSendEmailBase = {
+type SendEmailBase = {
     from: string;
     to: string[];
     subject: string;
     replyTo?: string;
 };
-type ResendSendEmailHtml = ResendSendEmailBase & {
+type SendEmailHtml = SendEmailBase & {
     html: string;
 };
-type ResendSendEmailTemplate = ResendSendEmailBase & {
+type SendEmailTemplate = SendEmailBase & {
     template: EmailTemplateListType;
 };
-type ResendSendEmailProps = ResendSendEmailHtml | ResendSendEmailTemplate;
-export declare const resend: {
-    resendSendEmail: typeof resendSendEmail;
-};
-export declare function resendSendEmail(props: ResendSendEmailProps): Promise<void>;
+export type SendEmailProps = SendEmailHtml | SendEmailTemplate;
+export declare function sendEmail(props: SendEmailProps): Promise<void>;
 export {};
