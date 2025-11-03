@@ -1,7 +1,13 @@
 "use client";
 
-import React, { Dispatch, useContext, useEffect, useState } from "react";
-import HeaderSettingsWrapper from "../wrappers/HeaderSettingsWrapper";
+import React, {
+  Dispatch,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
 import * as qs from "qs";
 
 import { format, isAfter, isBefore, isEqual } from "date-fns";
@@ -13,15 +19,16 @@ import {
 } from "react-icons/fa6";
 import { useAppDispatch } from "@/app/_redux/hooks";
 import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
-
-type Props = {
-  setToggle: Dispatch<boolean>;
-};
+import { useClickOutside } from "@/app/_hooks/useClickOutside";
 
 //Toggling the datepicker component for chosing daterange
 export default function CalendarSettings() {
   const dispatch = useAppDispatch();
-
+  function nullHeaderSettings() {
+    dispatch(lowerHeaderStep.actions.changeStep(null));
+  }
+  const settingsRef = useRef(null);
+  useClickOutside(settingsRef, nullHeaderSettings);
   //Fixed and initial values
   const currentDate = new Date();
   const daysOfWeek = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"];
@@ -541,15 +548,13 @@ export default function CalendarSettings() {
 
   return (
     <>
-      <HeaderSettingsWrapper>
+      <HeaderSettingsWrapper ref={settingsRef}>
         <div
           className="w-full max-w-lowerHeader absolute max-h-[500px] md:max-h-screen bg-white shadow-lg border border-borderLight md:rounded-large md:overflow-auto overflow-scroll p-5"
           onClick={(e) => {
             e.stopPropagation();
           }}
-          onMouseLeave={() => {
-            dispatch(lowerHeaderStep.actions.changeStep(null));
-          }}
+          onMouseLeave={nullHeaderSettings}
         >
           <div className="">
             <div className="p-5 text-textNormal text-center flex md:gap-4 justify-center md:flex-row flex-col items-center gap-3">

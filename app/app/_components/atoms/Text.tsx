@@ -150,6 +150,15 @@ export default function Text(props: TextProps) {
         ></p>
       );
       break;
+    case "labelMicro":
+      content = (
+        <p
+          className={`${classes} text-[12px]`}
+          dangerouslySetInnerHTML={{ __html: htmlSafeText }}
+        ></p>
+      );
+      break;
+
     case "paragraph1":
       content = (
         <p

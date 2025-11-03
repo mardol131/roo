@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import "./_css/animations.css";
 import "./globals.css";
+
+import { GoogleTagManager } from "@next/third-parties/google";
+import Footer from "./_components/footer/Footer";
 import Header from "./_components/header/Header";
 import StoreProvider from "./_redux/StoreProvider";
-import Footer from "./_components/footer/Footer";
-import ContentWrapper from "./_components/wrappers/ContentWrapper";
-import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "Create Next App",

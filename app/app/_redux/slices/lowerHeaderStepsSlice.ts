@@ -5,7 +5,12 @@ export type LowerHeaderStepSlice = {
   currentStep: CurrentStepType;
 };
 
-export type CurrentStepType = "eventType" | "place" | "time" | "people" | null;
+export type CurrentStepType =
+  | "eventType"
+  | "location"
+  | "time"
+  | "people"
+  | null;
 
 const initialState: LowerHeaderStepSlice = {
   currentStep: null,

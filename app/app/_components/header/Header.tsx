@@ -9,7 +9,6 @@ type Props = {};
 export default function Header({}: Props) {
   const pathname = usePathname();
   const params = useParams();
-  console.log(params);
   if (
     "pageSlug" in params ||
     pathname.startsWith("/admin") ||

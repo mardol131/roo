@@ -1,33 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import {
   GuestType,
-  initialFilterSlice,
+  headerFilterSlice,
 } from "@/app/_redux/slices/initialFilterSlice";
-import HeaderSettingsWrapper from "../wrappers/HeaderSettingsWrapper";
-import { CounterType, Counter } from "../filters/Counter";
+import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
+
 import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
+import { Counter, CounterType } from "../../filters/Counter";
+import { useClickOutside } from "@/app/_hooks/useClickOutside";
 
 type Props = {};
 
 export default function GuestsSettings({}: Props) {
   const { guests } = useAppSelector((state) => state.initialFilter);
   const dispatch = useAppDispatch();
+  function nullHeaderSettings() {
+    dispatch(lowerHeaderStep.actions.changeStep(null));
+  }
+  const settingsRef = useRef(null);
+  useClickOutside(settingsRef, nullHeaderSettings);
 
   function addGuests(type: GuestType) {
-    dispatch(initialFilterSlice.actions.increment(type));
+    dispatch(headerFilterSlice.actions.increment(type));
   }
 
   function removeGuests(type: GuestType) {
-    dispatch(initialFilterSlice.actions.decrement(type));
+    dispatch(headerFilterSlice.actions.decrement(type));
   }
 
   function changeValueOnUserInput(type: GuestType, value: number) {
     dispatch(
-      initialFilterSlice.actions.changeOnUserInput({
+      headerFilterSlice.actions.changeOnUserInput({
         guestType: type,
         value: value,
       })
@@ -35,12 +42,10 @@ export default function GuestsSettings({}: Props) {
   }
 
   return (
-    <HeaderSettingsWrapper>
+    <HeaderSettingsWrapper ref={settingsRef}>
       <div className="max-w-lowerHeader w-full flex justify-end">
         <div
-          onMouseLeave={() => {
-            dispatch(lowerHeaderStep.actions.changeStep(null));
-          }}
+          onMouseLeave={nullHeaderSettings}
           className="p-8 bg-white rounded-large border border-borderLight shadow-xl"
         >
           <GuestsCounter

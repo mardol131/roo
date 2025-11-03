@@ -1,28 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export type InitialFilterSliceType = {
+export type ListingCategoryType = "gastro" | "place" | "entertainment" | null;
+
+export type HeaderFilterType = {
   guests: {
     adult: number;
     minor: number;
     ztp: number;
     pets: number;
   };
+  category: ListingCategoryType;
 };
 
-const initialState: InitialFilterSliceType = {
+const initialState: HeaderFilterType = {
   guests: {
     adult: 0,
     minor: 0,
     ztp: 0,
     pets: 0,
   },
+  category: null,
 };
 
 export type GuestType = "adult" | "minor" | "ztp" | "pets";
 
 export function incrementFunction(
-  state: InitialFilterSliceType,
+  state: HeaderFilterType,
   action: PayloadAction<GuestType>
 ) {
   const guestType = action.payload;
@@ -45,7 +49,7 @@ export function incrementFunction(
 }
 
 export function decrementFunction(
-  state: InitialFilterSliceType,
+  state: HeaderFilterType,
   action: PayloadAction<GuestType>
 ) {
   const { guests } = state;
@@ -70,25 +74,33 @@ export function decrementFunction(
 }
 
 export function changeOnUserInputFunction(
-  state: InitialFilterSliceType,
+  state: HeaderFilterType,
   action: PayloadAction<{ guestType: GuestType; value: number }>
 ) {
   const guestType = action.payload.guestType;
   state.guests[guestType] = action.payload.value;
 }
 
-export const initialFilterSlice = createSlice({
+export function changeListingCategory(
+  state: HeaderFilterType,
+  action: PayloadAction<{ category: ListingCategoryType }>
+) {
+  state.category = action.payload.category;
+}
+
+export const headerFilterSlice = createSlice({
   name: "initialFilter",
   initialState,
   reducers: {
     increment: incrementFunction,
     decrement: decrementFunction,
     changeOnUserInput: changeOnUserInputFunction,
+    changeListingCategory: changeListingCategory,
   },
 });
 
 // Action creators are generated for each case reducer function
 export const { increment, decrement, changeOnUserInput } =
-  initialFilterSlice.actions;
+  headerFilterSlice.actions;
 
-export default initialFilterSlice.reducer;
+export default headerFilterSlice.reducer;

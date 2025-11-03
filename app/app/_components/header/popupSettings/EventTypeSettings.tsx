@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactNode } from "react";
+import React, { ReactNode, useRef } from "react";
 import Engagement from "@/app/_icons/Engagement";
 import BabyShower from "@/app/_icons/BabyShower";
 import CompanyParty from "@/app/_icons/CompanyParty";
@@ -12,9 +12,10 @@ import Ball from "@/app/_icons/Ball";
 import TeamBuilding from "@/app/_icons/TeamBuilding";
 import KidParty from "@/app/_icons/KidParty";
 import Wedding from "@/app/_icons/Wedding";
-import HeaderSettingsWrapper from "../wrappers/HeaderSettingsWrapper";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
+import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
+import { useClickOutside } from "@/app/_hooks/useClickOutside";
 
 type Props = {};
 
@@ -145,13 +146,16 @@ export function IconText({ text, iconStyles, children }: IconTextType) {
 
 export default function EventTypeSettings({}: Props) {
   const dispatch = useAppDispatch();
+  function nullHeaderSettings() {
+    dispatch(lowerHeaderStep.actions.changeStep(null));
+  }
+  const settingsRef = useRef(null);
+  useClickOutside(settingsRef, nullHeaderSettings);
 
   return (
-    <HeaderSettingsWrapper>
+    <HeaderSettingsWrapper ref={settingsRef}>
       <div
-        onMouseLeave={() => {
-          dispatch(lowerHeaderStep.actions.changeStep(null));
-        }}
+        onMouseLeave={nullHeaderSettings}
         className="bg-white p-10 rounded-large border border-borderLight shadow-lg flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]"
       >
         {Icons.map((icon, index) => {

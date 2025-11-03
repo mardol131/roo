@@ -33,6 +33,7 @@ export type TextLevelType =
   | "label6"
   | "label7"
   | "label8"
+  | "labelMicro"
   | "paragraph1"
   | "paragraph2"
   | "paragraph3"
