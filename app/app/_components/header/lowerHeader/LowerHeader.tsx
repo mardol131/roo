@@ -5,18 +5,20 @@ import { FaCalendar, FaMapMarkerAlt } from "react-icons/fa";
 import { FaMagnifyingGlass, FaUser } from "react-icons/fa6";
 
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
-import {
-  CurrentStepType,
-  lowerHeaderStep,
-} from "@/app/_redux/slices/lowerHeaderStepsSlice";
+
 import { BiSolidParty } from "react-icons/bi";
+import {
+  headerFilterSlice,
+  ListingCategoryType,
+  SettingsTypes,
+} from "@/app/_redux/slices/headerFilterSlice";
 
 export function LowerHeader() {
-  const { currentStep } = useAppSelector((state) => state.lowerHeaderStep);
+  const { settingsType } = useAppSelector((state) => state.headerFilter);
   const dispatch = useAppDispatch();
 
-  function setStep(step: CurrentStepType) {
-    dispatch(lowerHeaderStep.actions.changeStep(step));
+  function setStep(step: SettingsTypes) {
+    dispatch(headerFilterSlice.actions.changeSettings(step));
   }
 
   return (
@@ -25,7 +27,7 @@ export function LowerHeader() {
         <div className="grid grid-cols-4 w-full gap-2 content-stretch">
           <LowerHeaderButton
             text="Typ akce?"
-            currentStep={currentStep}
+            currentStep={settingsType}
             setter={() => {
               setStep("eventType");
             }}
@@ -35,17 +37,17 @@ export function LowerHeader() {
           />
           <LowerHeaderButton
             text="Kde?"
-            currentStep={currentStep}
+            currentStep={settingsType}
             setter={() => {
-              setStep("place");
+              setStep("location");
             }}
             gradientDirection="bg-gradient-to-r"
             icon={<FaMapMarkerAlt />}
-            type="place"
+            type="location"
           />
           <LowerHeaderButton
             text="Kdy?"
-            currentStep={currentStep}
+            currentStep={settingsType}
             setter={() => {
               setStep("time");
             }}
@@ -55,7 +57,7 @@ export function LowerHeader() {
           />
           <LowerHeaderButton
             text="Počet lidí"
-            currentStep={currentStep}
+            currentStep={settingsType}
             setter={() => {
               setStep("people");
             }}
@@ -73,7 +75,7 @@ export function LowerHeader() {
 }
 
 export function LowerHeaderButton(props: {
-  currentStep: CurrentStepType;
+  currentStep: SettingsTypes;
   setter: () => void;
   gradientDirection:
     | "bg-gradient-to-t"
@@ -82,7 +84,7 @@ export function LowerHeaderButton(props: {
     | "bg-gradient-to-l";
   text: string;
   icon: ReactNode;
-  type: CurrentStepType;
+  type: SettingsTypes;
 }) {
   const iconClassName =
     "text-primary group-hover:text-white text-xl self-center z-20";
