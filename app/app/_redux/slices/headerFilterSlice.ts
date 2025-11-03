@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
+export type SettingsTypes = "eventType" | "location" | "time" | "people" | null;
+
 export type ListingCategoryType = "gastro" | "place" | "entertainment" | null;
 
 export type HeaderFilterType = {
+  settingsType: SettingsTypes;
   guests: {
     adult: number;
     minor: number;
@@ -14,6 +17,7 @@ export type HeaderFilterType = {
 };
 
 const initialState: HeaderFilterType = {
+  settingsType: null,
   guests: {
     adult: 0,
     minor: 0,
@@ -83,19 +87,25 @@ export function changeOnUserInputFunction(
 
 export function changeListingCategory(
   state: HeaderFilterType,
-  action: PayloadAction<{ category: ListingCategoryType }>
+  action: PayloadAction<ListingCategoryType>
 ) {
-  state.category = action.payload.category;
+  state.category = action.payload;
 }
-
+export function changeSettings(
+  state: HeaderFilterType,
+  action: PayloadAction<SettingsTypes>
+) {
+  state.settingsType = action.payload;
+}
 export const headerFilterSlice = createSlice({
-  name: "initialFilter",
+  name: "headerFilter",
   initialState,
   reducers: {
     increment: incrementFunction,
     decrement: decrementFunction,
     changeOnUserInput: changeOnUserInputFunction,
     changeListingCategory: changeListingCategory,
+    changeSettings: changeSettings,
   },
 });
 

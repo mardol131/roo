@@ -1,18 +1,27 @@
 import { useEffect } from "react";
 
 export function useClickOutside<T extends HTMLElement>(
-  ref: React.RefObject<T | null>,
-  onClickOutside: () => void
+  mainRef: React.RefObject<T | null>,
+  onClickOutside: () => void,
+  secondaryRef?: React.RefObject<T | null>
 ) {
   useEffect(() => {
     function handleClick(event: MouseEvent) {
-      // pokud je klik mimo daný element
-      if (ref.current && !ref.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+
+      const clickedOutsideMain =
+        mainRef.current && !mainRef.current.contains(target);
+      const clickedOutsideSecondary =
+        secondaryRef?.current && !secondaryRef.current.contains(target);
+      console.log(clickedOutsideMain, clickedOutsideSecondary);
+
+      // Zavři jen, když je klik mimo oba elementy
+      if (clickedOutsideMain) {
         onClickOutside();
       }
     }
 
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, [ref, onClickOutside]);
+  }, [mainRef, onClickOutside, secondaryRef]);
 }

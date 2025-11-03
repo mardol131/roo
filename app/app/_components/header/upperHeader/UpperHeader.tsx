@@ -10,32 +10,30 @@ import logo from "@/public/logo.png";
 import Text from "../../atoms/Text";
 import { MdOutlineFestival } from "react-icons/md";
 import { RiMenu2Fill } from "react-icons/ri";
-import {
-  CurrentStepType,
-  lowerHeaderStep,
-} from "@/app/_redux/slices/lowerHeaderStepsSlice";
+
 import {
   headerFilterSlice,
   ListingCategoryType,
-} from "@/app/_redux/slices/initialFilterSlice";
+  SettingsTypes,
+} from "@/app/_redux/slices/headerFilterSlice";
+import { useRef } from "react";
 
 type UpperHeaderProps = {
-  openSettingsHandler: () => void;
+  headerFilterRef: React.RefObject<HTMLDivElement | null>;
 };
 
 export function UpperHeader(props: UpperHeaderProps) {
-  const { guests, category } = useAppSelector((state) => state.initialFilter);
-  const { currentStep } = useAppSelector((state) => state.lowerHeaderStep);
+  const { guests, category, settingsType } = useAppSelector(
+    (state) => state.headerFilter
+  );
   const dispatch = useAppDispatch();
 
-  function setStep(step: CurrentStepType) {
-    dispatch(lowerHeaderStep.actions.changeStep(step));
+  function setSettingsType(type: SettingsTypes) {
+    dispatch(headerFilterSlice.actions.changeSettings(type));
   }
 
   function setListingCategory(cat: ListingCategoryType) {
-    dispatch(
-      headerFilterSlice.actions.changeListingCategory({ category: cat })
-    );
+    dispatch(headerFilterSlice.actions.changeListingCategory(cat));
   }
 
   async function login() {
@@ -57,6 +55,108 @@ export function UpperHeader(props: UpperHeaderProps) {
     guestText = "hosté";
   } else if (guestCount > 4) {
     guestText = "hostů";
+  }
+
+  function CategoryFilterButton({
+    label,
+    text,
+    onClick,
+    value,
+  }: {
+    label: string;
+    text: string;
+    onClick: (value: ListingCategoryType) => void;
+    value: ListingCategoryType;
+  }) {
+    return (
+      <div className="flex items-center gap-3">
+        <MdOutlineFestival className="text-primary text-2xl" />
+        <button
+          onClick={() => {
+            setListingCategory(value);
+          }}
+          className="flex flex-col items-start"
+        >
+          <Text text={label} level="labelMicro" color="black" />
+          <Text
+            text={text}
+            level="label7"
+            color="black"
+            className={`${settingsType === value && "text-primary"} hover:text-primary text-start w-full rounded-full w-full cursor-pointer animate`}
+          />
+        </button>
+      </div>
+    );
+  }
+
+  const filterMenuList: {
+    label: string;
+    text: string;
+    onClick: (value: SettingsTypes) => void;
+    value: SettingsTypes;
+  }[] = [
+    {
+      label: "Typ akce",
+      text: "Vše",
+      onClick: (value) => {
+        setSettingsType(value);
+      },
+      value: "eventType",
+    },
+    {
+      label: "Lokalita",
+      text: "Kdekoliv",
+      onClick: (value) => {
+        setSettingsType(value);
+      },
+      value: "location",
+    },
+    {
+      label: "Kdy?",
+      text: "Kdykoliv",
+      onClick: (value) => {
+        setSettingsType(value);
+      },
+      value: "time",
+    },
+    {
+      label: "Hosté?",
+      text: "Neurčeno",
+      onClick: (value) => {
+        setSettingsType(value);
+      },
+      value: "people",
+    },
+  ];
+
+  function FilterButton({
+    label,
+    text,
+    onClick,
+    value,
+  }: {
+    label: string;
+    text: string;
+    onClick: (value: SettingsTypes) => void;
+    value: SettingsTypes;
+  }) {
+    return (
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setSettingsType(value);
+        }}
+        className="flex flex-col items-start"
+      >
+        <Text text={label} level="labelMicro" color="black" />
+        <Text
+          text={text}
+          level="label7"
+          color="black"
+          className={`${settingsType === value && "text-primary"} hover:text-primary text-start w-full rounded-full w-full cursor-pointer animate`}
+        />
+      </button>
+    );
   }
 
   const categoryFilterList: {
@@ -91,107 +191,6 @@ export function UpperHeader(props: UpperHeaderProps) {
     },
   ];
 
-  function CategoryFilterButton({
-    label,
-    text,
-    onClick,
-    value,
-  }: {
-    label: string;
-    text: string;
-    onClick: (value: ListingCategoryType) => void;
-    value: ListingCategoryType;
-  }) {
-    return (
-      <div className="flex items-center gap-3">
-        <MdOutlineFestival className="text-primary text-2xl" />
-        <button
-          onClick={() => {
-            setListingCategory(value);
-          }}
-          className="flex flex-col items-start"
-        >
-          <Text text={label} level="labelMicro" color="black" />
-          <Text
-            text={text}
-            level="label7"
-            color="black"
-            className={`${currentStep === value && "text-primary"} hover:text-primary text-start w-full rounded-full w-full cursor-pointer animate`}
-          />
-        </button>
-      </div>
-    );
-  }
-
-  const filterMenuList: {
-    label: string;
-    text: string;
-    onClick: (value: CurrentStepType) => void;
-    value: CurrentStepType;
-  }[] = [
-    {
-      label: "Typ akce",
-      text: "Vše",
-      onClick: (value) => {
-        setStep(value);
-      },
-      value: "eventType",
-    },
-    {
-      label: "Lokalita",
-      text: "Kdekoliv",
-      onClick: (value) => {
-        setStep(value);
-      },
-      value: "location",
-    },
-    {
-      label: "Kdy?",
-      text: "Kdykoliv",
-      onClick: (value) => {
-        setStep(value);
-      },
-      value: "time",
-    },
-    {
-      label: "Hosté?",
-      text: "Neurčeno",
-      onClick: (value) => {
-        setStep(value);
-      },
-      value: "people",
-    },
-  ];
-
-  function FilterButton({
-    label,
-    text,
-    onClick,
-    value,
-  }: {
-    label: string;
-    text: string;
-    onClick: (value: CurrentStepType) => void;
-    value: CurrentStepType;
-  }) {
-    return (
-      <button
-        onClick={() => {
-          setStep(value);
-        }}
-        className="flex flex-col items-start"
-      >
-        <Text text={label} level="labelMicro" color="black" />
-        <Text
-          text={text}
-          level="label7"
-          color="black"
-          className={`${currentStep === value && "text-primary"} hover:text-primary text-start w-full rounded-full w-full cursor-pointer animate`}
-        />
-      </button>
-    );
-  }
-
   function GetCategoryFilterButton() {
     const element = categoryFilterList.find((item) => item.value === category);
     if (element) {
@@ -224,11 +223,11 @@ export function UpperHeader(props: UpperHeaderProps) {
           className="h-10 w-auto"
         />
       </Link>
-      <div className="rounded-full bg-white p-2 pl-10 justify-self-center text-white border border-borderLight font-semibold shadow-lg">
-        <div
-          onClick={props.openSettingsHandler}
-          className="flex items-center text-nowrap gap-15"
-        >
+      <div
+        ref={props.headerFilterRef}
+        className="rounded-full bg-white p-2 pl-10 justify-self-center text-white border border-borderLight font-semibold shadow-lg"
+      >
+        <div className="flex items-center text-nowrap gap-15">
           <GetCategoryFilterButton />
           {filterMenuList.map((item) => {
             return <FilterButton key={item.value + item.text} {...item} />;

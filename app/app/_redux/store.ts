@@ -1,15 +1,13 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
-import initialFilterSlice from "./slices/initialFilterSlice";
-import lowerHeaderStepSlice from "./slices/lowerHeaderStepsSlice";
 import newListingSlice from "./slices/newListingSlice";
+import headerFilterSlice from "./slices/headerFilterSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      initialFilter: initialFilterSlice,
-      lowerHeaderStep: lowerHeaderStepSlice,
+      headerFilter: headerFilterSlice,
       newListing: newListingSlice,
     },
   });

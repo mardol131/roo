@@ -18,14 +18,14 @@ import {
   FaXmark,
 } from "react-icons/fa6";
 import { useAppDispatch } from "@/app/_redux/hooks";
-import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
+import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
 
 //Toggling the datepicker component for chosing daterange
 export default function CalendarSettings() {
   const dispatch = useAppDispatch();
   function nullHeaderSettings() {
-    dispatch(lowerHeaderStep.actions.changeStep(null));
+    dispatch(headerFilterSlice.actions.changeSettings(null));
   }
   const settingsRef = useRef(null);
   useClickOutside(settingsRef, nullHeaderSettings);
@@ -548,58 +548,57 @@ export default function CalendarSettings() {
 
   return (
     <>
-      <HeaderSettingsWrapper ref={settingsRef}>
-        <div
-          className="w-full max-w-lowerHeader absolute max-h-[500px] md:max-h-screen bg-white shadow-lg border border-borderLight md:rounded-large md:overflow-auto overflow-scroll p-5"
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-          onMouseLeave={nullHeaderSettings}
-        >
-          <div className="">
-            <div className="p-5 text-textNormal text-center flex md:gap-4 justify-center md:flex-row flex-col items-center gap-3">
-              {daterange.endIsValid && daterange.startIsValid && (
-                <>
-                  <p>
-                    Datum od{" "}
-                    <span className="font-semibold">
-                      {format(daterange.startDate, "dd.MM.yyyy")}
-                    </span>{" "}
-                    od{" "}
-                    <span className="font-semibold">
-                      {format(daterange.endDate, "dd.MM.yyyy")}
-                    </span>
-                  </p>
-                  <p className="p-2 text-textLight font-semibold rounded-lg bg-primary">
-                    Počet dní: {numberOfDays}
-                  </p>
-                </>
-              )}
-              {!daterange.startIsValid && (
-                <>
-                  <div className="flex items-center justify-center gap-3">
-                    <FaTriangleExclamation className="text-amber-500" />
+      <div
+        className="w-full max-w-lowerHeader absolute max-h-[500px] md:max-h-screen bg-white shadow-lg border border-borderLight md:rounded-large md:overflow-auto overflow-scroll p-5"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        onMouseLeave={nullHeaderSettings}
+      >
+        <div className="">
+          <div className="p-5 text-textNormal text-center flex md:gap-4 justify-center md:flex-row flex-col items-center gap-3">
+            {daterange.endIsValid && daterange.startIsValid && (
+              <>
+                <p>
+                  Datum od{" "}
+                  <span className="font-semibold">
+                    {format(daterange.startDate, "dd.MM.yyyy")}
+                  </span>{" "}
+                  od{" "}
+                  <span className="font-semibold">
+                    {format(daterange.endDate, "dd.MM.yyyy")}
+                  </span>
+                </p>
+                <p className="p-2 text-textLight font-semibold rounded-lg bg-primary">
+                  Počet dní: {numberOfDays}
+                </p>
+              </>
+            )}
+            {!daterange.startIsValid && (
+              <>
+                <div className="flex items-center justify-center gap-3">
+                  <FaTriangleExclamation className="text-amber-500" />
 
-                    <p className=" font-semibold">Doplňte čas doručení</p>
-                  </div>
-                </>
-              )}
-              {!daterange.endIsValid && (
-                <>
-                  <div className="flex items-center justify-center gap-3">
-                    <FaTriangleExclamation className="text-amber-500" />
+                  <p className=" font-semibold">Doplňte čas doručení</p>
+                </div>
+              </>
+            )}
+            {!daterange.endIsValid && (
+              <>
+                <div className="flex items-center justify-center gap-3">
+                  <FaTriangleExclamation className="text-amber-500" />
 
-                    <p className="font-semibold">Doplňte čas odvozu</p>
-                  </div>
-                </>
-              )}
-            </div>
+                  <p className="font-semibold">Doplňte čas odvozu</p>
+                </div>
+              </>
+            )}
           </div>
-          <div className=" grid md:grid-cols-2   rounded-b-md">
-            <GenerateMonth />
-            <GenerateMonth />
+        </div>
+        <div className=" grid md:grid-cols-2   rounded-b-md">
+          <GenerateMonth />
+          <GenerateMonth />
 
-            {/* <div className=" col-span-2 py-2 px-5 md:mt-0 mt-5">
+          {/* <div className=" col-span-2 py-2 px-5 md:mt-0 mt-5">
             <div
               style={{ scrollbarGutter: "stable" }}
               className="overflow-auto pr-2
@@ -647,9 +646,8 @@ export default function CalendarSettings() {
               </div>
             </div>
           </div> */}
-          </div>
         </div>
-      </HeaderSettingsWrapper>
+      </div>
     </>
   );
 }

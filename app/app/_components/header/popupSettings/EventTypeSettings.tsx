@@ -1,21 +1,20 @@
 "use client";
 
-import React, { ReactNode, useRef } from "react";
-import Engagement from "@/app/_icons/Engagement";
-import BabyShower from "@/app/_icons/BabyShower";
-import CompanyParty from "@/app/_icons/CompanyParty";
+import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import Anniversary from "@/app/_icons/Anniversary";
+import BabyShower from "@/app/_icons/BabyShower";
+import Ball from "@/app/_icons/Ball";
 import Birthday from "@/app/_icons/Birthday";
+import CompanyParty from "@/app/_icons/CompanyParty";
+import Engagement from "@/app/_icons/Engagement";
+import KidParty from "@/app/_icons/KidParty";
 import OpeningParty from "@/app/_icons/OpeningParty";
 import Party from "@/app/_icons/Party";
-import Ball from "@/app/_icons/Ball";
 import TeamBuilding from "@/app/_icons/TeamBuilding";
-import KidParty from "@/app/_icons/KidParty";
 import Wedding from "@/app/_icons/Wedding";
-import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
-import { lowerHeaderStep } from "@/app/_redux/slices/lowerHeaderStepsSlice";
-import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
-import { useClickOutside } from "@/app/_hooks/useClickOutside";
+import { useAppDispatch } from "@/app/_redux/hooks";
+import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
+import { ReactNode, useRef } from "react";
 
 type Props = {};
 
@@ -147,29 +146,23 @@ export function IconText({ text, iconStyles, children }: IconTextType) {
 export default function EventTypeSettings({}: Props) {
   const dispatch = useAppDispatch();
   function nullHeaderSettings() {
-    dispatch(lowerHeaderStep.actions.changeStep(null));
+    dispatch(headerFilterSlice.actions.changeSettings(null));
   }
   const settingsRef = useRef(null);
   useClickOutside(settingsRef, nullHeaderSettings);
 
   return (
-    <HeaderSettingsWrapper ref={settingsRef}>
-      <div
-        onMouseLeave={nullHeaderSettings}
-        className="bg-white p-10 rounded-large border border-borderLight shadow-lg flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]"
-      >
-        {Icons.map((icon, index) => {
-          return (
-            <IconText
-              key={index}
-              text={icon.text}
-              iconStyles={IconStyles[index]}
-            >
-              {icon.icon({ width: 40, height: 40 })}
-            </IconText>
-          );
-        })}
-      </div>
-    </HeaderSettingsWrapper>
+    <div
+      onMouseLeave={nullHeaderSettings}
+      className="bg-white p-10 rounded-large border border-borderLight shadow-lg flex justify-between w-full gap-5 bg-linear-30 py-10 max-w-[1200px]"
+    >
+      {Icons.map((icon, index) => {
+        return (
+          <IconText key={index} text={icon.text} iconStyles={IconStyles[index]}>
+            {icon.icon({ width: 40, height: 40 })}
+          </IconText>
+        );
+      })}
+    </div>
   );
 }
