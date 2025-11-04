@@ -1,6 +1,5 @@
 "use client";
 
-import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import Anniversary from "@/app/_icons/Anniversary";
 import BabyShower from "@/app/_icons/BabyShower";
 import Ball from "@/app/_icons/Ball";
@@ -14,7 +13,7 @@ import TeamBuilding from "@/app/_icons/TeamBuilding";
 import Wedding from "@/app/_icons/Wedding";
 import { useAppDispatch } from "@/app/_redux/hooks";
 import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
-import { ReactNode, useRef } from "react";
+import { ReactNode } from "react";
 
 type Props = {};
 
@@ -148,8 +147,6 @@ export default function EventTypeSettings({}: Props) {
   function nullHeaderSettings() {
     dispatch(headerFilterSlice.actions.changeSettings(null));
   }
-  const settingsRef = useRef(null);
-  useClickOutside(settingsRef, nullHeaderSettings);
 
   return (
     <div

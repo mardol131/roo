@@ -1,7 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export type SettingsTypes = "eventType" | "location" | "time" | "people" | null;
+export type SettingsTypes =
+  | "listingCategory"
+  | "eventType"
+  | "location"
+  | "time"
+  | "people"
+  | null;
+
+export const SettingsTypesArray: SettingsTypes[] = [
+  "eventType",
+  "location",
+  "time",
+  "people",
+];
 
 export type ListingCategoryType = "gastro" | "place" | "entertainment" | null;
 
@@ -26,8 +39,8 @@ const initialState: HeaderFilterType = {
   },
   category: null,
 };
-
-export type GuestType = "adult" | "minor" | "ztp" | "pets";
+export const guestTypeArray = Object.keys(initialState.guests) as GuestType[];
+export type GuestType = keyof typeof initialState.guests;
 
 export function incrementFunction(
   state: HeaderFilterType,

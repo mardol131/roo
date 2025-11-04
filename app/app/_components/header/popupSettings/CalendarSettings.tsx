@@ -1,25 +1,15 @@
 "use client";
 
-import React, {
-  Dispatch,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import HeaderSettingsWrapper from "../../wrappers/HeaderSettingsWrapper";
-import * as qs from "qs";
+import { useEffect, useState } from "react";
 
+import { useAppDispatch } from "@/app/_redux/hooks";
+import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
 import { format, isAfter, isBefore, isEqual } from "date-fns";
 import {
   FaChevronLeft,
   FaChevronRight,
   FaTriangleExclamation,
-  FaXmark,
 } from "react-icons/fa6";
-import { useAppDispatch } from "@/app/_redux/hooks";
-import { useClickOutside } from "@/app/_hooks/useClickOutside";
-import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
 
 //Toggling the datepicker component for chosing daterange
 export default function CalendarSettings() {
@@ -27,8 +17,7 @@ export default function CalendarSettings() {
   function nullHeaderSettings() {
     dispatch(headerFilterSlice.actions.changeSettings(null));
   }
-  const settingsRef = useRef(null);
-  useClickOutside(settingsRef, nullHeaderSettings);
+
   //Fixed and initial values
   const currentDate = new Date();
   const daysOfWeek = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"];

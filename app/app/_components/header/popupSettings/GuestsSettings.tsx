@@ -3,12 +3,14 @@
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import {
   GuestType,
+  guestTypeArray,
   headerFilterSlice,
 } from "@/app/_redux/slices/headerFilterSlice";
-import { useRef } from "react";
 
-import { useClickOutside } from "@/app/_hooks/useClickOutside";
+import { getLocalization } from "@/_localization/getLocalization";
 import { Counter, CounterType } from "../../filters/Counter";
+
+const m = getLocalization("cs", "header.guest_counter");
 
 type Props = {};
 
@@ -18,8 +20,6 @@ export default function GuestsSettings({}: Props) {
   function nullHeaderSettings() {
     dispatch(headerFilterSlice.actions.changeSettings(null));
   }
-  const settingsRef = useRef(null);
-  useClickOutside(settingsRef, nullHeaderSettings);
 
   function addGuests(type: GuestType) {
     dispatch(headerFilterSlice.actions.increment(type));
@@ -44,58 +44,24 @@ export default function GuestsSettings({}: Props) {
         onMouseLeave={nullHeaderSettings}
         className="p-8 bg-white rounded-large border border-borderLight shadow-xl"
       >
-        <GuestsCounter
-          addFunction={() => {
-            addGuests("adult");
-          }}
-          removeFunction={() => {
-            removeGuests("adult");
-          }}
-          value={guests.adult}
-          text="Dospělí"
-          stateChangerOnUserInteract={(value: number) => {
-            changeValueOnUserInput("adult", value);
-          }}
-        />
-        <GuestsCounter
-          addFunction={() => {
-            addGuests("minor");
-          }}
-          removeFunction={() => {
-            removeGuests("minor");
-          }}
-          value={guests.minor}
-          text="Děti"
-          stateChangerOnUserInteract={(value: number) => {
-            changeValueOnUserInput("minor", value);
-          }}
-        />
-        <GuestsCounter
-          addFunction={() => {
-            addGuests("ztp");
-          }}
-          removeFunction={() => {
-            removeGuests("ztp");
-          }}
-          value={guests.ztp}
-          text="ZTP"
-          stateChangerOnUserInteract={(value: number) => {
-            changeValueOnUserInput("ztp", value);
-          }}
-        />
-        <GuestsCounter
-          addFunction={() => {
-            addGuests("pets");
-          }}
-          removeFunction={() => {
-            removeGuests("pets");
-          }}
-          value={guests.pets}
-          text="Mazlíčci"
-          stateChangerOnUserInteract={(value: number) => {
-            changeValueOnUserInput("pets", value);
-          }}
-        />
+        {guestTypeArray.map((type: GuestType) => {
+          return (
+            <GuestsCounter
+              key={type}
+              addFunction={() => {
+                addGuests(type);
+              }}
+              removeFunction={() => {
+                removeGuests(type);
+              }}
+              value={guests[type]}
+              text={m(type)}
+              stateChangerOnUserInteract={(value: number) => {
+                changeValueOnUserInput(type, value);
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );

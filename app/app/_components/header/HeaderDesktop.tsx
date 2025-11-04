@@ -1,17 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
-import { useParams, usePathname } from "next/navigation";
-import { LowerHeader } from "./lowerHeader/LowerHeader";
-import CalendarSettings from "./popupSettings/CalendarSettings";
-import PlaceSettings from "./popupSettings/PlaceSettings";
-import GuestsSettings from "./popupSettings/GuestsSettings";
-import EventTypeSettings from "./popupSettings/EventTypeSettings";
-import { UpperHeader } from "./upperHeader/UpperHeader";
 import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
+import CalendarSettings from "./popupSettings/CalendarSettings";
+import EventTypeSettings from "./popupSettings/EventTypeSettings";
+import GuestsSettings from "./popupSettings/GuestsSettings";
+import PlaceSettings from "./popupSettings/PlaceSettings";
+import { UpperHeader } from "./headerFIlter/UpperHeader";
+import ListingCategorySettings from "./popupSettings/ListingCategorySettings";
 
 export default function HeaderDesktop() {
   const { settingsType } = useAppSelector((state) => state.headerFilter);
@@ -36,6 +35,7 @@ export default function HeaderDesktop() {
           ref={headerRef}
           className="absolute top-full w-full flex justify-center max-w-contentWrapper"
         >
+          {settingsType == "listingCategory" && <ListingCategorySettings />}
           {settingsType == "eventType" && <EventTypeSettings />}
           {settingsType == "location" && <PlaceSettings />}
           {settingsType == "time" && <CalendarSettings />}

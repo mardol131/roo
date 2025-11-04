@@ -1,9 +1,8 @@
 "use client";
 
-import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { useAppDispatch } from "@/app/_redux/hooks";
 import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { FaMapMarked, FaMapSigns } from "react-icons/fa";
 
 type Props = {};
@@ -13,8 +12,7 @@ export default function PlaceSettings({}: Props) {
   function nullHeaderSettings() {
     dispatch(headerFilterSlice.actions.changeSettings(null));
   }
-  const settingsRef = useRef(null);
-  useClickOutside(settingsRef, nullHeaderSettings);
+
   const [showRegions, setShowRegions] = useState(false);
   const [showCities, setShowCities] = useState(false);
 
