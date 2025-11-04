@@ -16,7 +16,7 @@ export function useClickOutside<T extends HTMLElement>(
       console.log(clickedOutsideMain, clickedOutsideSecondary);
 
       // Zavři jen, když je klik mimo oba elementy
-      if (clickedOutsideMain) {
+      if (clickedOutsideMain && clickedOutsideSecondary) {
         onClickOutside();
       }
     }

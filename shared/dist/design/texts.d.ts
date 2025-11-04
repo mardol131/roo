@@ -18,7 +18,7 @@ export declare const TextLevels: {
     paragraph4: string;
     paragraph5: string;
 };
-export type TextLevelType = "h1" | "h2" | "h3" | "h4" | "h5" | "label1" | "label2" | "label3" | "label4" | "label5" | "label6" | "label7" | "label8" | "paragraph1" | "paragraph2" | "paragraph3" | "paragraph4" | "paragraph5";
+export type TextLevelType = "h1" | "h2" | "h3" | "h4" | "h5" | "label1" | "label2" | "label3" | "label4" | "label5" | "label6" | "label7" | "label8" | "labelMicro" | "paragraph1" | "paragraph2" | "paragraph3" | "paragraph4" | "paragraph5";
 export declare const fontWeight: {
     sm: string;
     md: string;
