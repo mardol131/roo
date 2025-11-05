@@ -78,16 +78,6 @@ export function UpperHeader(props: UpperHeaderProps) {
   }
 
   function CategoryFilterButton() {
-    let label = "Vše";
-
-    if (category === "gastro") {
-      label = "Gastro";
-    } else if (category === "entertainment") {
-      label = "Zábava";
-    } else if (category === "place") {
-      label = "Místo";
-    }
-
     return (
       <div
         onClick={() => {
@@ -97,9 +87,13 @@ export function UpperHeader(props: UpperHeaderProps) {
       >
         <MdOutlineFestival className="text-primary text-2xl" />
         <button className="flex flex-col items-start">
-          <Text text="Co hledáte?" level="labelMicro" color="black" />
           <Text
-            text={label}
+            text={m("listingCategory.label")}
+            level="labelMicro"
+            color="black"
+          />
+          <Text
+            text={m(`listingCategory.type.${category}`)}
             level="label7"
             color="black"
             className={`${(settingsType === "listingCategory" || category) && "text-primary"} hover:text-primary text-start w-full rounded-full cursor-pointer animate`}
@@ -107,7 +101,7 @@ export function UpperHeader(props: UpperHeaderProps) {
         </button>
         {category && (
           <div className="absolute top-[100%] w-full mt-3 flex justify-center">
-            <div className="bg-success p-2 shadow-xl rounded-b-lg">
+            <div className="bg-success p-2 w-[50%] shadow-xl rounded-b-lg">
               <FaCheck />
             </div>
           </div>

@@ -60,6 +60,22 @@ const nextConfig: NextConfig = {
         source: "/stranky/:pageSlug",
         destination: "/pages/:pageSlug",
       },
+      {
+        source: "/zabava",
+        destination: "/entertainment",
+      },
+      {
+        source: "/mista",
+        destination: "/venue",
+      },
+      {
+        source: "/gastro",
+        destination: "/gastro",
+      },
+      {
+        source: "/inzeraty/:slug",
+        destination: "/pages/:slug",
+      },
     ];
   },
 };

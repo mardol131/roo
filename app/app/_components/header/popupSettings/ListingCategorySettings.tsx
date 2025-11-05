@@ -16,15 +16,12 @@ import Text from "../../atoms/Text";
 import Button from "../../atoms/Button";
 import { ColorsAndGradientsType } from "@roo/shared/src/design/colors";
 
-const m = getLocalization("cs", "header.guest_counter");
+const m = getLocalization("cs", "header.listingCategory.card");
 
 type Props = {};
 
 export default function ListingCategorySettings({}: Props) {
   const dispatch = useAppDispatch();
-  function nullHeaderSettings() {
-    dispatch(headerFilterSlice.actions.changeSettings(null));
-  }
 
   function setListingCategory(value: ListingCategoryType) {
     dispatch(headerFilterSlice.actions.changeListingCategory(value));
@@ -50,35 +47,35 @@ export default function ListingCategorySettings({}: Props) {
         <div className=" p-8 bg-white shadow-xl border border-borderLight w-full grid grid-cols-3 gap-15 rounded-large">
           {categories.map((item) => {
             return (
-              <div>
+              <div className="">
                 <div
                   onClick={() => {
                     setListingCategory(item.value);
                   }}
-                  className="relative w-full shadow-lg rounded-xl overflow-hidden"
+                  className="relative h-full w-full group shadow-lg rounded-xl overflow-hidden"
                 >
                   <Image
                     src={item.image}
                     alt="hll"
                     width={500}
                     height={500}
-                    className="absolute top-0 left-0 w-full z-0 object-cover rounded-xl"
+                    className="absolute top-0 h-full left-0 w-full z-0 object-cover rounded-xl"
                   />
-                  <div className="flex bg-black/50 scale-z-100 flex-col text-center gap-4 items-center p-5">
+                  <div className="flex bg-black/70 group-hover:bg-black/50 animate scale-z-100 flex-col text-center gap-4 items-center justify-between h-full p-5">
                     <Text
-                      text="Gastro"
+                      text={m(`${item.value}.heading`)}
                       level="label4"
                       color="white"
                       fontWeight="lg"
                     />
                     <Text
-                      text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                      text={m(`${item.value}.text`)}
                       level="paragraph3"
                       color="white"
                       fontWeight="md"
                     />
                     <Button
-                      text="Hledám gastro"
+                      text={m(`${item.value}.button_text`)}
                       textColor="white"
                       bgColor={item.buttonBg}
                       size="xl"

@@ -38,7 +38,7 @@
   --color-rooGray: #343434;
   --color-rooBlack: #181818;
 
-  --color-success: #48dc00;
+  --color-success: var(--color-green-500);
   --color-warning: #fcaa2e;
   --color-danger: #ee094b;
 
