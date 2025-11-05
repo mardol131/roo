@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
-import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
+import { headerFilterSlice } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 import CalendarSettings from "./popupSettings/CalendarSettings";
 import EventTypeSettings from "./popupSettings/EventTypeSettings";
 import GuestsSettings from "./popupSettings/GuestsSettings";

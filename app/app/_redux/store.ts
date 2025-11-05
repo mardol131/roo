@@ -2,7 +2,7 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 import newListingSlice from "./slices/newListingSlice";
-import headerFilterSlice from "./slices/headerFilterSlice";
+import headerFilterSlice from "./slices/filtersSlice/headerFilterSlice";
 
 export const makeStore = () => {
   return configureStore({

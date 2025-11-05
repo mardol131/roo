@@ -12,7 +12,7 @@ import Party from "@/app/_icons/Party";
 import TeamBuilding from "@/app/_icons/TeamBuilding";
 import Wedding from "@/app/_icons/Wedding";
 import { useAppDispatch } from "@/app/_redux/hooks";
-import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
+import { headerFilterSlice } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 import { ReactNode } from "react";
 
 type Props = {};

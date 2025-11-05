@@ -16,9 +16,9 @@ import {
   ListingCategoryType,
   SettingsTypes,
   SettingsTypesArray,
-} from "@/app/_redux/slices/headerFilterSlice";
+} from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 import { useRef } from "react";
-import { getLocalization } from "@/_localization/getLocalization";
+import { getLocalization } from "@/app/_localization/getLocalization";
 
 type UpperHeaderProps = {
   headerFilterRef: React.RefObject<HTMLDivElement | null>;

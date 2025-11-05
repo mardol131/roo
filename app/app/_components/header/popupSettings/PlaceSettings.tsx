@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch } from "@/app/_redux/hooks";
-import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
+import { headerFilterSlice } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 import { useState } from "react";
 import { FaMapMarked, FaMapSigns } from "react-icons/fa";
 

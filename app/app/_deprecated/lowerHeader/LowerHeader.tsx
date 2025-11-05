@@ -11,7 +11,7 @@ import {
   headerFilterSlice,
   ListingCategoryType,
   SettingsTypes,
-} from "@/app/_redux/slices/headerFilterSlice";
+} from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 
 export function LowerHeader() {
   const { settingsType } = useAppSelector((state) => state.headerFilter);

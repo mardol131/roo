@@ -4,9 +4,9 @@ import { useAppDispatch } from "@/app/_redux/hooks";
 import {
   headerFilterSlice,
   ListingCategoryType,
-} from "@/app/_redux/slices/headerFilterSlice";
+} from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 
-import { getLocalization } from "@/_localization/getLocalization";
+import { getLocalization } from "@/app/_localization/getLocalization";
 import Image from "next/image";
 import gastro from "@/app/_images/gastro.jpg";
 import place from "@/app/_images/place.jpg";

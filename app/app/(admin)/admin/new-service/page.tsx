@@ -1,8 +1,8 @@
 import React from "react";
-import Page from "./_page/Page";
+import NewServiceSteps from "./_components/NewServiceSteps";
 
 type Props = {};
 
 export default function page({}: Props) {
-  return <Page />;
+  return <NewServiceSteps />;
 }

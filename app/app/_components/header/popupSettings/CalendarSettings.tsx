@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { useAppDispatch } from "@/app/_redux/hooks";
-import { headerFilterSlice } from "@/app/_redux/slices/headerFilterSlice";
+import { headerFilterSlice } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 import { format, isAfter, isBefore, isEqual } from "date-fns";
 import {
   FaChevronLeft,

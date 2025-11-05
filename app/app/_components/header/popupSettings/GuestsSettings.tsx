@@ -5,9 +5,9 @@ import {
   GuestType,
   guestTypeArray,
   headerFilterSlice,
-} from "@/app/_redux/slices/headerFilterSlice";
+} from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 
-import { getLocalization } from "@/_localization/getLocalization";
+import { getLocalization } from "@/app/_localization/getLocalization";
 import { Counter, CounterType } from "../../filters/Counter";
 
 const m = getLocalization("cs", "header.guest_counter");
