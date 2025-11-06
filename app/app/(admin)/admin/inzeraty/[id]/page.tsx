@@ -3,6 +3,8 @@ import Image from "next/image";
 import image from "@/app/_images/test.jpg";
 import { FaRegImage } from "react-icons/fa6";
 import AdminCheckbox from "@/app/(admin)/admin/_components/inputs/AdminCheckbox";
+import { AdminTextInput } from "../../_components/inputs/AdminTextInput";
+import { AdminTextarea } from "../../_components/inputs/AdminTextarea";
 
 type Props = {};
 
@@ -249,37 +251,4 @@ export default function AdminListingPage({}: Props) {
       </div>
     </div>
   );
-}
-
-type AdminTextInput = {
-  className?: string;
-  placeholder?: string;
-};
-
-export function AdminTextInput(props: AdminTextInput) {
-  return (
-    <input
-      className={`${props.className} border text-sm p-2 rounded-small border-borderLight bg-white shadow-sm`}
-      placeholder={props.placeholder || "placeholder"}
-    />
-  );
-}
-
-export function AdminTextarea(props: AdminTextInput) {
-  return (
-    <textarea
-      className={`${props.className} border text-sm p-2 rounded-small border-borderLight h-50 resize-none shadow-sm bg-white`}
-      placeholder={props.placeholder || "placeholder"}
-    />
-  );
-}
-
-type AdminListingFormSectionWrapper = {
-  children: ReactNode;
-};
-
-export function AdminListingFormSectionWrapper(
-  props: AdminListingFormSectionWrapper
-) {
-  return <div></div>;
 }

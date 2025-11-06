@@ -47,7 +47,7 @@ export default function ListingCategorySettings({}: Props) {
         <div className=" p-8 bg-white shadow-xl border border-borderLight w-full grid grid-cols-3 gap-15 rounded-large">
           {categories.map((item) => {
             return (
-              <div className="">
+              <div key={item.value} className="">
                 <div
                   onClick={() => {
                     setListingCategory(item.value);

@@ -15,7 +15,7 @@ import {
 export default function CalendarSettings() {
   const dispatch = useAppDispatch();
   function nullHeaderSettings() {
-    dispatch(headerFilterSlice.actions.changeSettings(null));
+    dispatch(headerFilterSlice.actions.changeHeaderSettings(null));
   }
 
   //Fixed and initial values

@@ -1,7 +1,7 @@
 @import "tailwindcss";
-@import "./_css/animations.css";
+@import "./animations.css";
 
-@source "../node_modules/@roo/shared";
+@source "../../node_modules/@roo/shared";
 
 @layer utilities {
   .no-spin::-webkit-outer-spin-button,
@@ -17,12 +17,12 @@
 
 @font-face {
   font-family: Montserrat;
-  src: url("./_fonts/Montserrat.ttf");
+  src: url("../_fonts/Montserrat.ttf");
 }
 
 @font-face {
   font-family: Nunito;
-  src: url("./_fonts/Nunit-sans.ttf");
+  src: url("../_fonts/Nunit-sans.ttf");
 }
 
 @theme {

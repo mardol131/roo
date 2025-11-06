@@ -1,10 +1,10 @@
 import Image from "next/image";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-import map from "@/app/_images/map.png";
 import { PriceRangeSlider } from "@/app/_components/filters/PriceRangeSlider";
 import CategoryFilter from "@/app/_components/molecules/CategoryFilter";
+import map from "@/app/_images/map.png";
 
 type FilterSectionWrapperProps = {
   children: ReactNode;

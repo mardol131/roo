@@ -13,7 +13,6 @@ export function useClickOutside<T extends HTMLElement>(
         mainRef.current && !mainRef.current.contains(target);
       const clickedOutsideSecondary =
         secondaryRef?.current && !secondaryRef.current.contains(target);
-      console.log(clickedOutsideMain, clickedOutsideSecondary);
 
       // Zavři jen, když je klik mimo oba elementy
       if (clickedOutsideMain && clickedOutsideSecondary) {

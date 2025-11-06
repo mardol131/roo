@@ -1,5 +1,5 @@
 import React from "react";
-import { FormTextInput } from "../FormSection";
+import { FormTextInput } from "../_components/FormTextInput";
 
 type Props = {};
 

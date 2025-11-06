@@ -18,7 +18,7 @@ export default function GuestsSettings({}: Props) {
   const { guests } = useAppSelector((state) => state.headerFilter);
   const dispatch = useAppDispatch();
   function nullHeaderSettings() {
-    dispatch(headerFilterSlice.actions.changeSettings(null));
+    dispatch(headerFilterSlice.actions.changeHeaderSettings(null));
   }
 
   function addGuests(type: GuestType) {

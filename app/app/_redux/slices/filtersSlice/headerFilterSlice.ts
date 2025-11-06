@@ -55,7 +55,7 @@ export const headerFilterSlice = createSlice({
     decrement: decrementAction,
     changeOnUserInput: changeOnUserInputAction,
     changeListingCategory: changeListingCategoryAction,
-    changeSettings: changeHeaderSettingsAction,
+    changeHeaderSettings: changeHeaderSettingsAction,
   },
 });
 

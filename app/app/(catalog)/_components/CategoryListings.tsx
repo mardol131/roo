@@ -1,5 +1,3 @@
-import React from "react";
-import image from "@/app/_images/test.jpg";
 import ListingCard from "@/app/_components/cards/ListingCard";
 
 type Props = {};

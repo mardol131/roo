@@ -1,6 +1,6 @@
 import React from "react";
-import FilterBar from "./_components/FilterBar";
-import CategoryListings from "./_components/CategoryListings";
+import FilterBar from "../_components/FilterBar";
+import CategoryListings from "../_components/CategoryListings";
 
 type Props = {};
 

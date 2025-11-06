@@ -33,7 +33,7 @@ export function UpperHeader(props: UpperHeaderProps) {
   const dispatch = useAppDispatch();
 
   function setSettingsType(type: SettingsTypes) {
-    dispatch(headerFilterSlice.actions.changeSettings(type));
+    dispatch(headerFilterSlice.actions.changeHeaderSettings(type));
   }
 
   async function login() {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./_css/animations.css";
-import "./globals.css";
+import "./_css/globals.css";
 
 import { GoogleTagManager } from "@next/third-parties/google";
 import Footer from "./_components/footer/Footer";
@@ -20,14 +20,12 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <GoogleTagManager gtmId="" />
-      <body>
+      <body className="min-h-screen h-full flex flex-col">
         <StoreProvider>
           <Header />
         </StoreProvider>
-        <div className="relative">
-          {children}
-          <Footer />
-        </div>
+        <main className="flex-1 flex flex-col h-full">{children}</main>
+        <Footer />
       </body>
     </html>
   );

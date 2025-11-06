@@ -7,244 +7,34 @@ import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers
 import Button, { ButtonProps } from "@/app/_components/atoms/Button";
 import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
-import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
-import axios from "axios";
-import Image from "next/image";
-import { TextBlockProps } from "../textSection/TextSection";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
-import FormWaitlistTemplate from "./templates/FormWaitlistTemplate";
-import FormEmailCollectionTemplate from "./templates/FormEmailCollectionTemplate";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
-
-export type FormTextInputProps = {
-  blockType: "formtextinput";
-  label: string;
-  name: string;
-  type?: "text" | "email" | "password" | "phone";
-  placeholder: string;
-  spanTwo?: "true" | "false";
-  required?: "true" | "false";
-};
-
-export function FormTextInput(props: FormTextInputProps) {
-  const type = props.type || "text";
-
-  function changeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    if (props.type === "phone") {
-      e.target.value = e.target.value.replace(/[^0-9]/g, "").slice(0, 9);
-    }
-  }
-  return (
-    <div
-      className={`${
-        props.spanTwo === "true" && "col-span-2"
-      } border-2 border-borderLight p-3 flex flex-col rounded-medium`}
-    >
-      <label className="text-primary font-semibold">{props.label}</label>
-      <div className="flex items-center justify-start gap-2">
-        {props.type === "phone" && (
-          <>
-            <select name="code" id="code" className="font-semibold">
-              <option value="+420">+420</option>
-              <option value="+421">+421</option>
-            </select>
-          </>
-        )}
-        <input
-          name={props.name}
-          type={type}
-          placeholder={props.placeholder}
-          required={props.required === "true" || false}
-          defaultValue=""
-          onChange={changeHandler}
-        ></input>
-      </div>
-    </div>
-  );
-}
-
-export type FormTextareaInputProps = {
-  blockType: "formtextarea";
-  label: string;
-  name: string;
-  placeholder: string;
-  spanTwo?: "true" | "false";
-  required?: "true" | "false";
-};
-
-export function FormTextareaInput(props: FormTextareaInputProps) {
-  return (
-    <div
-      className={`${
-        props.spanTwo === "true" && "col-span-2"
-      } border-2 h-50 border-borderLight p-3 flex flex-col rounded-medium`}
-    >
-      <label className="text-primary font-semibold">{props.label}</label>
-      <textarea
-        name={props.name}
-        placeholder={props.placeholder}
-        required={props.required === "true" || false}
-        className="h-full resize-none"
-      />
-    </div>
-  );
-}
-
-type SelectOptionType = {
-  text: string;
-  value: string;
-};
-
-type FormSelectInputProps = {
-  blockType: "formselectinput";
-  label: string;
-  value: string;
-  placeholder: string;
-  spanTwo?: "true" | "false";
-  options: SelectOptionType[];
-  required?: "true" | "false";
-};
-
-export function FormSelectInput(props: FormSelectInputProps) {
-  return (
-    <div
-      className={`${
-        props.spanTwo === "true" && "col-span-2"
-      } border-2 border-borderLight p-3 flex flex-col rounded-medium`}
-    >
-      <label className="text-primary font-semibold">{props.label}</label>
-
-      <select
-        required={props.required === "true" || false}
-        name={props.value}
-        id={props.value}
-      >
-        <option value="" className="text-textPlaceholder">
-          {props.placeholder}
-        </option>
-        {props.options.map((option) => {
-          return (
-            <option key={option.text} value={option.value}>
-              {option.text}
-            </option>
-          );
-        })}
-      </select>
-    </div>
-  );
-}
-
-export type FormCheckboxInputProps = {
-  blockType: "formcheckboxinput";
-  label: TextBlockProps[];
-  value: string;
-  spanTwo?: "true" | "false";
-  required?: "true" | "false";
-  onChange?: (isChecked: boolean, value: string) => void;
-  name?: string;
-};
-
-export function FormCheckboxInput(props: FormCheckboxInputProps) {
-  return (
-    <div
-      className={`${
-        props.spanTwo === "true" && "col-span-2"
-      } cursor-pointer flex gap-10 items-center`}
-    >
-      <input
-        type="checkbox"
-        onChange={(e) => {
-          if (props.onChange) {
-            props.onChange(e.target.checked, props.value);
-          }
-        }}
-        className="cursor-pointer"
-        id={props.value}
-        name={props.name || props.value}
-        value={props.value}
-        required={props.required === "true" || false}
-      />
-      <label
-        htmlFor={props.value}
-        className="text-textMedium  cursor-pointer font-semibold"
-      >
-        {props.label && <GenerateTexts texts={props.label} />}
-      </label>
-    </div>
-  );
-}
-
-export type FormMultipleCheckboxInputProps = {
-  blockType: "formmultiplecheckboxinput";
-  checkboxes: FormCheckboxInputProps[];
-  label: TextProps[];
-  spanTwo?: "true" | "false";
-  required?: "true" | "false";
-  value: string;
-};
-
-export function FormMultipleCheckboxInput(
-  props: FormMultipleCheckboxInputProps
-) {
-  const [values, setValues] = useState<string[]>([]);
-
-  function hasValueHandler(isChecked: boolean, value: string) {
-    if (isChecked) {
-      setValues([...values, value]);
-    } else if (!isChecked) {
-      const index = values.indexOf(value);
-
-      if (index !== -1) {
-        setValues((prev) => prev.filter((v) => v !== value));
-      }
-    }
-  }
-
-  const isRequired =
-    props.required === "true" && values.length === 0 ? "true" : "false";
-
-  return (
-    <div
-      className={`${
-        props.spanTwo === "true" && "col-span-2"
-      } flex flex-col gap-5 w-full items-start justify-start`}
-    >
-      <div className="">
-        {props.label && <GenerateTexts texts={props.label} />}
-      </div>
-      <div
-        className={`${props.spanTwo === "true" ? "grid md:grid-cols-2 gap-x-5" : "flex flex-col"} gap-2 w-full`}
-      >
-        {props.checkboxes.map((item, i) => {
-          return (
-            <FormCheckboxInput
-              key={item.value + item.label}
-              {...item}
-              required={isRequired}
-              onChange={hasValueHandler}
-              name={props.value}
-            />
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-type FormTemplateProps = {
-  blockType: "formtemplate";
-  template: "waitlist" | "email-collection";
-};
-
-function FormTemplate(props: FormTemplateProps) {
-  switch (props.template) {
-    case "email-collection":
-      return <FormEmailCollectionTemplate />;
-
-    case "waitlist":
-      return <FormWaitlistTemplate />;
-  }
-}
+import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import Image from "next/image";
+import {
+  FormCheckboxInput,
+  FormCheckboxInputProps,
+} from "./_components/FormCheckboxInput";
+import {
+  FormMultipleCheckboxInput,
+  FormMultipleCheckboxInputProps,
+} from "./_components/FormMultipleCheckboxInput";
+import {
+  FormSelectInput,
+  FormSelectInputProps,
+} from "./_components/FormSelectInput";
+import {
+  FormTemplate,
+  FormTemplateProps,
+  FormTemplates,
+} from "./_components/FormTemplate";
+import {
+  FormTextareaInput,
+  FormTextareaInputProps,
+} from "./_components/FormTextareaInput";
+import { FormTextInput, FormTextInputProps } from "./_components/FormTextInput";
+import { EmailSegments } from "shared/src/email";
+import { apis } from "@/app/_api/_apis";
 
 export type FormSectionProps = {
   texts?: TextProps[];
@@ -265,6 +55,7 @@ export default function FormSection(props: FormSectionProps) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
+  let template: FormTemplates | undefined = undefined;
 
   const fields = props.fields.map((field, i) => {
     switch (field.blockType) {
@@ -277,6 +68,7 @@ export default function FormSection(props: FormSectionProps) {
       case "formmultiplecheckboxinput":
         return <FormMultipleCheckboxInput key={i} {...field} />;
       case "formtemplate":
+        template = field.template;
         return <FormTemplate key={i} {...field} />;
       case "formtextarea":
         return <FormTextareaInput key={i} {...field} />;
@@ -292,20 +84,63 @@ export default function FormSection(props: FormSectionProps) {
   async function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
     setIsSuccess(false);
     setIsError(false);
-
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    try {
-      const response = await axios.post(
-        props.webhook,
-        formDataToObject(formData)
-      );
+    const formData = formDataToObject(new FormData(e.currentTarget));
+    let success = false;
 
-      if (response.status === 200) {
+    try {
+      if (!template) {
+        const response = await fetch(props.webhook, {
+          method: "post",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          success = true;
+          return;
+        }
+
+        throw Error("Template not provided, webhook failed");
+      } else {
+        let segment: EmailSegments = "General";
+
+        if (template === "email-collection") {
+          segment = "RooNewsletter";
+        }
+
+        if (template === "waitlist") {
+          segment = "RooWaitlist";
+        }
+
+        const response =
+          await apis.client.addContactFromLandingPageFormTemplate({
+            email: formData.email,
+            segment: segment,
+            ...formData,
+          });
+
+        console.log("hello", response);
+
+        if (response.success) {
+          success = true;
+        } else {
+          throw Error("Request has failed");
+        }
+      }
+
+      if (success) {
         setIsSuccess(true);
         formRef.current?.reset();
+        return;
+      } else {
+        throw Error("Contact not added");
       }
-    } catch {
+    } catch (e) {
+      console.log(e);
       setIsError(true);
     }
   }

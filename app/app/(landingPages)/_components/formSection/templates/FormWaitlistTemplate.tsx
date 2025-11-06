@@ -1,10 +1,8 @@
 import React from "react";
-import {
-  FormCheckboxInput,
-  FormMultipleCheckboxInput,
-  FormSelectInput,
-  FormTextInput,
-} from "../FormSection";
+import { FormTextInput } from "../_components/FormTextInput";
+import { FormMultipleCheckboxInput } from "../_components/FormMultipleCheckboxInput";
+import { FormSelectInput } from "../_components/FormSelectInput";
+import { FormCheckboxInput } from "../_components/FormCheckboxInput";
 
 type Props = {};
 
@@ -14,7 +12,7 @@ export default function FormWaitlistTemplate({}: Props) {
       <FormTextInput
         blockType="formtextinput"
         label="Jméno"
-        name="name"
+        name="firstName"
         placeholder="Jan"
         spanTwo="false"
         type="text"
@@ -23,7 +21,7 @@ export default function FormWaitlistTemplate({}: Props) {
       <FormTextInput
         blockType="formtextinput"
         label="Příjmení"
-        name="surname"
+        name="lastName"
         placeholder="Novák"
         spanTwo="false"
         type="text"

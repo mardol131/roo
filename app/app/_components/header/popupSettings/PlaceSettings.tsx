@@ -10,7 +10,7 @@ type Props = {};
 export default function PlaceSettings({}: Props) {
   const dispatch = useAppDispatch();
   function nullHeaderSettings() {
-    dispatch(headerFilterSlice.actions.changeSettings(null));
+    dispatch(headerFilterSlice.actions.changeHeaderSettings(null));
   }
 
   const [showRegions, setShowRegions] = useState(false);

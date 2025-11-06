@@ -134,7 +134,7 @@ export function IconText({ text, iconStyles, children }: IconTextType) {
       </div>
       <p
         style={{ color: iconStyles.color }}
-        className="break-words font-semibold capitalize text-sm"
+        className="wrap-break-words font-semibold capitalize text-sm"
       >
         {text}
       </p>
@@ -145,7 +145,7 @@ export function IconText({ text, iconStyles, children }: IconTextType) {
 export default function EventTypeSettings({}: Props) {
   const dispatch = useAppDispatch();
   function nullHeaderSettings() {
-    dispatch(headerFilterSlice.actions.changeSettings(null));
+    dispatch(headerFilterSlice.actions.changeHeaderSettings(null));
   }
 
   return (

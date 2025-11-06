@@ -17,7 +17,7 @@ export default function HeaderDesktop() {
   const dispatch = useAppDispatch();
 
   function closeSettingsHandler() {
-    dispatch(headerFilterSlice.actions.changeSettings(null));
+    dispatch(headerFilterSlice.actions.changeHeaderSettings(null));
   }
 
   const headerRef = useRef(null);
