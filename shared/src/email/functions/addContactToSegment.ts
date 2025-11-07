@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { emailSegments, EmailSegments } from "../types/segments";
+import { emailSegments, EmailSegments } from "../types/types";
 
 type AddContactWithEmail = {
   email: string;

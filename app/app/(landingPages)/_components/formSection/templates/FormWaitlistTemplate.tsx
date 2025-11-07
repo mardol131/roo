@@ -48,7 +48,7 @@ export default function FormWaitlistTemplate({}: Props) {
       <FormTextInput
         blockType="formtextinput"
         label="Telefon"
-        name="Phone"
+        name="phone"
         placeholder="777 777 777"
         spanTwo="false"
         type="phone"
@@ -112,7 +112,7 @@ export default function FormWaitlistTemplate({}: Props) {
             ],
           },
         ]}
-        value="service"
+        value="services"
       />
       <FormMultipleCheckboxInput
         blockType="formmultiplecheckboxinput"
@@ -163,7 +163,7 @@ export default function FormWaitlistTemplate({}: Props) {
             ],
           },
         ]}
-        value="organizer"
+        value="companyType"
       />
       <FormSelectInput
         blockType="formselectinput"
@@ -183,7 +183,8 @@ export default function FormWaitlistTemplate({}: Props) {
       />
       <FormCheckboxInput
         blockType="formcheckboxinput"
-        value="gdpr"
+        value="true"
+        name="gdpr"
         spanTwo="true"
         required="true"
         label={[
@@ -196,7 +197,8 @@ export default function FormWaitlistTemplate({}: Props) {
       />
       <FormCheckboxInput
         blockType="formcheckboxinput"
-        value="marketing"
+        value="true"
+        name="marketing"
         spanTwo="true"
         required="false"
         label={[

@@ -1,2 +1,3 @@
 export { resend } from "./resend";
-export * from "./types/segments";
+export * from "./types/types";
+export * from "./templates/_emailTemplateList";

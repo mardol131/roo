@@ -1,13 +1,34 @@
 import { Resend } from "resend";
-import { addContactToSegment } from "./addContactToSegment";
 export async function subscribeContact(props) {
     try {
         const resend = new Resend(process.env.RESEND_API_KEY);
         const { email, firstName, lastName, segment, ...rest } = props;
-        let propertyPairs = {};
-        if (rest) {
+        let propertyPairs = {
+            message: null,
+            countryCode: null,
+            marketing: null,
+            gdpr: null,
+            reference: null,
+            companyType: null,
+            services: null,
+            phone: null,
+            web: null,
+            company: null,
+        };
+        if (rest && (segment === "RooContact" || segment === "RooWaitlist")) {
             for (const [key, value] of Object.entries(rest)) {
-                propertyPairs[key] = JSON.stringify(value);
+                const keyType = key;
+                if (key in propertyPairs) {
+                    if (Array.isArray(value)) {
+                        propertyPairs[keyType] = value.join(",");
+                    }
+                    else if (typeof value !== "string") {
+                        propertyPairs[keyType] = JSON.stringify(value);
+                    }
+                    else {
+                        propertyPairs[keyType] = value;
+                    }
+                }
             }
         }
         const response = await resend.contacts.create({
@@ -17,13 +38,7 @@ export async function subscribeContact(props) {
             properties: propertyPairs,
         });
         const contactId = response.data?.id;
-        if (contactId) {
-            await addContactToSegment({ contactId, segment });
-        }
-        else {
-            await addContactToSegment({ email, segment });
-        }
-        return { id: contactId };
+        return response;
     }
     catch (e) {
         if (e instanceof Error)

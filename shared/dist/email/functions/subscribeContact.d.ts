@@ -1,4 +1,4 @@
-import { EmailSegments } from "../types/segments";
+import { EmailSegments } from "../types/types";
 type SubscribeContactProps = {
     email: string;
     segment: EmailSegments;
@@ -6,7 +6,5 @@ type SubscribeContactProps = {
     lastName?: string;
     [key: string]: any;
 };
-export declare function subscribeContact(props: SubscribeContactProps): Promise<{
-    id: string | undefined;
-}>;
+export declare function subscribeContact(props: SubscribeContactProps): Promise<import("resend").CreateContactResponse>;
 export {};

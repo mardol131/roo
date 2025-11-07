@@ -4,48 +4,55 @@ import {
   EmailTemplateListType,
 } from "../templates/_emailTemplateList";
 
-type SendEmailBase = {
+export type SendEmailBase = {
   from: string;
   to: string[];
   subject: string;
   replyTo?: string;
 };
 
-type SendEmailHtml = SendEmailBase & {
-  html: string;
+export type ContactClientSideTemplate = {
+  templateData: {
+    templateId: EmailTemplateListType;
+    variables?: Record<string, string | number> | undefined;
+  };
 };
 
-type SendEmailTemplate = SendEmailBase & {
-  template: EmailTemplateListType;
+export type ContactRooSideTemplate = {
+  templateData: {
+    templateId: EmailTemplateListType;
+    variables?: Record<string, string | number> | undefined;
+  };
 };
 
-export type SendEmailProps = SendEmailHtml | SendEmailTemplate;
+export type WaitlistTemplate = {
+  templateData: {
+    templateId: EmailTemplateListType;
+    variables?: Record<string, string | number> | undefined;
+  };
+};
+
+export type NewsletterTemplate = {
+  templateData: {
+    templateId: "subscribe-to-newsletter";
+    variables: { heading: string };
+  };
+};
+
+export type SendEmailProps = SendEmailBase & ContactClientSideTemplate;
 
 export async function sendEmail(props: SendEmailProps) {
   const resend = new Resend(process.env.RESEND_API_KEY);
 
-  const isHtmlEmail = "html" in props;
+  const template = emailTemplateList[props.templateData.templateId];
 
-  let html = "";
-
-  if (isHtmlEmail) {
-    html = props.html;
-  } else {
-    const getTemplate = emailTemplateList[props.template];
-    html = getTemplate();
-  }
-
-  const { data, error } = await resend.emails.send({
+  const response = await resend.emails.send({
     from: props.from,
     to: props.to,
     subject: props.subject,
-    html: html,
+    template: { id: template, variables: props.templateData.variables },
     replyTo: props.replyTo,
   });
 
-  if (error) {
-    return console.error({ error });
-  }
-
-  console.log({ data });
+  return response;
 }

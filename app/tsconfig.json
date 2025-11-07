@@ -21,8 +21,7 @@
     ],
     "paths": {
       "@/*": ["app/*"],
-      "@public/*": ["public/*"],
-      "@roo/shared/*": ["../shared/*"]
+      "@public/*": ["public/*"]
     }
   },
   "references": [{ "path": "../shared" }],

@@ -6,3 +6,15 @@ export const emailSegments = {
 };
 
 export type EmailSegments = keyof typeof emailSegments;
+
+export type ResendContactProperties =
+  | "countryCode"
+  | "marketing"
+  | "gdpr"
+  | "reference"
+  | "companyType"
+  | "services"
+  | "phone"
+  | "web"
+  | "message"
+  | "company";

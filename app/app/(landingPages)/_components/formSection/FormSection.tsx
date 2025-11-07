@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useCallback, useMemo, useRef, useState } from "react";
 
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
+import { apis } from "@/app/_api/_apis";
 import Button, { ButtonProps } from "@/app/_components/atoms/Button";
 import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
@@ -11,6 +12,7 @@ import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
+import { EmailSegments } from "shared/src/email";
 import {
   FormCheckboxInput,
   FormCheckboxInputProps,
@@ -33,8 +35,6 @@ import {
   FormTextareaInputProps,
 } from "./_components/FormTextareaInput";
 import { FormTextInput, FormTextInputProps } from "./_components/FormTextInput";
-import { EmailSegments } from "shared/src/email";
-import { apis } from "@/app/_api/_apis";
 
 export type FormSectionProps = {
   texts?: TextProps[];
@@ -57,54 +57,49 @@ export default function FormSection(props: FormSectionProps) {
   const formRef = useRef<HTMLFormElement | null>(null);
   let template: FormTemplates | undefined = undefined;
 
-  const fields = props.fields.map((field, i) => {
-    switch (field.blockType) {
-      case "formtextinput":
-        return <FormTextInput key={i} {...field} />;
-      case "formselectinput":
-        return <FormSelectInput key={i} {...field} />;
-      case "formcheckboxinput":
-        return <FormCheckboxInput key={i} {...field} />;
-      case "formmultiplecheckboxinput":
-        return <FormMultipleCheckboxInput key={i} {...field} />;
-      case "formtemplate":
-        template = field.template;
-        return <FormTemplate key={i} {...field} />;
-      case "formtextarea":
-        return <FormTextareaInput key={i} {...field} />;
-      default:
-        return null;
-    }
-  });
+  const { fields, overlay } = useMemo(() => {
+    const fields = props.fields.map((field, i) => {
+      switch (field.blockType) {
+        case "formtextinput":
+          return <FormTextInput key={i} {...field} />;
+        case "formselectinput":
+          return <FormSelectInput key={i} {...field} />;
+        case "formcheckboxinput":
+          return <FormCheckboxInput key={i} {...field} />;
+        case "formmultiplecheckboxinput":
+          return <FormMultipleCheckboxInput key={i} {...field} />;
+        case "formtemplate":
+          template = field.template;
+          return <FormTemplate key={i} {...field} />;
+        case "formtextarea":
+          return <FormTextareaInput key={i} {...field} />;
+        default:
+          return null;
+      }
+    });
 
-  const overlay =
-    props.overlay?.overlayColor &&
-    colorsAndGradients[props.overlay.overlayColor];
+    const overlay =
+      props.overlay?.overlayColor &&
+      colorsAndGradients[props.overlay.overlayColor];
 
-  async function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
-    setIsSuccess(false);
-    setIsError(false);
-    e.preventDefault();
-    const formData = formDataToObject(new FormData(e.currentTarget));
-    let success = false;
+    return { fields, overlay };
+  }, [props.fields, props.overlay]);
 
-    try {
+  const onSubmitHandler = useCallback(
+    async (e: FormEvent<HTMLFormElement>) => {
+      setIsSuccess(false);
+      setIsError(false);
+      e.preventDefault();
+      const formData = formDataToObject(new FormData(e.currentTarget));
+      let success = false;
+
       if (!template) {
-        const response = await fetch(props.webhook, {
-          method: "post",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        const response = await apis.general.apiPost(props.webhook, formData);
 
         if (response.ok) {
           success = true;
           return;
         }
-
-        throw Error("Template not provided, webhook failed");
       } else {
         let segment: EmailSegments = "General";
 
@@ -116,19 +111,14 @@ export default function FormSection(props: FormSectionProps) {
           segment = "RooWaitlist";
         }
 
-        const response =
-          await apis.client.addContactFromLandingPageFormTemplate({
-            email: formData.email,
-            segment: segment,
-            ...formData,
-          });
-
-        console.log("hello", response);
+        const response = await apis.emailing.formTemplateSubmit({
+          email: formData.email,
+          segment: segment,
+          ...formData,
+        });
 
         if (response.success) {
           success = true;
-        } else {
-          throw Error("Request has failed");
         }
       }
 
@@ -136,14 +126,11 @@ export default function FormSection(props: FormSectionProps) {
         setIsSuccess(true);
         formRef.current?.reset();
         return;
-      } else {
-        throw Error("Contact not added");
       }
-    } catch (e) {
-      console.log(e);
       setIsError(true);
-    }
-  }
+    },
+    [isSuccess, isError]
+  );
 
   return (
     <LandingSectionWrapper>

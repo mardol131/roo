@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { emailSegments } from "../types/segments";
+import { emailSegments } from "../types/types";
 export async function addContactToSegment(props) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     let response;

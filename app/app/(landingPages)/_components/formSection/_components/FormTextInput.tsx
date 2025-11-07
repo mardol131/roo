@@ -20,13 +20,17 @@ export function FormTextInput(props: FormTextInputProps) {
     <div
       className={`${
         props.spanTwo === "true" && "col-span-2"
-      } border-2 border-borderLight p-3 flex flex-col rounded-medium`}
+      } border-2 border-borderLight w-full p-3 flex flex-col rounded-medium`}
     >
       <label className="text-primary font-semibold">{props.label}</label>
       <div className="flex items-center justify-start gap-2">
         {props.type === "phone" && (
           <>
-            <select name="code" id="code" className="font-semibold">
+            <select
+              name="countryCode"
+              id="countryCode"
+              className="font-semibold"
+            >
               <option value="+420">+420</option>
               <option value="+421">+421</option>
             </select>
@@ -39,6 +43,7 @@ export function FormTextInput(props: FormTextInputProps) {
           required={props.required === "true" || false}
           defaultValue=""
           onChange={changeHandler}
+          className="w-full"
         ></input>
       </div>
     </div>

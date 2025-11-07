@@ -9,6 +9,7 @@ import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/fo
 import { FormTextInput } from "../../_components/formSection/_components/FormTextInput";
 import { FormTextareaInput } from "../../_components/formSection/_components/FormTextareaInput";
 import { FormCheckboxInput } from "../../_components/formSection/_components/FormCheckboxInput";
+import { apis } from "@/app/_api/_apis";
 
 type Props = {
   webhook: string;
@@ -22,20 +23,19 @@ export default function ContactForm(props: Props) {
   async function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
     setIsSuccess(false);
     setIsError(false);
-
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    try {
-      const response = await axios.post(
-        props.webhook,
-        formDataToObject(formData)
-      );
 
-      if (response.status === 200) {
-        setIsSuccess(true);
-        formRef.current?.reset();
-      }
-    } catch {
+    const formData = formDataToObject(new FormData(e.currentTarget));
+    const response = await apis.emailing.formTemplateSubmit({
+      email: formData.email,
+      segment: "RooContact",
+      ...formData,
+    });
+
+    if (response.success) {
+      setIsSuccess(true);
+      formRef.current?.reset();
+    } else {
       setIsError(true);
     }
   }
@@ -54,7 +54,7 @@ export default function ContactForm(props: Props) {
         placeholder="Jan"
         type="text"
         blockType="formtextinput"
-        name="name"
+        name="firstName"
         required="true"
       />
       <FormTextInput
@@ -62,7 +62,7 @@ export default function ContactForm(props: Props) {
         placeholder="Novák"
         type="text"
         blockType="formtextinput"
-        name="surname"
+        name="lastName"
         required="true"
       />
       <FormTextInput
@@ -75,8 +75,8 @@ export default function ContactForm(props: Props) {
       />
       <FormTextInput
         label="Telefon"
-        placeholder="+420 777 777 777"
-        type="text"
+        placeholder="777 777 777"
+        type="phone"
         blockType="formtextinput"
         name="phone"
       />
@@ -107,8 +107,9 @@ export default function ContactForm(props: Props) {
         ]}
         blockType="formcheckboxinput"
         name="gdpr"
-        value="gdpr"
+        value="true"
         spanTwo="true"
+        required="true"
       />
       <div className="col-span-2 flex flex-col justify-center items-center gap-4">
         <Button
@@ -122,7 +123,7 @@ export default function ContactForm(props: Props) {
         />
         {isSuccess && (
           <Text
-            text="Děkujeme!"
+            text="Děkujeme, vaší odpovědi se budeme co nejdříve věnovat!"
             level="paragraph3"
             fontWeight="lg"
             color="success"

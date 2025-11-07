@@ -1,7 +1,11 @@
-import { addContactFromLandingPageFormTemplate } from "./client";
+import { formTemplateSubmit } from "./emailing";
+import { apiPost } from "./general";
 
 export const apis = {
-  client: {
-    addContactFromLandingPageFormTemplate,
+  emailing: {
+    formTemplateSubmit,
+  },
+  general: {
+    apiPost,
   },
 };

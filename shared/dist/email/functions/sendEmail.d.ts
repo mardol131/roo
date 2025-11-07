@@ -1,16 +1,35 @@
 import { EmailTemplateListType } from "../templates/_emailTemplateList";
-type SendEmailBase = {
+export type SendEmailBase = {
     from: string;
     to: string[];
     subject: string;
     replyTo?: string;
 };
-type SendEmailHtml = SendEmailBase & {
-    html: string;
+export type ContactClientSideTemplate = {
+    templateData: {
+        templateId: EmailTemplateListType;
+        variables?: Record<string, string | number> | undefined;
+    };
 };
-type SendEmailTemplate = SendEmailBase & {
-    template: EmailTemplateListType;
+export type ContactRooSideTemplate = {
+    templateData: {
+        templateId: EmailTemplateListType;
+        variables?: Record<string, string | number> | undefined;
+    };
 };
-export type SendEmailProps = SendEmailHtml | SendEmailTemplate;
-export declare function sendEmail(props: SendEmailProps): Promise<void>;
-export {};
+export type WaitlistTemplate = {
+    templateData: {
+        templateId: EmailTemplateListType;
+        variables?: Record<string, string | number> | undefined;
+    };
+};
+export type NewsletterTemplate = {
+    templateData: {
+        templateId: "subscribe-to-newsletter";
+        variables: {
+            heading: string;
+        };
+    };
+};
+export type SendEmailProps = SendEmailBase & ContactClientSideTemplate;
+export declare function sendEmail(props: SendEmailProps): Promise<import("resend").CreateEmailResponse>;

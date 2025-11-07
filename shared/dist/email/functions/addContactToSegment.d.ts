@@ -1,4 +1,4 @@
-import { EmailSegments } from "../types/segments";
+import { EmailSegments } from "../types/types";
 type AddContactWithEmail = {
     email: string;
     contactId?: string;

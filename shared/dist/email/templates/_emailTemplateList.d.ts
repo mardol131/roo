@@ -1,5 +1,7 @@
-import { registrationSuccessfulEmailTemplate } from "./registrationSuccessfulTemplate";
 export declare const emailTemplateList: {
-    registrationSuccessfulEmailTemplate: typeof registrationSuccessfulEmailTemplate;
+    "contact-from-client-side": string;
+    "contact-form-roo-side": string;
+    "subscribe-to-newsletter": string;
+    "subscribe-to-waitlist": string;
 };
 export type EmailTemplateListType = keyof typeof emailTemplateList;

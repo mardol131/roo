@@ -1,6 +1,5 @@
 import { Resend } from "resend";
-import { EmailSegments } from "../types/segments";
-import { addContactToSegment } from "./addContactToSegment";
+import { EmailSegments, ResendContactProperties } from "../types/types";
 
 type SubscribeContactProps = {
   email: string;
@@ -15,14 +14,44 @@ export async function subscribeContact(props: SubscribeContactProps) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { email, firstName, lastName, segment, ...rest } = props;
 
-    let propertyPairs: { [key: string]: any } = {};
+    let propertyPairs: {
+      countryCode: string | null;
+      marketing: string | null;
+      gdpr: string | null;
+      reference: string | null;
+      companyType: string | null;
+      services: string | null;
+      phone: string | null;
+      web: string | null;
+      company: string | null;
+      message: string | null;
+    } = {
+      message: null,
+      countryCode: null,
+      marketing: null,
+      gdpr: null,
+      reference: null,
+      companyType: null,
+      services: null,
+      phone: null,
+      web: null,
+      company: null,
+    };
 
-    if (rest) {
+    if (rest && (segment === "RooContact" || segment === "RooWaitlist")) {
       for (const [key, value] of Object.entries(rest)) {
-        propertyPairs[key] = JSON.stringify(value);
+        const keyType = key as ResendContactProperties;
+        if (key in propertyPairs) {
+          if (Array.isArray(value)) {
+            propertyPairs[keyType] = value.join(",");
+          } else if (typeof value !== "string") {
+            propertyPairs[keyType] = JSON.stringify(value);
+          } else {
+            propertyPairs[keyType] = value;
+          }
+        }
       }
     }
-
     const response = await resend.contacts.create({
       email: email,
       firstName: firstName,
@@ -32,13 +61,7 @@ export async function subscribeContact(props: SubscribeContactProps) {
 
     const contactId = response.data?.id;
 
-    if (contactId) {
-      await addContactToSegment({ contactId, segment });
-    } else {
-      await addContactToSegment({ email, segment });
-    }
-
-    return { id: contactId };
+    return response;
   } catch (e) {
     if (e instanceof Error) throw e;
     throw new Error(String(e));
