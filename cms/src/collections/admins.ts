@@ -50,7 +50,7 @@ export const Admins: CollectionConfig = {
       name: 'role',
       type: 'select',
       options: getOptionsFromObject(adminRoles),
-      defaultValue: 'user',
+      defaultValue: 'editor',
       saveToJWT: true,
       access: {
         update: ({ req }) => req.user?.role === 'admin' || req.user?.role === 'superadmin',
