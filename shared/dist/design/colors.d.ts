@@ -77,7 +77,9 @@ export declare const textColor: {
     success: string;
     warning: string;
     danger: string;
-    textLight: string;
+    placeholder: string;
+    lightOne: string;
+    lightTwo: string;
     primarySecondaryOpac: string;
     primaryTertiaryOpac: string;
     secondaryTertiaryOpac: string;

@@ -9,7 +9,7 @@ import AuthModalPasswordResetMode from "./modes/AuthModalPasswordReset/AuthModal
 
 type Props = {};
 
-export default function AuthModal({}: Props) {
+export default function LoginModal({}: Props) {
   const dispatch = useAppDispatch();
   const { authModalOpen, authModalMode } = useAppSelector(
     (store) => store.authSlice

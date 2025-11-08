@@ -15,17 +15,25 @@ export default function page({}: Props) {
         <form className="max-w-150 w-full flex flex-col items-center gap-6 border-borderLight p-10 rounded-xl">
           <Text
             level="label4"
-            text="Obnovení hesla"
+            text="Vytvořte nové heslo"
             color="primary"
             fontWeight="lg"
           />
 
           <div className="w-full flex flex-col gap-2">
             <FormTextInput
-              label="Email"
-              placeholder="email@email.com"
-              type="email"
-              name="email"
+              label="Nové heslo"
+              placeholder="****"
+              type="password"
+              name="password"
+              className="border-2 rounded-md border-borderLight w-full"
+              required={true}
+            />
+            <FormTextInput
+              label="Nové heslo znovu"
+              placeholder="****"
+              type="password"
+              name="passwordCheck"
               className="border-2 rounded-md border-borderLight w-full"
               required={true}
             />

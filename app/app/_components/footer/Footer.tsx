@@ -30,7 +30,7 @@ export default function Footer({}: Props) {
   }
 
   return (
-    <div className="border-t border-borderLight px-10 py-5 flex justify-center items-center">
+    <div className="bg-white bottom-0 border-t border-borderLight px-10 py-5 flex justify-center items-center">
       <div className="max-w-contentWrapper md:grid grid-cols-[2fr_5fr_2fr] flex flex-col justify-center gap-3 items-center w-full">
         <div className="flex md:flex-row flex-col text-sm items-center md:gap-5 gap-2 justify-center text-center md:text-start">
           <Image

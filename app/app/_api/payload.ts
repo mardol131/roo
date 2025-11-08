@@ -61,6 +61,25 @@ export async function userLogin({ email, password }: UserLoginprops) {
   return json;
 }
 
+export async function userSignup({ email, password }: UserLoginprops) {
+  const query = "/users";
+
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_CMS_URL}/api${query}`,
+    {
+      method: "post",
+      mode: "cors",
+      body: JSON.stringify({ email, password }),
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+
+  const json = await response.json();
+
+  return json;
+}
+
 export interface JWTPayload {
   id: string; // MongoDB ObjectId nebo string
   collection: string; // název kolekce, např. 'users'

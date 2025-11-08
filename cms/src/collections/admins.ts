@@ -1,13 +1,12 @@
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
-import type { CollectionConfig, PayloadRequest } from 'payload'
-import payload from 'payload'
+import { whoHasAccess } from '@/functions/isAdminOrCreatedBy'
+import { adminRoles } from '@roo/shared/auth/users'
 import dotenv from 'dotenv'
-import { User } from '@/payload-types'
-import { userRoles } from '@roo/shared/auth/users'
+import type { CollectionConfig } from 'payload'
 dotenv.config()
 
-export const Users: CollectionConfig = {
-  slug: 'users',
+export const Admins: CollectionConfig = {
+  slug: 'admins',
   admin: {
     useAsTitle: 'email',
   },
@@ -41,41 +40,21 @@ export const Users: CollectionConfig = {
     },
   },
   access: {
-    create: () => true,
-    read: ({ req }) => req.user?.role === 'admin',
-    update: ({ req }) => req.user?.role === 'admin',
-    delete: ({ req }) => req.user?.role === 'admin',
+    create: whoHasAccess(['admin']),
+    read: whoHasAccess(['admin']),
+    update: whoHasAccess(['admin']),
+    delete: whoHasAccess(['admin']),
   },
   fields: [
     {
       name: 'role',
       type: 'select',
-      options: getOptionsFromObject(userRoles),
+      options: getOptionsFromObject(adminRoles),
       defaultValue: 'user',
       saveToJWT: true,
-    },
-    {
-      name: 'isAdvertiser',
-      type: 'checkbox',
-      defaultValue: false,
-    },
-
-    // Email added by default
-    // Add more fields as needed
-  ],
-
-  hooks: {
-    beforeValidate: [
-      ({ data, req }) => {
-        const isAdmin = req.user?.role === 'admin'
-        if (!data) return
-
-        if (!isAdmin) {
-          data.role = 'user'
-        }
-
-        return data
+      access: {
+        update: whoHasAccess(['admin']),
       },
-    ],
-  },
+    },
+  ],
 }

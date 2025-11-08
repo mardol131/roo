@@ -1,7 +1,5 @@
-import { RolesType } from '@roo/shared/auth/users'
+import { AdminRolesType, RolesType } from '@roo/shared/auth/users'
 import { AccessArgs } from 'payload'
-
-type WhoHasAccessProps = AccessArgs & { allowedRoles: RolesType[] }
 
 export const isAdminOrCreatedBy = ({ req: { user } }: AccessArgs) => {
   // Scenario #1 - Check if user has the 'admin' role
@@ -24,20 +22,13 @@ export const isAdminOrCreatedBy = ({ req: { user } }: AccessArgs) => {
 }
 
 export const whoHasAccess =
-  (allowedRoles: RolesType[]) =>
+  (allowedRoles: AdminRolesType[]) =>
   ({ req: { user } }: AccessArgs) => {
-    const isAllowed = allowedRoles.some((role) => role === user?.role)
+    const isAllowed =
+      allowedRoles.some((role) => role === user?.role) || user?.role === 'superadmin'
 
     if (isAllowed) {
       return true
-    }
-
-    if (user) {
-      return {
-        createdBy: {
-          equals: user.id,
-        },
-      }
     }
 
     return false

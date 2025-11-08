@@ -2,20 +2,21 @@ import { GenerateTexts } from "@/app/_components/atoms/Text";
 import { TextBlockProps } from "../../../(landingPages)/_components/textSection/TextSection";
 
 export type FormCheckboxInputProps = {
-  blockType: "formcheckboxinput";
+  blockType?: "formcheckboxinput";
   label: TextBlockProps[];
   value: string;
   spanTwo?: "true" | "false";
-  required?: "true" | "false";
+  required?: "true" | "false" | boolean;
   onChange?: (isChecked: boolean, value: string) => void;
   name?: string;
   id?: string;
+  className?: string;
 };
 
 export function FormCheckboxInput(props: FormCheckboxInputProps) {
   return (
     <div
-      className={`${props.spanTwo === "true" && "col-span-2"} cursor-pointer`}
+      className={` ${props.spanTwo === "true" && "col-span-2"} cursor-pointer ${props.className}`}
     >
       <label className="text-textMedium flex items-center gap-10  cursor-pointer font-semibold">
         <input
@@ -29,7 +30,9 @@ export function FormCheckboxInput(props: FormCheckboxInputProps) {
           id={props.id || props.name || props.value}
           name={props.name || props.value}
           value={props.value}
-          required={props.required === "true" || false}
+          required={
+            props.required === "true" || props.required === true || false
+          }
         />
         {props.label && <GenerateTexts texts={props.label} />}
       </label>

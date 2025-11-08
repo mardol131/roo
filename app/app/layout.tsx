@@ -6,7 +6,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import Footer from "./_components/footer/Footer";
 import Header from "./_components/header/Header";
 import StoreProvider from "./_redux/StoreProvider";
-import AuthModal from "./_components/molecules/modals/AuthModal/AuthModal";
+import LoginModal from "./_components/molecules/modals/AuthModal/LoginModal";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,15 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="cs">
+    <html lang="cs" className="h-full">
       <GoogleTagManager gtmId="" />
-      <body className="min-h-screen h-full flex flex-col">
-        <StoreProvider>
-          <Header />
-          <AuthModal />
-        </StoreProvider>
-        <main className="flex-1 flex flex-col h-full">{children}</main>
-        <Footer />
+      <body className="h-full">
+        <div className="min-h-screen h-full flex flex-col">
+          <StoreProvider>
+            <Header />
+            <LoginModal />
+            <main className="flex-1 flex flex-col">{children}</main>
+            <Footer />
+          </StoreProvider>
+        </div>
       </body>
     </html>
   );

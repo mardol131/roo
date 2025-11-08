@@ -44,17 +44,22 @@ const nextConfig: NextConfig = {
         source: "/admin/novy-dodavatel",
         destination: "/admin/new-service",
       },
-      {
-        source: "/prihlasit-se",
-        destination: "/login",
-      },
+
       {
         source: "/registrovat-se",
         destination: "/signup",
       },
       {
+        source: "/registrovat-doddavatele",
+        destination: "/signup-company",
+      },
+      {
         source: "/zapomenute-heslo",
-        destination: "/lostPassword",
+        destination: "/lost-password",
+      },
+      {
+        source: "/obnoveni-hesla",
+        destination: "/new-password",
       },
       {
         source: "/stranky/kontakt",

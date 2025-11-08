@@ -18,9 +18,8 @@ export default function ModalLayout({
   options = { clickOutsideActivatesCloseHandler: true },
 }: Props) {
   const modalRef = useRef(null);
-  if (options.clickOutsideActivatesCloseHandler) {
-    useClickOutside(modalRef, closeHandler);
-  }
+  useClickOutside(modalRef, closeHandler);
+
   return (
     <div className="z-50 bg-black/70 fixed top-0 left-0 w-full h-screen flex items-center justify-center">
       <div className="relative">

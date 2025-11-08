@@ -95,7 +95,7 @@ export default function AuthModalLoginMode({ closeModalHandler }: Props) {
         }}
         className="flex items-center justify-center"
       >
-        <div className="bg-tertiaryDark/60 text-start shadow-xl p-10 gap-5 backdrop-blur-xs rounded-lg flex flex-col items-center w-full h-full">
+        <div className="bg-black/60 text-start shadow-xl p-10 gap-5 backdrop-blur-xs rounded-lg flex flex-col items-center w-full h-full">
           <Text
             text="Tady by mohl být jakýkoliv text si jenom přeješ"
             color="white"

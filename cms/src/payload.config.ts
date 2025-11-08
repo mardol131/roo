@@ -15,6 +15,8 @@ import { Categories } from './collections/categories'
 import { Pages } from './collections/pages'
 import dotenv from 'dotenv'
 import { Media } from './collections/media'
+import { resendAdapter } from '@payloadcms/email-resend'
+import { Admins } from './collections/admins'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -29,7 +31,7 @@ if (process.env.VERCEL !== '1') {
 
 export default buildConfig({
   admin: {
-    user: Users.slug,
+    user: Admins.slug,
     importMap: {
       baseDir: path.resolve(__dirname),
     },
@@ -44,7 +46,12 @@ export default buildConfig({
       collections: ['pages'],
     },
   },
-  collections: [Users, Posts, Listings, SubListings, Places, Categories, Pages, Media],
+  email: resendAdapter({
+    defaultFromAddress: 'roo-admin@rooevent.com',
+    defaultFromName: 'Roo Admin',
+    apiKey: process.env.RESEND_API_KEY || '',
+  }),
+  collections: [Users, Posts, Listings, SubListings, Places, Categories, Pages, Media, Admins],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -59,6 +66,11 @@ export default buildConfig({
     // storage-adapter-placeholder
   ],
   cors: {
-    origins: [process.env.NEXT_PUBLIC_WEBSITE!],
+    origins: [
+      process.env.NEXT_PUBLIC_WEBSITE!,
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'http://localhost:8080',
+    ],
   },
 })

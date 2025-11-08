@@ -34,7 +34,7 @@ export function FormTextInput(props: FormTextInputProps) {
     }
   }
   return (
-    <div className={`${classes}  w-full p-3 flex flex-col rounded-medium`}>
+    <div className={`${classes}  w-full p-2 flex flex-col rounded-medium`}>
       <label className="text-primary font-semibold">{label}</label>
       <div className="flex items-center justify-start gap-2">
         {type === "phone" && (

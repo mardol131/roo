@@ -1,8 +1,14 @@
-export const roles = {
-  admin: "admin",
-  editor: "editor",
-  customer: "customer",
-  advertiser: "advertiser",
+export const userRoles = {
+  admin: "customer",
+  editor: "business",
 };
 
-export type RolesType = keyof typeof roles;
+export type RolesType = keyof typeof userRoles;
+
+export const adminRoles = {
+  superadmin: "superadmin",
+  admin: "admin",
+  editor: "editor",
+};
+
+export type AdminRolesType = keyof typeof adminRoles;
