@@ -1,9 +1,8 @@
+import { ACL } from '@/functions/ACL'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
-import type { CollectionConfig, PayloadRequest } from 'payload'
-import payload from 'payload'
-import dotenv from 'dotenv'
-import { User } from '@/payload-types'
 import { userRoles } from '@roo/shared/auth/users'
+import dotenv from 'dotenv'
+import type { CollectionConfig } from 'payload'
 dotenv.config()
 
 export const Users: CollectionConfig = {
@@ -42,9 +41,9 @@ export const Users: CollectionConfig = {
   },
   access: {
     create: () => true,
-    read: ({ req }) => req.user?.role === 'admin',
-    update: ({ req }) => req.user?.role === 'admin',
-    delete: ({ req }) => req.user?.role === 'admin',
+    read: ACL({ roles: ['admin'] }),
+    update: ACL({ roles: ['admin'] }),
+    delete: ACL({ roles: ['admin'] }),
   },
   fields: [
     {

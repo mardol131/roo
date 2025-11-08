@@ -1,4 +1,4 @@
-import { isAdminOrCreatedBy } from '@/functions/isAdminOrCreatedBy'
+import { isAdminOrCreatedBy } from '@/functions/ACL'
 import { isLoggedIn } from '@/functions/isLoggedIn'
 import type { CollectionConfig } from 'payload'
 

@@ -11,7 +11,7 @@ import type { CollectionConfig } from 'payload'
 import { TextSectionBlock } from '../blocks/textSection/textSection'
 import { getButtonField, getImageField } from '../blocks/_global/fields'
 import { getImageSrc } from '@roo/shared/functions/media/getImageSrc'
-import { isAdminOrCreatedBy, whoHasAccess } from '@/functions/isAdminOrCreatedBy'
+import { ACL } from '@/functions/ACL'
 import { StepsSectionBlock } from '@/blocks/stepsSection/stepsSection'
 
 export const Pages: CollectionConfig = {
@@ -199,8 +199,8 @@ export const Pages: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: whoHasAccess(['admin', 'editor']),
-    delete: whoHasAccess(['admin', 'editor']),
-    update: whoHasAccess(['admin', 'editor']),
+    create: ACL({ roles: ['admin'] }),
+    delete: ACL({ roles: ['admin'] }),
+    update: ACL({ roles: ['admin'] }),
   },
 }

@@ -3,7 +3,7 @@ export const userRoles = {
   editor: "business",
 };
 
-export type RolesType = keyof typeof userRoles;
+export type UserRoles = keyof typeof userRoles;
 
 export const adminRoles = {
   superadmin: "superadmin",
@@ -11,4 +11,4 @@ export const adminRoles = {
   editor: "editor",
 };
 
-export type AdminRolesType = keyof typeof adminRoles;
+export type AdminRoles = keyof typeof adminRoles;

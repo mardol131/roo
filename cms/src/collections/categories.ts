@@ -1,4 +1,4 @@
-import { isAdminOrCreatedBy } from '@/functions/isAdminOrCreatedBy'
+import { isAdminOrCreatedBy } from '@/functions/ACL'
 import type { CollectionConfig } from 'payload'
 
 export const Categories: CollectionConfig = {

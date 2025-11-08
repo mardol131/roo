@@ -1,5 +1,5 @@
+import { ACL } from '@/functions/ACL'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
-import { whoHasAccess } from '@/functions/isAdminOrCreatedBy'
 import { adminRoles } from '@roo/shared/auth/users'
 import dotenv from 'dotenv'
 import type { CollectionConfig } from 'payload'
@@ -40,10 +40,10 @@ export const Admins: CollectionConfig = {
     },
   },
   access: {
-    create: whoHasAccess(['admin']),
-    read: whoHasAccess(['admin']),
-    update: whoHasAccess(['admin']),
-    delete: whoHasAccess(['admin']),
+    create: ACL({ roles: ['admin'] }),
+    read: ACL({ roles: ['admin'] }),
+    update: ACL({ roles: ['admin'] }),
+    delete: ACL({ roles: ['admin'] }),
   },
   fields: [
     {
@@ -53,7 +53,7 @@ export const Admins: CollectionConfig = {
       defaultValue: 'user',
       saveToJWT: true,
       access: {
-        update: whoHasAccess(['admin']),
+        update: ({ req }) => req.user?.role === 'admin' || req.user?.role === 'superadmin',
       },
     },
   ],
