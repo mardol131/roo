@@ -51,6 +51,8 @@ export function FormMultipleCheckboxInput(
               required={isRequired}
               onChange={hasValueHandler}
               name={props.value}
+              id={item.id}
+              value={item.value}
             />
           );
         })}

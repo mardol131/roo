@@ -53,6 +53,10 @@ const nextConfig: NextConfig = {
         destination: "/signup",
       },
       {
+        source: "/zapomenute-heslo",
+        destination: "/lostPassword",
+      },
+      {
         source: "/stranky/kontakt",
         destination: "/pages/contact",
       },

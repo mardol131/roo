@@ -42,7 +42,7 @@ type UserLoginprops = {
   password: string;
 };
 
-export async function userLogin(data: UserLoginprops) {
+export async function userLogin({ email, password }: UserLoginprops) {
   const query = "/users/login";
 
   const response = await fetch(
@@ -50,7 +50,7 @@ export async function userLogin(data: UserLoginprops) {
     {
       method: "post",
       mode: "cors",
-      body: JSON.stringify(data),
+      body: JSON.stringify({ email, password }),
       credentials: "include",
       headers: { "Content-Type": "application/json" },
     }

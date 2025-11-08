@@ -72,6 +72,7 @@ export default function ServiceInitialDataStep({}: Props) {
                 type="text"
                 name="companyName"
                 placeholder="ROO s.r.o."
+                underline={true}
               />
               <div className="flex gap-5">
                 <AdminFormInput

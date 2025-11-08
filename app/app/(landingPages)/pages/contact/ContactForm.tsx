@@ -6,10 +6,11 @@ import Button from "@/app/_components/atoms/Button";
 import Text from "@/app/_components/atoms/Text";
 import axios from "axios";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
-import { FormTextInput } from "../../_components/formSection/_components/FormTextInput";
-import { FormTextareaInput } from "../../_components/formSection/_components/FormTextareaInput";
-import { FormCheckboxInput } from "../../_components/formSection/_components/FormCheckboxInput";
+import { FormTextInput } from "../../../_components/molecules/inputs/FormTextInput";
+import { FormTextareaInput } from "../../../_components/molecules/inputs/FormTextareaInput";
+import { FormCheckboxInput } from "../../../_components/molecules/inputs/FormCheckboxInput";
 import { apis } from "@/app/_api/_apis";
+import Loader from "@/app/_components/molecules/Loader";
 
 type Props = {
   webhook: string;
@@ -18,11 +19,13 @@ type Props = {
 export default function ContactForm(props: Props) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
 
   async function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
     setIsSuccess(false);
     setIsError(false);
+    setIsLoading(true);
     e.preventDefault();
 
     const formData = formDataToObject(new FormData(e.currentTarget));
@@ -38,6 +41,7 @@ export default function ContactForm(props: Props) {
     } else {
       setIsError(true);
     }
+    setIsLoading(false);
   }
 
   return (
@@ -101,7 +105,7 @@ export default function ContactForm(props: Props) {
           {
             blockType: "TextBlock",
             text: "Souhlasím se zpracování osobních údajů společností The Roosters s.r.o.",
-            level: "label6",
+            level: "label7",
             color: "black",
           },
         ]}
@@ -112,15 +116,19 @@ export default function ContactForm(props: Props) {
         required="true"
       />
       <div className="col-span-2 flex flex-col justify-center items-center gap-4">
-        <Button
-          text="Přidej se k nám"
-          size="xl"
-          rounding="full"
-          bgColor="primaryTertiary"
-          textColor="white"
-          type="submit"
-          disabled={isSuccess}
-        />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <Button
+            text="Přidej se k nám"
+            size="xl"
+            rounding="full"
+            bgColor="primaryTertiary"
+            textColor="white"
+            type="submit"
+            disabled={isSuccess}
+          />
+        )}
         {isSuccess && (
           <Text
             text="Děkujeme, vaší odpovědi se budeme co nejdříve věnovat!"

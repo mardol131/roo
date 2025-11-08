@@ -7,8 +7,7 @@ import SectionHeading from "@/app/_components/atoms/SectionHeading";
 type Props = {};
 
 export default async function CategorySection(props: Props) {
-  const data = await getPublicCollectionData("listings");
-  console.log(data);
+  //   const data = await getPublicCollectionData("listings");
 
   const cards = [];
   for (let i = 0; i < 5; i++) {

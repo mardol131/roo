@@ -112,7 +112,11 @@ export const textColor = {
   warning: "text-warning",
   danger: "text-danger",
 
-  textLight: "text-textLight",
+  placeholder: "text-placeholder",
+
+  lightOne: "text-lightOne",
+  lightTwo: "text-lightTwo",
+
   primarySecondaryOpac: "text-primarySecondaryOpac",
   primaryTertiaryOpac: "text-primaryTertiaryOpac",
   secondaryTertiaryOpac: "text-secondaryTertiaryOpac",

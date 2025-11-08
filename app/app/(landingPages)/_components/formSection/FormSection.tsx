@@ -16,15 +16,15 @@ import { EmailSegments } from "shared/src/email";
 import {
   FormCheckboxInput,
   FormCheckboxInputProps,
-} from "./_components/FormCheckboxInput";
+} from "../../../_components/molecules/inputs/FormCheckboxInput";
 import {
   FormMultipleCheckboxInput,
   FormMultipleCheckboxInputProps,
-} from "./_components/FormMultipleCheckboxInput";
+} from "../../../_components/molecules/inputs/FormMultipleCheckboxInput";
 import {
   FormSelectInput,
   FormSelectInputProps,
-} from "./_components/FormSelectInput";
+} from "../../../_components/molecules/inputs/FormSelectInput";
 import {
   FormTemplate,
   FormTemplateProps,
@@ -33,8 +33,12 @@ import {
 import {
   FormTextareaInput,
   FormTextareaInputProps,
-} from "./_components/FormTextareaInput";
-import { FormTextInput, FormTextInputProps } from "./_components/FormTextInput";
+} from "../../../_components/molecules/inputs/FormTextareaInput";
+import {
+  FormTextInput,
+  FormTextInputProps,
+} from "../../../_components/molecules/inputs/FormTextInput";
+import Loader from "@/app/_components/molecules/Loader";
 
 export type FormSectionProps = {
   texts?: TextProps[];
@@ -54,6 +58,7 @@ export type FormSectionProps = {
 export default function FormSection(props: FormSectionProps) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   let template: FormTemplates | undefined = undefined;
 
@@ -87,6 +92,7 @@ export default function FormSection(props: FormSectionProps) {
 
   const onSubmitHandler = useCallback(
     async (e: FormEvent<HTMLFormElement>) => {
+      setIsLoading(true);
       setIsSuccess(false);
       setIsError(false);
       e.preventDefault();
@@ -125,9 +131,10 @@ export default function FormSection(props: FormSectionProps) {
       if (success) {
         setIsSuccess(true);
         formRef.current?.reset();
-        return;
+      } else {
+        setIsError(true);
       }
-      setIsError(true);
+      setIsLoading(false);
     },
     [isSuccess, isError]
   );
@@ -165,7 +172,11 @@ export default function FormSection(props: FormSectionProps) {
               {fields}
             </div>
             <div className="flex flex-col justify-center items-center gap-4">
-              <Button {...props.button} disabled={isSuccess} type="submit" />
+              {isLoading ? (
+                <Loader />
+              ) : (
+                <Button {...props.button} disabled={isSuccess} type="submit" />
+              )}
               {isSuccess && (
                 <Text
                   text="Děkujeme!"

@@ -1,0 +1,37 @@
+"use client";
+
+import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
+import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
+import { useCallback } from "react";
+import ModalLayout from "../ModalLayout";
+import AuthModalLoginMode from "./modes/AuthModalLoginMode";
+import AuthModalPasswordResetMode from "./modes/AuthModalPasswordReset/AuthModalPasswordResetMode";
+
+type Props = {};
+
+export default function AuthModal({}: Props) {
+  const dispatch = useAppDispatch();
+  const { authModalOpen, authModalMode } = useAppSelector(
+    (store) => store.authSlice
+  );
+
+  const closeModalHandler = useCallback(() => {
+    dispatch(authSlice.actions.changeModalIsOpen({ isOpen: false }));
+  }, []);
+
+  return (
+    <>
+      {authModalOpen ? (
+        <>
+          <ModalLayout closeHandler={closeModalHandler}>
+            {authModalMode === "login" && (
+              <AuthModalLoginMode closeModalHandler={closeModalHandler} />
+            )}
+          </ModalLayout>
+        </>
+      ) : (
+        <></>
+      )}
+    </>
+  );
+}

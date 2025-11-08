@@ -11,7 +11,8 @@ export type AdminFormInputType = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   className?: string;
-  innerBorder?: boolean;
+  underline?: boolean;
+  required?: boolean;
 };
 
 export function AdminFormInput({
@@ -23,8 +24,11 @@ export function AdminFormInput({
   onChange,
   disabled,
   className,
-  innerBorder,
+  underline,
+  required,
 }: AdminFormInputType) {
+  const classes = `${underline && "border-b-2"}`;
+
   return (
     <div className={`${className} p-1 px-2 flex flex-col`}>
       <label className="text-primary font-semibold">{label}</label>
@@ -36,9 +40,8 @@ export function AdminFormInput({
         id={name}
         name={name}
         type={type}
-        className={`${
-          innerBorder && "border-b-2"
-        } pb-1 focus:outline-0 box-border border-borderLight/60 focus:border-primary/15 text-lg placeholder:text-textPlaceholder/30`}
+        required={required || false}
+        className={`${classes} pb-1 focus:outline-0 box-border border-borderLight/60 focus:border-primary/15 text-lg placeholder:text-textPlaceholder/30`}
       />
     </div>
   );

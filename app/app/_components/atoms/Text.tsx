@@ -14,6 +14,8 @@ import {
   TextLevelType,
 } from "@roo/shared/src/design/texts";
 import Link from "next/link";
+import { LucideIconsType } from "@/app/_icons/_iconsList";
+import * as LucideIcons from "lucide-react";
 
 export type TextProps = {
   level: TextLevelType;
@@ -35,11 +37,15 @@ export default function Text(props: TextProps) {
   //   const align = props.textAlign && textAlign[props.textAlign];
   const weight = props.fontWeight && fontWeight[props.fontWeight];
   font = props.font && fontType[props.font];
-  const classes = `${props.className} ${color} ${weight} ${font}`;
+  const classes = `${props.className} ${color} ${weight} ${font} animate`;
 
   const htmlSafeText = sanitizeHtml(props.text, {
-    allowedTags: ["strong", "span", "a", "br"],
-    allowedAttributes: { a: ["href", "target"], span: ["class"] },
+    allowedTags: ["strong", "span", "a", "br", "link"],
+    allowedAttributes: {
+      a: ["href", "target"],
+      span: ["class"],
+      link: ["href", "target", "class"],
+    },
   });
 
   let content = <></>;
@@ -204,7 +210,7 @@ export default function Text(props: TextProps) {
   }
 
   if (props.link) {
-    return <Link href={props.link}>{content}</Link>;
+    content = <Link href={props.link}>{content}</Link>;
   }
 
   return <>{content}</>;

@@ -46,9 +46,11 @@
 
   --color-textNormal: var(--color-gray-800);
   --color-textMedium: var(--color-gray-600);
-  --color-textPlaceholder: var(--color-gray-500);
 
-  --color-textLight: var(--color-zinc-800);
+  --color-placeholder: var(--color-gray-500);
+
+  --color-lightOne: var(--color-zinc-800);
+  --color-lightOne: var(--color-zinc-800);
 
   --color-optionsBar: var(--color-gray-50);
 
@@ -278,8 +280,8 @@
 .text-white {
   @apply text-white;
 }
-.text-textLight {
-  @apply text-textLight;
+.text-lightOne {
+  @apply text-lightOne;
 }
 .text-primarySecondaryOpac {
   @apply bg-linear-to-r from-primary/70 to-secondary/70 bg-clip-text text-transparent;

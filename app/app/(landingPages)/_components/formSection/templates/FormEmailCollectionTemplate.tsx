@@ -1,5 +1,5 @@
 import React from "react";
-import { FormTextInput } from "../_components/FormTextInput";
+import { FormTextInput } from "../../../../_components/molecules/inputs/FormTextInput";
 
 type Props = {};
 

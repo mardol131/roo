@@ -36,13 +36,6 @@ export function UpperHeader(props: UpperHeaderProps) {
     dispatch(headerFilterSlice.actions.changeHeaderSettings(type));
   }
 
-  async function login() {
-    await userLogin({
-      email: "dolezalmartin131@gmail.com",
-      password: "C9jArhOwKM8cUa",
-    });
-  }
-
   const guestCountArray = Object.values(guests);
   const guestCount = guestCountArray.reduce((acc, curr) => acc + curr, 0);
   let guestText = "host";
@@ -111,47 +104,21 @@ export function UpperHeader(props: UpperHeaderProps) {
   }
 
   return (
-    <div className="w-full max-w-contentWrapper grid grid-cols-[1fr_4fr_1fr] items-center">
-      <Link href={"/"}>
-        <Image
-          src={logo}
-          width={100}
-          height={100}
-          alt="logo"
-          className="h-10 w-auto"
-        />
-      </Link>
-      <div
-        ref={props.headerFilterRef}
-        className="rounded-full bg-white p-2 pl-10 justify-self-center text-white border border-borderLight font-semibold shadow-lg"
-      >
-        <div className="flex items-center text-nowrap gap-15">
-          <CategoryFilterButton />
-          {SettingsTypesArray.map((item) => {
-            return <FilterButton key={item} value={item} />;
-          })}
-          <Link
-            href={"/catalog"}
-            className="h-12 w-12 shrink-0 hover:scale-105 animate hover:rotate-20 bg-primaryTertiary text-white rounded-full flex items-center justify-center"
-          >
-            <FaMagnifyingGlass />
-          </Link>
-        </div>
-      </div>
-      <div className="text-center flex justify-end gap-11 items-center">
+    <div
+      ref={props.headerFilterRef}
+      className="rounded-full bg-white p-2 pl-10 justify-self-center text-white border border-borderLight font-semibold shadow-lg"
+    >
+      <div className="flex items-center text-nowrap gap-15">
+        <CategoryFilterButton />
+        {SettingsTypesArray.map((item) => {
+          return <FilterButton key={item} value={item} />;
+        })}
         <Link
-          href={"/admin"}
-          className="text-white font-semibold bg-linear-60 from-primary to-secondary hover:scale-110 ease-in-out transition-all shadow-md rounded-full py-2 px-4"
+          href={"/catalog"}
+          className="h-12 w-12 shrink-0 hover:scale-105 animate hover:rotate-20 bg-primaryTertiary text-white rounded-full flex items-center justify-center"
         >
-          Pro dodavatele
+          <FaMagnifyingGlass />
         </Link>
-
-        <button
-          onClick={login}
-          className="bg-secondary rounded-full w-10 h-10 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all ease-in-out cursor-pointer"
-        >
-          <RiMenu2Fill />
-        </button>
       </div>
     </div>
   );

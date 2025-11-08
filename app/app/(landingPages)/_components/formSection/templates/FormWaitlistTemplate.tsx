@@ -1,8 +1,8 @@
 import React from "react";
-import { FormTextInput } from "../_components/FormTextInput";
-import { FormMultipleCheckboxInput } from "../_components/FormMultipleCheckboxInput";
-import { FormSelectInput } from "../_components/FormSelectInput";
-import { FormCheckboxInput } from "../_components/FormCheckboxInput";
+import { FormTextInput } from "../../../../_components/molecules/inputs/FormTextInput";
+import { FormMultipleCheckboxInput } from "../../../../_components/molecules/inputs/FormMultipleCheckboxInput";
+import { FormSelectInput } from "../../../../_components/molecules/inputs/FormSelectInput";
+import { FormCheckboxInput } from "../../../../_components/molecules/inputs/FormCheckboxInput";
 
 type Props = {};
 
@@ -86,6 +86,7 @@ export default function FormWaitlistTemplate({}: Props) {
                 fontWeight: "lg",
               },
             ],
+            id: "place",
           },
           {
             blockType: "formcheckboxinput",
@@ -98,6 +99,7 @@ export default function FormWaitlistTemplate({}: Props) {
                 fontWeight: "lg",
               },
             ],
+            id: "gastro",
           },
           {
             blockType: "formcheckboxinput",
@@ -110,6 +112,7 @@ export default function FormWaitlistTemplate({}: Props) {
                 fontWeight: "lg",
               },
             ],
+            id: "entertainment",
           },
         ]}
         value="services"
@@ -137,6 +140,7 @@ export default function FormWaitlistTemplate({}: Props) {
                 fontWeight: "lg",
               },
             ],
+            id: "person",
           },
           {
             blockType: "formcheckboxinput",
@@ -149,6 +153,7 @@ export default function FormWaitlistTemplate({}: Props) {
                 fontWeight: "lg",
               },
             ],
+            id: "company",
           },
           {
             blockType: "formcheckboxinput",
@@ -161,6 +166,7 @@ export default function FormWaitlistTemplate({}: Props) {
                 fontWeight: "lg",
               },
             ],
+            id: "event-agency",
           },
         ]}
         value="companyType"

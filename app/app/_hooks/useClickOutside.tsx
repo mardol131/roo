@@ -9,13 +9,15 @@ export function useClickOutside<T extends HTMLElement>(
     function handleClick(event: MouseEvent) {
       const target = event.target as Node;
 
-      const clickedOutsideMain =
-        mainRef.current && !mainRef.current.contains(target);
-      const clickedOutsideSecondary =
-        secondaryRef?.current && !secondaryRef.current.contains(target);
+      const outsideMain = !mainRef.current || !mainRef.current.contains(target);
 
-      // Zavři jen, když je klik mimo oba elementy
-      if (clickedOutsideMain && clickedOutsideSecondary) {
+      const outsideSecondary =
+        !secondaryRef?.current || !secondaryRef.current.contains(target);
+
+      if (
+        (outsideMain && outsideSecondary) ||
+        (secondaryRef === undefined && outsideMain)
+      ) {
         onClickOutside();
       }
     }
