@@ -156,7 +156,7 @@ export interface AdminAuthOperations {
  */
 export interface User {
   id: string;
-  role?: ('admin' | 'editor') | null;
+  role?: ('customer' | 'coworker' | 'business') | null;
   isAdvertiser?: boolean | null;
   updatedAt: string;
   createdAt: string;

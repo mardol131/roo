@@ -1,4 +1,3 @@
-import PlaceholderCell from '@/cells/Placeholder'
 import { convertToWebpFile } from '@roo/shared/functions/data-manipulation/convertToWebp'
 import axios from 'axios'
 import type { CollectionConfig } from 'payload'

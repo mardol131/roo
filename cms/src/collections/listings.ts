@@ -1,4 +1,3 @@
-import { isAdminOrCreatedBy } from '@/functions/ACL'
 import { isLoggedIn } from '@/functions/isLoggedIn'
 import type { CollectionConfig } from 'payload'
 
@@ -65,11 +64,5 @@ export const Listings: CollectionConfig = {
         }
       },
     ],
-  },
-  access: {
-    read: isAdminOrCreatedBy,
-    create: isLoggedIn,
-    update: isAdminOrCreatedBy,
-    delete: isAdminOrCreatedBy,
   },
 }

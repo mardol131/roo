@@ -2,15 +2,21 @@ import { AdminRoles, UserRoles } from '@roo/shared/auth/users'
 import { AccessArgs, CollectionSlug } from 'payload'
 
 type ACLConfig = {
-  roles?: (AdminRoles & UserRoles)[]
+  roles?: (AdminRoles | UserRoles)[]
   allowOwner?: boolean
   ownerField?: string
-  allowAdminsCollection?: CollectionSlug
+  allowAdminsCollection?: boolean
+}
+
+type AccessArgsWithCollection = AccessArgs & {
+  collection?: {
+    slug: string
+  }
 }
 
 export const ACL =
   (config: ACLConfig) =>
-  ({ req, id }: AccessArgs) => {
+  ({ req, id, collection }: AccessArgsWithCollection) => {
     const user = req.user
     if (!user) {
       return false
@@ -44,6 +50,14 @@ export const ACL =
 
     // 4) Kontrola vlastnictví (např. user může editovat jen své záznamy)
     if (allowOwner && id) {
+      // a) jsme v users kolekci → owner = user sám sebe
+      if (collection?.slug === 'users') {
+        return {
+          id: {
+            equals: user.id,
+          },
+        }
+      }
       // vrací podmínku jako { user: { equals: user.id } }
       return {
         [ownerField]: {

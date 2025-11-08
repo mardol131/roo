@@ -27,7 +27,7 @@ export default function SignupForm({}: Props) {
         setError("Hesla se neshodují");
       }
     },
-    [error, setError]
+    [error]
   );
 
   return (

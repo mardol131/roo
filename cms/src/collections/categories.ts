@@ -1,4 +1,3 @@
-import { isAdminOrCreatedBy } from '@/functions/ACL'
 import type { CollectionConfig } from 'payload'
 
 export const Categories: CollectionConfig = {
@@ -14,7 +13,4 @@ export const Categories: CollectionConfig = {
     },
     { name: 'description', type: 'text', required: true },
   ],
-  access: {
-    create: isAdminOrCreatedBy,
-  },
 }

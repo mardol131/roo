@@ -12,14 +12,14 @@ export function FormTextareaInput(props: FormTextareaInputProps) {
     <div
       className={`${
         props.spanTwo === "true" && "col-span-2"
-      } border-2 h-50 border-borderLight p-3 flex flex-col rounded-medium`}
+      } border-2 min-h-30 border-borderLight p-2 flex flex-col rounded-medium`}
     >
       <label className="text-primary font-semibold">{props.label}</label>
       <textarea
         name={props.name}
         placeholder={props.placeholder}
         required={props.required === "true" || false}
-        className="h-full resize-none"
+        className="h-full resize-y"
       />
     </div>
   );
