@@ -14,18 +14,17 @@ export default function page({}: Props) {
       <div className="border-l border-borderLight relative p-10 grid grid-cols-2 items-start">
         <div className="relative z-10 w-full  m-10 flex flex-col gap-5 p-10 top-0 bg-black/50 rounded-xl backdrop-blur-xs">
           <Text
-            level="h4"
+            tag="h4"
+            size="headingSm"
             text="Zapomněli jste heslo? S tím samozřejmě umíme pomoct!"
             color="white"
-            className="font-semibold"
+            fontWeight="semibold"
           />
           <Text
-            level="paragraph2"
+            tag="p"
             text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ea quas dicta libero alias. Numquam doloremque illo tempore alias rerum animi inventore quae voluptatem fugit, sunt veritatis voluptatum deleniti quas!
 "
             color="white"
-            className="font-semibold"
-            fontWeight="sm"
           />
         </div>
         <div className="absolute top-1/2 left-1/2 w-full h-full object-cover rounded-xl -translate-x-1/2 -translate-y-1/2 p-10">

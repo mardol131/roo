@@ -30,7 +30,7 @@ function SpecTag(props: SpecTagProps) {
     >
       <Text
         text={props.data.name}
-        level="label4"
+        tag="p"
         color="white"
         className="font-semibold"
       />
@@ -50,7 +50,7 @@ function SpecTagModal(props: SpecTagProps) {
     >
       <Text
         text={props.data.name}
-        level="label4"
+        tag="p"
         color="black"
         className="font-semibold group-hover:text-white animate"
       />

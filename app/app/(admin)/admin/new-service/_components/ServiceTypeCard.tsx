@@ -34,10 +34,10 @@ export function ServiceTypeCard({
       <div className="w-20 h-20">
         <Gastro className="" fill="currentColor" />
       </div>
-      <Text text={data.heading} level="h3" className="font-semibold" />
+      <Text text={data.heading} tag="h3" className="font-semibold" />
       <Text
         text={data.text}
-        level="paragraph2"
+        tag="p"
         className={isActive ? "text-white" : "text-black"}
       />
     </div>

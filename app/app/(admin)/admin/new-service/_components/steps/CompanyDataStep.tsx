@@ -32,9 +32,14 @@ export default function ServiceInitialDataStep({}: Props) {
         />
         <AdminFormPartWrapper>
           <div className="bg-white rounded-medium z-10 max-w-200 w-full p-10 py-18 flex flex-col items-center gap-10">
-            <Text level="h2" text="Gratulujeme!" color="primary" />
             <Text
-              level="paragraph1"
+              tag="h2"
+              size="headingLg"
+              text="Gratulujeme!"
+              color="primary"
+            />
+            <Text
+              tag="p"
               text="Už jsi o krok blíž k úspěšnému profilu! Pojďme teď nastavit tvůj první inzerát."
               color="black"
               className="text-center"
@@ -63,7 +68,7 @@ export default function ServiceInitialDataStep({}: Props) {
               {" "}
               <Text
                 text="Údaje o společnosti"
-                level="paragraph2"
+                tag="h4"
                 color="black"
                 className="font-semibold text-center py-2"
               />
@@ -118,7 +123,7 @@ export default function ServiceInitialDataStep({}: Props) {
             <AdminFormPartWrapper>
               <Text
                 text="Hlavní kontaktní osoba"
-                level="paragraph2"
+                tag="h4"
                 color="black"
                 className="font-semibold text-center py-2"
               />
@@ -168,14 +173,14 @@ export default function ServiceInitialDataStep({}: Props) {
             <AdminFormCheckbox
               text={{
                 text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
-                level: "label4",
+                tag: "p",
               }}
               name="gdpr"
             />
             <AdminFormCheckbox
               text={{
                 text: "Chci dostávat personalizovaná marketingová sdělení",
-                level: "label4",
+                tag: "p",
               }}
               name="marketing"
             />

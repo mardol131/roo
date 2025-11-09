@@ -28,7 +28,8 @@ export default function AuthModalLoginMode({ closeModalHandler }: Props) {
         className="w-full flex flex-col items-center gap-10 p-10"
       >
         <Text
-          level="label4"
+          tag="h2"
+          size="headingMd"
           text="Přihlásit se"
           color="primary"
           className="font-semibold"
@@ -58,7 +59,7 @@ export default function AuthModalLoginMode({ closeModalHandler }: Props) {
           >
             <Text
               text="Zapomenuté heslo"
-              level="label7"
+              tag="p"
               color="placeholder"
               className="hover:text-primary"
               link="/zapomenute-heslo"
@@ -75,15 +76,21 @@ export default function AuthModalLoginMode({ closeModalHandler }: Props) {
           type="submit"
         />
         <div className="flex gap-2">
-          <Text level="paragraph3" color="black" text="Ještě nemáš účet?" />
+          <Text
+            tag="p"
+            size="headingXs"
+            color="black"
+            text="Ještě nemáš účet?"
+          />
 
           <button onClick={closeModalHandler}>
             <Text
-              level="paragraph3"
+              tag="p"
               color="primary"
               text="Registrovat se"
               link="/registrovat-se"
-              fontWeight="lg"
+              fontWeight="semibold"
+              size="headingXs"
             />
           </button>
         </div>
@@ -95,22 +102,23 @@ export default function AuthModalLoginMode({ closeModalHandler }: Props) {
         }}
         className="flex items-center justify-center"
       >
-        <div className="bg-black/60 text-start shadow-xl p-10 gap-5 backdrop-blur-xs rounded-lg flex flex-col items-center w-full h-full">
+        <div className="bg-black/60 text-start shadow-xl p-10 gap-5 backdrop-blur-xs rounded-lg flex flex-col items-start w-full h-full">
           <Text
             text="Tady by mohl být jakýkoliv text si jenom přeješ"
             color="white"
-            level="h4"
-            fontWeight="xl"
+            tag="h4"
+            fontWeight="semibold"
+            size="headingSm"
           />
           <Text
             text="Tady by mohl být jakýkoliv text si jenom přeješ"
             color="white"
-            level="paragraph2"
+            tag="p"
           />
           <Text
             text="Tady by mohl být jakýkoliv text si jenom přeješ"
             color="white"
-            level="paragraph2"
+            tag="p"
           />
         </div>
       </div>

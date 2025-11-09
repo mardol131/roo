@@ -81,10 +81,10 @@ export default function HeaderDesktop() {
           <button>
             <Text
               text="Staň se dodavatelem"
-              level="label7"
+              tag="p"
               color="black"
               className="pr-3 hover:text-primary animate"
-              fontWeight="lg"
+              fontWeight="semibold"
             />
           </button>
           <button

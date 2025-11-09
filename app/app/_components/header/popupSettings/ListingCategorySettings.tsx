@@ -64,15 +64,16 @@ export default function ListingCategorySettings({}: Props) {
                   <div className="flex bg-black/70 group-hover:bg-black/50 animate scale-z-100 flex-col text-center gap-4 items-center justify-between h-full p-5">
                     <Text
                       text={m(`${item.value}.heading`)}
-                      level="label4"
+                      tag="p"
+                      size="headingSm"
                       color="white"
-                      fontWeight="lg"
+                      fontWeight="semibold"
                     />
                     <Text
                       text={m(`${item.value}.text`)}
-                      level="paragraph3"
+                      tag="p"
                       color="white"
-                      fontWeight="md"
+                      fontWeight="semibold"
                     />
                     <Button
                       text={m(`${item.value}.button_text`)}

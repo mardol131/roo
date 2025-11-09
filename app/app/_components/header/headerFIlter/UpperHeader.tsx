@@ -59,10 +59,11 @@ export function UpperHeader(props: UpperHeaderProps) {
         }}
         className="flex flex-col items-start"
       >
-        <Text text={m(`${value}.label`)} level="labelMicro" color="black" />
+        <Text text={m(`${value}.label`)} tag="p" size="bodyXs" color="black" />
         <Text
           text={m(`${value}.text`)}
-          level="label7"
+          tag="p"
+          size="body"
           color="black"
           className={`${settingsType === value && "text-primary"} hover:text-primary text-start w-full rounded-full cursor-pointer animate`}
         />
@@ -82,12 +83,13 @@ export function UpperHeader(props: UpperHeaderProps) {
         <button className="flex flex-col items-start">
           <Text
             text={m("listingCategory.label")}
-            level="labelMicro"
+            tag="p"
+            size="bodyXs"
             color="black"
           />
           <Text
             text={m(`listingCategory.type.${category}`)}
-            level="label7"
+            tag="p"
             color="black"
             className={`${(settingsType === "listingCategory" || category) && "text-primary"} hover:text-primary text-start w-full rounded-full cursor-pointer animate`}
           />

@@ -56,8 +56,9 @@
 
   /* Fonts */
 
-  --font-montserrat: "Montserrat";
-  --font-nunito: "Nunito";
+  --font-display: "Montserrat";
+  --font-heading: "Nunito";
+  --font-bdoy: "Nunito";
 
   /* Radius */
 
@@ -85,12 +86,14 @@
   }
 }
 
-/* Classes */
+/* Scrollbar */
 
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) white !important;
 }
+
+/* Helper classes */
 
 .listingGridColumns {
   @apply grid-cols-[repeat(auto-fit,minmax(17rem,1fr))];
@@ -112,6 +115,59 @@
 
 ::-webkit-scrollbar-thumb {
   scrollbar-color: var(--color-primary);
+}
+
+/* Fonts boldness*/
+.font-fontBase {
+  @apply font-medium;
+}
+
+.font-fontSemibold {
+  @apply font-semibold;
+}
+
+.font-fontBold {
+  @apply font-bold;
+}
+
+.font-fontExtrabold {
+  @apply font-extrabold;
+}
+
+/* Text size */
+
+.text-displayLg {
+  @apply text-[72px];
+}
+.text-displayMd {
+  @apply text-[48px];
+}
+.text-displaySm {
+  @apply text-[40px];
+}
+.text-headingXl {
+  @apply text-[60px];
+}
+.text-headingLg {
+  @apply text-[40px];
+}
+.text-headingMd {
+  @apply text-[28px];
+}
+.text-headingSm {
+  @apply text-[20px];
+}
+.text-headingXs {
+  @apply text-[16px];
+}
+.text-body {
+  @apply text-[14px];
+}
+.text-bodySm {
+  @apply text-[12px];
+}
+.text-bodyXs {
+  @apply text-[10px];
 }
 
 /* Bg colors */

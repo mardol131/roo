@@ -24,9 +24,9 @@ export function FaqQuestion(props: QuestionProps) {
       <div className="flex justify-between">
         <Text
           text={props.question}
-          level="label5"
+          tag="h4"
           color="black"
-          fontWeight="lg"
+          fontWeight="semibold"
         />
         <div className="w-10 justify-self-end">
           {isOpen ? (
@@ -36,7 +36,7 @@ export function FaqQuestion(props: QuestionProps) {
           )}
         </div>
       </div>
-      {isOpen && <Text text={props.answer} level="paragraph2" color="black" />}
+      {isOpen && <Text text={props.answer} tag="p" size="body" color="black" />}
     </div>
   );
 }

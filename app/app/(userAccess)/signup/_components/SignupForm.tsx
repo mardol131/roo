@@ -36,10 +36,11 @@ export default function SignupForm({}: Props) {
       className="max-w-150 w-full flex flex-col items-center gap-6 border-borderLight p-10 rounded-xl"
     >
       <Text
-        level="label4"
+        tag="h2"
+        size="headingMd"
         text="Vytvořit účet"
         color="primary"
-        fontWeight="lg"
+        fontWeight="semibold"
       />
 
       <div className="w-full flex flex-col gap-2">
@@ -75,12 +76,7 @@ export default function SignupForm({}: Props) {
           className="border-2 rounded-md border-borderLight w-full"
           required={true}
         />
-        <Text
-          level="label8"
-          text="Minimálně 8 znaků"
-          color="placeholder"
-          fontWeight="lg"
-        />
+        <Text tag="p" text="Minimálně 8 znaků" color="placeholder" />
         <div className="mt-4 flex flex-col gap-5">
           <FormCheckboxInput
             value="true"
@@ -88,7 +84,7 @@ export default function SignupForm({}: Props) {
             label={[
               {
                 text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
-                level: "label8",
+                tag: "p",
               },
             ]}
             required={true}
@@ -100,7 +96,7 @@ export default function SignupForm({}: Props) {
             label={[
               {
                 text: "Chci dostávat personalizovaná marketingová sdělení ",
-                level: "label8",
+                tag: "p",
               },
             ]}
             className="px-3"
@@ -112,7 +108,7 @@ export default function SignupForm({}: Props) {
               label={[
                 {
                   text: "Chcete se zaregistrovat i jako dodavatel a začít nabízet své služby?",
-                  level: "label8",
+                  tag: "p",
                 },
               ]}
             />
@@ -128,7 +124,7 @@ export default function SignupForm({}: Props) {
         rounding="full"
         type="submit"
       />
-      {error && <Text text={error || ""} color="danger" level="label8" />}
+      {error && <Text text={error || ""} color="danger" tag="p" />}
     </form>
   );
 }

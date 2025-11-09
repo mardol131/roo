@@ -105,7 +105,7 @@ export default function ContactForm(props: Props) {
           {
             blockType: "TextBlock",
             text: "Souhlasím se zpracování osobních údajů společností The Roosters s.r.o.",
-            level: "label7",
+            tag: "p",
             color: "black",
           },
         ]}
@@ -132,16 +132,16 @@ export default function ContactForm(props: Props) {
         {isSuccess && (
           <Text
             text="Děkujeme, vaší odpovědi se budeme co nejdříve věnovat!"
-            level="paragraph3"
-            fontWeight="lg"
+            tag="p"
+            fontWeight="semibold"
             color="success"
           />
         )}
         {isError && (
           <Text
             text="Něco se nepovedlo, zkuste to prosím později."
-            level="paragraph3"
-            fontWeight="lg"
+            tag="p"
+            fontWeight="semibold"
             color="danger"
           />
         )}

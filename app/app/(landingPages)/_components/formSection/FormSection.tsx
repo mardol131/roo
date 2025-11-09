@@ -180,16 +180,16 @@ export default function FormSection(props: FormSectionProps) {
               {isSuccess && (
                 <Text
                   text="Děkujeme!"
-                  level="paragraph3"
-                  fontWeight="lg"
+                  tag="p"
+                  fontWeight="semibold"
                   color="success"
                 />
               )}
               {isError && (
                 <Text
                   text="Něco se nepovedlo, zkuste to prosím později."
-                  level="paragraph3"
-                  fontWeight="lg"
+                  tag="p"
+                  fontWeight="semibold"
                   color="danger"
                 />
               )}

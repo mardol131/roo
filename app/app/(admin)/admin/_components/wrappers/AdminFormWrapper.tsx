@@ -80,13 +80,14 @@ export default function AdminFormWrapper({
           {GenerateStepNumbers()}
         </div>
         <Text
-          level="h4"
+          tag="h4"
+          size="headingMd"
           text={heading}
           color="black"
           className="mt-8 font-semibold"
         />
         {subheading && (
-          <Text color="black" level="paragraph3" text={subheading} />
+          <Text color="black" tag="p" size="body" text={subheading} />
         )}
       </div>
       {children}

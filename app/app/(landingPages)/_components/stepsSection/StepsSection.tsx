@@ -26,8 +26,8 @@ export function Step(props: StepProps) {
         >
           <Text
             text={props.number}
-            level="label1"
-            fontWeight="xl"
+            tag="p"
+            fontWeight="semibold"
             color="white"
           />
         </div>

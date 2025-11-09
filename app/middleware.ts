@@ -21,24 +21,23 @@ export async function middleware(req: NextRequest) {
   //   url.pathname = "/kategorie/venues";
   //   return NextResponse.redirect(url);
   // }
-  const { pathname } = req.nextUrl;
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/favicon")
-  ) {
-    return NextResponse.next();
-  }
-  if (pathname.startsWith("/stranky/")) {
-    return NextResponse.next();
-  }
-
-  if (pathname.startsWith("/stranky/")) {
-    return NextResponse.next();
-  }
-  const url = req.nextUrl.clone();
-  url.pathname = `/stranky/co-je-roo`;
-  return NextResponse.redirect(url);
+  //   const { pathname } = req.nextUrl;
+  //   if (
+  //     pathname.startsWith("/_next") ||
+  //     pathname.startsWith("/api") ||
+  //     pathname.startsWith("/favicon")
+  //   ) {
+  //     return NextResponse.next();
+  //   }
+  //   if (pathname.startsWith("/stranky/")) {
+  //     return NextResponse.next();
+  //   }
+  //   if (pathname.startsWith("/stranky/")) {
+  //     return NextResponse.next();
+  //   }
+  //   const url = req.nextUrl.clone();
+  //   url.pathname = `/stranky/co-je-roo`;
+  //   return NextResponse.redirect(url);
 }
 
 export const config = {

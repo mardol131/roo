@@ -47,25 +47,26 @@ export default function page({}: Props) {
             <div className="z-10 flex flex-col items-start justify-between gap-20">
               <div className="flex flex-col gap-10">
                 <Text
-                  level="h2"
+                  tag="h2"
+                  size="headingMd"
                   text="Máš dotaz nebo potřebuješ pomoct? Ozvi se nám!"
-                  fontWeight="xl"
+                  fontWeight="semibold"
                   color="white"
                 />
                 <div className="flex items-center gap-5">
                   <LuMail className="w-10 h-10 text-white" />
                   <Text
-                    level="label5"
+                    tag="p"
+                    size="headingSm"
                     text="hi@roo.events"
-                    fontWeight="xl"
+                    fontWeight="semibold"
                     color="white"
                   />
                 </div>
               </div>
               <Text
-                level="paragraph3"
+                tag="p"
                 text="Platformu ROO provozuje společnost The Roosters s.r.o., IČ 06347231, se sídlem v ulici Lidická 900/19, 602 00 Brno - Střed, zapsaná u Krajského soudu v Brně, spisová značka C 111516/KSBR"
-                fontWeight="xl"
                 color="white"
               />
             </div>

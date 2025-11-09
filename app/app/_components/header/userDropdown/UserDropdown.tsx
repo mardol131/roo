@@ -28,7 +28,7 @@ export default function UserDropdown({ closeHandler }: Props) {
 
   return (
     <div ref={dropdownRef} className=" absolute top-[100%] pt-3">
-      <div className="flex flex-col gap-5 p-5 bg-white border text-start shadow-[0px_0px_10px_5px] shadow-black/10 border-borderLight rounded-lg">
+      <div className="flex flex-col gap-5 p-5 bg-white min-w-60 border text-start shadow-[0px_0px_10px_5px] shadow-black/10 border-borderLight rounded-lg">
         <button
           onClick={openLoginModalHandler}
           className="flex items-center gap-3 group cursor-pointer"
@@ -36,9 +36,10 @@ export default function UserDropdown({ closeHandler }: Props) {
           <FaUser className="text-primary" />
           <Text
             text="Přihlásit se"
-            level="label7"
-            fontWeight="lg"
+            tag="p"
+            fontWeight="semibold"
             className="group-hover:text-primary"
+            size="headingXs"
           />
         </button>
         <Divider height={1} />
@@ -49,17 +50,23 @@ export default function UserDropdown({ closeHandler }: Props) {
           <RiFileUserFill className="text-primary" />
           <Text
             text="Zaregistrovat se"
-            level="label7"
-            fontWeight="lg"
+            tag="p"
+            fontWeight="semibold"
             className="group-hover:text-primary"
+            size="headingXs"
           />
         </Link>
         <Divider height={1} />
         <button className="flex flex-col text-start items-start gap-3">
-          <Text text="Staňte se dodavatelem" level="label7" fontWeight="lg" />
+          <Text
+            text="Staňte se dodavatelem"
+            tag="p"
+            size="headingXs"
+            fontWeight="semibold"
+          />
           <Text
             text="Máš parádní prostor pro akce? Umíš bavit lidi, nebo třeba děláš cateringy? Začni nabízet svoje služby po celé ČR!"
-            level="label8"
+            tag="p"
           />
           <Button
             text="Stát se dodavatelem"

@@ -1,7 +1,5 @@
+import { TextBlock } from '@/_landingPages/components/textBlock'
 import { Block } from 'payload'
-import { buttonsField, getOverlayField, overlayField } from '../_global/fields'
-import { TextBlock } from '../_blocks/textBlock'
-import { widgetsField } from '../_blocks/widgetsBlocks'
 
 export const BannerSectionBlock: Block = {
   slug: 'BannerSection',
