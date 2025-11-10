@@ -1,5 +1,5 @@
 import { Block, Field } from 'payload'
-import { getButtonField } from '../_global/fields'
+import { getButtonField } from './button'
 
 export const InputWidgetBlock: Block = {
   slug: 'inputWidget',

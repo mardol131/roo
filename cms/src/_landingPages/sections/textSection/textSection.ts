@@ -1,13 +1,7 @@
+import { buttonsField } from '@/_landingPages/components/button'
+import { getOverlayField } from '@/_landingPages/components/overlay'
+import { getTextsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
-import {
-  buttonsField,
-  getImageField,
-  getOverlayField,
-  imageField,
-  overlayField,
-} from '../_global/fields'
-import { getTextsField, TextBlock, textsField } from '../_blocks/textBlock'
-import { widgetsField } from '../_blocks/widgetsBlocks'
 
 export const TextSectionBlock: Block = {
   slug: 'TextSection',

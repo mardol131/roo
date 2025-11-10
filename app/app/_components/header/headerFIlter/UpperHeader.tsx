@@ -1,24 +1,18 @@
 "use client";
 
-import { userLogin } from "@/app/_api/payload";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
-import Image from "next/image";
 import Link from "next/link";
-import { FaCheck, FaMagnifyingGlass, FaUser } from "react-icons/fa6";
+import { FaCheck, FaMagnifyingGlass } from "react-icons/fa6";
 
-import logo from "@/public/logo.png";
-import Text from "../../atoms/Text";
 import { MdOutlineFestival } from "react-icons/md";
-import { RiMenu2Fill } from "react-icons/ri";
+import Text from "../../atoms/Text";
 
+import { getLocalization } from "@/app/_localization/getLocalization";
 import {
   headerFilterSlice,
-  ListingCategoryType,
   SettingsTypes,
   SettingsTypesArray,
 } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
-import { useRef } from "react";
-import { getLocalization } from "@/app/_localization/getLocalization";
 
 type UpperHeaderProps = {
   headerFilterRef: React.RefObject<HTMLDivElement | null>;
@@ -63,7 +57,7 @@ export function UpperHeader(props: UpperHeaderProps) {
         <Text
           text={m(`${value}.text`)}
           tag="p"
-          size="body"
+          size="bodyMd"
           color="black"
           className={`${settingsType === value && "text-primary"} hover:text-primary text-start w-full rounded-full cursor-pointer animate`}
         />

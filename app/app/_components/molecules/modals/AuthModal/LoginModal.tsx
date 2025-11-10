@@ -5,7 +5,6 @@ import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
 import { useCallback } from "react";
 import ModalLayout from "../ModalLayout";
 import AuthModalLoginMode from "./modes/AuthModalLoginMode";
-import AuthModalPasswordResetMode from "./modes/AuthModalPasswordReset/AuthModalPasswordResetMode";
 
 type Props = {};
 

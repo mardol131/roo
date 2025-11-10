@@ -1,6 +1,5 @@
+import { textsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
-
-import { textsField } from '../_blocks/textBlock'
 
 const QuestionBlock: Block = {
   slug: 'QuestionBlock',

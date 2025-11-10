@@ -1,13 +1,10 @@
-import Text from "@/app/_components/atoms/Text";
-import React, { FormEvent, useCallback } from "react";
-import { FormTextInput } from "../../../inputs/FormTextInput";
 import Button from "@/app/_components/atoms/Button";
-import { useAppDispatch } from "@/app/_redux/hooks";
-import {
-  AuthModalModes,
-  authSlice,
-} from "@/app/_redux/slices/authSlice/authSlice";
+import Text from "@/app/_components/atoms/Text";
 import image from "@/app/_images/place.jpg";
+import { useAppDispatch } from "@/app/_redux/hooks";
+import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
+import { FormEvent, useCallback } from "react";
+import { FormTextInput } from "../../../inputs/FormTextInput";
 
 type Props = { closeModalHandler: () => void };
 
@@ -41,7 +38,7 @@ export default function AuthModalLoginMode({ closeModalHandler }: Props) {
             type="text"
             name="username"
             className=" rounded-md w-full"
-            required="true"
+            required={true}
           />
           <FormTextInput
             placeholder="*****"

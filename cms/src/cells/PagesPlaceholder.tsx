@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const PlaceholderCell = ({ rowData }: { rowData: any }) => {
@@ -5,7 +6,7 @@ const PlaceholderCell = ({ rowData }: { rowData: any }) => {
   if (!src) return null
 
   return (
-    <img
+    <Image
       src={src}
       alt=""
       style={{

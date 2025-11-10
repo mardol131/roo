@@ -5,16 +5,19 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
-        "NEXT_PUBLIC_CMS_URL",
         "NEXT_PUBLIC_WEBSITE",
-        "NEXT_PUBLIC_CDN_STORAGE_URL",
+
         "NEXT_PUBLIC_CDN_URL",
+        "CDN_API_STORAGE_SECRET",
+        "CDN_STORAGE_ZONE",
+        "CDN_STORAGE_URL",
+
+        "NEXT_PUBLIC_CMS_URL",
+        "PAYLOAD_SECRET",
 
         "DATABASE_URI",
-        "PAYLOAD_SECRET",
-        "CDN_STORAGE_URL",
-        "CDN_STORAGE_ZONE",
-        "CDN_API_STORAGE_SECRET"
+
+        "NEXT_PUBLIC_CDN_STORAGE_URL"
       ]
     },
     "check-types": {

@@ -1,5 +1,4 @@
 import { HeadingLevel } from "@/app/_types/heading";
-import React from "react";
 
 type Props = {
   text: string;

@@ -1,13 +1,13 @@
 import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
-import { FormCheckboxInput, FormCheckboxInputProps } from "./FormCheckboxInput";
 import { useState } from "react";
+import { FormCheckboxInput, FormCheckboxInputProps } from "./FormCheckboxInput";
 
 export type FormMultipleCheckboxInputProps = {
   blockType: "formmultiplecheckboxinput";
   checkboxes: FormCheckboxInputProps[];
   label: TextProps[];
-  spanTwo?: "true" | "false";
-  required?: "true" | "false";
+  spanTwo?: boolean;
+  required?: boolean;
   value: string;
 };
 
@@ -28,20 +28,19 @@ export function FormMultipleCheckboxInput(
     }
   }
 
-  const isRequired =
-    props.required === "true" && values.length === 0 ? "true" : "false";
+  const isRequired = props.required && values.length === 0;
 
   return (
     <div
       className={`${
-        props.spanTwo === "true" && "col-span-2"
+        props.spanTwo && "col-span-2"
       } flex flex-col gap-5 w-full items-start justify-start`}
     >
       <div className="">
         {props.label && <GenerateTexts texts={props.label} />}
       </div>
       <div
-        className={`${props.spanTwo === "true" ? "grid md:grid-cols-2 gap-x-5" : "flex flex-col"} gap-2 w-full`}
+        className={`${props.spanTwo ? "grid md:grid-cols-2 gap-x-5" : "flex flex-col"} gap-2 w-full`}
       >
         {props.checkboxes.map((item, i) => {
           return (

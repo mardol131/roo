@@ -1,8 +1,7 @@
-import React from "react";
-import { FormTextInput } from "../../../../_components/molecules/inputs/FormTextInput";
+import { FormCheckboxInput } from "../../../../_components/molecules/inputs/FormCheckboxInput";
 import { FormMultipleCheckboxInput } from "../../../../_components/molecules/inputs/FormMultipleCheckboxInput";
 import { FormSelectInput } from "../../../../_components/molecules/inputs/FormSelectInput";
-import { FormCheckboxInput } from "../../../../_components/molecules/inputs/FormCheckboxInput";
+import { FormTextInput } from "../../../../_components/molecules/inputs/FormTextInput";
 
 type Props = {};
 
@@ -14,66 +13,66 @@ export default function FormWaitlistTemplate({}: Props) {
         label="Jméno"
         name="firstName"
         placeholder="Jan"
-        spanTwo="false"
+        spanTwo={true}
         type="text"
-        required="true"
+        required={true}
       />
       <FormTextInput
         blockType="formtextinput"
         label="Příjmení"
         name="lastName"
         placeholder="Novák"
-        spanTwo="false"
+        spanTwo={true}
         type="text"
-        required="true"
+        required={true}
       />
       <FormTextInput
         blockType="formtextinput"
         label="Společnost"
         name="company"
         placeholder="Skvělá společnost a.s."
-        spanTwo="true"
+        spanTwo={true}
         type="text"
-        required="true"
+        required={true}
       />
       <FormTextInput
         blockType="formtextinput"
         label="Web nebo sociální sítě"
         name="web"
         placeholder="skvelyweb.cz"
-        spanTwo="true"
+        spanTwo={true}
         type="text"
-        required="false"
+        required={true}
       />
       <FormTextInput
         blockType="formtextinput"
         label="Telefon"
         name="phone"
         placeholder="777 777 777"
-        spanTwo="false"
+        spanTwo={true}
         type="phone"
-        required="true"
+        required={true}
       />
       <FormTextInput
         blockType="formtextinput"
         label="Email"
         name="email"
         placeholder="skvelyemail@email.cz"
-        spanTwo="false"
+        spanTwo={true}
         type="email"
-        required="true"
+        required={true}
       />
       <FormMultipleCheckboxInput
         blockType="formmultiplecheckboxinput"
         label={[
           {
             text: "Co jsi za službu?",
-            level: "label6",
+            tag: "p",
             color: "primary",
-            fontWeight: "lg",
+            fontWeight: "semibold",
           },
         ]}
-        required="true"
+        required={true}
         checkboxes={[
           {
             blockType: "formcheckboxinput",
@@ -82,8 +81,8 @@ export default function FormWaitlistTemplate({}: Props) {
               {
                 text: "Místo",
                 color: "black",
-                level: "label7",
-                fontWeight: "lg",
+                tag: "p",
+                fontWeight: "semibold",
               },
             ],
             id: "place",
@@ -95,8 +94,8 @@ export default function FormWaitlistTemplate({}: Props) {
               {
                 text: "Gastro",
                 color: "black",
-                level: "label7",
-                fontWeight: "lg",
+                tag: "p",
+                fontWeight: "semibold",
               },
             ],
             id: "gastro",
@@ -108,8 +107,8 @@ export default function FormWaitlistTemplate({}: Props) {
               {
                 text: "Zábava",
                 color: "black",
-                level: "label7",
-                fontWeight: "lg",
+                tag: "p",
+                fontWeight: "semibold",
               },
             ],
             id: "entertainment",
@@ -122,12 +121,12 @@ export default function FormWaitlistTemplate({}: Props) {
         label={[
           {
             text: "Co jsi za organizátora?",
-            level: "label6",
+            tag: "p",
             color: "primary",
-            fontWeight: "lg",
+            fontWeight: "semibold",
           },
         ]}
-        required="true"
+        required={true}
         checkboxes={[
           {
             blockType: "formcheckboxinput",
@@ -136,8 +135,8 @@ export default function FormWaitlistTemplate({}: Props) {
               {
                 text: "Soukromá osoba",
                 color: "black",
-                level: "label7",
-                fontWeight: "lg",
+                tag: "p",
+                fontWeight: "semibold",
               },
             ],
             id: "person",
@@ -149,8 +148,8 @@ export default function FormWaitlistTemplate({}: Props) {
               {
                 text: "Společnost",
                 color: "black",
-                level: "label7",
-                fontWeight: "lg",
+                tag: "p",
+                fontWeight: "semibold",
               },
             ],
             id: "company",
@@ -162,8 +161,8 @@ export default function FormWaitlistTemplate({}: Props) {
               {
                 text: "Eventová agentura",
                 color: "black",
-                level: "label7",
-                fontWeight: "lg",
+                tag: "p",
+                fontWeight: "semibold",
               },
             ],
             id: "event-agency",
@@ -176,7 +175,7 @@ export default function FormWaitlistTemplate({}: Props) {
         label="Jak jste se o nás dozvěděli"
         placeholder="--vyberte možnost--"
         value="reference"
-        spanTwo="true"
+        spanTwo={true}
         options={[
           { text: "Vyhledávání", value: "search" },
           { text: "Sociální sítě", value: "social" },
@@ -185,19 +184,19 @@ export default function FormWaitlistTemplate({}: Props) {
           { text: "Doporučení klientem", value: "client-referral" },
           { text: "Prodejce", value: "seller" },
         ]}
-        required="true"
+        required={true}
       />
       <FormCheckboxInput
         blockType="formcheckboxinput"
         value="true"
         name="gdpr"
-        spanTwo="true"
-        required="true"
+        spanTwo={true}
+        required={true}
         label={[
           {
             text: "Souhlasím se zpracování osobních údajů společností The Roosters s.r.o.",
             color: "black",
-            level: "label7",
+            tag: "p",
           },
         ]}
       />
@@ -205,13 +204,13 @@ export default function FormWaitlistTemplate({}: Props) {
         blockType="formcheckboxinput"
         value="true"
         name="marketing"
-        spanTwo="true"
-        required="false"
+        spanTwo={true}
+        required={true}
         label={[
           {
             text: "Chci dostávat newsletter",
             color: "black",
-            level: "label7",
+            tag: "p",
           },
         ]}
       />

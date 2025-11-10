@@ -1,4 +1,3 @@
-import React from "react";
 import { FormTextInput } from "../../../../_components/molecules/inputs/FormTextInput";
 
 type Props = {};
@@ -11,9 +10,9 @@ export default function FormEmailCollectionTemplate({}: Props) {
         label="Tvůj email"
         name="email"
         placeholder="jannovak@email.com"
-        spanTwo="true"
+        spanTwo={true}
         type="email"
-        required="true"
+        required={true}
       />
     </>
   );

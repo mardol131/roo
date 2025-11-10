@@ -5,12 +5,12 @@ import {
 import { textColor, TextColorType } from "@roo/shared/src/design/colors";
 import {
   Font,
+  font,
+  FontSize,
+  fontSize,
   FontWeight,
   fontWeight,
   TextTag,
-  FontSize,
-  font,
-  fontSize,
 } from "@roo/shared/src/design/texts";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
@@ -32,7 +32,7 @@ export default function Text(props: TextProps) {
   const color = props.color ? textColor[props.color] : textColor.black;
   const textFont = props.font ? font[props.font] : font.heading;
   const weight = props.fontWeight && fontWeight[props.fontWeight];
-  const size = props.size ? fontSize[props.size] : fontSize.body;
+  const size = props.size ? fontSize[props.size] : fontSize.bodyMd;
 
   //   const align = props.textAlign && textAlign[props.textAlign];
   const classes = `${props.className || ""} ${color || ""} ${weight || ""} ${textFont || ""} ${size || ""} animate`;
@@ -56,88 +56,6 @@ export default function Text(props: TextProps) {
       ></Tag>
     </>
   );
-
-  //   switch (props.tag) {
-  //     case "h1":
-  //       content = (
-  //         <h1
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></h1>
-  //       );
-  //       break;
-  //     case "h2":
-  //       content = (
-  //         <h2
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></h2>
-  //       );
-  //       break;
-  //     case "h3":
-  //       content = (
-  //         <h3
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></h3>
-  //       );
-  //       break;
-  //     case "h4":
-  //       content = (
-  //         <h4
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></h4>
-  //       );
-  //       break;
-  //     case "h5":
-  //       content = (
-  //         <h5
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></h5>
-  //       );
-  //       break;
-  //     case "h6":
-  //       content = (
-  //         <h6
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></h6>
-  //       );
-  //       break;
-  //     case "em":
-  //       content = (
-  //         <em
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></em>
-  //       );
-  //       break;
-  //     case "p":
-  //       content = (
-  //         <p
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></p>
-  //       );
-  //       break;
-  //     case "span":
-  //       content = (
-  //         <span
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></span>
-  //       );
-  //       break;
-  //     default:
-  //       content = (
-  //         <p
-  //           className={`${classes}`}
-  //           dangerouslySetInnerHTML={{ __html: htmlSafeText }}
-  //         ></p>
-  //       );
-  //   }
 
   if (props.link) {
     content = <Link href={props.link}>{content}</Link>;

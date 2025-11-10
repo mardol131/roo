@@ -5,8 +5,8 @@ export type FormCheckboxInputProps = {
   blockType?: "formcheckboxinput";
   label: TextBlockProps[];
   value: string;
-  spanTwo?: "true" | "false";
-  required?: "true" | "false" | boolean;
+  spanTwo?: boolean;
+  required?: boolean | boolean;
   onChange?: (isChecked: boolean, value: string) => void;
   name?: string;
   id?: string;
@@ -16,7 +16,7 @@ export type FormCheckboxInputProps = {
 export function FormCheckboxInput(props: FormCheckboxInputProps) {
   return (
     <div
-      className={` ${props.spanTwo === "true" && "col-span-2"} cursor-pointer ${props.className}`}
+      className={` ${props.spanTwo && "col-span-2"} cursor-pointer ${props.className}`}
     >
       <label className="text-textMedium flex items-center gap-10  cursor-pointer font-semibold">
         <input
@@ -30,9 +30,7 @@ export function FormCheckboxInput(props: FormCheckboxInputProps) {
           id={props.id || props.name || props.value}
           name={props.name || props.value}
           value={props.value}
-          required={
-            props.required === "true" || props.required === true || false
-          }
+          required={props.required || false}
         />
         {props.label && <GenerateTexts texts={props.label} />}
       </label>

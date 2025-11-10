@@ -1,16 +1,15 @@
 "use client";
 
-import React, { FormEvent, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 
+import { apis } from "@/app/_api/_apis";
 import Button from "@/app/_components/atoms/Button";
 import Text from "@/app/_components/atoms/Text";
-import axios from "axios";
+import Loader from "@/app/_components/molecules/Loader";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
+import { FormCheckboxInput } from "../../../_components/molecules/inputs/FormCheckboxInput";
 import { FormTextInput } from "../../../_components/molecules/inputs/FormTextInput";
 import { FormTextareaInput } from "../../../_components/molecules/inputs/FormTextareaInput";
-import { FormCheckboxInput } from "../../../_components/molecules/inputs/FormCheckboxInput";
-import { apis } from "@/app/_api/_apis";
-import Loader from "@/app/_components/molecules/Loader";
 
 type Props = {
   webhook: string;
@@ -59,7 +58,7 @@ export default function ContactForm(props: Props) {
         type="text"
         blockType="formtextinput"
         name="firstName"
-        required="true"
+        required={true}
       />
       <FormTextInput
         label="Příjmení"
@@ -67,7 +66,7 @@ export default function ContactForm(props: Props) {
         type="text"
         blockType="formtextinput"
         name="lastName"
-        required="true"
+        required={true}
       />
       <FormTextInput
         label="Společnost"
@@ -75,7 +74,7 @@ export default function ContactForm(props: Props) {
         type="text"
         blockType="formtextinput"
         name="company"
-        spanTwo="true"
+        spanTwo={true}
       />
       <FormTextInput
         label="Telefon"
@@ -90,15 +89,15 @@ export default function ContactForm(props: Props) {
         type="email"
         blockType="formtextinput"
         name="email"
-        required="true"
+        required={true}
       />
       <FormTextareaInput
         label="Zpráva"
         placeholder="Sem napiš, co máš na srdci"
         blockType="formtextarea"
         name="message"
-        spanTwo="true"
-        required="true"
+        spanTwo={true}
+        required={true}
       />
       <FormCheckboxInput
         label={[
@@ -112,8 +111,8 @@ export default function ContactForm(props: Props) {
         blockType="formcheckboxinput"
         name="gdpr"
         value="true"
-        spanTwo="true"
-        required="true"
+        spanTwo={true}
+        required={true}
       />
       <div className="col-span-2 flex flex-col justify-center items-center gap-4">
         {isLoading ? (

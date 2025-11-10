@@ -1,6 +1,7 @@
+import { buttonsField } from '@/_landingPages/components/button'
+import { getOverlayField } from '@/_landingPages/components/overlay'
+import { textsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
-import { textsField } from '../_blocks/textBlock'
-import { buttonsField, getOverlayField } from '../_global/fields'
 
 export const HeroBubbleSectionBlock: Block = {
   slug: 'HeroBubbleSection',

@@ -158,10 +158,16 @@
   @apply text-[20px];
 }
 .text-headingXs {
-  @apply text-[16px];
+  @apply text-[18px];
 }
-.text-body {
-  @apply text-[14px];
+.text-bodyXl {
+  @apply text-[20px];
+}
+.text-bodyLg {
+  @apply text-[18px];
+}
+.text-bodyMd {
+  @apply text-[16px];
 }
 .text-bodySm {
   @apply text-[12px];

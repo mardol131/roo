@@ -2,15 +2,15 @@ import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers
 import { ButtonProps, GenerateButtons } from "@/app/_components/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
+import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
-import { colorsAndGradients } from "@roo/shared/src/design/colors";
 
 type IconsTextProps = {
   image: ImageType;
   texts: TextProps[];
   buttons?: ButtonProps[];
-  isCard?: "true" | "false";
+  isCard?: boolean;
   overlay?: OverlayType;
 };
 
@@ -18,7 +18,7 @@ function IconsTextCard(props: IconsTextProps) {
   const bgColor =
     props.overlay?.overlayColor &&
     colorsAndGradients[props.overlay.overlayColor];
-  if (props.isCard === "true") {
+  if (props.isCard) {
     console.log(props);
 
     return (
@@ -29,7 +29,7 @@ function IconsTextCard(props: IconsTextProps) {
             alt={props.image.alt}
             width={500}
             height={500}
-            className={`${props.image.shadow === "true" && "shadow-xl"} ${props.image.rounded === "true" && "rounded-xl"} z-0 absolute top-0 left-0 w-full h-full object-cover object-center`}
+            className={`${props.image.shadow && "shadow-xl"} ${props.image.rounded && "rounded-xl"} z-0 absolute top-0 left-0 w-full h-full object-cover object-center`}
           />
         )}
         <div
@@ -50,7 +50,7 @@ function IconsTextCard(props: IconsTextProps) {
             alt={props.image.alt}
             width={500}
             height={500}
-            className={`${props.image.shadow === "true" && "shadow-xl"} ${props.image.rounded === "true" && "rounded-xl"} max-w-50 max-h-50 h-full w-full object-cover object-center`}
+            className={`${props.image.shadow && "shadow-xl"} ${props.image.rounded && "rounded-xl"} max-w-50 max-h-50 h-full w-full object-cover object-center`}
           />
         )}
         <GenerateTexts texts={props.texts} />

@@ -2,6 +2,7 @@
 
 import Button from "@/app/_components/atoms/Button";
 
+import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
 import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
 import React, { useState } from "react";
@@ -11,7 +12,6 @@ import {
   AdminFormInput,
   AdminFormInputType,
 } from "../AdminFormInput";
-import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
 
 type Props = {};
 
@@ -65,7 +65,7 @@ export default function ListingLocationStep({}: Props) {
       >
         <div className="w-full flex flex-col gap-5 items-center justify-center max-w-150">
           <AdminFormCheckbox
-            text={{ text: "Adresa je stejná jako fakturační", level: "label4" }}
+            text={{ text: "Adresa je stejná jako fakturační", tag: "span" }}
             name="sameAddress"
             onChange={checkboxOnChangeHandler}
             checked={addressIsSameAsInvoicing}

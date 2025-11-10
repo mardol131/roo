@@ -36,7 +36,9 @@ export function FaqQuestion(props: QuestionProps) {
           )}
         </div>
       </div>
-      {isOpen && <Text text={props.answer} tag="p" size="body" color="black" />}
+      {isOpen && (
+        <Text text={props.answer} tag="p" size="bodyMd" color="black" />
+      )}
     </div>
   );
 }

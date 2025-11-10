@@ -1,6 +1,6 @@
+import { getOverlayField } from '@/_landingPages/components/overlay'
+import { textsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
-import { textsField } from '../_blocks/textBlock'
-import { getOverlayField } from '../_global/fields'
 
 export const ComparisonSectionBlock: Block = {
   slug: 'ComparisonSection',

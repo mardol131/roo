@@ -1,7 +1,8 @@
+import { buttonsField } from '@/_landingPages/components/button'
+import { imageField } from '@/_landingPages/components/image'
+import { getOverlayField } from '@/_landingPages/components/overlay'
+import { textsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
-import { buttonsField, getOverlayField, imageField } from '../_global/fields'
-
-import { textsField } from '../_blocks/textBlock'
 
 const CardBlock: Block = {
   slug: 'CardBlock',

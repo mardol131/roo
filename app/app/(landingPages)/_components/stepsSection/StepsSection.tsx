@@ -1,13 +1,12 @@
-import React from "react";
-import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { colors, ColorsType } from "@roo/shared/src/design/colors";
+import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 
 type StepProps = {
   number: string;
   texts: TextProps[];
   color: ColorsType;
-  connector: "true" | "false";
+  connector: boolean;
 };
 
 export function Step(props: StepProps) {
@@ -35,7 +34,7 @@ export function Step(props: StepProps) {
           <GenerateTexts texts={props.texts} />
         </div>
       </div>
-      {props.connector === "true" && (
+      {props.connector && (
         <div
           style={{ backgroundColor: color }}
           className="sm:w-5 w-2 rounded-full sm:rounded-none h-20"

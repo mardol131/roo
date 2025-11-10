@@ -1,7 +1,8 @@
 import { Block } from 'payload'
-import { getTextsField } from '../_blocks/textBlock'
-import { buttonsField, overlayField } from '../_global/fields'
 import { MasonryBubbleBlock, MasonryBubbleImageBlock } from './MasonryBubbleBlock'
+import { getTextsField } from '@/_landingPages/components/text'
+import { overlayField } from '@/_landingPages/components/overlay'
+import { buttonsField } from '@/_landingPages/components/button'
 
 export const MasonrySectionBlock: Block = {
   slug: 'MasonrySection',

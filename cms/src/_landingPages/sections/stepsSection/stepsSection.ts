@@ -1,7 +1,7 @@
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { Block } from 'payload'
-import { getTextsField } from '../_blocks/textBlock'
 import { colors } from '@roo/shared/design/colors'
+import { getTextsField } from '@/_landingPages/components/text'
 
 export const StepBlock: Block = {
   slug: 'StepBlock',

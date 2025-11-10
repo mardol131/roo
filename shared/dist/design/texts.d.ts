@@ -1,46 +1,41 @@
-export declare const TextLevels: {
+export declare const textTag: {
     h1: string;
     h2: string;
     h3: string;
     h4: string;
     h5: string;
-    label1: string;
-    label2: string;
-    label3: string;
-    label4: string;
-    label5: string;
-    label6: string;
-    label7: string;
-    label8: string;
-    paragraph1: string;
-    paragraph2: string;
-    paragraph3: string;
-    paragraph4: string;
-    paragraph5: string;
+    h6: string;
+    em: string;
+    p: string;
+    span: string;
 };
-export type TextLevelType = "h1" | "h2" | "h3" | "h4" | "h5" | "label1" | "label2" | "label3" | "label4" | "label5" | "label6" | "label7" | "label8" | "labelMicro" | "paragraph1" | "paragraph2" | "paragraph3" | "paragraph4" | "paragraph5";
+export type TextTag = keyof typeof textTag;
 export declare const fontWeight: {
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-    "2xl": string;
+    base: string;
+    semibold: string;
+    bold: string;
+    extraBold: string;
 };
-export type FontWeightType = keyof typeof fontWeight;
+export type FontWeight = keyof typeof fontWeight;
 export declare const fontSize: {
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-    "2xl": string;
-    "3xl": string;
-    "4xl": string;
-    "5xl": string;
-    "6xl": string;
-    "7xl": string;
+    displayLg: string;
+    displayMd: string;
+    displaySm: string;
+    headingXl: string;
+    headingLg: string;
+    headingMd: string;
+    headingSm: string;
+    headingXs: string;
+    bodyXl: string;
+    bodyLg: string;
+    bodyMd: string;
+    bodySm: string;
+    bodyXs: string;
 };
-export declare const fontType: {
-    montserrat: string;
-    nunito: string;
+export type FontSize = keyof typeof fontSize;
+export declare const font: {
+    display: string;
+    heading: string;
+    body: string;
 };
-export type FontType = keyof typeof fontType;
+export type Font = keyof typeof font;

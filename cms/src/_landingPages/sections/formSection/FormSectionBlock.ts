@@ -1,6 +1,5 @@
 import { Block } from 'payload'
-import { textsField } from '../_blocks/textBlock'
-import { getButtonField, getOverlayField } from '../_global/fields'
+
 import {
   FormCheckboxInputBlock,
   FormMultipleCheckboxInputBlock,
@@ -8,6 +7,9 @@ import {
   FormTemplateBlock,
   FormTextInputBlock,
 } from './FormInputsBlocks'
+import { textsField } from '@/_landingPages/components/text'
+import { getOverlayField } from '@/_landingPages/components/overlay'
+import { getButtonField } from '@/_landingPages/components/button'
 
 export const FormSectionBlock: Block = {
   labels: { singular: 'Formulář', plural: 'Formuláře' },

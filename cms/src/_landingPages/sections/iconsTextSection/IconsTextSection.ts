@@ -1,7 +1,8 @@
+import { buttonsField } from '@/_landingPages/components/button'
+import { imageField } from '@/_landingPages/components/image'
+import { getOverlayField, overlayField } from '@/_landingPages/components/overlay'
+import { textsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
-import { buttonsField, getOverlayField, imageField, overlayField } from '../_global/fields'
-
-import { textsField } from '../_blocks/textBlock'
 
 const IconsTextCardBlock: Block = {
   slug: 'IconsTextSection',

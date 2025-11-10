@@ -4,8 +4,8 @@ export type FormTextInputProps = {
   name: string;
   type?: "text" | "email" | "password" | "phone";
   placeholder: string;
-  spanTwo?: "true" | "false";
-  required?: "true" | "false" | boolean;
+  spanTwo?: boolean;
+  required?: boolean;
   className?: string;
   value?: any;
   outerBorder?: boolean;
@@ -26,7 +26,7 @@ export function FormTextInput(props: FormTextInputProps) {
   } = props;
   const inputType = props.type || "text";
 
-  const classes = `${className} ${spanTwo === "true" && "col-span-2"} ${outerBorder && "border-2 border-borderLight"}`;
+  const classes = `${className} ${spanTwo && "col-span-2"} ${outerBorder && "border-2 border-borderLight"}`;
 
   function changeHandler(e: React.ChangeEvent<HTMLInputElement>) {
     if (type === "phone") {
@@ -53,7 +53,7 @@ export function FormTextInput(props: FormTextInputProps) {
           name={name}
           type={inputType}
           placeholder={placeholder}
-          required={required === "true" || required === true || false}
+          required={required || false}
           defaultValue=""
           onChange={changeHandler}
           className="w-full"

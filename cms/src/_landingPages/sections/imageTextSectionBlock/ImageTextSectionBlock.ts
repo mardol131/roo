@@ -1,8 +1,10 @@
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { Block } from 'payload'
-import { textsField } from '../_blocks/textBlock'
-import { buttonsField, getImageField, getOverlayField } from '../_global/fields'
 import { sides } from '@roo/shared/design/orientation'
+import { getImageField } from '@/_landingPages/components/image'
+import { buttonsField } from '@/_landingPages/components/button'
+import { textsField } from '@/_landingPages/components/text'
+import { getOverlayField } from '@/_landingPages/components/overlay'
 
 const imageOneBlock: Block = {
   labels: { singular: 'Jeden obrázek', plural: 'Jeden obrázek' },

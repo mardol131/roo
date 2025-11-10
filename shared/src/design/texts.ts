@@ -29,7 +29,9 @@ export const fontSize = {
   headingMd: "text-headingMd",
   headingSm: "text-headingSm",
   headingXs: "text-headingXs",
-  body: "text-body",
+  bodyXl: "text-bodyXl",
+  bodyLg: "text-bodyLg",
+  bodyMd: "text-bodyMd",
   bodySm: "text-bodySm",
   bodyXs: "text-bodyXs",
 };

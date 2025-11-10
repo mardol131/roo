@@ -1,4 +1,4 @@
-export declare const buttonSizeList: {
+export declare const buttonSize: {
     "4xl": string;
     "3xl": string;
     "2xl": string;
@@ -7,7 +7,13 @@ export declare const buttonSizeList: {
     md: string;
     sm: string;
 };
-export declare const buttonTypeList: {
+export declare const rounding: {
+    sm: string;
+    md: string;
+    lg: string;
+    full: string;
+};
+export declare const buttonType: {
     submit: string;
     button: string;
     reset: string;

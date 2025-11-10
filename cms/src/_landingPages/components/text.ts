@@ -1,24 +1,24 @@
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { Block, Field } from 'payload'
 
-import { getImageField } from '../../blocks/_global/fields'
 import { textColor } from '@roo/shared/design/colors'
-import { font, fontWeight, textTag, TextTag } from '@roo/shared/design/texts'
+import { font, fontSize, fontWeight, textTag } from '@roo/shared/design/texts'
+import { ImageBlock } from './image'
 
 export const TextBlock: Block = {
   slug: 'TextBlock',
   fields: [
-    { name: 'tag', type: 'select', options: getOptionsFromObject(textTag) },
+    { name: 'tag', type: 'select', options: getOptionsFromObject(textTag), required: true },
+    { name: 'text', type: 'text', required: true },
+    { name: 'size', type: 'select', options: getOptionsFromObject(fontSize) },
+    { name: 'fontWeight', type: 'select', options: getOptionsFromObject(fontWeight) },
+    { name: 'font', type: 'select', options: getOptionsFromObject(font) },
     {
       name: 'color',
       type: 'select',
-      required: true,
       options: getOptionsFromObject(textColor),
     },
-    { name: 'text', type: 'text', required: true },
     { name: 'className', type: 'text' },
-    { name: 'fontWeight', type: 'select', options: getOptionsFromObject(fontWeight) },
-    { name: 'font', type: 'select', options: getOptionsFromObject(font) },
   ],
 }
 

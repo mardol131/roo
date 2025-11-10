@@ -1,5 +1,5 @@
+import { getTextsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
-import { getTextsField } from '../_blocks/textBlock'
 
 export const FormTextInputBlock: Block = {
   slug: 'formtextinput',

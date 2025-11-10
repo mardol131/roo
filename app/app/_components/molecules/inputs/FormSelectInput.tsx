@@ -8,22 +8,22 @@ export type FormSelectInputProps = {
   label: string;
   value: string;
   placeholder: string;
-  spanTwo?: "true" | "false";
+  spanTwo?: boolean;
   options: SelectOptionType[];
-  required?: "true" | "false";
+  required?: boolean;
 };
 
 export function FormSelectInput(props: FormSelectInputProps) {
   return (
     <div
       className={`${
-        props.spanTwo === "true" && "col-span-2"
+        props.spanTwo && "col-span-2"
       } border-2 border-borderLight p-3 flex flex-col rounded-medium`}
     >
       <label className="text-primary font-semibold">{props.label}</label>
 
       <select
-        required={props.required === "true" || false}
+        required={props.required || false}
         name={props.value}
         id={props.value}
       >

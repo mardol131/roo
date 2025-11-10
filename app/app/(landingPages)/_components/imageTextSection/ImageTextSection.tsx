@@ -15,7 +15,7 @@ type ImageOneProps = {
 function ImageOne(props: ImageOneProps) {
   return (
     <Image
-      className={`${props.image.shadow === "true" && "shadow-xl"} ${props.image.rounded === "true" && "rounded-xl"} w-full object-cover object-center`}
+      className={`${props.image.shadow && "shadow-xl"} ${props.image.rounded && "rounded-xl"} w-full object-cover object-center`}
       src={getImageSrc(props.image.src, "cms")}
       alt={props.image.alt}
       width={2000}

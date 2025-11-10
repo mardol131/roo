@@ -1,5 +1,5 @@
 import { AdminRoles, UserRoles } from '@roo/shared/auth/users'
-import { AccessArgs, CollectionSlug } from 'payload'
+import { AccessArgs } from 'payload'
 
 type ACLConfig = {
   roles?: (AdminRoles | UserRoles)[]
