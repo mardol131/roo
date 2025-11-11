@@ -4,7 +4,7 @@ import { ImageType, OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import { SidesType } from "@roo/shared/src/design/orientation";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 
 type ImageOneProps = {

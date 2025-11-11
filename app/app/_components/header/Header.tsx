@@ -15,7 +15,8 @@ export default function Header({}: Props) {
     // pathname.startsWith("/prihlasit-se") ||
     // pathname.startsWith("/registrovat-se") ||
     // pathname.startsWith("/test") ||
-    pathname.startsWith("/stranky")
+    pathname.startsWith("/stranky") ||
+    pathname.startsWith("/blog")
   ) {
     return <></>;
   } else {
