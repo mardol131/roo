@@ -8,9 +8,20 @@ import { ImageBlock } from './image'
 export const TextBlock: Block = {
   slug: 'TextBlock',
   fields: [
-    { name: 'tag', type: 'select', options: getOptionsFromObject(textTag), required: true },
+    {
+      name: 'tag',
+      type: 'select',
+      options: getOptionsFromObject(textTag),
+      required: true,
+      defaultValue: 'p',
+    },
     { name: 'text', type: 'text', required: true },
-    { name: 'size', type: 'select', options: getOptionsFromObject(fontSize) },
+    {
+      name: 'size',
+      type: 'select',
+      options: getOptionsFromObject(fontSize),
+      defaultValue: 'bodyXl',
+    },
     { name: 'fontWeight', type: 'select', options: getOptionsFromObject(fontWeight) },
     { name: 'font', type: 'select', options: getOptionsFromObject(font) },
     {

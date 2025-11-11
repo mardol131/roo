@@ -11,4 +11,5 @@ export type ImageType = {
   alt: string;
   shadow?: boolean;
   rounded?: boolean;
+  squared?: boolean;
 };

@@ -1,7 +1,7 @@
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { colorsAndGradients } from '@roo/shared/design/colors'
 import { Field } from 'payload'
-import { imageField } from './image'
+import { getImageField } from './image'
 
 export const overlayField: Field = {
   label: 'Pozadí sekce',
@@ -38,7 +38,7 @@ export function getOverlayField(name?: string, label?: string) {
             name: 'overlayClassname',
             type: 'text',
           },
-          imageField,
+          getImageField(),
           {
             label: 'Nápověda',
             type: 'collapsible',

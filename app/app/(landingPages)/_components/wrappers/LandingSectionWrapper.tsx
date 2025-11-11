@@ -33,7 +33,7 @@ export function LandingSectionWrapper(props: SectionWrapperProps) {
         className={`${classnameOuter} relative z-0 w-full flex items-center justify-center overflow-hidden p-5`}
       >
         <div
-          className={`${props.classNameInner} z-10 flex items-center justify-center h-full max-w-contentWrapper w-full py-20 max-md:py-10`}
+          className={`${props.classNameInner} z-10 flex items-center justify-center h-full max-w-contentWrapper w-full py-20 max-lg:py-10`}
         >
           {props.children}
         </div>

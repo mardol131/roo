@@ -6,7 +6,7 @@ const PlaceholderCell = ({ rowData }: { rowData: any }) => {
   if (!src) return null
 
   return (
-    <Image
+    <img
       src={src}
       alt=""
       style={{

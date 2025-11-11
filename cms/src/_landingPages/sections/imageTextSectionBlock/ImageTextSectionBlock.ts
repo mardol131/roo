@@ -12,46 +12,6 @@ const imageOneBlock: Block = {
   fields: [getImageField()],
 }
 
-const imageGridBlock: Block = {
-  slug: 'imageGrid',
-  labels: { singular: 'Obrázkový grid', plural: 'Obrázkový grid' },
-  fields: [
-    {
-      name: 'imageOne',
-      type: 'group',
-      fields: [
-        { name: 'src', type: 'text', required: true },
-        { name: 'alt', type: 'text', required: true },
-      ],
-    },
-    {
-      name: 'imageTwo',
-      type: 'group',
-      fields: [
-        { name: 'src', type: 'text', required: true },
-        { name: 'alt', type: 'text', required: true },
-      ],
-    },
-    {
-      name: 'imageThree',
-      type: 'group',
-      fields: [
-        { name: 'src', type: 'text', required: true },
-        { name: 'alt', type: 'text', required: true },
-      ],
-    },
-    {
-      name: 'imageFour',
-      type: 'group',
-      fields: [
-        { name: 'src', type: 'text', required: true },
-        { name: 'alt', type: 'text', required: true },
-      ],
-    },
-    { name: 'rotate', type: 'select', options: ['true', 'false'] },
-  ],
-}
-
 export const ImageTextSectionBlock: Block = {
   slug: 'ImageTextSection',
   labels: { singular: 'Sekce s textem a obrázkem', plural: 'Sekce s textem a obrázkem' },

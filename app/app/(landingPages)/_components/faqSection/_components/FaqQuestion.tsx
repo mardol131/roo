@@ -27,6 +27,7 @@ export function FaqQuestion(props: QuestionProps) {
           tag="h4"
           color="black"
           fontWeight="semibold"
+          size="bodyXl"
         />
         <div className="w-10 justify-self-end">
           {isOpen ? (

@@ -10,7 +10,7 @@ export const StepBlock: Block = {
     { name: 'number', type: 'text', required: true },
     getTextsField('texts'),
     { name: 'color', type: 'select', required: true, options: getOptionsFromObject(colors) },
-    { name: 'connector', type: 'select', options: ['true', 'false'], required: true },
+    { name: 'connector', type: 'checkbox', required: true },
   ],
 }
 

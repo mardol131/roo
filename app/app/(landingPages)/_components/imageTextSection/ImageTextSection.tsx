@@ -13,9 +13,14 @@ type ImageOneProps = {
 };
 
 function ImageOne(props: ImageOneProps) {
+  const shadow = props.image.shadow ? "shadow-xl" : "";
+  const rounded = props.image.rounded ? "rounded-xl" : "";
+  const squared = props.image.squared ? "aspect-square" : "";
+
+  const classes = `${shadow} ${rounded} ${squared}`;
   return (
     <Image
-      className={`${props.image.shadow && "shadow-xl"} ${props.image.rounded && "rounded-xl"} w-full object-cover object-center`}
+      className={` ${classes} w-full object-cover object-center`}
       src={getImageSrc(props.image.src, "cms")}
       alt={props.image.alt}
       width={2000}
@@ -24,71 +29,7 @@ function ImageOne(props: ImageOneProps) {
   );
 }
 
-type ImageGridProps = {
-  blockType: "imageGrid";
-  imageOne: ImageType;
-  imageTwo: ImageType;
-  imageThree: ImageType;
-  imageFour: ImageType;
-  rotate?: boolean;
-};
-
-function ImageGrid(props: ImageGridProps) {
-  const rotations = [];
-  while (rotations.length < 4) {
-    rotations.push(props.rotate ? Math.floor(Math.random() * 5) : 0);
-  }
-
-  return (
-    <div className="grid grid-cols-2 gap-4">
-      <div className="grid gap-4 translate-y-10">
-        <Image
-          style={{ rotate: `${rotations[0]}deg` }}
-          className="rounded-lg shadow-lg aspect-square object-cover"
-          src={props.imageOne.src}
-          alt={props.imageOne.src}
-          width={500}
-          height={500}
-        />
-        <Image
-          style={{ rotate: `-${rotations[1]}deg` }}
-          className="rounded-lg shadow-lg aspect-square object-cover"
-          src={props.imageTwo.src}
-          alt={props.imageTwo.src}
-          width={500}
-          height={500}
-        />
-      </div>
-      <div className="grid gap-4">
-        <Image
-          style={{ rotate: `-${rotations[2]}deg` }}
-          className="rounded-lg shadow-lg aspect-square object-cover"
-          src={props.imageThree.src}
-          alt={props.imageThree.src}
-          width={500}
-          height={500}
-        />
-        <Image
-          style={{ rotate: `${rotations[3]}deg` }}
-          className="rounded-lg shadow-lg aspect-square object-cover"
-          src={props.imageFour.src}
-          alt={props.imageFour.src}
-          width={500}
-          height={500}
-        />
-      </div>
-    </div>
-  );
-}
-
-type ImageThreeProps = {
-  blockType: "imageThree";
-  imageOne: ImageProps;
-  imageTwo: ImageProps;
-  imageThree: ImageProps;
-};
-
-type ImagePartListProps = ImageOneProps | ImageGridProps;
+type ImagePartListProps = ImageOneProps;
 
 type Props = {
   texts: TextProps[];
@@ -109,7 +50,6 @@ export default function ImageTextSection(props: Props) {
         return null;
     }
   }
-
   const innerImage = props.innerOverlay?.image;
   const innerBg = props.innerOverlay?.overlayColor
     ? colorsAndGradients[props.innerOverlay?.overlayColor]

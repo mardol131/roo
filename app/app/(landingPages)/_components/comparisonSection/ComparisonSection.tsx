@@ -2,7 +2,7 @@ import React from "react";
 
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
-import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { FaCheck, FaXmark } from "react-icons/fa6";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
@@ -32,7 +32,13 @@ function CheckItem({
   return (
     <div className="flex items-center justify-start text-start gap-4">
       <Icon className="text-3xl" />
-      <p className="text-2xl font-semibold">{text}</p>
+      <Text
+        text={text}
+        tag="p"
+        size="headingSm"
+        color="white"
+        fontWeight="semibold"
+      />
     </div>
   );
 }

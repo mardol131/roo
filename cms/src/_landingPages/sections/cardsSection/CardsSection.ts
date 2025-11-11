@@ -1,5 +1,5 @@
 import { buttonsField } from '@/_landingPages/components/button'
-import { imageField } from '@/_landingPages/components/image'
+import { getImageField } from '@/_landingPages/components/image'
 import { getOverlayField } from '@/_landingPages/components/overlay'
 import { textsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
@@ -7,7 +7,7 @@ import { Block } from 'payload'
 const CardBlock: Block = {
   slug: 'CardBlock',
   labels: { singular: 'Karta', plural: 'Karty' },
-  fields: [imageField, textsField, buttonsField],
+  fields: [getImageField(), textsField, buttonsField],
 }
 
 export const CardsSectionBlock: Block = {

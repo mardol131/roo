@@ -1,0 +1,146 @@
+@import "tailwindcss";
+@import "./animations.css";
+
+/* Bg colors */
+
+.bg-white {
+  @apply bg-white;
+}
+.bg-whiteOpac {
+  @apply bg-white/50;
+}
+
+.bg-secondary {
+  @apply bg-secondary;
+}
+.bg-secondaryOpac {
+  @apply bg-secondary/50;
+}
+
+.bg-secondaryDark {
+  @apply bg-secondaryDark;
+}
+.bg-secondaryDarkOpac {
+  @apply bg-secondaryDark/50;
+}
+
+.bg-primary {
+  @apply bg-primary;
+}
+.bg-primaryOpac {
+  @apply bg-primary/50;
+}
+
+.bg-tertiary {
+  @apply bg-tertiary;
+}
+.bg-tertiaryOpac {
+  @apply bg-tertiary/50;
+}
+
+.bg-tertiaryDark {
+  @apply bg-tertiaryDark;
+}
+.bg-tertiaryDarkOpac {
+  @apply bg-tertiaryDark/50;
+}
+
+.bg-blackTransparent {
+  @apply bg-linear-60 from-rooBlack to-rooBlack/30;
+}
+.bg-transparentBlack {
+  @apply bg-linear-60 from-rooBlack/30 to-rooBlack;
+}
+
+.bg-primaryTransparent {
+  @apply bg-linear-30 from-primary/70 to-transparent;
+}
+.bg-secondaryTransparent {
+  @apply bg-linear-30 from-secondary/70 to-transparent;
+}
+.bg-tertiaryTransparent {
+  @apply bg-linear-30 from-tertiary/70 to-transparent;
+}
+
+.bg-transparentPrimary {
+  @apply bg-linear-30 from-transparent to-primary/70;
+}
+.bg-transparentSecondary {
+  @apply bg-linear-30 from-transparent to-secondary/70;
+}
+.bg-transparentTertiary {
+  @apply bg-linear-30 from-transparent to-tertiary/70;
+}
+
+.bg-primarySecondaryOpac {
+  @apply bg-linear-30 from-primary/70 to-secondary/70;
+}
+.bg-primaryTertiaryOpac {
+  @apply bg-linear-30 from-primary/70 to-tertiary/70;
+}
+.bg-secondaryTertiaryOpac {
+  @apply bg-linear-30 from-secondary/70 to-tertiary/70;
+}
+.bg-secondaryPrimaryOpac {
+  @apply bg-linear-30 from-secondary/70 to-primary/70;
+}
+.bg-tertiaryPrimaryOpac {
+  @apply bg-linear-30 from-tertiary/70 to-primary/70;
+}
+.bg-tertiarySecondaryOpac {
+  @apply bg-linear-30 from-tertiary/70 to-secondary/70;
+}
+.bg-primarySecondaryTertiaryOpac {
+  @apply bg-linear-30 from-primary/70 via-secondary/70 to-tertiary/70;
+}
+.bg-primaryTertiarySecondaryOpac {
+  @apply bg-linear-30 from-primary/70 via-tertiary/70 to-secondary/70;
+}
+.bg-secondaryPrimaryTertiaryOpac {
+  @apply bg-linear-30 from-secondary/70 via-primary/70 to-tertiary/70;
+}
+.bg-secondaryTertiryPrimaryOpac {
+  @apply bg-linear-30 from-secondary/70 via-tertiary/70 to-primary/70;
+}
+.bg-tertiaryPrimarySecondaryOpac {
+  @apply bg-linear-30 from-tertiary/70 via-primary/70 to-secondary/70;
+}
+.bg-tertiarySecondaryPrimaryOpac {
+  @apply bg-linear-30 from-tertiary/70 via-secondary/70 to-primary/70;
+}
+.bg-primarySecondary {
+  @apply bg-linear-30 from-primary to-secondary;
+}
+.bg-primaryTertiary {
+  @apply bg-linear-30 from-primary to-tertiary;
+}
+.bg-secondaryTertiary {
+  @apply bg-linear-30 from-secondary to-tertiary;
+}
+.bg-secondaryPrimary {
+  @apply bg-linear-30 from-secondary to-primary;
+}
+.bg-tertiaryPrimary {
+  @apply bg-linear-30 from-tertiary to-primary;
+}
+.bg-tertiarySecondary {
+  @apply bg-linear-30 from-tertiary to-secondary;
+}
+.bg-primarySecondaryTertiary {
+  @apply bg-linear-30 from-primary via-secondary to-tertiary;
+}
+.bg-primaryTertiarySecondary {
+  @apply bg-linear-30 from-primary via-tertiary to-secondary;
+}
+.bg-secondaryPrimaryTertiary {
+  @apply bg-linear-30 from-secondary via-primary to-tertiary;
+}
+.bg-secondaryTertiryPrimary {
+  @apply bg-linear-30 from-secondary via-tertiary to-primary;
+}
+.bg-tertiaryPrimarySecondary {
+  @apply bg-linear-30 from-tertiary via-primary to-secondary;
+}
+.bg-tertiarySecondaryPrimary {
+  @apply bg-linear-30 from-tertiary via-secondary to-primary;
+}

@@ -28,6 +28,7 @@ export function Step(props: StepProps) {
             tag="p"
             fontWeight="semibold"
             color="white"
+            size="headingLg"
           />
         </div>
         <div className="sm:mr-10 max-sm:text-center">
