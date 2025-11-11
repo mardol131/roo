@@ -6,4 +6,5 @@ export type BlogPostCardProps = {
   excerpt: string;
   tags: string[];
   createdDt: Date;
+  showButton?: boolean;
 };

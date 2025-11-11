@@ -1,8 +1,9 @@
-import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 import React from "react";
 import image from "@/app/_images/place.jpg";
 import FeaturedPostsSection from "./_components/FeaturedPostsSection";
 import { BlogPostCardProps } from "./types/blogPostTypes";
+import { BlogWrapper } from "./_components/BlogWrapper";
+import BlogPostList from "./_components/BlogPostList";
 
 type Props = {};
 
@@ -24,8 +25,13 @@ export default function page({}: Props) {
   ];
 
   return (
-    <LandingSectionWrapper>
-      <FeaturedPostsSection posts={featured} />
-    </LandingSectionWrapper>
+    <>
+      <BlogWrapper>
+        <FeaturedPostsSection posts={featured} />
+      </BlogWrapper>
+      <BlogWrapper>
+        <BlogPostList posts={featured} />
+      </BlogWrapper>
+    </>
   );
 }
