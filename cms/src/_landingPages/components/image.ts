@@ -26,7 +26,8 @@ export function getImageField({
           { name: 'imageUpload', type: 'upload', relationTo: 'media' },
           { name: 'alt', type: 'text', admin: { readOnly: true } },
           { name: 'src', type: 'text', admin: { readOnly: true } },
-          { name: 'description', type: 'text' },
+          { name: 'description', type: 'text', admin: { readOnly: true } },
+          { name: 'url', type: 'text' },
           { name: 'rounded', type: 'checkbox' },
           { name: 'shadow', type: 'checkbox' },
           { name: 'squared', type: 'checkbox' },
@@ -50,13 +51,14 @@ export function getImageField({
               if (!localUrl) return value
 
               // 3️⃣ Uploadni na CDN (např. Cloudinary, Bunny, S3...)
-              // const cdnUrl = await uploadToCdn(localUrl)
+              //   const cdnUrl = await uploadToCdn(localUrl)
 
               // 4️⃣ Vrať aktualizovanou hodnotu groupy
               return {
                 ...value,
                 src: media.filename,
                 alt: media.alt,
+                url: `${process.env.NEXT_PUBLIC_CDN_URL}/cms/${media.filename}`,
               }
             },
           ],

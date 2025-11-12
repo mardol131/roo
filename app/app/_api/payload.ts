@@ -1,15 +1,12 @@
 import { jwtVerify } from "jose";
 
-export async function getPayloadApi(query: string) {
+export async function getPayloadApi(query: string, cache?: "no-store") {
   try {
-    const data = await fetch(
-      `${process.env.NEXT_PUBLIC_CMS_URL}/api/${query}`,
-      {
-        method: "get",
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    const data = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api${query}`, {
+      method: "get",
+      headers: { "Content-Type": "application/json" },
+      cache: cache || undefined,
+    });
 
     const json = await data.json();
     return json;
@@ -21,7 +18,6 @@ export async function getPayloadApi(query: string) {
 export async function postPayloadApi(payload: any, query: string) {
   const data = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/${query}`, {
     method: "post",
-    mode: "cors",
     body: JSON.stringify(payload),
     headers: { "Content-Type": "application/json" },
   });
@@ -37,7 +33,7 @@ export async function getCmsPage(slug: string) {
 
 export async function getCmsPosts() {
   const query = `/posts?[where][featured][not_equals]=true&depth=1`;
-  return await getPayloadApi(query);
+  return await getPayloadApi(query, "no-store");
 }
 
 export async function getCmsPost(slug: string) {

@@ -191,6 +191,7 @@ export interface Post {
     alt?: string | null;
     src?: string | null;
     description?: string | null;
+    url?: string | null;
     rounded?: boolean | null;
     shadow?: boolean | null;
     squared?: boolean | null;
@@ -293,6 +294,7 @@ export interface Post {
               alt?: string | null;
               src?: string | null;
               description?: string | null;
+              url?: string | null;
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
@@ -427,6 +429,7 @@ export interface Page {
     alt?: string | null;
     src?: string | null;
     description?: string | null;
+    url?: string | null;
     rounded?: boolean | null;
     shadow?: boolean | null;
     squared?: boolean | null;
@@ -789,6 +792,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -1237,6 +1241,7 @@ export interface Page {
               alt?: string | null;
               src?: string | null;
               description?: string | null;
+              url?: string | null;
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
@@ -1387,6 +1392,7 @@ export interface Page {
               alt?: string | null;
               src?: string | null;
               description?: string | null;
+              url?: string | null;
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
@@ -1460,6 +1466,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -1689,6 +1696,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -1914,6 +1922,7 @@ export interface Page {
                           alt?: string | null;
                           src?: string | null;
                           description?: string | null;
+                          url?: string | null;
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
@@ -2009,6 +2018,7 @@ export interface Page {
                             alt?: string | null;
                             src?: string | null;
                             description?: string | null;
+                            url?: string | null;
                             rounded?: boolean | null;
                             shadow?: boolean | null;
                             squared?: boolean | null;
@@ -2102,6 +2112,7 @@ export interface Page {
                           alt?: string | null;
                           src?: string | null;
                           description?: string | null;
+                          url?: string | null;
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
@@ -2368,6 +2379,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -2464,6 +2476,7 @@ export interface Page {
                 alt?: string | null;
                 src?: string | null;
                 description?: string | null;
+                url?: string | null;
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
@@ -2765,6 +2778,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -2861,6 +2875,7 @@ export interface Page {
                 alt?: string | null;
                 src?: string | null;
                 description?: string | null;
+                url?: string | null;
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
@@ -3038,6 +3053,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -3110,6 +3126,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -3205,6 +3222,7 @@ export interface Page {
                     alt?: string | null;
                     src?: string | null;
                     description?: string | null;
+                    url?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -3291,6 +3309,7 @@ export interface Page {
                     alt?: string | null;
                     src?: string | null;
                     description?: string | null;
+                    url?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -3442,6 +3461,7 @@ export interface Page {
                 alt?: string | null;
                 src?: string | null;
                 description?: string | null;
+                url?: string | null;
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
@@ -3703,6 +3723,7 @@ export interface Page {
                     alt?: string | null;
                     src?: string | null;
                     description?: string | null;
+                    url?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -3880,6 +3901,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -3952,6 +3974,7 @@ export interface Page {
             alt?: string | null;
             src?: string | null;
             description?: string | null;
+            url?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -4047,6 +4070,7 @@ export interface Page {
                     alt?: string | null;
                     src?: string | null;
                     description?: string | null;
+                    url?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -4133,6 +4157,7 @@ export interface Page {
                     alt?: string | null;
                     src?: string | null;
                     description?: string | null;
+                    url?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -4222,6 +4247,7 @@ export interface Page {
                           alt?: string | null;
                           src?: string | null;
                           description?: string | null;
+                          url?: string | null;
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
@@ -4397,6 +4423,7 @@ export interface PostsSelect<T extends boolean = true> {
         alt?: T;
         src?: T;
         description?: T;
+        url?: T;
         rounded?: T;
         shadow?: T;
         squared?: T;
@@ -4453,6 +4480,7 @@ export interface PostsSelect<T extends boolean = true> {
                     alt?: T;
                     src?: T;
                     description?: T;
+                    url?: T;
                     rounded?: T;
                     shadow?: T;
                     squared?: T;
@@ -4523,6 +4551,7 @@ export interface PagesSelect<T extends boolean = true> {
         alt?: T;
         src?: T;
         description?: T;
+        url?: T;
         rounded?: T;
         shadow?: T;
         squared?: T;
@@ -4624,6 +4653,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -4747,6 +4777,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -4792,6 +4823,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -4811,6 +4843,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -4887,6 +4920,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -4979,6 +5013,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             alt?: T;
                                             src?: T;
                                             description?: T;
+                                            url?: T;
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;
@@ -5028,6 +5063,7 @@ export interface PagesSelect<T extends boolean = true> {
                                                         alt?: T;
                                                         src?: T;
                                                         description?: T;
+                                                        url?: T;
                                                         rounded?: T;
                                                         shadow?: T;
                                                         squared?: T;
@@ -5069,6 +5105,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             alt?: T;
                                             src?: T;
                                             description?: T;
+                                            url?: T;
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;
@@ -5150,6 +5187,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5192,6 +5230,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5260,6 +5299,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5302,6 +5342,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5347,6 +5388,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5365,6 +5407,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5403,6 +5446,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5437,6 +5481,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5494,6 +5539,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5576,6 +5622,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5620,6 +5667,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5638,6 +5686,7 @@ export interface PagesSelect<T extends boolean = true> {
                           alt?: T;
                           src?: T;
                           description?: T;
+                          url?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5676,6 +5725,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5710,6 +5760,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 alt?: T;
                                 src?: T;
                                 description?: T;
+                                url?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5751,6 +5802,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             alt?: T;
                                             src?: T;
                                             description?: T;
+                                            url?: T;
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;

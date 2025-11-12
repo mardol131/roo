@@ -6,11 +6,14 @@ import { getPosts } from "./_functions/getPosts";
 import { redirect } from "next/navigation";
 import { getFeaturedPosts } from "./_functions/getFeaturedPosts";
 import Text from "@/app/_components/atoms/Text";
+import { getCmsPosts } from "@/app/_api/payload";
 
 type Props = {};
 
+export const revalidate = 60;
+
 export default async function page({}: Props) {
-  const posts = await getPosts();
+  const posts = await getCmsPosts();
 
   const featuredPosts = await getFeaturedPosts();
 
