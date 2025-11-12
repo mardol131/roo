@@ -183,13 +183,10 @@ export const Pages: CollectionConfig = {
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, '-') // nahradí mezery a nealfanumerické znaky pomlčkou
             .replace(/(^-|-$)+/g, '') // odstraní pomlčky na začátku a konci
+          data.canonical = `${process.env.NEXT_PUBLIC_WEBSITE}/stranky/${data.pageSlug}`
 
           if (!data.description) {
             data.description = data.title
-          }
-
-          if (!data?.canonical) {
-            data.canonical = `${process.env.NEXT_PUBLIC_WEBSITE}/stranky/${data.pageSlug}`
           }
         }
         return data
