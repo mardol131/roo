@@ -10,7 +10,7 @@ type SectionWrapperProps = {
   overlay?: OverlayType;
 };
 
-export function BlogWrapper(props: SectionWrapperProps) {
+export function BlogPostWrapper(props: SectionWrapperProps) {
   const bgColor =
     props.overlay?.overlayColor &&
     colorsAndGradients[props.overlay.overlayColor];
@@ -23,7 +23,7 @@ export function BlogWrapper(props: SectionWrapperProps) {
       className={`${classnameOuter} relative z-0 w-full flex items-center justify-center overflow-hidden p-5`}
     >
       <div
-        className={`${props.classNameInner} z-10 flex flex-col items-center justify-center h-full max-w-300 w-full py-10 max-lg:py-10`}
+        className={`${props.classNameInner} z-10 flex flex-col items-center justify-center h-full max-w-250 w-full py-10 max-lg:py-10`}
       >
         {props.children}
       </div>

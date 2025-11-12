@@ -17,8 +17,12 @@ export default function BlogLayout({
     <>
       <UTMInit />
       <div className="flex flex-col">
-        <WebsiteHeader />
-        <WebsiteHeaderMobile />
+        <WebsiteHeader
+          button={{ bgColor: "primaryTertiary", text: "Přidej se k nám" }}
+        />
+        <WebsiteHeaderMobile
+          button={{ bgColor: "primaryTertiary", text: "Přidej se k nám" }}
+        />
         {children}
       </div>
     </>

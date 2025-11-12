@@ -8,7 +8,7 @@ import { format } from "date-fns";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import PostTags from "./PostTags";
 
-export default function BlogPostCard({
+export default function BlogPostFeaturedCard({
   image,
   title,
   excerpt,
@@ -22,15 +22,15 @@ export default function BlogPostCard({
   const formatedCreateDt = format(createdAt, "dd.MM.yyyy");
 
   return (
-    <div className="border group flex flex-col relative border-borderLight rounded-xl shadow-lg overflow-hidden">
+    <div className="border group grid lg:grid-cols-2 relative border-borderLight rounded-xl shadow-lg overflow-hidden">
       <Image
         src={getImageSrc(image.src, "cms")}
         alt={image.alt}
         width={500}
         height={400}
-        className="w-full"
+        className="w-full h-full object-cover"
       />
-      <div className="p-3 flex flex-col justify-between gap-2">
+      <div className="p-4 flex flex-col justify-between gap-2">
         <div>
           <Text text={title} tag="h2" size="headingSm" fontWeight="bold" />
           <Text text={`${text}...`} tag="p" size="bodyMd" />

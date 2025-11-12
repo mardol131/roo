@@ -56,5 +56,10 @@ export const Admins: CollectionConfig = {
         update: ({ req }) => req.user?.role === 'admin' || req.user?.role === 'superadmin',
       },
     },
+    {
+      name: 'name',
+      type: 'text',
+      required: true,
+    },
   ],
 }

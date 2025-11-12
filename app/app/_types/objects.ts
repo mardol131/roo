@@ -9,6 +9,7 @@ export type OverlayType = {
 export type ImageType = {
   src: string;
   alt: string;
+  description?: string;
   shadow?: boolean;
   rounded?: boolean;
   squared?: boolean;

@@ -190,6 +190,7 @@ export interface Post {
     imageUpload?: (string | null) | Media;
     alt?: string | null;
     src?: string | null;
+    description?: string | null;
     rounded?: boolean | null;
     shadow?: boolean | null;
     squared?: boolean | null;
@@ -291,6 +292,7 @@ export interface Post {
               imageUpload?: (string | null) | Media;
               alt?: string | null;
               src?: string | null;
+              description?: string | null;
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
@@ -332,6 +334,7 @@ export interface Media {
 export interface Admin {
   id: string;
   role?: ('superadmin' | 'admin' | 'editor') | null;
+  name: string;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -423,6 +426,7 @@ export interface Page {
     imageUpload?: (string | null) | Media;
     alt?: string | null;
     src?: string | null;
+    description?: string | null;
     rounded?: boolean | null;
     shadow?: boolean | null;
     squared?: boolean | null;
@@ -784,6 +788,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -1231,6 +1236,7 @@ export interface Page {
               imageUpload?: (string | null) | Media;
               alt?: string | null;
               src?: string | null;
+              description?: string | null;
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
@@ -1380,6 +1386,7 @@ export interface Page {
               imageUpload?: (string | null) | Media;
               alt?: string | null;
               src?: string | null;
+              description?: string | null;
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
@@ -1452,6 +1459,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -1680,6 +1688,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -1904,6 +1913,7 @@ export interface Page {
                           imageUpload?: (string | null) | Media;
                           alt?: string | null;
                           src?: string | null;
+                          description?: string | null;
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
@@ -1998,6 +2008,7 @@ export interface Page {
                             imageUpload?: (string | null) | Media;
                             alt?: string | null;
                             src?: string | null;
+                            description?: string | null;
                             rounded?: boolean | null;
                             shadow?: boolean | null;
                             squared?: boolean | null;
@@ -2090,6 +2101,7 @@ export interface Page {
                           imageUpload?: (string | null) | Media;
                           alt?: string | null;
                           src?: string | null;
+                          description?: string | null;
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
@@ -2355,6 +2367,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -2450,6 +2463,7 @@ export interface Page {
                 imageUpload?: (string | null) | Media;
                 alt?: string | null;
                 src?: string | null;
+                description?: string | null;
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
@@ -2750,6 +2764,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -2845,6 +2860,7 @@ export interface Page {
                 imageUpload?: (string | null) | Media;
                 alt?: string | null;
                 src?: string | null;
+                description?: string | null;
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
@@ -3021,6 +3037,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -3092,6 +3109,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -3186,6 +3204,7 @@ export interface Page {
                     imageUpload?: (string | null) | Media;
                     alt?: string | null;
                     src?: string | null;
+                    description?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -3271,6 +3290,7 @@ export interface Page {
                     imageUpload?: (string | null) | Media;
                     alt?: string | null;
                     src?: string | null;
+                    description?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -3421,6 +3441,7 @@ export interface Page {
                 imageUpload?: (string | null) | Media;
                 alt?: string | null;
                 src?: string | null;
+                description?: string | null;
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
@@ -3681,6 +3702,7 @@ export interface Page {
                     imageUpload?: (string | null) | Media;
                     alt?: string | null;
                     src?: string | null;
+                    description?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -3857,6 +3879,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -3928,6 +3951,7 @@ export interface Page {
             imageUpload?: (string | null) | Media;
             alt?: string | null;
             src?: string | null;
+            description?: string | null;
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
@@ -4022,6 +4046,7 @@ export interface Page {
                     imageUpload?: (string | null) | Media;
                     alt?: string | null;
                     src?: string | null;
+                    description?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -4107,6 +4132,7 @@ export interface Page {
                     imageUpload?: (string | null) | Media;
                     alt?: string | null;
                     src?: string | null;
+                    description?: string | null;
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
@@ -4195,6 +4221,7 @@ export interface Page {
                           imageUpload?: (string | null) | Media;
                           alt?: string | null;
                           src?: string | null;
+                          description?: string | null;
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
@@ -4369,6 +4396,7 @@ export interface PostsSelect<T extends boolean = true> {
         imageUpload?: T;
         alt?: T;
         src?: T;
+        description?: T;
         rounded?: T;
         shadow?: T;
         squared?: T;
@@ -4424,6 +4452,7 @@ export interface PostsSelect<T extends boolean = true> {
                     imageUpload?: T;
                     alt?: T;
                     src?: T;
+                    description?: T;
                     rounded?: T;
                     shadow?: T;
                     squared?: T;
@@ -4493,6 +4522,7 @@ export interface PagesSelect<T extends boolean = true> {
         imageUpload?: T;
         alt?: T;
         src?: T;
+        description?: T;
         rounded?: T;
         shadow?: T;
         squared?: T;
@@ -4593,6 +4623,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -4715,6 +4746,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -4759,6 +4791,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -4777,6 +4810,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -4852,6 +4886,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -4943,6 +4978,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             imageUpload?: T;
                                             alt?: T;
                                             src?: T;
+                                            description?: T;
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;
@@ -4991,6 +5027,7 @@ export interface PagesSelect<T extends boolean = true> {
                                                         imageUpload?: T;
                                                         alt?: T;
                                                         src?: T;
+                                                        description?: T;
                                                         rounded?: T;
                                                         shadow?: T;
                                                         squared?: T;
@@ -5031,6 +5068,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             imageUpload?: T;
                                             alt?: T;
                                             src?: T;
+                                            description?: T;
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;
@@ -5111,6 +5149,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5152,6 +5191,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5219,6 +5259,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5260,6 +5301,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5304,6 +5346,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5321,6 +5364,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5358,6 +5402,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5391,6 +5436,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5447,6 +5493,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5528,6 +5575,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5571,6 +5619,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5588,6 +5637,7 @@ export interface PagesSelect<T extends boolean = true> {
                           imageUpload?: T;
                           alt?: T;
                           src?: T;
+                          description?: T;
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
@@ -5625,6 +5675,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5658,6 +5709,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 imageUpload?: T;
                                 alt?: T;
                                 src?: T;
+                                description?: T;
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
@@ -5698,6 +5750,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             imageUpload?: T;
                                             alt?: T;
                                             src?: T;
+                                            description?: T;
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;
@@ -5745,6 +5798,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface AdminsSelect<T extends boolean = true> {
   role?: T;
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

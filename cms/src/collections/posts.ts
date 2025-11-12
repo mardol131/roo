@@ -61,6 +61,7 @@ export const Posts: CollectionConfig = {
       admin: {
         position: 'sidebar',
       },
+      unique: true,
     },
 
     {

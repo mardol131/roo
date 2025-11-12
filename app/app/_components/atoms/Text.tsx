@@ -72,14 +72,23 @@ export function GenerateTexts(props: {
       return <Text {...text} key={i} />;
     } else if (text.blockType === "imageBlock") {
       return (
-        <Image
-          key={i}
-          src={getImageSrc(text.image.src, "cms")}
-          alt={text.image.alt || "image-top"}
-          width={1500}
-          height={1500}
-          className={`${text.image.shadow && "shadow-xl"} ${text.image.rounded && "rounded-xl"} w-full max-w-300 h-auto my-10`}
-        />
+        <div key={i} className="w-full max-w-300 h-auto">
+          <Image
+            src={getImageSrc(text.image.src, "cms")}
+            alt={text.image.alt || "image-top"}
+            width={1500}
+            height={1500}
+            className={`${text.image.shadow && "shadow-xl"} ${text.image.rounded && "rounded-xl"} w-full max-w-300 h-auto mb-3`}
+          />
+          {text.image.description && (
+            <Text
+              text={text.image.description}
+              tag="p"
+              size="bodyMd"
+              className="italic"
+            />
+          )}
+        </div>
       );
     } else {
       return null;

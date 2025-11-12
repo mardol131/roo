@@ -40,6 +40,11 @@ export async function getCmsPosts() {
   return await getPayloadApi(query);
 }
 
+export async function getCmsPost(slug: string) {
+  const query = `/posts?[where][slug][equals]=${slug}&depth=1`;
+  return await getPayloadApi(query);
+}
+
 export async function getCmsFeaturedPosts() {
   const query = `/posts?[where][featured][equals]=true&depth=1`;
   return await getPayloadApi(query);

@@ -1,11 +1,15 @@
 import { ImageType } from "@/app/_types/objects";
-import { PostTagProps } from "../_components/PostTag";
+import { PostTagProps } from "../_components/PostTags";
+import { TextProps } from "@/app/_components/atoms/Text";
 
 export type BlogPostCardProps = {
+  id: string;
+  slug: string;
   image: ImageType;
   title: string;
+  texts?: TextProps[];
   excerpt: string;
-  tags: PostTagProps[];
+  tags?: PostTagProps[];
   createdAt: Date;
   showButton?: boolean;
 };

@@ -5,20 +5,23 @@ import Text from "@/app/_components/atoms/Text";
 
 type Props = {
   posts: BlogPostCardProps[];
+  hasFeatured?: boolean;
 };
 
-export default function BlogPostList({ posts }: Props) {
+export default function BlogPostList({ posts, hasFeatured = true }: Props) {
   return (
     <div className="flex flex-col w-full items-center gap-10">
       <Text
         tag="h2"
         size="headingLg"
-        text="Další články"
+        text={hasFeatured ? "Další články" : "Články"}
         fontWeight="semibold"
       />
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid lg:grid-cols-4 gap-3">
         {posts.map((post, i) => {
-          return <BlogPostCard {...post} key={i} />;
+          return (
+            <BlogPostCard {...post} tags={post.tags?.splice(0, 1)} key={i} />
+          );
         })}
       </div>
     </div>

@@ -38,15 +38,19 @@ export async function generateMetadata({
     "video.other",
   ];
 
+  const canonicalUrl = post.canonical;
+
   const ogType = validOgTypes.includes(og["og:type"])
     ? og["og:type"]
     : "website";
   const twitter = post.twitter;
   const jsonld = post.JSON_LD;
-  console.log(post);
   return {
     title: title || "ROO",
     description: description || "",
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: og
       ? {
           title: og["og:title"] || title,

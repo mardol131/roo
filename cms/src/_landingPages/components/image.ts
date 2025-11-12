@@ -26,6 +26,7 @@ export function getImageField({
           { name: 'imageUpload', type: 'upload', relationTo: 'media' },
           { name: 'alt', type: 'text', admin: { readOnly: true } },
           { name: 'src', type: 'text', admin: { readOnly: true } },
+          { name: 'description', type: 'text' },
           { name: 'rounded', type: 'checkbox' },
           { name: 'shadow', type: 'checkbox' },
           { name: 'squared', type: 'checkbox' },

@@ -5,6 +5,7 @@ import BlogPostList from "./_components/BlogPostList";
 import { getPosts } from "./_functions/getPosts";
 import { redirect } from "next/navigation";
 import { getFeaturedPosts } from "./_functions/getFeaturedPosts";
+import Text from "@/app/_components/atoms/Text";
 
 type Props = {};
 
@@ -13,18 +14,23 @@ export default async function page({}: Props) {
 
   const featuredPosts = await getFeaturedPosts();
 
-  console.log("featured", posts);
+  const hasFeatured = featuredPosts?.docs?.length > 0;
+  const hasPosts = posts?.docs?.length > 0;
+
   return (
     <>
       <BlogWrapper>
-        {featuredPosts.docs && featuredPosts.docs.length > 0 && (
-          <FeaturedPostsSection posts={featuredPosts.docs} />
-        )}
+        <Text
+          text="Blog"
+          tag="h1"
+          size="headingLg"
+          fontWeight="semibold"
+          className="mb-10"
+        />
+        {hasFeatured && <FeaturedPostsSection posts={featuredPosts.docs} />}
       </BlogWrapper>
       <BlogWrapper>
-        {posts.docs && posts.docs.length > 0 && (
-          <BlogPostList posts={posts.docs} />
-        )}
+        {hasPosts && <BlogPostList posts={posts.docs} />}
       </BlogWrapper>
     </>
   );
