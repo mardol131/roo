@@ -5,20 +5,22 @@ import Image from "next/image";
 import Text from "@/app/_components/atoms/Text";
 import Button from "@/app/_components/atoms/Button";
 import { format } from "date-fns";
+import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import PostTags from "./PostTag";
 
 export default function BlogPostMainFeaturedCard({
   image,
   title,
   excerpt,
   tags,
-  createdDt,
+  createdAt,
 }: BlogPostCardProps) {
-  const formatedCreateDt = format(createdDt, "dd.MM.yyyy");
+  const formatedCreateDt = format(createdAt, "dd.MM.yyyy");
 
   return (
-    <div className="border border-borderLight rounded-xl shadow-lg overflow-hidden">
+    <div className="relative border border-borderLight rounded-xl shadow-lg overflow-hidden">
       <Image
-        src={image.src}
+        src={getImageSrc(image.src, "cms")}
         alt={image.alt}
         width={500}
         height={400}
@@ -38,6 +40,7 @@ export default function BlogPostMainFeaturedCard({
           <Text text={formatedCreateDt.toString()} tag="h2" size="bodySm" />
         </div>
       </div>
+      <PostTags tags={tags} />
     </div>
   );
 }

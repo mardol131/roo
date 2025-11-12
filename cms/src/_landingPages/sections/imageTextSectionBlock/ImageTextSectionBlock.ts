@@ -9,7 +9,7 @@ import { getOverlayField } from '@/_landingPages/components/overlay'
 const imageOneBlock: Block = {
   labels: { singular: 'Jeden obrázek', plural: 'Jeden obrázek' },
   slug: 'imageOne',
-  fields: [getImageField()],
+  fields: [getImageField({})],
 }
 
 export const ImageTextSectionBlock: Block = {

@@ -19,5 +19,5 @@ export const MasonryBubbleBlock: Block = {
 export const MasonryBubbleImageBlock: Block = {
   slug: 'masonrybubbleimage',
   labels: { singular: 'Masonry obrázek', plural: 'Masonry obrázek' },
-  fields: [getImageField(), columnField, rowField],
+  fields: [getImageField({}), columnField, rowField],
 }

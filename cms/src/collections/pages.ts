@@ -26,7 +26,7 @@ export const Pages: CollectionConfig = {
         initCollapsed: true,
       },
       fields: [
-        getImageField('image', 'Náhledový obrázek stránky'),
+        getImageField({ name: 'image', label: 'Náhledový obrázek stránky' }),
         {
           name: 'placeholder',
           type: 'ui',

@@ -17,6 +17,7 @@ import dotenv from 'dotenv'
 import { Media } from './collections/media'
 import { resendAdapter } from '@payloadcms/email-resend'
 import { Admins } from './collections/admins'
+import { BlogTags } from './collections/blogTags'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -51,7 +52,18 @@ export default buildConfig({
     defaultFromName: 'Roo Admin',
     apiKey: process.env.RESEND_API_KEY || '',
   }),
-  collections: [Users, Posts, Listings, SubListings, Places, Categories, Pages, Media, Admins],
+  collections: [
+    Users,
+    Posts,
+    Listings,
+    SubListings,
+    Places,
+    Categories,
+    Pages,
+    Media,
+    Admins,
+    BlogTags,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

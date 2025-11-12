@@ -2,14 +2,22 @@ import { Block, Field } from 'payload'
 
 export const ImageBlock: Block = {
   slug: 'imageBlock',
-  fields: [getImageField()],
+  fields: [getImageField({})],
 }
 
-export function getImageField(name?: string, label?: string) {
+export function getImageField({
+  name,
+  label,
+  sidebar,
+}: {
+  name?: string
+  label?: string
+  sidebar?: boolean
+}) {
   const imageField: Field = {
     label: label || 'Obrázek',
     type: 'collapsible',
-    admin: { initCollapsed: true },
+    admin: { initCollapsed: true, position: sidebar ? 'sidebar' : undefined },
     fields: [
       {
         name: name ? name : 'image',

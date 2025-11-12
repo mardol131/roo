@@ -15,7 +15,7 @@ export const TextBlock: Block = {
       required: true,
       defaultValue: 'p',
     },
-    { name: 'text', type: 'text', required: true },
+    { name: 'text', type: 'textarea', required: true },
     {
       name: 'size',
       type: 'select',

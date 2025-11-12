@@ -32,8 +32,18 @@ export async function postPayloadApi(payload: any, query: string) {
   return json;
 }
 
-export async function getLandingPage(slug: string) {
+export async function getCmsPage(slug: string) {
   const query = `/pages?where[pageSlug][equals]=${slug}&limit=1`;
+  return await getPayloadApi(query);
+}
+
+export async function getCmsPosts() {
+  const query = `/posts?depth=1`;
+  return await getPayloadApi(query);
+}
+
+export async function getCmsFeaturedPosts() {
+  const query = `/posts?depth=1&[where][featured]`;
   return await getPayloadApi(query);
 }
 

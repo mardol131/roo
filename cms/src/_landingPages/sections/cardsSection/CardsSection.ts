@@ -7,7 +7,7 @@ import { Block } from 'payload'
 const CardBlock: Block = {
   slug: 'CardBlock',
   labels: { singular: 'Karta', plural: 'Karty' },
-  fields: [getImageField(), textsField, buttonsField],
+  fields: [getImageField({}), textsField, buttonsField],
 }
 
 export const CardsSectionBlock: Block = {

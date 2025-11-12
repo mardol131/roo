@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { Metadata } from "next";
 
 import { UTMInit } from "@roo/shared/src/functions/analytics/UTMInit";
-import { getPost } from "../../_functions/getPost";
+import { getPage } from "../../_functions/getPage";
 import { SectionPropsMap, sectionsList } from "../../_components/sectionList";
 import { ButtonProps } from "@/app/_components/atoms/Button";
 import { WebsiteHeader } from "../../_components/header/WebsiteHeader";
@@ -19,7 +19,7 @@ export async function generateMetadata({
   params,
 }: PageComponentProps): Promise<Metadata> {
   const { pageSlug } = await params;
-  const response = await getPost(pageSlug);
+  const response = await getPage(pageSlug);
   const post = response.docs[0];
   const title = post.title;
   const description = post.description;
@@ -76,7 +76,7 @@ export async function generateMetadata({
 
 export default async function page({ params }: PageComponentProps) {
   const { pageSlug } = await params;
-  const response = await getPost(pageSlug);
+  const response = await getPage(pageSlug);
   console.log(response);
   let data;
   try {

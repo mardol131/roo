@@ -38,7 +38,7 @@ export function getOverlayField(name?: string, label?: string) {
             name: 'overlayClassname',
             type: 'text',
           },
-          getImageField(),
+          getImageField({}),
           {
             label: 'Nápověda',
             type: 'collapsible',

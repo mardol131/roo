@@ -8,7 +8,7 @@ const IconsTextCardBlock: Block = {
   slug: 'IconsTextSection',
   labels: { singular: 'Ikona s textem', plural: 'Ikona s textem' },
   fields: [
-    getImageField(),
+    getImageField({}),
     textsField,
     buttonsField,
     { name: 'isCard', type: 'checkbox' },

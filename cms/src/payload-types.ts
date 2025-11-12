@@ -77,6 +77,7 @@ export interface Config {
     pages: Page;
     media: Media;
     admins: Admin;
+    'blog-tags': BlogTag;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -92,6 +93,7 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     admins: AdminsSelect<false> | AdminsSelect<true>;
+    'blog-tags': BlogTagsSelect<false> | BlogTagsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -184,23 +186,179 @@ export interface User {
  */
 export interface Post {
   id: string;
-  title: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
+  image?: {
+    imageUpload?: (string | null) | Media;
+    alt?: string | null;
+    src?: string | null;
+    rounded?: boolean | null;
+    shadow?: boolean | null;
+    squared?: boolean | null;
   };
-  author?: (string | null) | User;
+  featured?: boolean | null;
+  author?: (string | null) | Admin;
+  tags?: (string | BlogTag)[] | null;
+  title: string;
+  description: string;
+  slug: string;
+  canonical: string;
+  og?: {
+    'og:title'?: string | null;
+    'og:description'?: string | null;
+    'og:image'?: string | null;
+    'og:url'?: string | null;
+    'og:type'?: string | null;
+  };
+  twitter?: {
+    'twitter:title'?: string | null;
+    'twitter:description'?: string | null;
+    'twitter:image'?: string | null;
+    'twitter:card'?: string | null;
+  };
+  JSON_LD?: string | null;
+  excerpt: string;
+  texts?:
+    | (
+        | {
+            tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+            text: string;
+            size?:
+              | (
+                  | 'displayLg'
+                  | 'displayMd'
+                  | 'displaySm'
+                  | 'headingXl'
+                  | 'headingLg'
+                  | 'headingMd'
+                  | 'headingSm'
+                  | 'headingXs'
+                  | 'bodyXl'
+                  | 'bodyLg'
+                  | 'bodyMd'
+                  | 'bodySm'
+                  | 'bodyXs'
+                )
+              | null;
+            fontWeight?: ('base' | 'semibold' | 'bold' | 'extraBold') | null;
+            font?: ('display' | 'heading' | 'body') | null;
+            color?:
+              | (
+                  | 'primary'
+                  | 'secondary'
+                  | 'secondaryDark'
+                  | 'tertiary'
+                  | 'tertiaryDark'
+                  | 'black'
+                  | 'white'
+                  | 'success'
+                  | 'warning'
+                  | 'danger'
+                  | 'placeholder'
+                  | 'lightOne'
+                  | 'lightTwo'
+                  | 'primarySecondaryOpac'
+                  | 'primaryTertiaryOpac'
+                  | 'secondaryTertiaryOpac'
+                  | 'secondaryPrimaryOpac'
+                  | 'tertiaryPrimaryOpac'
+                  | 'tertiarySecondaryOpac'
+                  | 'primarySecondaryTertiaryOpac'
+                  | 'primaryTertiarySecondaryOpac'
+                  | 'secondaryPrimaryTertiaryOpac'
+                  | 'secondaryTertiryPrimaryOpac'
+                  | 'tertiaryPrimarySecondaryOpac'
+                  | 'tertiarySecondaryPrimaryOpac'
+                  | 'primarySecondary'
+                  | 'primaryTertiary'
+                  | 'secondaryTertiary'
+                  | 'secondaryPrimary'
+                  | 'tertiaryPrimary'
+                  | 'tertiarySecondary'
+                  | 'primarySecondaryTertiary'
+                  | 'primaryTertiarySecondary'
+                  | 'secondaryPrimaryTertiary'
+                  | 'secondaryTertiryPrimary'
+                  | 'tertiaryPrimarySecondary'
+                  | 'tertiarySecondaryPrimary'
+                )
+              | null;
+            className?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'TextBlock';
+          }
+        | {
+            image?: {
+              imageUpload?: (string | null) | Media;
+              alt?: string | null;
+              src?: string | null;
+              rounded?: boolean | null;
+              shadow?: boolean | null;
+              squared?: boolean | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'imageBlock';
+          }
+      )[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  placeholder?: string | null;
+  alt?: string | null;
+  image?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "admins".
+ */
+export interface Admin {
+  id: string;
+  role?: ('superadmin' | 'admin' | 'editor') | null;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  _verified?: boolean | null;
+  _verificationToken?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  sessions?:
+    | {
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
+      }[]
+    | null;
+  password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tags".
+ */
+export interface BlogTag {
+  id: string;
+  title: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -4077,54 +4235,6 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  placeholder?: string | null;
-  alt?: string | null;
-  image?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "admins".
- */
-export interface Admin {
-  id: string;
-  role?: ('superadmin' | 'admin' | 'editor') | null;
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  _verified?: boolean | null;
-  _verificationToken?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  sessions?:
-    | {
-        id: string;
-        createdAt?: string | null;
-        expiresAt: string;
-      }[]
-    | null;
-  password?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -4165,6 +4275,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'admins';
         value: string | Admin;
+      } | null)
+    | ({
+        relationTo: 'blog-tags';
+        value: string | BlogTag;
       } | null);
   globalSlug?: string | null;
   user:
@@ -4249,9 +4363,75 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
-  title?: T;
-  content?: T;
+  image?:
+    | T
+    | {
+        imageUpload?: T;
+        alt?: T;
+        src?: T;
+        rounded?: T;
+        shadow?: T;
+        squared?: T;
+      };
+  featured?: T;
   author?: T;
+  tags?: T;
+  title?: T;
+  description?: T;
+  slug?: T;
+  canonical?: T;
+  og?:
+    | T
+    | {
+        'og:title'?: T;
+        'og:description'?: T;
+        'og:image'?: T;
+        'og:url'?: T;
+        'og:type'?: T;
+      };
+  twitter?:
+    | T
+    | {
+        'twitter:title'?: T;
+        'twitter:description'?: T;
+        'twitter:image'?: T;
+        'twitter:card'?: T;
+      };
+  JSON_LD?: T;
+  excerpt?: T;
+  texts?:
+    | T
+    | {
+        TextBlock?:
+          | T
+          | {
+              tag?: T;
+              text?: T;
+              size?: T;
+              fontWeight?: T;
+              font?: T;
+              color?: T;
+              className?: T;
+              id?: T;
+              blockName?: T;
+            };
+        imageBlock?:
+          | T
+          | {
+              image?:
+                | T
+                | {
+                    imageUpload?: T;
+                    alt?: T;
+                    src?: T;
+                    rounded?: T;
+                    shadow?: T;
+                    squared?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -5583,6 +5763,15 @@ export interface AdminsSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tags_select".
+ */
+export interface BlogTagsSelect<T extends boolean = true> {
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

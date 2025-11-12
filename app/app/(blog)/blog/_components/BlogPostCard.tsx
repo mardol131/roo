@@ -5,23 +5,25 @@ import Image from "next/image";
 import Text from "@/app/_components/atoms/Text";
 import Button from "@/app/_components/atoms/Button";
 import { format } from "date-fns";
+import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
+import PostTags from "./PostTag";
 
 export default function BlogPostCard({
   image,
   title,
   excerpt,
   tags,
-  createdDt,
+  createdAt,
   showButton = true,
 }: BlogPostCardProps) {
   const textArray = excerpt.substring(0, 80).split(" ");
   const text = textArray.splice(0, textArray.length - 1).join(" ");
-  const formatedCreateDt = format(createdDt, "dd.MM.yyyy");
+  const formatedCreateDt = format(createdAt, "dd.MM.yyyy");
 
   return (
     <div className="border relative border-borderLight rounded-xl shadow-lg overflow-hidden">
       <Image
-        src={image.src}
+        src={getImageSrc(image.src, "cms")}
         alt={image.alt}
         width={500}
         height={400}
@@ -43,9 +45,7 @@ export default function BlogPostCard({
           </div>
         )}
       </div>
-      <div className="absolute top-5 left-5 bg-white rounded-md py-1 px-2">
-        <Text text={tags[0]} size="bodyMd" tag="p" fontWeight="semibold" />
-      </div>
+      <PostTags tags={tags} />
     </div>
   );
 }
