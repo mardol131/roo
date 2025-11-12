@@ -10,7 +10,7 @@ import { getCmsPosts } from "@/app/_api/payload";
 
 type Props = {};
 
-export const revalidate = 60;
+export const revalidate = 60 * 60;
 
 export default async function page({}: Props) {
   const posts = await getCmsPosts();

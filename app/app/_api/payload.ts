@@ -33,7 +33,7 @@ export async function getCmsPage(slug: string) {
 
 export async function getCmsPosts() {
   const query = `/posts?[where][featured][not_equals]=true&depth=1`;
-  return await getPayloadApi(query, "no-store");
+  return await getPayloadApi(query);
 }
 
 export async function getCmsPost(slug: string) {
