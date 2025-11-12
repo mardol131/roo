@@ -28,7 +28,7 @@ export default function BlogPostFeaturedCard({
         alt={image.alt}
         width={500}
         height={400}
-        className="w-full h-full object-cover"
+        className="w-full max-h-60 self-stretch object-cover"
       />
       <div className="p-4 flex flex-col justify-between gap-2">
         <div>
