@@ -16,6 +16,7 @@ export const Posts: CollectionConfig = {
       admin: {
         position: 'sidebar',
       },
+      defaultValue: false,
     },
     { name: 'author', type: 'relationship', relationTo: 'admins', admin: { position: 'sidebar' } },
     {

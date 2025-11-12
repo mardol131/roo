@@ -1,8 +1,6 @@
 import { jwtVerify } from "jose";
 
 export async function getPayloadApi(query: string) {
-  console.log("hello", query);
-
   try {
     const data = await fetch(
       `${process.env.NEXT_PUBLIC_CMS_URL}/api/${query}`,
@@ -38,12 +36,12 @@ export async function getCmsPage(slug: string) {
 }
 
 export async function getCmsPosts() {
-  const query = `/posts?depth=1`;
+  const query = `/posts?[where][featured][not_equals]=true&depth=1`;
   return await getPayloadApi(query);
 }
 
 export async function getCmsFeaturedPosts() {
-  const query = `/posts?depth=1&[where][featured]`;
+  const query = `/posts?[where][featured][equals]=true&depth=1`;
   return await getPayloadApi(query);
 }
 

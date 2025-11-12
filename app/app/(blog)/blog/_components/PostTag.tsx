@@ -8,7 +8,10 @@ export default function PostTags({ tags }: { tags: PostTagProps[] }) {
     <div className="absolute top-5 left-5 flex items-center gap-3">
       {tags.map((tag) => {
         return (
-          <div className="bg-white border border-borderLight shadow-lg rounded-md py-1 px-2">
+          <div
+            key={tag.title}
+            className="bg-white border border-borderLight shadow-lg rounded-md py-1 px-2"
+          >
             <Text
               text={tag.title}
               size="bodyMd"

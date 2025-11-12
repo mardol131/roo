@@ -1,26 +1,30 @@
 import React from "react";
-import image from "@/app/_images/place.jpg";
 import FeaturedPostsSection from "./_components/FeaturedPostsSection";
-import { BlogPostCardProps } from "./types/blogPostTypes";
 import { BlogWrapper } from "./_components/BlogWrapper";
 import BlogPostList from "./_components/BlogPostList";
 import { getPosts } from "./_functions/getPosts";
+import { redirect } from "next/navigation";
+import { getFeaturedPosts } from "./_functions/getFeaturedPosts";
 
 type Props = {};
 
 export default async function page({}: Props) {
-  const response = await getPosts();
-  const posts = response.docs;
+  const posts = await getPosts();
 
-  console.log(posts[0].tags);
+  const featuredPosts = await getFeaturedPosts();
 
+  console.log("featured", posts);
   return (
     <>
       <BlogWrapper>
-        <FeaturedPostsSection posts={posts} />
+        {featuredPosts.docs && featuredPosts.docs.length > 0 && (
+          <FeaturedPostsSection posts={featuredPosts.docs} />
+        )}
       </BlogWrapper>
       <BlogWrapper>
-        <BlogPostList posts={posts} />
+        {posts.docs && posts.docs.length > 0 && (
+          <BlogPostList posts={posts.docs} />
+        )}
       </BlogWrapper>
     </>
   );
