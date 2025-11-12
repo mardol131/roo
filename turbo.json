@@ -17,7 +17,9 @@
 
         "DATABASE_URI",
 
-        "NEXT_PUBLIC_CDN_STORAGE_URL"
+        "NEXT_PUBLIC_CDN_STORAGE_URL",
+
+        "RESEND_API_KEY"
       ]
     },
     "check-types": {
