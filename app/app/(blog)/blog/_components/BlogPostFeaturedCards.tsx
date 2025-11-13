@@ -33,6 +33,7 @@ export default function BlogPostFeaturedCard({
         width={500}
         height={400}
         className="w-full max-h-60 self-stretch object-cover"
+        priority={true}
       />
       <div className="p-4 flex flex-col justify-between gap-2">
         <div>

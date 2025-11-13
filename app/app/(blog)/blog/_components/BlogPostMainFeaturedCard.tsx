@@ -30,6 +30,7 @@ export default function BlogPostMainFeaturedCard({
         width={500}
         height={400}
         className="w-full object-cover"
+        priority={true}
       />
       <div className=" h-full animate p-8 flex flex-col gap-5 max-lg:gap-3">
         {tags && <PostTags tags={tags} isAbsolute={false} />}
@@ -42,7 +43,6 @@ export default function BlogPostMainFeaturedCard({
             bgColor="primaryTertiary"
             rounding="full"
             textColor="white"
-            link={`/blog/${slug}`}
           />
           <Text text={formatedCreateDt.toString()} tag="h2" size="bodySm" />
         </div>
