@@ -30,7 +30,7 @@ export default function BlogPostCard({
         height={400}
         className="w-full"
       />
-      <div className="p-3 flex flex-col justify-between gap-2">
+      <div className="p-3 flex flex-col justify-between gap-4 flex-1">
         <div>
           <Text text={title} tag="h2" size="headingSm" fontWeight="bold" />
           <Text text={`${text}...`} tag="p" size="bodyMd" />

@@ -17,7 +17,12 @@ export default function BlogPostList({ posts, hasFeatured = true }: Props) {
         text={hasFeatured ? "Další články" : "Články"}
         fontWeight="semibold"
       />
-      <div className="grid lg:grid-cols-4 gap-3">
+      <div className="grid blogPostColumns gap-3 w-full">
+        {posts.map((post, i) => {
+          return (
+            <BlogPostCard {...post} tags={post.tags?.splice(0, 1)} key={i} />
+          );
+        })}
         {posts.map((post, i) => {
           return (
             <BlogPostCard {...post} tags={post.tags?.splice(0, 1)} key={i} />
