@@ -364,6 +364,7 @@ export interface Admin {
 export interface BlogTag {
   id: string;
   title: string;
+  slug: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -5876,6 +5877,7 @@ export interface AdminsSelect<T extends boolean = true> {
  */
 export interface BlogTagsSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }

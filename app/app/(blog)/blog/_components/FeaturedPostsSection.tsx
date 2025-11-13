@@ -17,7 +17,7 @@ export default function FeaturedPostsSection({ posts }: Props) {
 
   const leftSidePosts = posts.slice(0, 3);
   return (
-    <div className="grid lg:grid-cols-2  gap-5 w-full">
+    <div className="grid lg:grid-cols-2 lg:mb-10 gap-5 w-full">
       <BlogPostMainFeaturedCard {...posts[0]} />
       <div className="grid lg:grid-rows-3 gap-5">
         {leftSidePosts.map((post, i) => {

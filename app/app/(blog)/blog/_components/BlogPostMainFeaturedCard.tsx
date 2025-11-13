@@ -20,7 +20,10 @@ export default function BlogPostMainFeaturedCard({
   const formatedCreateDt = format(createdAt, "dd.MM.yyyy");
 
   return (
-    <div className=" relative border border-borderLight rounded-xl shadow-lg overflow-hidden">
+    <Link
+      href={`/blog/${slug}`}
+      className="relative hover:scale-102 animate border border-borderLight rounded-xl shadow-lg overflow-hidden"
+    >
       <Image
         src={getImageSrc(image.src, "cms")}
         alt={image.alt}
@@ -44,6 +47,6 @@ export default function BlogPostMainFeaturedCard({
           <Text text={formatedCreateDt.toString()} tag="h2" size="bodySm" />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

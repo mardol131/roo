@@ -1,3 +1,5 @@
+"use client";
+
 import Text from "@/app/_components/atoms/Text";
 import React from "react";
 import {
@@ -8,6 +10,7 @@ import {
 export type PostTagProps = {
   id: string;
   title: string;
+  slug?: string;
   bgColor?: ColorsAndGradientsType;
 };
 

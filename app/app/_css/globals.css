@@ -102,7 +102,7 @@
 }
 
 .blogPostColumns {
-  @apply grid-cols-[repeat(auto-fit,minmax(18rem,1fr))];
+  @apply grid-cols-[repeat(auto-fit,minmax(17rem,1fr))];
 }
 
 .animate {

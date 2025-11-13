@@ -1,4 +1,6 @@
 import { jwtVerify } from "jose";
+import qs from "qs";
+import { cache } from "react";
 
 export async function getPayloadApi(query: string, cache?: "no-store") {
   try {
@@ -44,6 +46,23 @@ export async function getCmsPost(slug: string) {
 export async function getCmsFeaturedPosts() {
   const query = `/posts?[where][featured][equals]=true&depth=1`;
   return await getPayloadApi(query);
+}
+
+export async function getAllTags() {
+  const query = `/blog-tags`;
+  return await getPayloadApi(query);
+}
+
+export async function getAllCmsPosts(slug: string) {
+  const q = {
+    where: {
+      "tags.slug": { equals: slug },
+    },
+  };
+
+  const queryString = qs.stringify(q, { encodeValuesOnly: true });
+  const query = `/posts?${queryString}&depth=1`;
+  return await getPayloadApi(query, "no-store");
 }
 
 type UserLoginprops = {

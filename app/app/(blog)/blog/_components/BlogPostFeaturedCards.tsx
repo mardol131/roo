@@ -7,6 +7,7 @@ import Button from "@/app/_components/atoms/Button";
 import { format } from "date-fns";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import PostTags from "./PostTags";
+import Link from "next/link";
 
 export default function BlogPostFeaturedCard({
   image,
@@ -22,7 +23,10 @@ export default function BlogPostFeaturedCard({
   const formatedCreateDt = format(createdAt, "dd.MM.yyyy");
 
   return (
-    <div className="border group grid lg:grid-cols-2 relative border-borderLight rounded-xl shadow-lg overflow-hidden">
+    <Link
+      href={`/blog/${slug}`}
+      className="border hover:scale-102 animate  group grid lg:grid-cols-2 relative border-borderLight rounded-xl shadow-lg overflow-hidden"
+    >
       <Image
         src={getImageSrc(image.src, "cms")}
         alt={image.alt}
@@ -50,6 +54,6 @@ export default function BlogPostFeaturedCard({
         )}
       </div>
       {tags && <PostTags tags={tags} />}
-    </div>
+    </Link>
   );
 }
