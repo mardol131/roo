@@ -9,3 +9,11 @@ export declare const textAlign: {
     end: string;
 };
 export type TextAlignType = keyof typeof textAlign;
+export declare const objectPosition: {
+    center: string;
+    top: string;
+    bottom: string;
+    left: string;
+    right: string;
+};
+export type ObjectPosition = keyof typeof objectPosition;

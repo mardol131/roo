@@ -48,7 +48,6 @@ export default function BlogPostFeaturedCard({
               bgColor="primaryTertiary"
               rounding="full"
               textColor="white"
-              link={`/blog/${slug}`}
             />
             <Text text={formatedCreateDt.toString()} tag="h2" size="bodySm" />
           </div>

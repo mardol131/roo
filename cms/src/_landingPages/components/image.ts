@@ -1,3 +1,5 @@
+import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
+import { objectPosition } from '@roo/shared/design/orientation'
 import { Block, Field } from 'payload'
 
 export const ImageBlock: Block = {
@@ -31,6 +33,7 @@ export function getImageField({
           { name: 'rounded', type: 'checkbox' },
           { name: 'shadow', type: 'checkbox' },
           { name: 'squared', type: 'checkbox' },
+          { name: 'position', type: 'select', options: getOptionsFromObject(objectPosition) },
         ],
         hooks: {
           beforeChange: [

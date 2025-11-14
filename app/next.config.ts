@@ -66,8 +66,8 @@ const nextConfig: NextConfig = {
         destination: "/pages/contact",
       },
       {
-        source: "/stranky/:pageSlug",
-        destination: "/pages/:pageSlug",
+        source: "/stranky/:slug",
+        destination: "/pages/:slug",
       },
       {
         source: "/zabava",

@@ -40,9 +40,9 @@ export default buildConfig({
       url: ({ data, collectionConfig }) => {
         console.log('preview', collectionConfig)
         if (collectionConfig?.slug === 'pages') {
-          return `${process.env.NEXT_PUBLIC_WEBSITE}/stranky/${data.pageSlug}`
+          return `${process.env.NEXT_PUBLIC_WEBSITE}/stranky/${data.slug}`
         }
-        return `${process.env.NEXT_PUBLIC_WEBSITE}/${data.pageSlug}`
+        return `${process.env.NEXT_PUBLIC_WEBSITE}/${data.slug}`
       },
       collections: ['pages'],
     },

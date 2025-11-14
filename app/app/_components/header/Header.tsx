@@ -10,7 +10,7 @@ export default function Header({}: Props) {
   const pathname = usePathname();
   const params = useParams();
   if (
-    "pageSlug" in params ||
+    "slug" in params ||
     pathname.startsWith("/admin") ||
     // pathname.startsWith("/prihlasit-se") ||
     // pathname.startsWith("/registrovat-se") ||

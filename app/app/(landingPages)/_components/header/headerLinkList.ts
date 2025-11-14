@@ -1,8 +1,8 @@
 export const headerLinkList: { text: string; link: string }[] = [
-  { text: "Co je ROO?", link: "co-je-roo" },
-  { text: "Mám místo", link: "misto" },
-  { text: "Jsem gastro", link: "gastro" },
-  { text: "Nabízím zábavu", link: "zabava" },
-  { text: "O nás", link: "o-nas" },
-  { text: "Kontakt", link: "kontakt" },
+  { text: "Co je ROO?", link: "/stranky/co-je-roo" },
+  { text: "Mám místo", link: "/stranky/misto" },
+  { text: "Jsem gastro", link: "/stranky/gastro" },
+  { text: "Nabízím zábavu", link: "/stranky/zabava" },
+  { text: "O nás", link: "/stranky/o-nas" },
+  { text: "Kontakt", link: "/stranky/kontakt" },
 ];

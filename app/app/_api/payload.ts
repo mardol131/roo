@@ -29,7 +29,7 @@ export async function postPayloadApi(payload: any, query: string) {
 }
 
 export async function getCmsPage(slug: string) {
-  const query = `/pages?where[pageSlug][equals]=${slug}&limit=1`;
+  const query = `/pages?where[slug][equals]=${slug}&limit=1`;
   return await getPayloadApi(query);
 }
 

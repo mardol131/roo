@@ -2,14 +2,40 @@ import { WebsiteHeader } from "../../_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../../_components/header/WebsiteHeaderMobile";
 import { LandingSectionWrapper } from "../../_components/wrappers/LandingSectionWrapper";
 
+import Text from "@/app/_components/atoms/Text";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
-import ContactForm from "./ContactForm";
-import Text from "@/app/_components/atoms/Text";
-import { Mail } from "lucide-react";
 import { LuMail } from "react-icons/lu";
-import StepsSection from "../../_components/stepsSection/StepsSection";
-import FormSection from "../../_components/formSection/FormSection";
+import ContactForm from "./ContactForm";
+
+export async function generateMetadata() {
+  const canonical = "https://www.rooevent.com/stranky/kontakt";
+  const image = "https://roo-cdn.b-cdn.net/cms/celebrate.webp";
+  const title = "Kontakt | ROO Event";
+  const description =
+    "Potřebuješ pomoc s výběrem dodavatele nebo místem? Ozvi se nám.";
+  return {
+    title: "Kontakt – Spoj se s týmem ROO Event",
+    description:
+      "Máš dotaz nebo potřebuješ poradit s výběrem dodavatelů? Napiš nám nebo zavolej. Jsme tu, abychom ti pomohli naplánovat akci bez stresu.",
+    alternates: {
+      canonical: canonical,
+    },
+    openGraph: {
+      title: title,
+      description: description,
+      url: canonical,
+      images: image,
+      type: "article",
+    },
+    twitter: {
+      card: "summary",
+      title: title,
+      description: description,
+      images: image,
+    },
+  };
+}
 
 type Props = {};
 

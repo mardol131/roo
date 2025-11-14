@@ -7,3 +7,10 @@ export const textAlign = {
     center: "text-center",
     end: "text-end",
 };
+export const objectPosition = {
+    center: "object-center",
+    top: "object-top",
+    bottom: "object-bottom",
+    left: "object-left",
+    right: "object-right",
+};

@@ -11,15 +11,15 @@ import { WebsiteHeaderMobile } from "../../_components/header/WebsiteHeaderMobil
 
 type PageComponentProps = {
   params: Promise<{
-    pageSlug: string;
+    slug: string;
   }>;
 };
 
 export async function generateMetadata({
   params,
 }: PageComponentProps): Promise<Metadata> {
-  const { pageSlug } = await params;
-  const response = await getPage(pageSlug);
+  const { slug } = await params;
+  const response = await getPage(slug);
   const post = response.docs[0];
   const title = post.title;
   const description = post.description;
@@ -79,9 +79,8 @@ export async function generateMetadata({
 }
 
 export default async function page({ params }: PageComponentProps) {
-  const { pageSlug } = await params;
-  const response = await getPage(pageSlug);
-  console.log(response);
+  const { slug } = await params;
+  const response = await getPage(slug);
   let data;
   try {
     data = response;
@@ -91,7 +90,6 @@ export default async function page({ params }: PageComponentProps) {
   } catch {
     redirect("/");
   }
-  console.log(data.docs[0]);
 
   const sections: SectionPropsMap[] = data.docs[0].sections;
   const buttonDesktop: ButtonProps = data.docs[0].header.desktopHeaderButton;

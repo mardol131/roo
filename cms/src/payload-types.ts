@@ -195,6 +195,7 @@ export interface Post {
     rounded?: boolean | null;
     shadow?: boolean | null;
     squared?: boolean | null;
+    position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
   };
   featured?: boolean | null;
   author?: (string | null) | Admin;
@@ -298,6 +299,7 @@ export interface Post {
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
+              position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
             };
             id?: string | null;
             blockName?: string | null;
@@ -434,10 +436,11 @@ export interface Page {
     rounded?: boolean | null;
     shadow?: boolean | null;
     squared?: boolean | null;
+    position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
   };
   title: string;
   description: string;
-  pageSlug: string;
+  slug: string;
   canonical: string;
   og?: {
     'og:title'?: string | null;
@@ -797,6 +800,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -1246,6 +1250,7 @@ export interface Page {
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
+              position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
             };
             advice?:
               | {
@@ -1397,6 +1402,7 @@ export interface Page {
               rounded?: boolean | null;
               shadow?: boolean | null;
               squared?: boolean | null;
+              position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
             };
             advice?:
               | {
@@ -1471,6 +1477,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -1701,6 +1708,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -1927,6 +1935,7 @@ export interface Page {
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
+                          position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                         };
                         id?: string | null;
                         blockName?: string | null;
@@ -2023,6 +2032,7 @@ export interface Page {
                             rounded?: boolean | null;
                             shadow?: boolean | null;
                             squared?: boolean | null;
+                            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                           };
                           id?: string | null;
                           blockName?: string | null;
@@ -2117,6 +2127,7 @@ export interface Page {
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
+                          position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                         };
                         id?: string | null;
                         blockName?: string | null;
@@ -2384,6 +2395,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -2481,6 +2493,7 @@ export interface Page {
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
+                position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
               };
               texts?:
                 | {
@@ -2783,6 +2796,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -2880,6 +2894,7 @@ export interface Page {
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
+                position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
               };
               id?: string | null;
               blockName?: string | null;
@@ -3058,6 +3073,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -3131,6 +3147,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -3227,6 +3244,7 @@ export interface Page {
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
+                    position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -3314,6 +3332,7 @@ export interface Page {
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
+                    position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -3466,6 +3485,7 @@ export interface Page {
                 rounded?: boolean | null;
                 shadow?: boolean | null;
                 squared?: boolean | null;
+                position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
               };
               column: {
                 start: number;
@@ -3728,6 +3748,7 @@ export interface Page {
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
+                    position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -3906,6 +3927,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -3979,6 +4001,7 @@ export interface Page {
             rounded?: boolean | null;
             shadow?: boolean | null;
             squared?: boolean | null;
+            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
           };
           advice?:
             | {
@@ -4075,6 +4098,7 @@ export interface Page {
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
+                    position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -4162,6 +4186,7 @@ export interface Page {
                     rounded?: boolean | null;
                     shadow?: boolean | null;
                     squared?: boolean | null;
+                    position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                   };
                   id?: string | null;
                   blockName?: string | null;
@@ -4252,6 +4277,7 @@ export interface Page {
                           rounded?: boolean | null;
                           shadow?: boolean | null;
                           squared?: boolean | null;
+                          position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
                         };
                         id?: string | null;
                         blockName?: string | null;
@@ -4428,6 +4454,7 @@ export interface PostsSelect<T extends boolean = true> {
         rounded?: T;
         shadow?: T;
         squared?: T;
+        position?: T;
       };
   featured?: T;
   author?: T;
@@ -4485,6 +4512,7 @@ export interface PostsSelect<T extends boolean = true> {
                     rounded?: T;
                     shadow?: T;
                     squared?: T;
+                    position?: T;
                   };
               id?: T;
               blockName?: T;
@@ -4556,10 +4584,11 @@ export interface PagesSelect<T extends boolean = true> {
         rounded?: T;
         shadow?: T;
         squared?: T;
+        position?: T;
       };
   title?: T;
   description?: T;
-  pageSlug?: T;
+  slug?: T;
   canonical?: T;
   og?:
     | T
@@ -4658,6 +4687,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -4782,6 +4812,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           advice?: T;
                         };
@@ -4828,6 +4859,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           advice?: T;
                         };
@@ -4848,6 +4880,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -4925,6 +4958,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -5018,6 +5052,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;
+                                            position?: T;
                                           };
                                       id?: T;
                                       blockName?: T;
@@ -5068,6 +5103,7 @@ export interface PagesSelect<T extends boolean = true> {
                                                         rounded?: T;
                                                         shadow?: T;
                                                         squared?: T;
+                                                        position?: T;
                                                       };
                                                   id?: T;
                                                   blockName?: T;
@@ -5110,6 +5146,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;
+                                            position?: T;
                                           };
                                       id?: T;
                                       blockName?: T;
@@ -5192,6 +5229,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -5235,6 +5273,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           texts?:
                             | T
@@ -5304,6 +5343,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -5347,6 +5387,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -5393,6 +5434,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -5412,6 +5454,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -5451,6 +5494,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -5486,6 +5530,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -5544,6 +5589,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           column?:
                             | T
@@ -5627,6 +5673,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -5672,6 +5719,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -5691,6 +5739,7 @@ export interface PagesSelect<T extends boolean = true> {
                           rounded?: T;
                           shadow?: T;
                           squared?: T;
+                          position?: T;
                         };
                     advice?: T;
                   };
@@ -5730,6 +5779,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -5765,6 +5815,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 rounded?: T;
                                 shadow?: T;
                                 squared?: T;
+                                position?: T;
                               };
                           id?: T;
                           blockName?: T;
@@ -5807,6 +5858,7 @@ export interface PagesSelect<T extends boolean = true> {
                                             rounded?: T;
                                             shadow?: T;
                                             squared?: T;
+                                            position?: T;
                                           };
                                       id?: T;
                                       blockName?: T;

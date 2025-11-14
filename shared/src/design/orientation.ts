@@ -12,3 +12,13 @@ export const textAlign = {
 };
 
 export type TextAlignType = keyof typeof textAlign;
+
+export const objectPosition = {
+  center: "object-center",
+  top: "object-top",
+  bottom: "object-bottom",
+  left: "object-left",
+  right: "object-right",
+};
+
+export type ObjectPosition = keyof typeof objectPosition;

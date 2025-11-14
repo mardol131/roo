@@ -2,7 +2,7 @@ import { ButtonProps, GenerateButtons } from "@/app/_components/atoms/Button";
 import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
-import { SidesType } from "@roo/shared/src/design/orientation";
+import { objectPosition, SidesType } from "@roo/shared/src/design/orientation";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
@@ -16,8 +16,11 @@ function ImageOne(props: ImageOneProps) {
   const shadow = props.image.shadow ? "shadow-xl" : "";
   const rounded = props.image.rounded ? "rounded-xl" : "";
   const squared = props.image.squared ? "aspect-square" : "";
+  const position = props.image.position
+    ? objectPosition[props.image.position]
+    : "";
 
-  const classes = `${shadow} ${rounded} ${squared}`;
+  const classes = `${shadow} ${rounded} ${squared} ${position}`;
   return (
     <Image
       className={` ${classes} w-full object-cover object-center`}

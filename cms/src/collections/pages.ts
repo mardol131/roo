@@ -50,7 +50,7 @@ export const Pages: CollectionConfig = {
         },
         {
           label: 'Slug',
-          name: 'pageSlug',
+          name: 'slug',
           type: 'text',
           required: true,
         },
@@ -177,18 +177,40 @@ export const Pages: CollectionConfig = {
     beforeChange: [
       ({ data }) => {
         if (data?.title) {
-          data.pageSlug = data.title
-            .normalize('NFD') // rozdělí písmena a diakritiku (např. č -> c + ̌)
-            .replace(/[\u0300-\u036f]/g, '') // odstraní diakritiku
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-') // nahradí mezery a nealfanumerické znaky pomlčkou
-            .replace(/(^-|-$)+/g, '') // odstraní pomlčky na začátku a konci
-          data.canonical = `${process.env.NEXT_PUBLIC_WEBSITE}/stranky/${data.pageSlug}`
+          if (!data.slug) {
+            data.slug = data.title
+              .normalize('NFD') // rozdělí písmena a diakritiku (např. č -> c + ̌)
+              .replace(/[\u0300-\u036f]/g, '') // odstraní diakritiku
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-') // nahradí mezery a nealfanumerické znaky pomlčkou
+              .replace(/(^-|-$)+/g, '') // odstraní pomlčky na začátku a konci
+          }
+
+          data.canonical = `${process.env.NEXT_PUBLIC_ROO_WEBSITE}/stranky/${data.slug}`
+          data.og['og:url'] = data.canonical
 
           if (!data.description) {
             data.description = data.title
           }
+
+          data.og['og:image'] = data.image?.url || ''
+          data.og['og:type'] = 'article'
+
+          data.twitter['twitter:image'] = data.image?.url || ''
+
+          if (!data.twitter['twitter:card']) {
+            data.twitter['twitter:card'] = 'summary'
+          }
+
+          if (!data.twitter['twitter:title']) {
+            data.twitter['twitter:title'] = data.og['og:title'] || data.title
+          }
+
+          if (!data.twitter['twitter:description']) {
+            data.twitter['twitter:description'] = data.og['og:description']
+          }
         }
+
         return data
       },
     ],

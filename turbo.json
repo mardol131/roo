@@ -6,6 +6,7 @@
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "env": [
         "NEXT_PUBLIC_WEBSITE",
+        "NEXT_PUBLIC_ROO_WEBSITE",
 
         "NEXT_PUBLIC_CDN_URL",
         "CDN_API_STORAGE_SECRET",
