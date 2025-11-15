@@ -19,6 +19,7 @@ export async function POST(req: NextRequest) {
   const createContact = await resend.subscribeContact(body);
 
   if (createContact.error) {
+    console.log(createContact);
     return returnResponse({
       success: false,
       status: 500,
@@ -34,6 +35,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (!addToSegment.id) {
+    console.log(addToSegment);
     return returnResponse({
       success: false,
       status: 500,
@@ -48,6 +50,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (emailResult?.error) {
+    console.log(emailResult);
     return returnResponse({
       success: false,
       status: 500,
