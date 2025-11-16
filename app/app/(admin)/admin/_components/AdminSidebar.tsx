@@ -14,9 +14,10 @@ import {
 import logo from "@/public/logo.png";
 import { FaThList } from "react-icons/fa";
 import { ReactNode } from "react";
+import { IconType } from "react-icons";
 
 type AdminSidebarButtonProps = {
-  icon: ReactNode;
+  icon: IconType;
   href: string;
 };
 
@@ -24,9 +25,9 @@ export function AdminSidebarButton(props: AdminSidebarButtonProps) {
   return (
     <Link
       href={props.href}
-      className="cursor-pointer w-full aspect-square flex text-xl items-center justify-center gap-3 text-primary font-semibold hover:bg-primary/80 hover:text-white bg-trans hover:shadow-md shadow-black/20 rounded-full animate"
+      className="cursor-pointer group w-full aspect-square flex text-xl items-center justify-center gap-3 text-primary font-semibold hover:bg-primary hover:text-white bg-trans hover:shadow-md shadow-black/20 rounded-full animate"
     >
-      {props.icon}
+      <props.icon className="group-hover:text-white animate" />
     </Link>
   );
 }
@@ -61,6 +62,13 @@ function create() {
   });
 }
 
+const sidebarButtonsList: AdminSidebarButtonProps[] = [
+  { href: "/admin", icon: FaHouse },
+  { href: "/admin/inzeraty", icon: FaThList },
+  { href: "/admin/sluzby", icon: FaHandHoldingHand },
+  { href: "/admin/uces", icon: FaUser },
+];
+
 export function AdminSidebar() {
   return (
     <div className="relative h-screen w-full flex justify-center">
@@ -70,13 +78,11 @@ export function AdminSidebar() {
             <Link href={"/"}>
               <Image src={logo} height={200} width={200} alt="logo" />
             </Link>
-            <AdminSidebarButton href="/admin" icon={<FaHouse />} />
-            <AdminSidebarButton href="/admin/inzeraty" icon={<FaThList />} />
-            <AdminSidebarButton
-              href="/admin/sluzby"
-              icon={<FaHandHoldingHand />}
-            />
-            <AdminSidebarButton href="/admin/ucet" icon={<FaUser />} />
+            {sidebarButtonsList.map((button) => {
+              return (
+                <AdminSidebarButton href={button.href} icon={button.icon} />
+              );
+            })}
           </div>
         </div>
       </div>
