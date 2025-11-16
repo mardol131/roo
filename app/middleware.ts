@@ -21,7 +21,12 @@ export async function middleware(req: NextRequest) {
   //   url.pathname = "/kategorie/venues";
   //   return NextResponse.redirect(url);
   // }
-  const { pathname } = req.nextUrl;
+  const { pathname, host } = req.nextUrl;
+
+  if (host.startsWith("localhost")) {
+    return NextResponse.next();
+  }
+
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||

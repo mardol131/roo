@@ -1,3 +1,5 @@
+import FormInputWrapper from "./FormInputWrapper";
+
 export type FormTextInputProps = {
   blockType?: "formtextinput";
   label: string;
@@ -9,24 +11,23 @@ export type FormTextInputProps = {
   className?: string;
   value?: any;
   outerBorder?: boolean;
+  bgFilled?: boolean;
+  disabled?: boolean;
 };
 
 export function FormTextInput(props: FormTextInputProps) {
   const {
-    blockType,
+    disabled,
     label,
     name,
     type,
     placeholder,
     spanTwo,
     required,
-    className,
     value,
-    outerBorder = true,
+    bgFilled,
   } = props;
   const inputType = props.type || "text";
-
-  const classes = `${className} ${spanTwo && "col-span-2"} ${outerBorder && "border-2 border-borderLight"}`;
 
   function changeHandler(e: React.ChangeEvent<HTMLInputElement>) {
     if (type === "phone") {
@@ -34,12 +35,13 @@ export function FormTextInput(props: FormTextInputProps) {
     }
   }
   return (
-    <div className={`${classes}  w-full p-2 flex flex-col rounded-medium`}>
+    <FormInputWrapper spanTwo={spanTwo} bgFilled={bgFilled}>
       <label className="text-primary font-semibold">{label}</label>
       <div className="flex items-center justify-start gap-2">
         {type === "phone" && (
           <>
             <select
+              disabled={disabled}
               name="countryCode"
               id="countryCode"
               className="font-semibold"
@@ -59,8 +61,9 @@ export function FormTextInput(props: FormTextInputProps) {
           className="w-full"
           value={value}
           minLength={type === "password" ? 8 : 0}
+          disabled={disabled}
         ></input>
       </div>
-    </div>
+    </FormInputWrapper>
   );
 }

@@ -12,6 +12,11 @@ import {
   AdminFormInput,
   AdminFormInputType,
 } from "../AdminFormInput";
+import {
+  FormTextInput,
+  FormTextInputProps,
+} from "@/app/_components/molecules/inputs/FormTextInput";
+import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
 
 type Props = {};
 
@@ -20,7 +25,7 @@ export default function ListingLocationStep({}: Props) {
   const [addressIsSameAsInvoicing, setAddressIsSameAsInvoicing] =
     useState(false);
 
-  const inputsData: AdminFormInputType[] = [
+  const inputsData: FormTextInputProps[] = [
     {
       label: "Ulice",
       type: "text",
@@ -64,16 +69,22 @@ export default function ListingLocationStep({}: Props) {
         }
       >
         <div className="w-full flex flex-col gap-5 items-center justify-center max-w-150">
-          <AdminFormCheckbox
-            text={{ text: "Adresa je stejná jako fakturační", tag: "span" }}
+          <FormCheckboxInput
+            label={[{ text: "Adresa je stejná jako fakturační", tag: "span" }]}
             name="sameAddress"
+            value="true"
             onChange={checkboxOnChangeHandler}
-            checked={addressIsSameAsInvoicing}
+            isChecked={addressIsSameAsInvoicing}
           />
           <AdminFormPartWrapper disabled={addressIsSameAsInvoicing}>
             {inputsData.map((input) => {
               return (
-                <AdminFormInput key={input.label + input.value} {...input} />
+                <FormTextInput
+                  key={input.label + input.value}
+                  {...input}
+                  type="text"
+                  spanTwo={input.name === "street" || input.name === "country"}
+                />
               );
             })}
           </AdminFormPartWrapper>

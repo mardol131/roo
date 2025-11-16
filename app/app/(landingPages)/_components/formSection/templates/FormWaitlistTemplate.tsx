@@ -13,7 +13,7 @@ export default function FormWaitlistTemplate({}: Props) {
         label="Jméno"
         name="firstName"
         placeholder="Jan"
-        spanTwo={true}
+        spanTwo={false}
         type="text"
         required={true}
       />
@@ -22,7 +22,7 @@ export default function FormWaitlistTemplate({}: Props) {
         label="Příjmení"
         name="lastName"
         placeholder="Novák"
-        spanTwo={true}
+        spanTwo={false}
         type="text"
         required={true}
       />
@@ -49,7 +49,7 @@ export default function FormWaitlistTemplate({}: Props) {
         label="Telefon"
         name="phone"
         placeholder="777 777 777"
-        spanTwo={true}
+        spanTwo={false}
         type="phone"
         required={true}
       />
@@ -58,7 +58,7 @@ export default function FormWaitlistTemplate({}: Props) {
         label="Email"
         name="email"
         placeholder="skvelyemail@email.cz"
-        spanTwo={true}
+        spanTwo={false}
         type="email"
         required={true}
       />

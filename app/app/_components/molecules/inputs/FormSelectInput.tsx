@@ -1,3 +1,5 @@
+import FormInputWrapper from "./FormInputWrapper";
+
 type SelectOptionType = {
   text: string;
   value: string;
@@ -15,11 +17,7 @@ export type FormSelectInputProps = {
 
 export function FormSelectInput(props: FormSelectInputProps) {
   return (
-    <div
-      className={`${
-        props.spanTwo && "col-span-2"
-      } border-2 border-borderLight p-3 flex flex-col rounded-medium`}
-    >
+    <FormInputWrapper spanTwo={props.spanTwo}>
       <label className="text-primary font-semibold">{props.label}</label>
 
       <select
@@ -38,6 +36,6 @@ export function FormSelectInput(props: FormSelectInputProps) {
           );
         })}
       </select>
-    </div>
+    </FormInputWrapper>
   );
 }

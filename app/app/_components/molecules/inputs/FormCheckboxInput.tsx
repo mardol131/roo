@@ -1,5 +1,6 @@
 import { GenerateTexts } from "@/app/_components/atoms/Text";
 import { TextBlockProps } from "../../../(landingPages)/_components/textSection/TextSection";
+import { ChangeEvent, FormEvent } from "react";
 
 export type FormCheckboxInputProps = {
   blockType?: "formcheckboxinput";
@@ -7,10 +8,11 @@ export type FormCheckboxInputProps = {
   value: string;
   spanTwo?: boolean;
   required?: boolean | boolean;
-  onChange?: (isChecked: boolean, value: string) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   name?: string;
   id?: string;
   className?: string;
+  isChecked?: boolean;
 };
 
 export function FormCheckboxInput(props: FormCheckboxInputProps) {
@@ -23,9 +25,10 @@ export function FormCheckboxInput(props: FormCheckboxInputProps) {
           type="checkbox"
           onChange={(e) => {
             if (props.onChange) {
-              props.onChange(e.target.checked, props.value);
+              props.onChange(e);
             }
           }}
+          checked={props.isChecked}
           className="cursor-pointer"
           id={props.id || props.name || props.value}
           name={props.name || props.value}

@@ -8,6 +8,8 @@ import React, { useState } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 import { AdminFormInput } from "../AdminFormInput";
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
+import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
+import Text from "@/app/_components/atoms/Text";
 
 type Props = {};
 
@@ -16,16 +18,21 @@ export default function ServiceNameStep({}: Props) {
 
   return (
     <AdminWrapper>
-      <AdminFormWrapper
-        heading={"Napiš název svého místa"}
-        subheading={"Jak se tvoje místo jmenuje?"}
-      >
+      <AdminFormWrapper heading={"Název místa"}>
         <AdminFormPartWrapper>
-          <AdminFormInput
+          <Text
+            text="Jak se tvoje místo jménuje?"
+            tag="h3"
+            size="headingSm"
+            className="col-span-2 text-center"
+            fontWeight="semibold"
+          />
+          <FormTextInput
             label="Jméno tvého místa"
             type="text"
             placeholder="např. Statek Ondřejov"
             name="servicename"
+            spanTwo
           />
         </AdminFormPartWrapper>
         <Button

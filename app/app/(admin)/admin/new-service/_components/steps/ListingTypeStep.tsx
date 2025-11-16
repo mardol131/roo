@@ -3,15 +3,56 @@ import Button from "@/app/_components/atoms/Button";
 
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { newListing } from "@/app/_redux/slices/newListingSlice";
-import { ListingType, listingTypeArray } from "@/app/_types/business/services";
+import { ListingType, ListingTypeData } from "@/app/_types/business/services";
 import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
 
 import React, { useState } from "react";
 import { ServiceTypeCard } from "../ServiceTypeCard";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
+import Gastro from "@/app/_icons/Gastro";
 
 type Props = {};
+
+export const listingCardsData: {
+  gastro: ListingTypeData;
+  entertainment: ListingTypeData;
+  place: ListingTypeData;
+} = {
+  gastro: {
+    heading: "Gastro",
+    text: "Děláš catering, máš foodtruck nebo bar na eventy",
+    icon: Gastro,
+    color: "secondary",
+    bgColor: "secondaryPrimary",
+    index: 1,
+    value: "gastro",
+  },
+  place: {
+    heading: "Místo",
+    text: "Máš prostory, kde pořádáš akce.",
+    icon: Gastro,
+    color: "primary",
+    bgColor: "primary",
+    index: 2,
+    value: "place",
+  },
+  entertainment: {
+    heading: "Zábava",
+    text: "Jsi DJ, kapela, moderátor, kouzelník, tanečnice nebo jakkoliv bavíš hosty",
+    icon: Gastro,
+    color: "tertiary",
+    bgColor: "primaryTertiary",
+    index: 3,
+    value: "entertainment",
+  },
+};
+
+export const listingTypeArray: ListingTypeData[] = [
+  listingCardsData.gastro,
+  listingCardsData.place,
+  listingCardsData.entertainment,
+];
 
 export default function ServiceTypeStep({}: Props) {
   const { listings, currentListingType } = useAppSelector(

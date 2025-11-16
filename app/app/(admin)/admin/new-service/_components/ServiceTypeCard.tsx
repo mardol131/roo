@@ -2,8 +2,9 @@
 
 import Text from "@/app/_components/atoms/Text";
 import Gastro from "@/app/_icons/Gastro";
-import { listingCardsData, ListingType } from "@/app/_types/business/services";
+import { ListingType } from "@/app/_types/business/services";
 import { colorsAndGradients, textColor } from "@roo/shared/src/design/colors";
+import { listingCardsData } from "./steps/ListingTypeStep";
 
 export type ServiceTypeCardProps = {
   onClick: (value: ListingType) => void;
@@ -34,7 +35,13 @@ export function ServiceTypeCard({
       <div className="w-20 h-20">
         <Gastro className="" fill="currentColor" />
       </div>
-      <Text text={data.heading} tag="h3" className="font-semibold" />
+      <Text
+        text={data.heading}
+        tag="h3"
+        size="headingMd"
+        className="font-semibold"
+        color={isActive ? "white" : "black"}
+      />
       <Text
         text={data.text}
         tag="p"

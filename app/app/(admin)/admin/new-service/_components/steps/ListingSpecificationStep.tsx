@@ -150,13 +150,13 @@ export default function ServiceSpecificationStep({}: Props) {
   return (
     <AdminWrapper>
       <AdminFormWrapper
-        heading={"Napiš název svého místa"}
-        subheading={"Jak se tvoje místo jmenuje?"}
+        heading={"Co za místo nabízíš?"}
+        subheading={"Teď potřebujeme přesně specifikovat místo, které nabízíš."}
       >
         <AdminFormPartWrapper>
           <div
             onClick={containerClickHandler}
-            className="min-h-50 flex gap-2 flex-wrap items-start content-start justify-start"
+            className="min-h-50 flex gap-2 col-span-2 flex-wrap items-start content-start justify-start"
           >
             {specs.map((item) => {
               return (
