@@ -1,7 +1,7 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
-import newListingSlice from "./slices/newListingSlice";
+import newListingSlice from "./slices/newListingSlice/newListingSlice";
 import headerFilterSlice from "./slices/filtersSlice/headerFilterSlice";
 import authSlice from "./slices/authSlice/authSlice";
 

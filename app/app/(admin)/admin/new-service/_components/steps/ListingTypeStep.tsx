@@ -2,7 +2,7 @@
 import Button from "@/app/_components/atoms/Button";
 
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
-import { newListing } from "@/app/_redux/slices/newListingSlice";
+import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { ListingType, ListingTypeData } from "@/app/_types/business/services";
 import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { FormEvent, useCallback, useState } from "react";
 
 import successBg from "../../../_images/successBg.jpg";
 import Button from "@/app/_components/atoms/Button";
@@ -21,6 +21,10 @@ export default function ServiceInitialDataStep({}: Props) {
   const [success, setSuccess] = useState(false);
 
   const { changeStepHandler } = useNewListingSteps();
+
+  const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  }, []);
 
   if (success) {
     return (
@@ -58,7 +62,7 @@ export default function ServiceInitialDataStep({}: Props) {
   return (
     <AdminWrapper>
       <AdminFormWrapper heading="Registrace dodavatele">
-        <form className="flex flex-col gap-6">
+        <form onSubmit={onSubmitHandler} className="flex flex-col gap-6">
           <div className="grid grid-cols-2 items-start gap-5">
             <AdminFormPartWrapper>
               <Text
@@ -74,12 +78,14 @@ export default function ServiceInitialDataStep({}: Props) {
                 name="companyName"
                 placeholder="ROO s.r.o."
                 spanTwo
+                required
               />
               <FormTextInput
                 label="IČO"
                 type="text"
                 name="ico"
                 placeholder="123456789"
+                required
               />
               <FormTextInput
                 label="DIČ"
@@ -92,24 +98,28 @@ export default function ServiceInitialDataStep({}: Props) {
                 type="text"
                 name="street"
                 placeholder="Eventová 333/6"
+                required
               />{" "}
               <FormTextInput
                 label="Město"
                 type="text"
                 name="city"
                 placeholder="Praha"
+                required
               />
               <FormTextInput
                 label="PSČ"
                 type="text"
                 name="cityCode"
                 placeholder="140 00"
+                required
               />
               <FormTextInput
                 label="Země"
                 type="text"
                 name="country"
                 placeholder="Česká republika"
+                required
               />
             </AdminFormPartWrapper>
             <AdminFormPartWrapper>
@@ -125,19 +135,22 @@ export default function ServiceInitialDataStep({}: Props) {
                 type="text"
                 name="name"
                 placeholder="Karel"
+                required
               />
               <FormTextInput
                 label="Příjmení"
                 type="text"
                 name="surname"
                 placeholder="Novák"
+                required
               />
               <FormTextInput
                 label="Telefonní číslo"
                 type="phone"
                 name="phone"
-                placeholder="+420 777 123 456"
+                placeholder="777 123 456"
                 spanTwo
+                required
               />
               <FormTextInput
                 label="Email"
@@ -145,46 +158,38 @@ export default function ServiceInitialDataStep({}: Props) {
                 name="email"
                 placeholder="karel.novak@email.cz"
                 spanTwo
+                required
               />
             </AdminFormPartWrapper>
           </div>
           <div className="flex flex-col items-center gap-4">
             <FormCheckboxInput
-              label={[
-                {
-                  text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
-                  tag: "p",
-                },
-              ]}
+              label={{
+                text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
+                tag: "p",
+              }}
               value="true"
               name="gdpr"
+              required
             />
             <FormCheckboxInput
-              label={[
-                {
-                  text: "Chci dostávat personalizovaná marketingová sdělení",
-                  tag: "p",
-                },
-              ]}
+              label={{
+                text: "Chci dostávat personalizovaná marketingová sdělení",
+                tag: "p",
+              }}
               name="marketing"
               value="true"
             />
           </div>
           <div className="flex justify-center">
-            <div
-              onClick={() => {
-                setSuccess(true);
-              }}
-            >
-              <Button
-                type="submit"
-                text="Pokračovat"
-                size="2xl"
-                bgColor="tertiaryPrimarySecondary"
-                rounding="full"
-                textColor="white"
-              />
-            </div>
+            <Button
+              type="submit"
+              text="Pokračovat"
+              size="2xl"
+              bgColor="tertiaryPrimarySecondary"
+              rounding="full"
+              textColor="white"
+            />
           </div>
         </form>
       </AdminFormWrapper>

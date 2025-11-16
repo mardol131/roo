@@ -1,10 +1,12 @@
-import { GenerateTexts } from "@/app/_components/atoms/Text";
+"use client";
+
+import Text, { GenerateTexts } from "@/app/_components/atoms/Text";
 import { TextBlockProps } from "../../../(landingPages)/_components/textSection/TextSection";
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent, useState } from "react";
 
 export type FormCheckboxInputProps = {
   blockType?: "formcheckboxinput";
-  label: TextBlockProps[];
+  label: TextBlockProps;
   value: string;
   spanTwo?: boolean;
   required?: boolean | boolean;
@@ -16,6 +18,8 @@ export type FormCheckboxInputProps = {
 };
 
 export function FormCheckboxInput(props: FormCheckboxInputProps) {
+  const [isInvalid, setIsInvalid] = useState(false);
+
   return (
     <div
       className={` ${props.spanTwo && "col-span-2"} cursor-pointer ${props.className}`}
@@ -34,8 +38,10 @@ export function FormCheckboxInput(props: FormCheckboxInputProps) {
           name={props.name || props.value}
           value={props.value}
           required={props.required || false}
+          onInvalid={() => setIsInvalid(true)}
+          onInput={() => setIsInvalid(false)}
         />
-        {props.label && <GenerateTexts texts={props.label} />}
+        <Text {...props.label} color={isInvalid ? "danger" : "black"} />
       </label>
     </div>
   );

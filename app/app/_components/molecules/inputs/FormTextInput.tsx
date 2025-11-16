@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
 
 export type FormTextInputProps = {
@@ -27,6 +29,9 @@ export function FormTextInput(props: FormTextInputProps) {
     value,
     bgFilled,
   } = props;
+
+  const [isInvalid, setIsInvalid] = useState(false);
+
   const inputType = props.type || "text";
 
   function changeHandler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -34,8 +39,13 @@ export function FormTextInput(props: FormTextInputProps) {
       e.target.value = e.target.value.replace(/[^0-9]/g, "").slice(0, 9);
     }
   }
+
   return (
-    <FormInputWrapper spanTwo={spanTwo} bgFilled={bgFilled}>
+    <FormInputWrapper
+      isInvalid={isInvalid}
+      spanTwo={spanTwo}
+      bgFilled={bgFilled}
+    >
       <label className="text-primary font-semibold">{label}</label>
       <div className="flex items-center justify-start gap-2">
         {type === "phone" && (
@@ -52,6 +62,12 @@ export function FormTextInput(props: FormTextInputProps) {
           </>
         )}
         <input
+          onInvalid={() => {
+            setIsInvalid(true);
+          }}
+          onInput={() => {
+            setIsInvalid(false);
+          }}
           name={name}
           type={inputType}
           placeholder={placeholder}

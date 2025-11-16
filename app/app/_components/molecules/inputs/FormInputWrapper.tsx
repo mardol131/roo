@@ -3,16 +3,22 @@ import React, { PropsWithChildren } from "react";
 type Props = {
   spanTwo?: boolean;
   bgFilled?: boolean;
+  isInvalid?: boolean;
 };
 
 export default function FormInputWrapper({
   children,
   spanTwo,
   bgFilled = true,
+  isInvalid,
 }: PropsWithChildren & Props) {
   const columnSpan = spanTwo && "col-span-2";
 
-  const background = bgFilled ? "bg-zinc-50" : "bg-white";
+  const background = isInvalid
+    ? "bg-red-50"
+    : bgFilled
+      ? "bg-zinc-50"
+      : "bg-white";
 
   const classes = `${columnSpan} ${background}`;
   return (

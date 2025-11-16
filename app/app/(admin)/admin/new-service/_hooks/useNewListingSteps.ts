@@ -4,7 +4,7 @@ import { useAppDispatch } from "@/app/_redux/hooks";
 import {
   newListing,
   NewListingStepsType,
-} from "@/app/_redux/slices/newListingSlice";
+} from "@/app/_redux/slices/newListingSlice/newListingSlice";
 
 export function useNewListingSteps() {
   const dispatch = useAppDispatch();

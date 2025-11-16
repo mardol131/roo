@@ -14,13 +14,11 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
-      <div className="grid grid-cols-[70px_1fr] h-screen bg-zinc-150 pr-4">
-        <AdminSidebar />
-        <div className="h-[97%] self-center overflow-y-hidden border border-borderLight flex flex-col shadow-lg rounded-large bg-zinc-100">
-          {children}
-        </div>
+    <div className="grid grid-cols-[70px_1fr] h-screen bg-zinc-150 pr-4">
+      <AdminSidebar />
+      <div className="h-[97%] self-center overflow-y-hidden border border-borderLight flex flex-col shadow-lg rounded-large bg-zinc-100">
+        {children}
       </div>
-    </StoreProvider>
+    </div>
   );
 }
