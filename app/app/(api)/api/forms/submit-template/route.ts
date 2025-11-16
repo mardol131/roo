@@ -3,6 +3,7 @@ import { resend } from "@roo/shared/src/email";
 import { NextRequest } from "next/server";
 import { AddContactFromLandingPageFormTemplateType } from "@/app/_api/emailing";
 import { returnResponse } from "@roo/shared/src/functions/api/returnResponse";
+import { wait } from "@roo/shared/src/functions/wait";
 
 export async function POST(req: NextRequest) {
   const body = (await req.json()) as AddContactFromLandingPageFormTemplateType;
@@ -28,6 +29,8 @@ export async function POST(req: NextRequest) {
     });
   }
 
+  await wait(500);
+
   // Add to segment
   const addToSegment = await resend.addContactToSegment({
     contactId: createContact.data.id,
@@ -42,6 +45,8 @@ export async function POST(req: NextRequest) {
       message: "Contact was not added to segment",
     });
   }
+
+  await wait(500);
 
   // Send emails
   const emailResult = await sendEmailTemplate({

@@ -59,8 +59,6 @@ export async function subscribeContact(props: SubscribeContactProps) {
       properties: propertyPairs,
     });
 
-    const contactId = response.data?.id;
-
     return response;
   } catch (e) {
     if (e instanceof Error) throw e;
