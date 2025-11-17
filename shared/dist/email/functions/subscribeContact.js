@@ -37,7 +37,6 @@ export async function subscribeContact(props) {
             lastName: lastName,
             properties: propertyPairs,
         });
-        const contactId = response.data?.id;
         return response;
     }
     catch (e) {

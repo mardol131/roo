@@ -81,36 +81,30 @@ export default function SignupForm({}: Props) {
           <FormCheckboxInput
             value="true"
             name="gdpr"
-            label={[
-              {
-                text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
-                tag: "p",
-              },
-            ]}
+            label={{
+              text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
+              tag: "p",
+            }}
             required={true}
             className="px-3"
           />{" "}
           <FormCheckboxInput
             value="true"
             name="gdpr"
-            label={[
-              {
-                text: "Chci dostávat personalizovaná marketingová sdělení ",
-                tag: "p",
-              },
-            ]}
+            label={{
+              text: "Chci dostávat personalizovaná marketingová sdělení ",
+              tag: "p",
+            }}
             className="px-3"
           />
           <div className="p-3 bg-tertiary/10 rounded-lg border border-borderLight">
             <FormCheckboxInput
               value="true"
               name="isCompany"
-              label={[
-                {
-                  text: "Chcete se zaregistrovat i jako dodavatel a začít nabízet své služby?",
-                  tag: "p",
-                },
-              ]}
+              label={{
+                text: "Chcete se zaregistrovat i jako dodavatel a začít nabízet své služby?",
+                tag: "p",
+              }}
             />
           </div>
         </div>
