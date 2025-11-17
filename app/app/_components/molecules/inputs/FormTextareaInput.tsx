@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import FormInputWrapper from "./FormInputWrapper";
+
 export type FormTextareaInputProps = {
   blockType: "formtextarea";
   label: string;
@@ -8,19 +13,23 @@ export type FormTextareaInputProps = {
 };
 
 export function FormTextareaInput(props: FormTextareaInputProps) {
+  const [isInvalid, setIsInvalid] = useState(false);
+
   return (
-    <div
-      className={`${
-        props.spanTwo && "col-span-2"
-      } border-2 min-h-30 border-borderLight p-2 flex flex-col rounded-medium`}
-    >
+    <FormInputWrapper isInvalid={isInvalid} spanTwo>
       <label className="text-primary font-semibold">{props.label}</label>
       <textarea
+        onInvalid={() => {
+          setIsInvalid(true);
+        }}
+        onChange={() => {
+          setIsInvalid(false);
+        }}
         name={props.name}
         placeholder={props.placeholder}
         required={props.required || false}
         className="h-full resize-y"
       />
-    </div>
+    </FormInputWrapper>
   );
 }

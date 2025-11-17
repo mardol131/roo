@@ -1,3 +1,4 @@
+import { useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
 
 type SelectOptionType = {
@@ -16,14 +17,22 @@ export type FormSelectInputProps = {
 };
 
 export function FormSelectInput(props: FormSelectInputProps) {
+  const [isInvalid, setIsInvalid] = useState(false);
+
   return (
-    <FormInputWrapper spanTwo={props.spanTwo}>
+    <FormInputWrapper isInvalid={isInvalid} spanTwo={props.spanTwo}>
       <label className="text-primary font-semibold">{props.label}</label>
 
       <select
         required={props.required || false}
         name={props.value}
         id={props.value}
+        onInvalid={() => {
+          setIsInvalid(true);
+        }}
+        onChange={() => {
+          setIsInvalid(false);
+        }}
       >
         <option value="" className="text-textPlaceholder">
           {props.placeholder}

@@ -1,5 +1,7 @@
+"use client";
+
 import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { FormCheckboxInput, FormCheckboxInputProps } from "./FormCheckboxInput";
 
 export type FormMultipleCheckboxInputProps = {
@@ -16,14 +18,14 @@ export function FormMultipleCheckboxInput(
 ) {
   const [values, setValues] = useState<string[]>([]);
 
-  function hasValueHandler(isChecked: boolean, value: string) {
-    if (isChecked) {
-      setValues([...values, value]);
-    } else if (!isChecked) {
-      const index = values.indexOf(value);
+  function hasValueHandler(e: ChangeEvent<HTMLInputElement>) {
+    if (e.target.checked) {
+      setValues([...values, e.target.value]);
+    } else {
+      const index = values.indexOf(e.target.value);
 
       if (index !== -1) {
-        setValues((prev) => prev.filter((v) => v !== value));
+        setValues((prev) => prev.filter((v) => v !== e.target.value));
       }
     }
   }

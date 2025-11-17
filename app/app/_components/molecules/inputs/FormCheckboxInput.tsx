@@ -22,7 +22,7 @@ export function FormCheckboxInput(props: FormCheckboxInputProps) {
 
   return (
     <div
-      className={` ${props.spanTwo && "col-span-2"} ${isInvalid && "bg-red-50 border border-danger"} p-1 rounded-md cursor-pointer ${props.className}`}
+      className={` ${props.spanTwo && "col-span-2"} ${isInvalid && props.required && "bg-red-50 border border-danger"} p-1 rounded-md cursor-pointer ${props.className}`}
     >
       <label className="text-textMedium flex items-center gap-10  cursor-pointer font-semibold">
         <input
@@ -41,7 +41,10 @@ export function FormCheckboxInput(props: FormCheckboxInputProps) {
           onInvalid={() => setIsInvalid(true)}
           onInput={() => setIsInvalid(false)}
         />
-        <Text {...props.label} color={isInvalid ? "danger" : "black"} />
+        <Text
+          {...props.label}
+          color={isInvalid && props.required ? "danger" : "black"}
+        />
       </label>
     </div>
   );

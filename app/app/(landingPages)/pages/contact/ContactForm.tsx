@@ -100,21 +100,19 @@ export default function ContactForm(props: Props) {
         required={true}
       />
       <FormCheckboxInput
-        label={[
-          {
-            blockType: "TextBlock",
-            text: "Souhlasím se zpracování osobních údajů společností The Roosters s.r.o.",
-            tag: "p",
-            color: "black",
-          },
-        ]}
+        label={{
+          blockType: "TextBlock",
+          text: "Souhlasím se zpracování osobních údajů společností The Roosters s.r.o.",
+          tag: "p",
+          color: "black",
+        }}
         blockType="formcheckboxinput"
         name="gdpr"
         value="true"
         spanTwo={true}
         required={true}
       />
-      <div className="col-span-2 flex flex-col justify-center items-center gap-4">
+      <div className="col-span-2 flex flex-col text-center justify-center items-center gap-4">
         {isLoading ? (
           <Loader />
         ) : (
