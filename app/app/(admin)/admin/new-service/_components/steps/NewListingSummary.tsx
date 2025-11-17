@@ -3,12 +3,12 @@
 import Button from "@/app/_components/atoms/Button";
 
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
 import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
 import Text from "@/app/_components/atoms/Text";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
-import { FormEvent, useCallback } from "react";
+import { FormEvent, useCallback, useMemo } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
+import { SpecTag, specTagMockData } from "./ListingSpecificationStep";
 
 type Props = {};
 
@@ -20,154 +20,170 @@ export default function NewListingSummary({}: Props) {
     changeStepHandler("listingSpecification");
   }, []);
 
-  return (
-    <AdminWrapper>
-      <AdminNewListingFormWrapper
-        onSubmit={onSubmitHandler}
-        heading={"Souhrn základních informací"}
+  function TextBlock({
+    label,
+    text,
+    spanTwo,
+  }: {
+    label: string;
+    text: string;
+    spanTwo?: boolean;
+  }) {
+    return (
+      <div
+        className={`${spanTwo && "col-span-2"} h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr]  w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
       >
-        <AdminFormPartWrapper>
+        <Text
+          text={label}
+          tag="h4"
+          color="primary"
+          size="bodyMd"
+          fontWeight="semibold"
+        />
+        <Text
+          text={text}
+          tag="h4"
+          color="black"
+          size="bodyMd"
+          fontWeight="semibold"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <AdminNewListingFormWrapper
+      onSubmit={onSubmitHandler}
+      heading={"Paráda! Základ je hotový!"}
+      subheading="Níže najdeš základní sourhn informací, které jsi nám o službě poskytl/a. <br/>Pokud bys chtěl/a ještě něco upravit, u každé sekce klikni na tlačítko upravit, které tě vrátí zpět do formuláře."
+    >
+      <div
+        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+      >
+        <div className="col-span-2 flex items-center gap-2 justify-center">
           <Text
             text="Fakturační údaje"
             tag="h3"
             size="headingSm"
-            className="col-span-2 text-center"
+            className=" text-center"
             fontWeight="semibold"
           />
-          <FormTextInput
-            label="Název společnosti"
-            type="text"
-            name="companyName"
-            placeholder="ROO s.r.o."
-            spanTwo
-            required
+          <Button
+            text="Upravit"
+            size="sm"
+            bgColor="primary"
+            rounding="full"
+            textColor="white"
           />
-          <FormTextInput
-            label="IČO"
-            type="text"
-            name="ico"
-            placeholder="123456789"
-            required
-          />
-          <FormTextInput
-            label="DIČ"
-            type="text"
-            name="dic"
-            placeholder="CZ123456789"
-          />
-          <FormTextInput
-            label="Ulice"
-            type="text"
-            name="street"
-            placeholder="Eventová 333/6"
-            required
-          />{" "}
-          <FormTextInput
-            label="Město"
-            type="text"
-            name="city"
-            placeholder="Praha"
-            required
-          />
-          <FormTextInput
-            label="PSČ"
-            type="text"
-            name="cityCode"
-            placeholder="140 00"
-            required
-          />
-          <FormTextInput
-            label="Země"
-            type="text"
-            name="country"
-            placeholder="Česká republika"
-            required
-          />
-        </AdminFormPartWrapper>
-        <AdminFormPartWrapper>
+        </div>
+        <TextBlock label="Název:" text="Společnost s ručením omezeným sro" />
+        <TextBlock label="IČO:" text="59822965459" />
+        <TextBlock label="DIČ:" text="59822965459" />
+        <TextBlock label="Ulice:" text="59822965459" />
+        <TextBlock label="Město:" text="59822965459" />
+        <TextBlock label="PSČ:" text="59822965459" />
+        <TextBlock label="Země:" text="59822965459" />
+      </div>
+      <div
+        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+      >
+        <div className="col-span-2 flex items-center gap-2 justify-center">
           <Text
-            text="Údaje o společnosti"
-            tag="h4"
-            color="black"
-            className="font-semibold text-center py-2 col-span-2"
-            size="headingSm"
-          />
-          <FormTextInput
-            label="Název společnosti"
-            type="text"
-            name="companyName"
-            placeholder="ROO s.r.o."
-            spanTwo
-            required
-          />
-          <FormTextInput
-            label="IČO"
-            type="text"
-            name="ico"
-            placeholder="123456789"
-            required
-          />
-          <FormTextInput
-            label="DIČ"
-            type="text"
-            name="dic"
-            placeholder="CZ123456789"
-          />
-          <FormTextInput
-            label="Ulice"
-            type="text"
-            name="street"
-            placeholder="Eventová 333/6"
-            required
-          />{" "}
-          <FormTextInput
-            label="Město"
-            type="text"
-            name="city"
-            placeholder="Praha"
-            required
-          />
-          <FormTextInput
-            label="PSČ"
-            type="text"
-            name="cityCode"
-            placeholder="140 00"
-            required
-          />
-          <FormTextInput
-            label="Země"
-            type="text"
-            name="country"
-            placeholder="Česká republika"
-            required
-          />
-        </AdminFormPartWrapper>
-        <AdminFormPartWrapper>
-          <Text
-            text="Jak se tvoje místo jménuje?"
+            text="Kontaktní osoba"
             tag="h3"
             size="headingSm"
-            className="col-span-2 text-center"
+            className=" text-center"
             fontWeight="semibold"
           />
-          <FormTextInput
-            label="Jméno tvého místa"
-            type="text"
-            placeholder="např. Statek Ondřejov"
-            name="servicename"
-            spanTwo
-            required
+          <Button
+            text="Upravit"
+            size="sm"
+            bgColor="primary"
+            rounding="full"
+            textColor="white"
           />
-        </AdminFormPartWrapper>
-        <Button
-          text="Pokračovat"
-          type="submit"
-          bgColor="secondaryPrimary"
-          size="xl"
-          textColor="white"
-          rounding="full"
-        />
-      </AdminNewListingFormWrapper>
-    </AdminWrapper>
+        </div>
+        <TextBlock label="Jméno:" text="Společnost s ručením omezeným sro" />
+        <TextBlock label="Příjmení:" text="59822965459" />
+        <TextBlock label="Telefon:" text="59822965459" />
+        <TextBlock label="Email:" text="59822965459" />
+      </div>
+      <div
+        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+      >
+        <div className="col-span-2 flex items-center gap-2 justify-center">
+          <Text
+            text="Co nabízíš"
+            tag="h3"
+            size="headingSm"
+            className=" text-center"
+            fontWeight="semibold"
+          />
+          <Button
+            text="Upravit"
+            size="sm"
+            bgColor="primary"
+            rounding="full"
+            textColor="white"
+          />
+        </div>
+        <TextBlock label="Jméno služby:" text="Mlýn Davídkov" spanTwo />
+        <div
+          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
+        >
+          <Text
+            text="Specifikace:"
+            tag="h4"
+            color="primary"
+            size="bodyMd"
+            fontWeight="semibold"
+          />
+          <div className="flex gap-2 flex-wrap">
+            {specTagMockData.map((item) => {
+              return (
+                <SpecTag
+                  key={item.name + item.value}
+                  data={item}
+                  onClick={() => {}}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      <div
+        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+      >
+        <div className="col-span-2 flex items-center gap-2 justify-center">
+          <Text
+            text="Kde sídlíš"
+            tag="h3"
+            size="headingSm"
+            className=" text-center"
+            fontWeight="semibold"
+          />
+          <Button
+            text="Upravit"
+            size="sm"
+            bgColor="primary"
+            rounding="full"
+            textColor="white"
+          />
+        </div>
+        <TextBlock label="Ulice:" text="Společnost s ručením omezeným sro" />
+        <TextBlock label="Město:" text="59822965459" />
+        <TextBlock label="PSČ:" text="59822965459" />
+        <TextBlock label="Země:" text="59822965459" />
+      </div>
+
+      <Button
+        text="Pokračovat"
+        type="submit"
+        bgColor="secondaryPrimary"
+        size="xl"
+        textColor="white"
+        rounding="full"
+      />
+    </AdminNewListingFormWrapper>
   );
 }

@@ -4,7 +4,7 @@ import Text from "@/app/_components/atoms/Text";
 import Gastro from "@/app/_icons/Gastro";
 import { ListingType } from "@/app/_types/business/services";
 import { colorsAndGradients, textColor } from "@roo/shared/src/design/colors";
-import { listingCardsData } from "./steps/ListingTypeStep";
+import { listingCardsData } from "./ListingTypeStep";
 
 export type ServiceTypeCardProps = {
   onClick: (value: ListingType) => void;

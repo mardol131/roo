@@ -28,7 +28,7 @@ export function NewListingStepBar() {
   }
 
   return (
-    <div className="w-full text-lg bg-white flex justify-between items-center rounded-medium shadow-lg shadow-black/5 p-3">
+    <div className="border border-borderLight sticky top-0 w-full text-lg bg-white flex justify-between items-center rounded-medium shadow-lg shadow-black/5 p-3">
       {NewListingStepsArray.map((step, i) => {
         return (
           <>

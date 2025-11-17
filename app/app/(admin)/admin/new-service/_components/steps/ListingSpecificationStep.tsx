@@ -2,7 +2,6 @@
 
 import Button from "@/app/_components/atoms/Button";
 
-import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
 import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
 import Text from "@/app/_components/atoms/Text";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
@@ -18,7 +17,7 @@ type SpecTagProps = {
   onClick: (value: SpecTagType) => void;
 };
 
-function SpecTag(props: SpecTagProps) {
+export function SpecTag(props: SpecTagProps) {
   return (
     <button
       onClick={(e) => {
@@ -45,7 +44,7 @@ function SpecTagModal(props: SpecTagProps) {
         e.stopPropagation();
         props.onClick(props.data);
       }}
-      className="font-semibold first:bg-primary/10 hover:bg-primary bg-white animate group px-2 rounded-full cursor-pointer"
+      className="font-semibold first:bg-primary/20 hover:bg-primary group  animate group px-2 rounded-full cursor-pointer"
     >
       <Text
         text={props.data.name}
@@ -57,7 +56,7 @@ function SpecTagModal(props: SpecTagProps) {
   );
 }
 
-const mockData: SpecTagType[] = [
+export const specTagMockData: SpecTagType[] = [
   { name: "Hotel", value: "hotel" },
   { name: "Hrad", value: "hrad" },
   { name: "Stodola", value: "stodola" },
@@ -136,7 +135,7 @@ export default function ServiceSpecificationStep({}: Props) {
   useEffect(() => {
     if (input) {
       const textLength = input?.length || 1;
-      const searchArray = mockData.filter((item) => {
+      const searchArray = specTagMockData.filter((item) => {
         const textSlice = item.name.slice(0, textLength);
         if (!specs.some((specsItem) => specsItem.value === item.value)) {
           return textSlice.toLowerCase() === input.toLowerCase();
@@ -152,69 +151,69 @@ export default function ServiceSpecificationStep({}: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <AdminWrapper>
-      <AdminNewListingFormWrapper
-        onSubmit={onSubmitHandler}
-        heading={"Co za místo nabízíš?"}
-        subheading={"Teď potřebujeme přesně specifikovat místo, které nabízíš."}
+    <AdminNewListingFormWrapper
+      onSubmit={onSubmitHandler}
+      heading={"Co za místo nabízíš?"}
+      subheading={
+        "Teď potřebujeme přesně specifikovat místo, které nabízíš. Může jich být klidně víc, takže to pořádně popiš."
+      }
+    >
+      <div
+        className={` ${isInvalid ? "bg-red-50 border border-danger" : "bg-white "} shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
       >
         <div
-          className={` ${isInvalid ? "bg-red-50 border border-danger" : "bg-white "} shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+          onClick={containerClickHandler}
+          className="min-h-50 flex gap-2 col-span-2 flex-wrap items-start content-start justify-start"
         >
-          <div
-            onClick={containerClickHandler}
-            className="min-h-50 flex gap-2 col-span-2 flex-wrap items-start content-start justify-start"
-          >
-            {specs.map((item) => {
-              return (
-                <SpecTag
-                  key={item.name + item.value}
-                  data={item}
-                  onClick={deleteTagHandler}
-                />
-              );
-            })}
-            <div className="relative">
-              <input
-                onFocus={specModalActiveHandler}
-                onBlur={specModalActiveCloseHandler}
-                onKeyDown={inputKeyPressPressHandler}
-                ref={inputRef}
-                value={input}
-                onChange={(e) => {
-                  setInput(e.target.value);
-                }}
-                placeholder="Vložte specifikaci"
-                type="text"
-                className="focus:outline-0 ml-5 text-lg font-semibold border-borderLight flex items-center justify-start"
+          {specs.map((item) => {
+            return (
+              <SpecTag
+                key={item.name + item.value}
+                data={item}
+                onClick={deleteTagHandler}
               />
-              {specModalActive && (
-                <div className="border top-[120%] border-borderLight absolute h-40 min-w-60 rounded-md bg-white shadow-lg w-full p-4 ">
-                  <div className="flex flex-col max-h-full gap-2 items-start overflow-y-auto">
-                    {searchSpec.map((item) => {
-                      return (
-                        <SpecTagModal
-                          key={item.name + item.value}
-                          data={item}
-                          onClick={addTagHandler}
-                        />
-                      );
-                    })}
-                  </div>
+            );
+          })}
+          <div className="relative flex">
+            <input
+              onFocus={specModalActiveHandler}
+              onBlur={specModalActiveCloseHandler}
+              onKeyDown={inputKeyPressPressHandler}
+              ref={inputRef}
+              value={input}
+              onChange={(e) => {
+                setInput(e.target.value);
+              }}
+              placeholder="Přidej další"
+              type="text"
+              className="focus:outline-0 ml-5 w-full text-lg font-semibold border-borderLight flex items-center justify-start"
+            />
+            {specModalActive && (
+              <div className="border top-[120%] border-borderLight absolute h-40 min-w-60 rounded-md bg-white shadow-lg w-full p-4 ">
+                <div className="flex flex-col max-h-full gap-2 items-start  overflow-y-auto">
+                  {searchSpec.map((item) => {
+                    return (
+                      <SpecTagModal
+                        key={item.name + item.value}
+                        data={item}
+                        onClick={addTagHandler}
+                      />
+                    );
+                  })}
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
-        <Button
-          text="Pokračovat"
-          type="submit"
-          bgColor="secondaryPrimary"
-          size="xl"
-          textColor="white"
-          rounding="full"
-        />
-      </AdminNewListingFormWrapper>
-    </AdminWrapper>
+      </div>
+      <Button
+        text="Pokračovat"
+        type="submit"
+        bgColor="secondaryPrimary"
+        size="xl"
+        textColor="white"
+        rounding="full"
+      />
+    </AdminNewListingFormWrapper>
   );
 }

@@ -3,12 +3,12 @@
 import { useAppSelector } from "@/app/_redux/hooks";
 import React from "react";
 
-import ServiceNameStep from "./steps/ListingNameStep";
-import ServiceInitialDataStep from "./steps/CompanyDataStep";
-import ServiceTypeStep from "./steps/ListingTypeStep";
-import ServiceSpecificationStep from "./steps/ListingSpecificationStep";
-import ListingLocationStep from "./steps/ListingLocationStep";
-import NewListingSummary from "./steps/NewListingSummary";
+import ServiceNameStep from "./name/ListingNameStep";
+import ServiceInitialDataStep from "./companyData/CompanyDataStep";
+import ServiceTypeStep from "./ListingTypeStep";
+import ServiceSpecificationStep from "./ListingSpecificationStep";
+import ListingLocationStep from "./location/ListingLocationStep";
+import NewListingSummary from "./NewListingSummary";
 
 export default function NewServiceSteps() {
   const { step } = useAppSelector((state) => state.newListing);

@@ -1,5 +1,5 @@
 import React from "react";
-import NewServiceSteps from "./_components/NewServiceSteps";
+import NewServiceSteps from "./_components/steps/NewServiceSteps";
 
 type Props = {};
 

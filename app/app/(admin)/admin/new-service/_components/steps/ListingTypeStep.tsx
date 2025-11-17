@@ -1,7 +1,6 @@
 "use client";
 import Button from "@/app/_components/atoms/Button";
 
-import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
 import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
@@ -10,7 +9,7 @@ import { ListingType, ListingTypeData } from "@/app/_types/business/services";
 import Gastro from "@/app/_icons/Gastro";
 import { useState } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import { ServiceTypeCard } from "../ServiceTypeCard";
+import { ServiceTypeCard } from "./ServiceTypeCard";
 
 type Props = {};
 
@@ -94,77 +93,37 @@ export default function ServiceTypeStep({}: Props) {
 
   if (pickOne) {
     return (
-      <AdminWrapper>
-        <AdminNewListingFormWrapper
-          heading={"Jakou službu chceš nastavit jako první?"}
-          subheading={"Druhou službu budete mít možnost nadtavit později"}
-        >
-          <>
-            <div className="flex w-full justify-center gap-5 max-w-250">
-              {listings.map((listing, i) => {
-                const delay = i * 50;
-
-                return (
-                  <ServiceTypeCard
-                    isActive={currentListingType === listing}
-                    key={listing}
-                    value={listing}
-                    onClick={updateCurrentService}
-                    delayMs={delay.toString()}
-                  />
-                );
-              })}
-            </div>
-            <div className="flex gap-5">
-              <div onClick={returnToTypeshandler}>
-                <Button
-                  text="Zpět"
-                  bgColor="secondaryPrimaryTertiary"
-                  size="xl"
-                  rounding="full"
-                  textColor="white"
-                />
-              </div>
-              <div onClick={startFormularHandler}>
-                <Button
-                  text="Pokračovat"
-                  bgColor="secondaryPrimaryTertiary"
-                  size="xl"
-                  rounding="full"
-                  textColor="white"
-                />
-              </div>
-            </div>
-          </>
-        </AdminNewListingFormWrapper>
-      </AdminWrapper>
-    );
-  }
-
-  return (
-    <AdminWrapper>
       <AdminNewListingFormWrapper
-        heading={"Jaké služby poskytuješ?"}
-        subheading={"Vyber jednu nebo více kategorií kliknutím na ikonu"}
+        heading={"Jakou službu chceš nastavit jako první?"}
+        subheading={"Druhou službu budeš mít možnost nastavit později"}
       >
         <>
-          <div className="grid grid-cols-3 w-full justify-items-center gap-5 max-w-250">
-            {listingTypeArray.map((listing, i) => {
+          <div className="flex w-full justify-center gap-5 max-w-250">
+            {listings.map((listing, i) => {
               const delay = i * 50;
 
               return (
                 <ServiceTypeCard
-                  isActive={listings.some((value) => value === listing.value)}
-                  key={listing.text}
-                  value={listing.value}
-                  onClick={updateStateHandler}
+                  isActive={currentListingType === listing}
+                  key={listing}
+                  value={listing}
+                  onClick={updateCurrentService}
                   delayMs={delay.toString()}
                 />
               );
             })}
           </div>
-          {listings.length > 0 && (
-            <div onClick={anotherStepHandler}>
+          <div className="flex gap-5">
+            <div onClick={returnToTypeshandler}>
+              <Button
+                text="Zpět"
+                bgColor="secondaryPrimaryTertiary"
+                size="xl"
+                rounding="full"
+                textColor="white"
+              />
+            </div>
+            <div onClick={startFormularHandler}>
               <Button
                 text="Pokračovat"
                 bgColor="secondaryPrimaryTertiary"
@@ -173,9 +132,45 @@ export default function ServiceTypeStep({}: Props) {
                 textColor="white"
               />
             </div>
-          )}
+          </div>
         </>
       </AdminNewListingFormWrapper>
-    </AdminWrapper>
+    );
+  }
+
+  return (
+    <AdminNewListingFormWrapper
+      heading={"Jaké služby poskytuješ?"}
+      subheading={"Vyber jednu nebo více kategorií kliknutím na ikonu"}
+    >
+      <>
+        <div className="grid grid-cols-3 w-full justify-items-center gap-5 max-w-250">
+          {listingTypeArray.map((listing, i) => {
+            const delay = i * 50;
+
+            return (
+              <ServiceTypeCard
+                isActive={listings.some((value) => value === listing.value)}
+                key={listing.text}
+                value={listing.value}
+                onClick={updateStateHandler}
+                delayMs={delay.toString()}
+              />
+            );
+          })}
+        </div>
+        {listings.length > 0 && (
+          <div onClick={anotherStepHandler}>
+            <Button
+              text="Pokračovat"
+              bgColor="secondaryPrimaryTertiary"
+              size="xl"
+              rounding="full"
+              textColor="white"
+            />
+          </div>
+        )}
+      </>
+    </AdminNewListingFormWrapper>
   );
 }

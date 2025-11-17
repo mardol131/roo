@@ -7,12 +7,10 @@ export default function NewListingLayout({
 }>) {
   return (
     <>
-      <div className="w-full h-full flex flex-col items-center justify-start gap-10">
-        <div className="flex w-full flex-col items-center text-center gap-3">
-          <NewListingStepBar />
-        </div>
+      <div className="relative w-full p-3 h-full flex flex-col items-center justify-start">
+        <NewListingStepBar />
 
-        {children}
+        <div className="w-full overflow-y-auto h-full">{children}</div>
       </div>
     </>
   );

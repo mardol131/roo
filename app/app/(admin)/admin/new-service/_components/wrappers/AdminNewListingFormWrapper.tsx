@@ -22,7 +22,6 @@ export default function AdminNewListingFormWrapper({
   return (
     <div className="w-full h-full flex flex-col items-center justify-start gap-10">
       <div className="flex w-full flex-col items-center text-center gap-3">
-        <NewListingStepBar />
         <Text
           tag="h4"
           size="headingMd"
@@ -31,12 +30,12 @@ export default function AdminNewListingFormWrapper({
           className="mt-8 font-semibold"
         />
         {subheading && (
-          <Text color="black" tag="p" size="bodyMd" text={subheading} />
+          <Text color="black" tag="p" size="bodyXl" text={subheading} />
         )}
       </div>
       <form
         onSubmit={onSubmit}
-        className="flex flex-col gap-6 items-center w-full"
+        className="flex flex-col gap-6 items-center w-full pb-10"
       >
         {children}
       </form>
