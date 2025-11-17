@@ -80,7 +80,11 @@ export function AdminSidebar() {
             </Link>
             {sidebarButtonsList.map((button) => {
               return (
-                <AdminSidebarButton href={button.href} icon={button.icon} />
+                <AdminSidebarButton
+                  key={button.href}
+                  href={button.href}
+                  icon={button.icon}
+                />
               );
             })}
           </div>
