@@ -2,23 +2,30 @@
 
 import Button from "@/app/_components/atoms/Button";
 
-import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
-import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
-import React, { useState } from "react";
-import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import { AdminFormInput } from "../AdminFormInput";
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
+import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
 import Text from "@/app/_components/atoms/Text";
+import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
+import { FormEvent, useCallback } from "react";
+import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 
 type Props = {};
 
 export default function ServiceNameStep({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
 
+  const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    changeStepHandler("listingSpecification");
+  }, []);
+
   return (
     <AdminWrapper>
-      <AdminFormWrapper heading={"Název místa"}>
+      <AdminNewListingFormWrapper
+        onSubmit={onSubmitHandler}
+        heading={"Název místa"}
+      >
         <AdminFormPartWrapper>
           <Text
             text="Jak se tvoje místo jménuje?"
@@ -33,20 +40,18 @@ export default function ServiceNameStep({}: Props) {
             placeholder="např. Statek Ondřejov"
             name="servicename"
             spanTwo
+            required
           />
         </AdminFormPartWrapper>
         <Button
           text="Pokračovat"
-          type="button"
+          type="submit"
           bgColor="secondaryPrimary"
           size="xl"
           textColor="white"
           rounding="full"
-          onClick={() => {
-            changeStepHandler("listingSpecification");
-          }}
         />
-      </AdminFormWrapper>
+      </AdminNewListingFormWrapper>
     </AdminWrapper>
   );
 }

@@ -3,20 +3,15 @@
 import Button from "@/app/_components/atoms/Button";
 
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
-import React, { useState } from "react";
-import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import {
-  AdminFormCheckbox,
-  AdminFormInput,
-  AdminFormInputType,
-} from "../AdminFormInput";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
+import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
 import {
   FormTextInput,
   FormTextInputProps,
 } from "@/app/_components/molecules/inputs/FormTextInput";
-import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
+import React, { FormEvent, useCallback, useState } from "react";
+import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 
 type Props = {};
 
@@ -60,9 +55,14 @@ export default function ListingLocationStep({}: Props) {
     setAddressIsSameAsInvoicing(e.target.checked);
   }
 
+  const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  }, []);
+
   return (
     <AdminWrapper>
-      <AdminFormWrapper
+      <AdminNewListingFormWrapper
+        onSubmit={onSubmitHandler}
         heading={"Kde se tvoje místo nachází?"}
         subheading={
           "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole “Adresa je stejná jako fakturační"
@@ -70,7 +70,7 @@ export default function ListingLocationStep({}: Props) {
       >
         <div className="w-full flex flex-col gap-5 items-center justify-center max-w-150">
           <FormCheckboxInput
-            label={[{ text: "Adresa je stejná jako fakturační", tag: "span" }]}
+            label={{ text: "Adresa je stejná jako fakturační", tag: "span" }}
             name="sameAddress"
             value="true"
             onChange={checkboxOnChangeHandler}
@@ -84,6 +84,7 @@ export default function ListingLocationStep({}: Props) {
                   {...input}
                   type="text"
                   spanTwo={input.name === "street" || input.name === "country"}
+                  required={!addressIsSameAsInvoicing}
                 />
               );
             })}
@@ -91,16 +92,13 @@ export default function ListingLocationStep({}: Props) {
         </div>
         <Button
           text="Pokračovat"
-          type="button"
+          type="submit"
           bgColor="secondaryPrimary"
           size="xl"
           textColor="white"
           rounding="full"
-          onClick={() => {
-            changeStepHandler("listingSpecification");
-          }}
         />
-      </AdminFormWrapper>
+      </AdminNewListingFormWrapper>
     </AdminWrapper>
   );
 }

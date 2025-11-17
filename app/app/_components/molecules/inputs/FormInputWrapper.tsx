@@ -15,7 +15,7 @@ export default function FormInputWrapper({
   const columnSpan = spanTwo && "col-span-2";
 
   const background = isInvalid
-    ? "bg-red-50"
+    ? "bg-red-50 border border-danger"
     : bgFilled
       ? "bg-zinc-50"
       : "bg-white";

@@ -8,6 +8,7 @@ import ServiceInitialDataStep from "./steps/CompanyDataStep";
 import ServiceTypeStep from "./steps/ListingTypeStep";
 import ServiceSpecificationStep from "./steps/ListingSpecificationStep";
 import ListingLocationStep from "./steps/ListingLocationStep";
+import NewListingSummary from "./steps/NewListingSummary";
 
 export default function NewServiceSteps() {
   const { step } = useAppSelector((state) => state.newListing);
@@ -21,5 +22,7 @@ export default function NewServiceSteps() {
     return <ServiceSpecificationStep />;
   } else if (step === "listingLocation") {
     return <ListingLocationStep />;
+  } else if (step === "summary") {
+    return <NewListingSummary />;
   }
 }

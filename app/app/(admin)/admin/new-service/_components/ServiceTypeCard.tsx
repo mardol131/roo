@@ -20,7 +20,6 @@ export function ServiceTypeCard({
   delayMs,
 }: ServiceTypeCardProps) {
   const data = listingCardsData[value];
-
   const color = isActive ? "text-white" : textColor[data.color];
   const bgColor = isActive ? colorsAndGradients[data.bgColor] : "bg-white";
 
@@ -39,13 +38,14 @@ export function ServiceTypeCard({
         text={data.heading}
         tag="h3"
         size="headingMd"
-        className="font-semibold"
+        fontWeight="semibold"
         color={isActive ? "white" : "black"}
       />
       <Text
         text={data.text}
         tag="p"
-        className={isActive ? "text-white" : "text-black"}
+        color={isActive ? "white" : "black"}
+        size="bodyXl"
       />
     </div>
   );

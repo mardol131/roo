@@ -2,13 +2,12 @@
 
 import Button from "@/app/_components/atoms/Button";
 
-import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
 import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
-import React, { useEffect, useRef, useState } from "react";
-import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
 import Text from "@/app/_components/atoms/Text";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
+import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 
 type Props = {};
 
@@ -86,6 +85,7 @@ export default function ServiceSpecificationStep({}: Props) {
   const [specModalActive, setSpecModalActive] = useState(false);
   const [input, setInput] = useState<string>();
   const [searchSpec, setSearchSpec] = useState<SpecTagType[]>([]);
+  const [isInvalid, setIsInvalid] = useState(false);
 
   function specModalActiveHandler() {
     setSpecModalActive(!specModalActive);
@@ -95,9 +95,13 @@ export default function ServiceSpecificationStep({}: Props) {
     setSpecModalActive(false);
   }
 
-  function nextStepHandler() {
+  function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
+    console.log(isInvalid);
+    e.preventDefault();
     if (specs.length > 0) {
       changeStepHandler("listingLocation");
+    } else {
+      setIsInvalid(true);
     }
   }
 
@@ -111,7 +115,7 @@ export default function ServiceSpecificationStep({}: Props) {
   }
 
   function addTagHandler(data: SpecTagType) {
-    console.log(data);
+    setIsInvalid(false);
     if (!specs.some((specData) => specData.value === data.value)) {
       setSpecs([...specs, data]);
       setInput("");
@@ -149,11 +153,14 @@ export default function ServiceSpecificationStep({}: Props) {
 
   return (
     <AdminWrapper>
-      <AdminFormWrapper
+      <AdminNewListingFormWrapper
+        onSubmit={onSubmitHandler}
         heading={"Co za místo nabízíš?"}
         subheading={"Teď potřebujeme přesně specifikovat místo, které nabízíš."}
       >
-        <AdminFormPartWrapper>
+        <div
+          className={` ${isInvalid ? "bg-red-50 border border-danger" : "bg-white "} shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+        >
           <div
             onClick={containerClickHandler}
             className="min-h-50 flex gap-2 col-span-2 flex-wrap items-start content-start justify-start"
@@ -198,17 +205,16 @@ export default function ServiceSpecificationStep({}: Props) {
               )}
             </div>
           </div>
-        </AdminFormPartWrapper>
+        </div>
         <Button
           text="Pokračovat"
-          type="button"
+          type="submit"
           bgColor="secondaryPrimary"
           size="xl"
           textColor="white"
           rounding="full"
-          onClick={nextStepHandler}
         />
-      </AdminFormWrapper>
+      </AdminNewListingFormWrapper>
     </AdminWrapper>
   );
 }

@@ -1,16 +1,16 @@
 "use client";
 import Button from "@/app/_components/atoms/Button";
 
+import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { ListingType, ListingTypeData } from "@/app/_types/business/services";
-import AdminFormWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormWrapper";
-import AdminWrapper from "@/app/(admin)/admin/_components/wrappers/AdminWrapper";
 
-import React, { useState } from "react";
-import { ServiceTypeCard } from "../ServiceTypeCard";
-import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 import Gastro from "@/app/_icons/Gastro";
+import { useState } from "react";
+import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
+import { ServiceTypeCard } from "../ServiceTypeCard";
 
 type Props = {};
 
@@ -95,7 +95,7 @@ export default function ServiceTypeStep({}: Props) {
   if (pickOne) {
     return (
       <AdminWrapper>
-        <AdminFormWrapper
+        <AdminNewListingFormWrapper
           heading={"Jakou službu chceš nastavit jako první?"}
           subheading={"Druhou službu budete mít možnost nadtavit později"}
         >
@@ -136,14 +136,14 @@ export default function ServiceTypeStep({}: Props) {
               </div>
             </div>
           </>
-        </AdminFormWrapper>
+        </AdminNewListingFormWrapper>
       </AdminWrapper>
     );
   }
 
   return (
     <AdminWrapper>
-      <AdminFormWrapper
+      <AdminNewListingFormWrapper
         heading={"Jaké služby poskytuješ?"}
         subheading={"Vyber jednu nebo více kategorií kliknutím na ikonu"}
       >
@@ -175,7 +175,7 @@ export default function ServiceTypeStep({}: Props) {
             </div>
           )}
         </>
-      </AdminFormWrapper>
+      </AdminNewListingFormWrapper>
     </AdminWrapper>
   );
 }

@@ -10,7 +10,8 @@ export type NewListingStepsType =
   | "listingType"
   | "listingName"
   | "listingSpecification"
-  | "listingLocation";
+  | "listingLocation"
+  | "summary";
 
 export const NewListingStepsArray: NewListingStepsType[] = [
   "companyData",
@@ -18,6 +19,7 @@ export const NewListingStepsArray: NewListingStepsType[] = [
   "listingName",
   "listingSpecification",
   "listingLocation",
+  "summary",
 ];
 
 export type NewListingSlice = {
