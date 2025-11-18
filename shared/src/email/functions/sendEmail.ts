@@ -2,7 +2,7 @@ import { Resend } from "resend";
 import {
   emailTemplateList,
   EmailTemplateListType,
-} from "../templates/_emailTemplateList";
+} from "../templates/brevoTemplateIds";
 
 export type SendEmailBase = {
   from: string;

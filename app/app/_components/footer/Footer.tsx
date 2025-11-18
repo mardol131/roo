@@ -18,8 +18,16 @@ import { usePathname } from "next/navigation";
 type Props = {};
 
 const footerLinkList: { text: string; link: string; target?: "_blank" }[] = [
-  { text: "GDPR", link: "/gdpr", target: "_blank" },
-  { text: "Obchodní podmínky", link: "/obchodni-podminky", target: "_blank" },
+  {
+    text: "GDPR",
+    link: "/Zasady_zpracovani_osobnich_udaju_ROO.pdf",
+    target: "_blank",
+  },
+  {
+    text: "Obchodní podmínky",
+    link: "/Obchodni_podminky_platformy_ROO.pdf",
+    target: "_blank",
+  },
   { text: "Kontakty", link: "/stranky/kontakt" },
 ];
 

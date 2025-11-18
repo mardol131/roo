@@ -1,38 +1,13 @@
-import { Resend } from "resend";
-import { emailSegments, EmailSegments } from "../types/types";
+import { brevoEmailingListsIds, BrevoEmailingListsIds } from "../types/types";
 
 type AddContactWithEmail = {
   email: string;
-  contactId?: string;
-  segment: EmailSegments;
+  listId: BrevoEmailingListsIds;
+  attributes?: Record<string, any>;
 };
 
-type AddContactWithId = {
-  contactId: string;
-  email?: string;
-  segment: EmailSegments;
-};
+type AddContactToSegment = AddContactWithEmail;
 
-type AddContactToSegment = AddContactWithEmail | AddContactWithId;
-
-export async function addContactToSegment(props: AddContactToSegment) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
-  let response;
-
-  if (props.email) {
-    response = await resend.contacts.segments.add({
-      email: props.email,
-      segmentId: emailSegments[props.segment],
-    });
-  } else if (props.contactId) {
-    response = await resend.contacts.segments.add({
-      contactId: props.contactId,
-      segmentId: emailSegments[props.segment],
-    });
-  }
-
-  return {
-    id: response?.data?.id,
-  };
+export async function addContactToList(props: AddContactToSegment) {
+  const listId = brevoEmailingListsIds[props.listId];
 }

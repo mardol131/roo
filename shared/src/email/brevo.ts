@@ -1,9 +1,9 @@
-import { addContactToSegment } from "./functions/addContactToSegment";
+import { addContactToList } from "./functions/addContactToSegment";
 import { sendEmail } from "./functions/sendEmail";
 import { subscribeContact } from "./functions/subscribeContact";
 
-export const resend = {
+export const brevo = {
   sendEmail,
   subscribeContact,
-  addContactToSegment,
+  addContactToList,
 };
