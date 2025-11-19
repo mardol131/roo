@@ -18,9 +18,15 @@
 
         "DATABASE_URI",
 
-        "NEXT_PUBLIC_CDN_STORAGE_URL",
+        "EMAIL_PORT",
+        "EMAIL_USER",
+        "EMAIL_PASS",
+        "EMAIL_HOST",
 
-        "RESEND_API_KEY"
+        "BREVO_API_KEY",
+
+        "NEXT_PUBLIC_ADMIN_EMAIL",
+        "NEXT_PUBLIC_ROO_EMAIL"
       ]
     },
     "check-types": {
