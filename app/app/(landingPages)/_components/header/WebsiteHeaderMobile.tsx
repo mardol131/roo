@@ -39,7 +39,7 @@ export function WebsiteHeaderMobile({ button }: Props) {
     >
       <div className="bg-white w-full border border-borderLight flex flex-col justify-between items-center rounded-b-xl p-4 shadow-xl">
         <div className="w-full justify-between flex items-center">
-          <Link href={"/home"}>
+          <Link href={"/stranky/co-je-roo"}>
             <Image
               src={logo}
               width={200}

@@ -15,12 +15,11 @@ export async function middleware(req: NextRequest) {
   ) {
     return NextResponse.next();
   }
+
   if (pathname.startsWith("/stranky/")) {
     return NextResponse.next();
   }
-  if (pathname.startsWith("/stranky/")) {
-    return NextResponse.next();
-  }
+
   const url = req.nextUrl.clone();
   url.pathname = `/stranky/co-je-roo`;
   return NextResponse.redirect(url);

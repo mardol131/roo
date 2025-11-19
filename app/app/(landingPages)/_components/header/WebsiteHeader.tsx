@@ -21,7 +21,7 @@ export function WebsiteHeader({ button }: Props) {
   return (
     <div className="hidden z-50 w-full sticky top-0 lg:flex justify-center pt-4 px-4 -mb-10">
       <div className="bg-white border border-borderLight max-w-contentWrapper w-full flex justify-between items-center rounded-full p-3 shadow-lg">
-        <Link href={"/home"}>
+        <Link href={"/stranky/co-je-roo"}>
           <Image
             src={logo}
             width={200}
