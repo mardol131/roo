@@ -1,8 +1,8 @@
-export declare const emailSegments: {
-    RooContact: string;
-    RooNewsletter: string;
-    RooWaitlist: string;
-    General: string;
+export declare const brevoEmailingListsIds: {
+    general: number;
+    newsletter: number;
+    waitlist: number;
+    contact: number;
 };
-export type EmailSegments = keyof typeof emailSegments;
-export type ResendContactProperties = "countryCode" | "marketing" | "gdpr" | "reference" | "companyType" | "services" | "phone" | "web" | "message" | "company";
+export type BrevoEmailingListsIds = keyof typeof brevoEmailingListsIds;
+export type BrevoWaitlistAttributes = "countryCode" | "marketing" | "gdpr" | "reference" | "companyType" | "services" | "phone" | "web" | "message" | "company";

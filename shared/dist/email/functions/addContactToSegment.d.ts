@@ -1,16 +1,9 @@
-import { EmailSegments } from "../types/types";
+import { BrevoEmailingListsIds } from "../types/types";
 type AddContactWithEmail = {
     email: string;
-    contactId?: string;
-    segment: EmailSegments;
+    listId: BrevoEmailingListsIds;
+    attributes?: Record<string, any>;
 };
-type AddContactWithId = {
-    contactId: string;
-    email?: string;
-    segment: EmailSegments;
-};
-type AddContactToSegment = AddContactWithEmail | AddContactWithId;
-export declare function addContactToSegment(props: AddContactToSegment): Promise<{
-    id: string | undefined;
-}>;
+type AddContactToSegment = AddContactWithEmail;
+export declare function addContactToList(props: AddContactToSegment): Promise<void>;
 export {};

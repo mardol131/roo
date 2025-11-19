@@ -12,7 +12,6 @@ import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
-import { EmailSegments } from "shared/src/email";
 import {
   FormCheckboxInput,
   FormCheckboxInputProps,
@@ -39,6 +38,7 @@ import {
   FormTextInputProps,
 } from "../../../_components/molecules/inputs/FormTextInput";
 import Loader from "@/app/_components/molecules/Loader";
+import { BrevoEmailingListsIds } from "shared/src/email";
 
 export type FormSectionProps = {
   texts?: TextProps[];
@@ -107,20 +107,20 @@ export default function FormSection(props: FormSectionProps) {
           return;
         }
       } else {
-        let segment: EmailSegments = "General";
+        let list: BrevoEmailingListsIds = "general";
 
         if (template === "email-collection") {
-          segment = "RooNewsletter";
+          list = "newsletter";
         }
 
         if (template === "waitlist") {
-          segment = "RooWaitlist";
+          list = "waitlist";
         }
 
-        const response = await apis.emailing.formTemplateSubmit({
+        const response = await apis.emailing.insertContact({
           email: formData.email,
-          segment: segment,
-          ...formData,
+          list: list,
+          attributes: formData,
         });
 
         if (response.success) {

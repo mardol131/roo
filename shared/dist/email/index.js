@@ -1,3 +1,3 @@
-export { resend } from "./resend";
+export { brevo } from "./brevo";
 export * from "./types/types";
-export * from "./templates/_emailTemplateList";
+export * from "./templates/brevoTemplateIds";

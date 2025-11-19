@@ -10,6 +10,7 @@ import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/fo
 import { FormCheckboxInput } from "../../../_components/molecules/inputs/FormCheckboxInput";
 import { FormTextInput } from "../../../_components/molecules/inputs/FormTextInput";
 import { FormTextareaInput } from "../../../_components/molecules/inputs/FormTextareaInput";
+import FormContactTemplate from "../../_components/formSection/templates/FormContactTemplate";
 
 type Props = {
   webhook: string;
@@ -28,11 +29,19 @@ export default function ContactForm(props: Props) {
     e.preventDefault();
 
     const formData = formDataToObject(new FormData(e.currentTarget));
-    const response = await apis.emailing.formTemplateSubmit({
+    const response = await apis.emailing.insertContact({
       email: formData.email,
-      segment: "RooContact",
-      ...formData,
+      list: "contact",
+      attributes: {
+        FIRSTNAME: formData.firstName,
+        LASTNAME: formData.lastName,
+        COMPANY: formData.company,
+        PHONE: formData.phone,
+        MESSAGE: formData.message,
+      },
     });
+
+    console.log(response);
 
     if (response.success) {
       setIsSuccess(true);
@@ -52,66 +61,7 @@ export default function ContactForm(props: Props) {
       }}
       className="p-10 max-lg:p-3 max-lg:pb-10 shadow-xl rounded-xl border bg-white border-borderLight grid max-lg:flex max-lg:flex-col grid-cols-2 gap-5"
     >
-      <FormTextInput
-        label="Jméno"
-        placeholder="Jan"
-        type="text"
-        blockType="formtextinput"
-        name="firstName"
-        required={true}
-      />
-      <FormTextInput
-        label="Příjmení"
-        placeholder="Novák"
-        type="text"
-        blockType="formtextinput"
-        name="lastName"
-        required={true}
-      />
-      <FormTextInput
-        label="Společnost"
-        placeholder="Skvělá společnost s.r.o."
-        type="text"
-        blockType="formtextinput"
-        name="company"
-        spanTwo={true}
-      />
-      <FormTextInput
-        label="Telefon"
-        placeholder="777 777 777"
-        type="phone"
-        blockType="formtextinput"
-        name="phone"
-      />
-      <FormTextInput
-        label="Email"
-        placeholder="ahoj@skvelaspolecnost.cz"
-        type="email"
-        blockType="formtextinput"
-        name="email"
-        required={true}
-      />
-      <FormTextareaInput
-        label="Zpráva"
-        placeholder="Sem napiš, co máš na srdci"
-        blockType="formtextarea"
-        name="message"
-        spanTwo={true}
-        required={true}
-      />
-      <FormCheckboxInput
-        label={{
-          blockType: "TextBlock",
-          text: "Souhlasím se zpracování osobních údajů společností The Roosters s.r.o.",
-          tag: "p",
-          color: "black",
-        }}
-        blockType="formcheckboxinput"
-        name="gdpr"
-        value="true"
-        spanTwo={true}
-        required={true}
-      />
+      <FormContactTemplate />
       <div className="col-span-2 flex flex-col text-center justify-center items-center gap-4">
         {isLoading ? (
           <Loader />

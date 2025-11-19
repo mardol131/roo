@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { emailTemplateList, } from "../templates/_emailTemplateList";
+import { emailTemplateList, } from "../templates/brevoTemplateIds";
 export async function sendEmail(props) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const template = emailTemplateList[props.templateData.templateId];

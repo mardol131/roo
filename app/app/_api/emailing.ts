@@ -1,23 +1,23 @@
-import { EmailSegments } from "shared/src/email/types/types";
+import { BrevoEmailingListsIds } from "shared/src/email";
 import { ReturnResponse } from "shared/src/functions/api/returnResponse";
 
 export type AddContactFromLandingPageFormTemplateType = {
   email: string;
-  segment: EmailSegments;
-  [key: string]: any;
+  list: BrevoEmailingListsIds;
+  attributes?: { [key: string]: any };
 };
 
-export async function formTemplateSubmit({
+export async function insertContact({
   email,
-  segment,
-  ...rest
+  list,
+  attributes,
 }: AddContactFromLandingPageFormTemplateType): Promise<ReturnResponse> {
   const body: AddContactFromLandingPageFormTemplateType = {
     email: email,
-    segment: segment,
-    ...rest,
+    list: list,
+    attributes: attributes,
   };
-  const response = await fetch("/api/forms/submit-template", {
+  const response = await fetch("/api/emailing/contacts", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),

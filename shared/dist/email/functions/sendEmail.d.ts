@@ -1,4 +1,4 @@
-import { EmailTemplateListType } from "../templates/_emailTemplateList";
+import { EmailTemplateListType } from "../templates/brevoTemplateIds";
 export type SendEmailBase = {
     from: string;
     to: string[];
