@@ -33,7 +33,6 @@ export function AdminSidebarButton(props: AdminSidebarButtonProps) {
 }
 
 function login() {
-  console.log("login");
   const res = fetch("http://localhost:3001/api/users/login", {
     method: "post",
     mode: "cors",

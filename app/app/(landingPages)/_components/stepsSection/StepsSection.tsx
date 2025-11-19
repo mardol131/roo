@@ -11,7 +11,6 @@ type StepProps = {
 
 export function Step(props: StepProps) {
   const color = props.color && colors[props.color];
-  console.log(color);
 
   return (
     <div className="flex w-full flex-col items-center">

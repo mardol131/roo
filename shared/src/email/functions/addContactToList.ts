@@ -27,5 +27,5 @@ export async function addContactToList(props: AddContactToSegment) {
     updateEnabled: true,
   };
 
-  const response = await contactApi.createContact(contactData);
+  return await contactApi.createContact(contactData);
 }

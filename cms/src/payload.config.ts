@@ -15,9 +15,9 @@ import { Categories } from './collections/categories'
 import { Pages } from './collections/pages'
 import dotenv from 'dotenv'
 import { Media } from './collections/media'
-import { resendAdapter } from '@payloadcms/email-resend'
 import { Admins } from './collections/admins'
 import { BlogTags } from './collections/blogTags'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -38,7 +38,6 @@ export default buildConfig({
     },
     livePreview: {
       url: ({ data, collectionConfig }) => {
-        console.log('preview', collectionConfig)
         if (collectionConfig?.slug === 'pages') {
           return `${process.env.NEXT_PUBLIC_WEBSITE}/stranky/${data.slug}`
         }
@@ -47,10 +46,20 @@ export default buildConfig({
       collections: ['pages'],
     },
   },
-  email: resendAdapter({
-    defaultFromAddress: 'roo-admin@rooevent.com',
-    defaultFromName: 'Roo Admin',
-    apiKey: process.env.RESEND_API_KEY || '',
+  upload: {
+    limits: { fileSize: 1000 * 1000 * 10 },
+  },
+  email: nodemailerAdapter({
+    defaultFromAddress: process.env.ROO_EMAIL || 'roo@rooevent.com',
+    defaultFromName: 'Roo',
+    transportOptions: {
+      host: process.env.EMAIL_HOST,
+      port: Number(process.env.EMAIL_PORT) || 587,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    },
   }),
   collections: [
     Users,

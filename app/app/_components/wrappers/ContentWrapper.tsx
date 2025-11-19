@@ -14,7 +14,6 @@ export default function ContentWrapper({ children }: Props) {
 
   if (pathname.startsWith("/inzerat") || pathname.startsWith("/kategorie"))
     offsetClass = "pt-54";
-  console.log(offsetClass);
 
   return <div className={offsetClass}>{children}</div>;
 }

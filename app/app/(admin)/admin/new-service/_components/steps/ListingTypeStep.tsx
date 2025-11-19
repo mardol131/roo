@@ -77,7 +77,6 @@ export default function ServiceTypeStep({}: Props) {
       dispatch(newListing.actions.changeCurrentService(listings[0]));
       changeStepHandler("listingName");
     } else if (!listings.length) {
-      console.log("Vyberte službu");
     }
   }
 

@@ -95,7 +95,6 @@ export default function ServiceSpecificationStep({}: Props) {
   }
 
   function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
-    console.log(isInvalid);
     e.preventDefault();
     if (specs.length > 0) {
       changeStepHandler("listingLocation");
@@ -122,7 +121,6 @@ export default function ServiceSpecificationStep({}: Props) {
   }
 
   function inputKeyPressPressHandler(e: React.KeyboardEvent<HTMLInputElement>) {
-    console.log(e.key);
     if (e.key === "Enter" && searchSpec.length) {
       addTagHandler(searchSpec[0]);
     }

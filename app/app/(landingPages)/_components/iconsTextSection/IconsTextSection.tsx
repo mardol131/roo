@@ -19,8 +19,6 @@ function IconsTextCard(props: IconsTextProps) {
     props.overlay?.overlayColor &&
     colorsAndGradients[props.overlay.overlayColor];
   if (props.isCard) {
-    console.log(props);
-
     return (
       <div className="flex relative flex-col items-center justify-between gap-5 max-w-100 w-full h-auto rounded-xl overflow-hidden shadow-xl">
         {props.image.src && (
