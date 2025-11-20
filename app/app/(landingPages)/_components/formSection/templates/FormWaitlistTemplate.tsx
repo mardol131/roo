@@ -66,7 +66,7 @@ export default function FormWaitlistTemplate({}: Props) {
         blockType="formmultipleselectinput"
         label={[
           {
-            text: "Co jsi za službu?",
+            text: "Organizátor",
             tag: "p",
             color: "primary",
             fontWeight: "semibold",
@@ -75,7 +75,7 @@ export default function FormWaitlistTemplate({}: Props) {
         required={true}
         options={[
           {
-            text: "Co jste za dodavatele?",
+            text: "Nabízíte nějakou službu?",
             tag: "p",
             color: "primary",
             fontWeight: "semibold",
@@ -113,6 +113,46 @@ export default function FormWaitlistTemplate({}: Props) {
               fontWeight: "semibold",
             },
             id: "entertainment",
+          },
+          {
+            text: "Co jste za organizátora?",
+            tag: "p",
+            color: "primary",
+            fontWeight: "semibold",
+            blockType: "TextBlock",
+          },
+          {
+            blockType: "formcheckboxinput",
+            value: "private",
+            label: {
+              text: "Soukromá osoba",
+              color: "black",
+              tag: "p",
+              fontWeight: "semibold",
+            },
+            id: "private",
+          },
+          {
+            blockType: "formcheckboxinput",
+            value: "company",
+            label: {
+              text: "Společnost",
+              color: "black",
+              tag: "p",
+              fontWeight: "semibold",
+            },
+            id: "company",
+          },
+          {
+            blockType: "formcheckboxinput",
+            value: "event-agency",
+            label: {
+              text: "Eventová agentura",
+              color: "black",
+              tag: "p",
+              fontWeight: "semibold",
+            },
+            id: "event-agency",
           },
         ]}
         value="category"

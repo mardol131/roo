@@ -26,7 +26,7 @@ export function FormCheckboxInput(props: FormCheckboxInputProps) {
   const [isInvalid, setIsInvalid] = useState(false);
   const [checked, setChecked] = useState(false);
 
-  const checkboxClass = "text-primary text-lg";
+  const checkboxClass = "text-primary text-lg shrink-0";
 
   function onInputHandler() {
     setIsInvalid(false);

@@ -12,6 +12,7 @@ export type FormMultipleSelectInputProps = {
   blockType: "formmultipleselectinput";
   options: (FormCheckboxInputProps | TextBlockProps)[];
   label: TextProps[];
+  defaultValue?: string;
   spanTwo?: boolean;
   required?: boolean;
   value: string;
@@ -100,7 +101,7 @@ export function FormMultipleSelectInput(props: FormMultipleSelectInputProps) {
               <div className="p-1">
                 <Text
                   tag="p"
-                  text="Vyberte kategorie"
+                  text={props.defaultValue || "Vyberte možnosti"}
                   size="bodyMd"
                   color="placeholder"
                 />
@@ -122,7 +123,7 @@ export function FormMultipleSelectInput(props: FormMultipleSelectInputProps) {
         </div>
         <div
           ref={modalRef}
-          className={`flex flex-col p-2 ${toggleModal ? "absolute" : "hidden"} top-full bg-white border mt-0.5 rounded-lg border-borderLight gap-2 w-full`}
+          className={`flex flex-col p-2 ${toggleModal ? "absolute" : "hidden"} z-20 top-full bg-white border mt-0.5 rounded-lg border-borderLight gap-2 w-full`}
         >
           {props.options.map((item, i) => {
             if (item.blockType === "formcheckboxinput") {
