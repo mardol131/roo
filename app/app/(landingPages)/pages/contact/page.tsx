@@ -6,8 +6,6 @@ import Text from "@/app/_components/atoms/Text";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
 import { LuMail } from "react-icons/lu";
-import ContactForm from "./ContactForm";
-import FormSection from "../../_components/formSection/FormSection";
 import FormWrapper from "../../_components/formSection/_components/FormWrapper";
 
 export async function generateMetadata() {
