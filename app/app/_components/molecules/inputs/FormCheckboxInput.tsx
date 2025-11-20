@@ -24,51 +24,66 @@ export type FormCheckboxInputProps = {
 
 export function FormCheckboxInput(props: FormCheckboxInputProps) {
   const [isInvalid, setIsInvalid] = useState(false);
-  const [checked, setChecked] = useState(false);
 
-  const checkboxClass = "text-primary text-lg shrink-0";
+  // Lokální stav pro UNCONTROLLED režim
+  const [internalChecked, setInternalChecked] = useState(
+    props.defaultChecked ?? false
+  );
+
+  // Poznáme, jestli jsme v kontrolovaném režimu
+  const isControlled = props.isChecked !== undefined;
+
+  // Hodnota checkboxu – buď controlled, nebo uncontrolled
+  const checked = isControlled ? props.isChecked! : internalChecked;
 
   function onInputHandler() {
     setIsInvalid(false);
-    props.onInput && props.onInput();
+    props.onInput?.();
   }
 
   function onInvalidHandler() {
     setIsInvalid(true);
-    props.onInvalid && props.onInvalid();
+    props.onInvalid?.();
   }
 
   function onChangeHandler(e: ChangeEvent<HTMLInputElement>) {
-    setChecked(e.target.checked);
-    if (props.onChange) {
-      props.onChange(e);
+    // pokud nejsme controlled → update lokální state
+    if (!isControlled) {
+      setInternalChecked(e.target.checked);
     }
-    props.onChange && props.onChange(e);
+
+    // předat event dál
+    props.onChange?.(e);
   }
+
+  const checkboxClass = "text-primary text-lg shrink-0";
 
   return (
     <div
-      className={` ${props.spanTwo && "col-span-2"} ${isInvalid && props.required && "bg-red-50 border border-danger"} p-1 rounded-md cursor-pointer ${props.className}`}
+      className={` ${props.spanTwo && "col-span-2"} ${
+        isInvalid && props.required && "bg-red-50 border border-danger"
+      } p-1 rounded-md cursor-pointer ${props.className}`}
     >
-      <label className="text-textMedium flex items-center gap-5  animate cursor-pointer font-semibold">
-        {props.isChecked || checked ? (
+      <label className="text-textMedium flex items-center gap-5 animate cursor-pointer font-semibold">
+        {checked ? (
           <MdCheckBox className={checkboxClass} />
         ) : (
           <MdOutlineCheckBoxOutlineBlank className={checkboxClass} />
         )}
+
         <input
           type="checkbox"
+          checked={checked}
           onChange={onChangeHandler}
-          defaultChecked={props.defaultChecked}
-          checked={props.isChecked}
           className="cursor-pointer hidden"
           id={props.id || props.name || props.value}
           name={props.name || props.value}
           value={props.value}
-          required={props.required || false}
+          required={props.required ?? false}
           onInvalid={onInvalidHandler}
           onInput={onInputHandler}
         />
+
         <Text
           {...props.label}
           color={isInvalid && props.required ? "danger" : "black"}

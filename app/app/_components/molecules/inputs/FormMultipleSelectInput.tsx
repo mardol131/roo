@@ -7,6 +7,7 @@ import { ChangeEvent, useRef, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { FormCheckboxInput, FormCheckboxInputProps } from "./FormCheckboxInput";
 import FormInputWrapper from "./FormInputWrapper";
+import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 
 export type FormMultipleSelectInputProps = {
   blockType: "formmultipleselectinput";
@@ -54,13 +55,15 @@ export function FormMultipleSelectInput(props: FormMultipleSelectInputProps) {
       const index = values.indexOf(checkBoxData);
 
       if (index !== -1) {
-        setValues((prev) => prev.filter((item) => item !== checkBoxData));
+        setValues(values.filter((item) => item !== checkBoxData));
       }
     }
   }
 
   function tagOnClickHandler(tag: FormCheckboxInputProps) {
-    setValues((prev) => prev.filter((item) => item !== tag));
+    console.log("tag clicked", tag);
+    console.log("values before", values);
+    setValues(values.filter((item) => item.value !== tag.value));
   }
 
   const isRequired = props.required && values.length === 0;
@@ -71,12 +74,15 @@ export function FormMultipleSelectInput(props: FormMultipleSelectInputProps) {
   useClickOutside(modalRef, () => setToggleModal(false), selectRef);
 
   function onInvalidHandler() {
+    console.log("invalid");
     setIsInvalid(true);
   }
 
   function onInputHandler() {
     setIsInvalid(false);
   }
+
+  const checkboxClass = "text-primary text-lg shrink-0";
 
   return (
     <FormInputWrapper isInvalid={isInvalid} spanTwo={props.spanTwo}>
@@ -127,18 +133,17 @@ export function FormMultipleSelectInput(props: FormMultipleSelectInputProps) {
         >
           {props.options.map((item, i) => {
             if (item.blockType === "formcheckboxinput") {
+              values.includes(item);
               return (
                 <FormCheckboxInput
-                  key={item.value + item.label}
+                  key={item.name || item.value || item.id}
                   {...item}
+                  name={props.value}
+                  isChecked={values.some((val) => val.value === item.value)} // controlled
                   required={isRequired}
                   onChange={onChangeHandler}
                   onInvalid={onInvalidHandler}
                   onInput={onInputHandler}
-                  name={props.value}
-                  id={item.id}
-                  value={item.value}
-                  isChecked={values.some((val) => item.value === val.value)}
                 />
               );
             } else if (item.blockType === "TextBlock") {
