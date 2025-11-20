@@ -1,5 +1,5 @@
+import { FormMultipleSelectInput } from "@/app/_components/molecules/inputs/FormMultipleSelectInput";
 import { FormCheckboxInput } from "../../../../_components/molecules/inputs/FormCheckboxInput";
-import { FormMultipleCheckboxInput } from "../../../../_components/molecules/inputs/FormMultipleCheckboxInput";
 import { FormSelectInput } from "../../../../_components/molecules/inputs/FormSelectInput";
 import { FormTextInput } from "../../../../_components/molecules/inputs/FormTextInput";
 
@@ -31,7 +31,7 @@ export default function FormWaitlistTemplate({}: Props) {
         label="Společnost"
         name="company"
         placeholder="Skvělá společnost a.s."
-        spanTwo={true}
+        spanTwo={false}
         type="text"
         required={true}
       />
@@ -40,7 +40,7 @@ export default function FormWaitlistTemplate({}: Props) {
         label="Web nebo sociální sítě"
         name="web"
         placeholder="skvelyweb.cz"
-        spanTwo={true}
+        spanTwo={false}
         type="text"
         required={true}
       />
@@ -62,8 +62,8 @@ export default function FormWaitlistTemplate({}: Props) {
         type="email"
         required={true}
       />
-      <FormMultipleCheckboxInput
-        blockType="formmultiplecheckboxinput"
+      <FormMultipleSelectInput
+        blockType="formmultipleselectinput"
         label={[
           {
             text: "Co jsi za službu?",
@@ -73,7 +73,14 @@ export default function FormWaitlistTemplate({}: Props) {
           },
         ]}
         required={true}
-        checkboxes={[
+        options={[
+          {
+            text: "Co jste za dodavatele?",
+            tag: "p",
+            color: "primary",
+            fontWeight: "semibold",
+            blockType: "TextBlock",
+          },
           {
             blockType: "formcheckboxinput",
             value: "place",
@@ -108,56 +115,10 @@ export default function FormWaitlistTemplate({}: Props) {
             id: "entertainment",
           },
         ]}
-        value="services"
+        value="category"
+        spanTwo={true}
       />
-      <FormMultipleCheckboxInput
-        blockType="formmultiplecheckboxinput"
-        label={[
-          {
-            text: "Co jsi za organizátora?",
-            tag: "p",
-            color: "primary",
-            fontWeight: "semibold",
-          },
-        ]}
-        required={true}
-        checkboxes={[
-          {
-            blockType: "formcheckboxinput",
-            value: "person",
-            label: {
-              text: "Soukromá osoba",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
-            id: "person",
-          },
-          {
-            blockType: "formcheckboxinput",
-            value: "company",
-            label: {
-              text: "Společnost",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
-            id: "company",
-          },
-          {
-            blockType: "formcheckboxinput",
-            value: "event-agency",
-            label: {
-              text: "Eventová agentura",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
-            id: "event-agency",
-          },
-        ]}
-        value="companyType"
-      />
+
       <FormSelectInput
         blockType="formselectinput"
         label="Jak jste se o nás dozvěděli"

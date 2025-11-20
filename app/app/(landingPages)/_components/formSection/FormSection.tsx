@@ -161,14 +161,14 @@ export default function FormSection(props: FormSectionProps) {
             onSubmit={(e) => {
               onSubmitHandler(e);
             }}
-            className="max-w-170 flex flex-col items-center w-full gap-10 bg-white md:p-10 p-5 py-10 rounded-large shadow-lg"
+            className="max-w-170 flex flex-col items-center w-full gap-7 bg-white md:p-10 p-5 py-10 rounded-large shadow-lg"
           >
             {props.texts && (
-              <div className="flex flex-col gap-5 text-center">
+              <div className="flex flex-col gap-3 text-center">
                 {props.texts && <GenerateTexts texts={props.texts} />}
               </div>
             )}
-            <div className="md:grid w-full flex flex-col grid-cols-2 gap-5">
+            <div className="md:grid w-full flex flex-col grid-cols-2 gap-3">
               {fields}
             </div>
             <div className="flex flex-col justify-center items-center gap-4">

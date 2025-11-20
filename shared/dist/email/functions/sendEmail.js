@@ -1,14 +1,18 @@
-import { Resend } from "resend";
-import { emailTemplateList, } from "../templates/brevoTemplateIds";
-export async function sendEmail(props) {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    const template = emailTemplateList[props.templateData.templateId];
-    const response = await resend.emails.send({
-        from: props.from,
-        to: props.to,
-        subject: props.subject,
-        template: { id: template, variables: props.templateData.variables },
-        replyTo: props.replyTo,
-    });
-    return response;
+import { brevoTemplateIds, } from "../templates/brevoTemplateIds";
+import { EmailCampaignsApi, } from "@getbrevo/brevo";
+export async function addContactToList(props) {
+    let contactApi = new EmailCampaignsApi();
+    contactApi.authentications.apiKey.apiKey = process.env.BREVO_API_KEY;
+    const templateId = brevoTemplateIds[props.templateId];
+    const transformedAttributes = Object.fromEntries(Object.entries(props.attributes || {}).map(([key, value]) => [
+        key.toUpperCase(),
+        value,
+    ]));
+    //   let contactData: SendSmtpEmail = {
+    //     email: props.email,
+    //     attributes: transformedAttributes,
+    //     listIds: [listId],
+    //     updateEnabled: true,
+    //   };
+    //   return await contactApi.createContact(contactData);
 }

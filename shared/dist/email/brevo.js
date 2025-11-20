@@ -1,4 +1,4 @@
-import { addContactToList } from "./functions/addContactToSegment";
+import { addContactToList } from "./functions/addContactToList";
 export const brevo = {
     addContactToList,
 };

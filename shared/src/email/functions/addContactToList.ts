@@ -20,6 +20,7 @@ export async function addContactToList(props: AddContactToSegment) {
       value,
     ])
   );
+
   let contactData: CreateContact = {
     email: props.email,
     attributes: transformedAttributes,

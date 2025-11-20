@@ -23,7 +23,7 @@ export default function FormInputWrapper({
   const classes = `${columnSpan} ${background}`;
   return (
     <div
-      className={`${classes} border border-borderLight  shadow-md p-3 flex flex-col rounded-medium`}
+      className={`${classes} border border-borderLight  shadow-md p-2.5 flex flex-col rounded-lg`}
     >
       {children}
     </div>

@@ -20,10 +20,6 @@ export async function POST(req: NextRequest) {
     attributes: body.attributes,
   });
 
-  console.log(response);
-
-  // Subscribe
-
   return returnResponse({
     success: true,
     status: 200,
