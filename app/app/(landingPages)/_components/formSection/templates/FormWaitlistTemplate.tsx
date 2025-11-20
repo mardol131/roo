@@ -66,7 +66,7 @@ export default function FormWaitlistTemplate({}: Props) {
         blockType="formmultipleselectinput"
         label={[
           {
-            text: "Organizátor",
+            text: "Jsi organizátor? Nabízíš nějakou službu?",
             tag: "p",
             color: "primary",
             fontWeight: "semibold",

@@ -7,6 +7,8 @@ import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
 import { LuMail } from "react-icons/lu";
 import ContactForm from "./ContactForm";
+import FormSection from "../../_components/formSection/FormSection";
+import FormWrapper from "../../_components/formSection/_components/FormWrapper";
 
 export async function generateMetadata() {
   const canonical = "https://www.rooevent.com/stranky/kontakt";
@@ -97,7 +99,17 @@ export default function page({}: Props) {
               />
             </div>
             <div className="z-10">
-              <ContactForm webhook="/" />
+              <FormWrapper
+                button={{
+                  text: "Odeslat",
+                  size: "xl",
+                  rounding: "full",
+                  bgColor: "primaryTertiary",
+                  textColor: "white",
+                }}
+                webhook="/"
+                fields={[{ blockType: "formtemplate", template: "contact" }]}
+              />
             </div>
           </div>
         </div>

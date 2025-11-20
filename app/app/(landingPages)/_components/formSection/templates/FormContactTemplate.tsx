@@ -8,7 +8,6 @@ type Props = {};
 export default function FormContactTemplate({}: Props) {
   return (
     <>
-      {" "}
       <FormTextInput
         label="Jméno"
         placeholder="Jan"

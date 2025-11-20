@@ -1,7 +1,8 @@
+import FormContactTemplate from "../templates/FormContactTemplate";
 import FormEmailCollectionTemplate from "../templates/FormEmailCollectionTemplate";
 import FormWaitlistTemplate from "../templates/FormWaitlistTemplate";
 
-export type FormTemplates = "waitlist" | "email-collection";
+export type FormTemplates = "waitlist" | "email-collection" | "contact";
 
 export type FormTemplateProps = {
   blockType: "formtemplate";
@@ -15,5 +16,8 @@ export function FormTemplate(props: FormTemplateProps) {
 
     case "waitlist":
       return <FormWaitlistTemplate />;
+
+    case "contact":
+      return <FormContactTemplate />;
   }
 }
