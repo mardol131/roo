@@ -1,7 +1,7 @@
 "use client";
 import Button from "@/app/_components/atoms/Button";
 
-import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { ListingType, ListingTypeData } from "@/app/_types/business/services";
@@ -9,7 +9,7 @@ import { ListingType, ListingTypeData } from "@/app/_types/business/services";
 import Gastro from "@/app/_icons/Gastro";
 import { useState } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import { ServiceTypeCard } from "./ServiceTypeCard";
+import { ListingTypeCard } from "./ListingTypeCard";
 
 type Props = {};
 
@@ -53,7 +53,7 @@ export const listingTypeArray: ListingTypeData[] = [
   listingCardsData.entertainment,
 ];
 
-export default function ServiceTypeStep({}: Props) {
+export default function NewListingTypeStep({}: Props) {
   const { listings, currentListingType } = useAppSelector(
     (state) => state.newListing
   );
@@ -102,7 +102,7 @@ export default function ServiceTypeStep({}: Props) {
               const delay = i * 50;
 
               return (
-                <ServiceTypeCard
+                <ListingTypeCard
                   isActive={currentListingType === listing}
                   key={listing}
                   value={listing}
@@ -148,7 +148,7 @@ export default function ServiceTypeStep({}: Props) {
             const delay = i * 50;
 
             return (
-              <ServiceTypeCard
+              <ListingTypeCard
                 isActive={listings.some((value) => value === listing.value)}
                 key={listing.text}
                 value={listing.value}

@@ -3,12 +3,12 @@
 import Button from "@/app/_components/atoms/Button";
 
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
 import Text from "@/app/_components/atoms/Text";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import { FormEvent, useCallback, useMemo } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import { SpecTag, specTagMockData } from "./ListingSpecificationStep";
+import { SpecTag, specTagMockData } from "./NewListingSpecificationStep";
 
 type Props = {};
 

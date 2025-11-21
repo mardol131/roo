@@ -42,7 +42,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/admin/novy-dodavatel",
-        destination: "/admin/new-service",
+        destination: "/admin/new-listing",
       },
 
       {

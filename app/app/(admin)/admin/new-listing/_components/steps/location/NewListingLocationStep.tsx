@@ -3,7 +3,7 @@
 import Button from "@/app/_components/atoms/Button";
 
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
 import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
 import {
   FormTextInput,
@@ -15,7 +15,7 @@ import LocationFormPart from "./LocationFormPart";
 
 type Props = {};
 
-export default function ListingLocationStep({}: Props) {
+export default function NewListingLocationStep({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
   const [addressIsSameAsInvoicing, setAddressIsSameAsInvoicing] =
     useState(false);

@@ -3,7 +3,7 @@
 import Button from "@/app/_components/atoms/Button";
 
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
 import Text from "@/app/_components/atoms/Text";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import { FormEvent, useCallback } from "react";
@@ -11,7 +11,7 @@ import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
 
 type Props = {};
 
-export default function ServiceNameStep({}: Props) {
+export default function NewListingNameStep({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
 
   const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {

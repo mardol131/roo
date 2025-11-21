@@ -2,7 +2,7 @@
 
 import Button from "@/app/_components/atoms/Button";
 
-import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-service/_components/wrappers/AdminNewListingFormWrapper";
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
 import Text from "@/app/_components/atoms/Text";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
@@ -76,7 +76,7 @@ export const specTagMockData: SpecTagType[] = [
   { name: "Stáj", value: "l" },
 ];
 
-export default function ServiceSpecificationStep({}: Props) {
+export default function NewListingSpecificationStep({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
   const [specs, setSpecs] = useState<SpecTagType[]>([
     { name: "Hello", value: "hello" },

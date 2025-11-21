@@ -4,7 +4,7 @@ import Text from "@/app/_components/atoms/Text";
 import Gastro from "@/app/_icons/Gastro";
 import { ListingType } from "@/app/_types/business/services";
 import { colorsAndGradients, textColor } from "@roo/shared/src/design/colors";
-import { listingCardsData } from "./ListingTypeStep";
+import { listingCardsData } from "./NewListingTypeStep";
 
 export type ServiceTypeCardProps = {
   onClick: (value: ListingType) => void;
@@ -13,7 +13,7 @@ export type ServiceTypeCardProps = {
   delayMs?: string;
 };
 
-export function ServiceTypeCard({
+export function ListingTypeCard({
   onClick,
   value,
   isActive,

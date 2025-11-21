@@ -1,5 +1,6 @@
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
 import Text from "@/app/_components/atoms/Text";
+import { FormSelectInput } from "@/app/_components/molecules/inputs/FormSelectInput";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import React from "react";
 
@@ -25,7 +26,7 @@ export default function CompanyDataFormPart({}: Props) {
       />
       <FormTextInput
         label="IČO"
-        type="text"
+        type="number"
         name="ico"
         placeholder="123456789"
         required
@@ -52,16 +53,21 @@ export default function CompanyDataFormPart({}: Props) {
       />
       <FormTextInput
         label="PSČ"
-        type="text"
+        type="number"
         name="cityCode"
         placeholder="140 00"
+        max={5}
         required
       />
-      <FormTextInput
+      <FormSelectInput
+        blockType="formselectinput"
         label="Země"
-        type="text"
-        name="country"
-        placeholder="Česká republika"
+        placeholder="Vyberte zemi"
+        value="country"
+        options={[
+          { text: "Česká republika", value: "czech-republic" },
+          { text: "Slovenská republika", value: "slovakia" },
+        ]}
         required
       />
     </AdminFormPartWrapper>

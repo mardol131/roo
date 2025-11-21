@@ -10,14 +10,14 @@ import Text from "@/app/_components/atoms/Text";
 import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
 import AdminFormPartWrapper from "../../../../_components/wrappers/AdminFormPartWrapper";
 import AdminNewListingFormWrapper from "../../wrappers/AdminNewListingFormWrapper";
-import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
 import CompanyDataFormPart from "./CompanyDataFormPart";
 import ContactPersonFormPart from "./ContactPersonFormPart";
+import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
 
 type Props = {};
 
-export default function ServiceInitialDataStep({}: Props) {
+export default function NewCompanyDataStep({}: Props) {
   const [success, setSuccess] = useState(false);
 
   const { changeStepHandler } = useNewListingSteps();
@@ -25,7 +25,10 @@ export default function ServiceInitialDataStep({}: Props) {
   const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setSuccess(true);
+    const data = formDataToObject(new FormData(e.currentTarget));
+    console.log(data);
+
+    // setSuccess(true);
   }, []);
 
   if (success) {
