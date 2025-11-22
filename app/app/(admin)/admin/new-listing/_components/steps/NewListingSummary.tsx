@@ -9,11 +9,13 @@ import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput"
 import { FormEvent, useCallback, useMemo } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 import { SpecTag, specTagMockData } from "./NewListingSpecificationStep";
+import { useAppSelector } from "@/app/_redux/hooks";
 
 type Props = {};
 
 export default function NewListingSummary({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
+  const state = useAppSelector((state) => state.newListing);
 
   const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -74,15 +76,18 @@ export default function NewListingSummary({}: Props) {
             bgColor="primary"
             rounding="full"
             textColor="white"
+            onClick={() => {
+              changeStepHandler("companyData");
+            }}
           />
         </div>
-        <TextBlock label="Název:" text="Společnost s ručením omezeným sro" />
-        <TextBlock label="IČO:" text="59822965459" />
-        <TextBlock label="DIČ:" text="59822965459" />
-        <TextBlock label="Ulice:" text="59822965459" />
-        <TextBlock label="Město:" text="59822965459" />
-        <TextBlock label="PSČ:" text="59822965459" />
-        <TextBlock label="Země:" text="59822965459" />
+        <TextBlock label="Název:" text={state.companyData.companyName} />
+        <TextBlock label="IČO:" text={state.companyData.ico} />
+        <TextBlock label="DIČ:" text={state.companyData.dic || ""} />
+        <TextBlock label="Ulice:" text={state.companyData.street} />
+        <TextBlock label="Město:" text={state.companyData.city} />
+        <TextBlock label="PSČ:" text={state.companyData.cityCode} />
+        <TextBlock label="Země:" text={state.companyData.country} />
       </div>
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
@@ -101,19 +106,34 @@ export default function NewListingSummary({}: Props) {
             bgColor="primary"
             rounding="full"
             textColor="white"
+            onClick={() => {
+              changeStepHandler("companyData");
+            }}
           />
         </div>
-        <TextBlock label="Jméno:" text="Společnost s ručením omezeným sro" />
-        <TextBlock label="Příjmení:" text="59822965459" />
-        <TextBlock label="Telefon:" text="59822965459" />
-        <TextBlock label="Email:" text="59822965459" />
+        <TextBlock
+          label="Jméno:"
+          text={state.companyData.contactPerson.firstName}
+        />
+        <TextBlock
+          label="Příjmení:"
+          text={state.companyData.contactPerson.lastName}
+        />
+        <TextBlock
+          label="Telefon:"
+          text={state.companyData.contactPerson.phone}
+        />
+        <TextBlock
+          label="Email:"
+          text={state.companyData.contactPerson.email}
+        />
       </div>
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
       >
         <div className="col-span-2 flex items-center gap-2 justify-center">
           <Text
-            text="Co nabízíš"
+            text="Jméno tvojí služby"
             tag="h3"
             size="headingSm"
             className=" text-center"
@@ -125,9 +145,35 @@ export default function NewListingSummary({}: Props) {
             bgColor="primary"
             rounding="full"
             textColor="white"
+            onClick={() => {
+              changeStepHandler("listingName");
+            }}
           />
         </div>
         <TextBlock label="Jméno služby:" text="Mlýn Davídkov" spanTwo />
+      </div>
+      <div
+        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+      >
+        <div className="col-span-2 flex items-center gap-2 justify-center">
+          <Text
+            text="Specifikace služby"
+            tag="h3"
+            size="headingSm"
+            className=" text-center"
+            fontWeight="semibold"
+          />
+          <Button
+            text="Upravit"
+            size="sm"
+            bgColor="primary"
+            rounding="full"
+            textColor="white"
+            onClick={() => {
+              changeStepHandler("listingSpecification");
+            }}
+          />
+        </div>
         <div
           className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
         >
@@ -139,10 +185,10 @@ export default function NewListingSummary({}: Props) {
             fontWeight="semibold"
           />
           <div className="flex gap-2 flex-wrap">
-            {specTagMockData.map((item) => {
+            {state.listingData.listingSpecification.map((item) => {
               return (
                 <SpecTag
-                  key={item.name + item.value}
+                  key={item.label + item.value}
                   data={item}
                   onClick={() => {}}
                 />
@@ -168,12 +214,27 @@ export default function NewListingSummary({}: Props) {
             bgColor="primary"
             rounding="full"
             textColor="white"
+            onClick={() => {
+              changeStepHandler("listingLocation");
+            }}
           />
         </div>
-        <TextBlock label="Ulice:" text="Společnost s ručením omezeným sro" />
-        <TextBlock label="Město:" text="59822965459" />
-        <TextBlock label="PSČ:" text="59822965459" />
-        <TextBlock label="Země:" text="59822965459" />
+        <TextBlock
+          label="Ulice:"
+          text={state.listingData.newListingLocation.street}
+        />
+        <TextBlock
+          label="Město:"
+          text={state.listingData.newListingLocation.city}
+        />
+        <TextBlock
+          label="PSČ:"
+          text={state.listingData.newListingLocation.cityCode}
+        />
+        <TextBlock
+          label="Země:"
+          text={state.listingData.newListingLocation.country}
+        />
       </div>
 
       <Button

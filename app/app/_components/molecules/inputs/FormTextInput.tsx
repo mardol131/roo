@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { HTMLAttributes, useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
 
 export type FormTextInputProps = {
@@ -17,7 +17,7 @@ export type FormTextInputProps = {
   disabled?: boolean;
   max?: number;
   min?: number;
-};
+} & HTMLAttributes<HTMLInputElement>;
 
 export function FormTextInput(props: FormTextInputProps) {
   const {
@@ -32,6 +32,7 @@ export function FormTextInput(props: FormTextInputProps) {
     bgFilled,
     max,
     min,
+    defaultValue,
   } = props;
 
   const [isInvalid, setIsInvalid] = useState(false);
@@ -86,7 +87,7 @@ export function FormTextInput(props: FormTextInputProps) {
           type={inputType}
           placeholder={placeholder}
           required={required || false}
-          defaultValue=""
+          defaultValue={defaultValue}
           onChange={changeHandler}
           className="w-full"
           value={value}

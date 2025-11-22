@@ -3,6 +3,7 @@ import {
   FormTextInput,
   FormTextInputProps,
 } from "@/app/_components/molecules/inputs/FormTextInput";
+import { useAppSelector } from "@/app/_redux/hooks";
 import React from "react";
 
 type Props = {
@@ -10,6 +11,8 @@ type Props = {
 };
 
 export default function LocationFormPart({ addressIsSameAsInvoicing }: Props) {
+  const state = useAppSelector((state) => state.newListing.listingData);
+
   const inputsData: FormTextInputProps[] = [
     {
       label: "Ulice",
@@ -17,6 +20,8 @@ export default function LocationFormPart({ addressIsSameAsInvoicing }: Props) {
       placeholder: "Eventova 333",
       name: "street",
       disabled: addressIsSameAsInvoicing,
+      defaultValue: state?.newListingLocation?.street,
+      required: !addressIsSameAsInvoicing,
     },
     {
       label: "Město",
@@ -24,6 +29,8 @@ export default function LocationFormPart({ addressIsSameAsInvoicing }: Props) {
       placeholder: "Praha",
       name: "city",
       disabled: addressIsSameAsInvoicing,
+      defaultValue: state?.newListingLocation?.city,
+      required: !addressIsSameAsInvoicing,
     },
     {
       label: "PSČ",
@@ -31,6 +38,8 @@ export default function LocationFormPart({ addressIsSameAsInvoicing }: Props) {
       placeholder: "100 00",
       name: "cityCode",
       disabled: addressIsSameAsInvoicing,
+      defaultValue: state?.newListingLocation?.cityCode,
+      required: !addressIsSameAsInvoicing,
     },
     {
       label: "Země",
@@ -38,6 +47,8 @@ export default function LocationFormPart({ addressIsSameAsInvoicing }: Props) {
       placeholder: "Česká republika",
       name: "country",
       disabled: addressIsSameAsInvoicing,
+      defaultValue: state?.newListingLocation?.country,
+      required: !addressIsSameAsInvoicing,
     },
   ];
 

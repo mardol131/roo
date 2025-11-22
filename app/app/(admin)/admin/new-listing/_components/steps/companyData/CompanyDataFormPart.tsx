@@ -1,12 +1,17 @@
+"use client";
+
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
 import Text from "@/app/_components/atoms/Text";
 import { FormSelectInput } from "@/app/_components/molecules/inputs/FormSelectInput";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
+import { useAppSelector } from "@/app/_redux/hooks";
 import React from "react";
 
 type Props = {};
 
 export default function CompanyDataFormPart({}: Props) {
+  const store = useAppSelector((state) => state.newListing.companyData);
+
   return (
     <AdminFormPartWrapper>
       <Text
@@ -17,6 +22,7 @@ export default function CompanyDataFormPart({}: Props) {
         size="headingSm"
       />
       <FormTextInput
+        defaultValue={store?.companyName}
         label="Název společnosti"
         type="text"
         name="companyName"
@@ -25,6 +31,7 @@ export default function CompanyDataFormPart({}: Props) {
         required
       />
       <FormTextInput
+        defaultValue={store?.ico}
         label="IČO"
         type="number"
         name="ico"
@@ -32,24 +39,27 @@ export default function CompanyDataFormPart({}: Props) {
         required
       />
       <FormTextInput
+        defaultValue={store?.dic}
         label="DIČ"
         type="text"
         name="dic"
         placeholder="CZ123456789"
       />
       <FormTextInput
+        defaultValue={store?.street}
         label="Ulice"
         type="text"
         name="street"
         placeholder="Eventová 333/6"
         required
-      />{" "}
+      />
       <FormTextInput
         label="Město"
         type="text"
         name="city"
         placeholder="Praha"
         required
+        defaultValue={store?.city}
       />
       <FormTextInput
         label="PSČ"
@@ -58,6 +68,7 @@ export default function CompanyDataFormPart({}: Props) {
         placeholder="140 00"
         max={5}
         required
+        defaultValue={store?.cityCode}
       />
       <FormSelectInput
         blockType="formselectinput"
@@ -69,6 +80,7 @@ export default function CompanyDataFormPart({}: Props) {
           { text: "Slovenská republika", value: "slovakia" },
         ]}
         required
+        defaultValue={store?.country}
       />
     </AdminFormPartWrapper>
   );

@@ -1,24 +1,26 @@
 "use client";
 
-import React, { FormEvent, useCallback, useState } from "react";
+import { FormEvent, useCallback, useState } from "react";
 
-import successBg from "../../../../_images/successBg.jpg";
 import Button from "@/app/_components/atoms/Button";
-import Image from "next/image";
 import Text from "@/app/_components/atoms/Text";
 
-import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
-import AdminFormPartWrapper from "../../../../_components/wrappers/AdminFormPartWrapper";
-import AdminNewListingFormWrapper from "../../wrappers/AdminNewListingFormWrapper";
 import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
+import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
+import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
+import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
+import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
+import AdminNewListingFormWrapper from "../../wrappers/AdminNewListingFormWrapper";
 import CompanyDataFormPart from "./CompanyDataFormPart";
 import ContactPersonFormPart from "./ContactPersonFormPart";
-import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
+import { set } from "date-fns";
 
 type Props = {};
 
 export default function NewCompanyDataStep({}: Props) {
   const [success, setSuccess] = useState(false);
+  const dispatch = useAppDispatch();
+  const state = useAppSelector((state) => state.newListing.companyData?.legal);
 
   const { changeStepHandler } = useNewListingSteps();
 
@@ -26,9 +28,29 @@ export default function NewCompanyDataStep({}: Props) {
     e.preventDefault();
 
     const data = formDataToObject(new FormData(e.currentTarget));
-    console.log(data);
-
-    // setSuccess(true);
+    setSuccess(true);
+    dispatch(
+      newListing.actions.saveCompanyData({
+        companyName: data.companyName,
+        ico: data.ico,
+        dic: data.dic,
+        street: data.street,
+        city: data.city,
+        cityCode: data.cityCode,
+        country: data.country,
+        contactPerson: {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          countryCode: data.countryCode,
+          phone: data.phone,
+          email: data.email,
+        },
+        legal: {
+          gdpr: data.gdpr === "true",
+          marketing: data.marketing === "true",
+        },
+      })
+    );
   }, []);
 
   if (success) {
@@ -51,16 +73,28 @@ export default function NewCompanyDataStep({}: Props) {
               size="bodyXl"
               fontWeight="semibold"
             />
-            <Button
-              onClick={() => {
-                changeStepHandler("listingType");
-              }}
-              text="Pokračovat"
-              size="2xl"
-              bgColor="secondaryPrimaryTertiary"
-              textColor="white"
-              rounding="full"
-            />
+            <div className="flex gap-2">
+              <Button
+                onClick={() => {
+                  setSuccess(false);
+                }}
+                text="Zpět"
+                size="2xl"
+                bgColor="secondaryPrimaryTertiary"
+                textColor="white"
+                rounding="full"
+              />
+              <Button
+                onClick={() => {
+                  changeStepHandler("listingType");
+                }}
+                text="Pokračovat"
+                size="2xl"
+                bgColor="secondaryPrimaryTertiary"
+                textColor="white"
+                rounding="full"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -84,6 +118,7 @@ export default function NewCompanyDataStep({}: Props) {
           value="true"
           name="gdpr"
           required
+          defaultChecked={state?.gdpr}
         />
         <FormCheckboxInput
           label={{
@@ -92,6 +127,7 @@ export default function NewCompanyDataStep({}: Props) {
           }}
           name="marketing"
           value="true"
+          defaultChecked={state?.marketing}
         />
       </div>
       <div className="flex justify-center">

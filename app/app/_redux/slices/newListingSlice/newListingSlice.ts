@@ -2,8 +2,13 @@ import { ListingType } from "@/app/_types/business/services";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { changeStepAction } from "./actions/changeStepAction";
-import { updateServiceTypesAction } from "./actions/updateServiceTypesaction";
-import { changeCurrentServiceAction } from "./actions/changeCurrentServiceAction";
+import { updateListingTypes } from "./actions/updateListingTypesAction";
+import { saveCompanyDataAction } from "./actions/saveCompanyData";
+import { changeCurrentListingTypeAction } from "./actions/changeCurrentListingTypeAction";
+import { saveListingLocationAction } from "./actions/saveListingLocation";
+import { saveListingNameAction } from "./actions/saveListingName";
+import { saveListingTypeAction } from "./actions/saveListingType";
+import { saveListingSpecificationsAction } from "./actions/saveListingSpecifications";
 
 export type NewListingStepsType =
   | "companyData"
@@ -22,50 +27,88 @@ export const NewListingStepsArray: NewListingStepsType[] = [
   "summary",
 ];
 
+export type NewCompanyData = {
+  companyName: string;
+  ico: string;
+  dic?: string;
+  street: string;
+  city: string;
+  cityCode: string;
+  country: string;
+  contactPerson: {
+    firstName: string;
+    lastName: string;
+    countryCode: string;
+    phone: string;
+    email: string;
+  };
+  legal: {
+    gdpr: boolean;
+    marketing: boolean;
+  };
+};
+
+export type NewListingLocation = {
+  adressSameAsCompany: boolean;
+  street: string;
+  city: string;
+  cityCode: string;
+  country: string;
+};
+
+export type Category = { label: string; value: string; id: string };
+
+export type NewListingData = {
+  listingName: string;
+  type: ListingType;
+  listingSpecification: Category[];
+  newListingLocation: NewListingLocation;
+};
+
 export type NewListingSlice = {
   step: NewListingStepsType;
-  listings: ListingType[];
+  companyData: NewCompanyData;
+  listingTypes: ListingType[];
   currentListingType: ListingType | null;
-  companyData:
-    | {
-        name: string;
-        ico: string;
-        dic: string;
-        street: string;
-        city: string;
-        cityCode: string;
-        country: string;
-      }
-    | undefined;
-  contactPerson:
-    | {
-        firstName: string;
-        lastname: string;
-        countryCode: string;
-        phone: string;
-        email: string;
-      }
-    | undefined;
-  listingData:
-    | {
-        listingName: string;
-        type: string[];
-        adressSameAsCompany: boolean;
-        street: string;
-        city: string;
-        cityCode: string;
-        country: string;
-      }
-    | undefined;
+  listingData: NewListingData;
 };
 
 const initialState: NewListingSlice = {
   step: "companyData",
-  listings: [],
+  listingTypes: [],
   currentListingType: null,
-  companyData: undefined,
-  contactPerson: undefined,
-  listingData: undefined,
+  companyData: {
+    companyName: "",
+    ico: "",
+    dic: "",
+    street: "",
+    city: "",
+    cityCode: "",
+    country: "",
+    contactPerson: {
+      firstName: "",
+      lastName: "",
+      countryCode: "",
+      phone: "",
+      email: "",
+    },
+    legal: {
+      gdpr: false,
+      marketing: false,
+    },
+  },
+  listingData: {
+    listingName: "",
+    type: "gastro",
+    listingSpecification: [],
+    newListingLocation: {
+      adressSameAsCompany: false,
+      street: "",
+      city: "",
+      cityCode: "",
+      country: "",
+    },
+  },
 };
 
 export const newListing = createSlice({
@@ -73,8 +116,13 @@ export const newListing = createSlice({
   initialState,
   reducers: {
     changeStep: changeStepAction,
-    updateServiceType: updateServiceTypesAction,
-    changeCurrentService: changeCurrentServiceAction,
+    updateListingTypes: updateListingTypes,
+    changeCurrentListingType: changeCurrentListingTypeAction,
+    saveCompanyData: saveCompanyDataAction,
+    saveListingLocation: saveListingLocationAction,
+    saveListingName: saveListingNameAction,
+    saveListingType: saveListingTypeAction,
+    saveListingSpecifications: saveListingSpecificationsAction,
   },
 });
 

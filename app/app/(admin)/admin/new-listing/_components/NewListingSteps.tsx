@@ -3,7 +3,7 @@
 import { useAppSelector } from "@/app/_redux/hooks";
 import React from "react";
 import NewCompanyDataStep from "./steps/companyData/NewCompanyDataStep";
-import NewListingTypeStep from "./steps/NewListingTypeStep";
+import NewListingTypeStep from "./steps/listingType/NewListingTypeStep";
 import NewListingNameStep from "./steps/name/NewListingNameStep";
 import NewListingSpecificationStep from "./steps/NewListingSpecificationStep";
 import NewListingLocationStep from "./steps/location/NewListingLocationStep";

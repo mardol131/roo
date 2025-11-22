@@ -8,7 +8,7 @@ import { ListingType, ListingTypeData } from "@/app/_types/business/services";
 
 import Gastro from "@/app/_icons/Gastro";
 import { useState } from "react";
-import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
+import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
 import { ListingTypeCard } from "./ListingTypeCard";
 
 type Props = {};
@@ -54,43 +54,42 @@ export const listingTypeArray: ListingTypeData[] = [
 ];
 
 export default function NewListingTypeStep({}: Props) {
-  const { listings, currentListingType } = useAppSelector(
+  const { listingTypes, currentListingType } = useAppSelector(
     (state) => state.newListing
   );
   const dispatch = useAppDispatch();
   const { changeStepHandler } = useNewListingSteps();
-  const [pickOne, setPickOne] = useState(false);
+  const [shouldPickOne, setShouldPickOne] = useState(false);
 
-  function updateStateHandler(value: ListingType) {
-    dispatch(newListing.actions.updateServiceType(value));
-  }
-
-  function returnToTypeshandler() {
-    setPickOne(false);
+  function updateListingTypeArray(value: ListingType) {
+    dispatch(newListing.actions.updateListingTypes(value));
+    dispatch(newListing.actions.changeCurrentListingType(null));
   }
 
   function anotherStepHandler() {
-    if (listings.length > 1) {
-      dispatch(newListing.actions.changeCurrentService(null));
-      setPickOne(true);
-    } else if (listings.length === 1) {
-      dispatch(newListing.actions.changeCurrentService(listings[0]));
-      changeStepHandler("listingName");
-    } else if (!listings.length) {
-    }
-  }
-
-  function updateCurrentService(value: ListingType) {
-    dispatch(newListing.actions.changeCurrentService(value));
-  }
-
-  function startFormularHandler() {
     if (currentListingType) {
+      return changeStepHandler("listingName");
+    }
+    if (listingTypes.length > 1) {
+      dispatch(newListing.actions.changeCurrentListingType(null));
+      setShouldPickOne(true);
+    } else if (listingTypes.length === 1) {
+      dispatch(newListing.actions.changeCurrentListingType(listingTypes[0]));
+      dispatch(newListing.actions.saveListingType(listingTypes[0]));
       changeStepHandler("listingName");
     }
   }
 
-  if (pickOne) {
+  function returnToTypeshandler() {
+    setShouldPickOne(false);
+  }
+
+  function updateListingType(value: ListingType) {
+    dispatch(newListing.actions.changeCurrentListingType(value));
+    dispatch(newListing.actions.saveListingType(value));
+  }
+
+  if (shouldPickOne) {
     return (
       <AdminNewListingFormWrapper
         heading={"Jakou službu chceš nastavit jako první?"}
@@ -98,7 +97,7 @@ export default function NewListingTypeStep({}: Props) {
       >
         <>
           <div className="flex w-full justify-center gap-5 max-w-250">
-            {listings.map((listing, i) => {
+            {listingTypes.map((listing, i) => {
               const delay = i * 50;
 
               return (
@@ -106,7 +105,7 @@ export default function NewListingTypeStep({}: Props) {
                   isActive={currentListingType === listing}
                   key={listing}
                   value={listing}
-                  onClick={updateCurrentService}
+                  onClick={updateListingType}
                   delayMs={delay.toString()}
                 />
               );
@@ -122,7 +121,7 @@ export default function NewListingTypeStep({}: Props) {
                 textColor="white"
               />
             </div>
-            <div onClick={startFormularHandler}>
+            <div onClick={anotherStepHandler}>
               <Button
                 text="Pokračovat"
                 bgColor="secondaryPrimaryTertiary"
@@ -149,16 +148,16 @@ export default function NewListingTypeStep({}: Props) {
 
             return (
               <ListingTypeCard
-                isActive={listings.some((value) => value === listing.value)}
+                isActive={listingTypes.some((value) => value === listing.value)}
                 key={listing.text}
                 value={listing.value}
-                onClick={updateStateHandler}
+                onClick={updateListingTypeArray}
                 delayMs={delay.toString()}
               />
             );
           })}
         </div>
-        {listings.length > 0 && (
+        {listingTypes.length > 0 && (
           <div onClick={anotherStepHandler}>
             <Button
               text="Pokračovat"

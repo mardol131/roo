@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { HTMLAttributes, useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
 
 type SelectOptionType = {
@@ -14,7 +14,7 @@ export type FormSelectInputProps = {
   spanTwo?: boolean;
   options: SelectOptionType[];
   required?: boolean;
-};
+} & HTMLAttributes<HTMLSelectElement>;
 
 export function FormSelectInput(props: FormSelectInputProps) {
   const [isInvalid, setIsInvalid] = useState(false);
@@ -24,6 +24,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
       <label className="text-primary font-semibold">{props.label}</label>
 
       <select
+        defaultValue={props.defaultValue}
         required={props.required || false}
         name={props.value}
         id={props.value}

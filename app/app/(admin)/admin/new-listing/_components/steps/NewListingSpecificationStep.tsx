@@ -7,14 +7,17 @@ import Text from "@/app/_components/atoms/Text";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
+import {
+  Category,
+  newListing,
+} from "@/app/_redux/slices/newListingSlice/newListingSlice";
+import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 
 type Props = {};
 
-type SpecTagType = { name: string; value: string };
-
 type SpecTagProps = {
-  data: SpecTagType;
-  onClick: (value: SpecTagType) => void;
+  data: Category;
+  onClick: (value: Category) => void;
 };
 
 export function SpecTag(props: SpecTagProps) {
@@ -27,7 +30,7 @@ export function SpecTag(props: SpecTagProps) {
       className="p-1 px-2 flex items-center justify-center gap-1 text-white cursor-pointer shadow-md/20 rounded-full bg-primary"
     >
       <Text
-        text={props.data.name}
+        text={props.data.label}
         tag="p"
         color="white"
         className="font-semibold"
@@ -47,7 +50,7 @@ function SpecTagModal(props: SpecTagProps) {
       className="font-semibold first:bg-primary/20 hover:bg-primary group  animate group px-2 rounded-full cursor-pointer"
     >
       <Text
-        text={props.data.name}
+        text={props.data.label}
         tag="p"
         color="black"
         className="font-semibold group-hover:text-white animate"
@@ -56,35 +59,32 @@ function SpecTagModal(props: SpecTagProps) {
   );
 }
 
-export const specTagMockData: SpecTagType[] = [
-  { name: "Hotel", value: "hotel" },
-  { name: "Hrad", value: "hrad" },
-  { name: "Stodola", value: "stodola" },
-  { name: "Stan", value: "stan" },
-  { name: "Sad", value: "sad" },
-  { name: "Stáj", value: "staj" },
-  { name: "Stáj", value: "s" },
-  { name: "Stáj", value: "d" },
-  { name: "Stáj", value: "w" },
-  { name: "Stáj", value: "q" },
-  { name: "Stáj", value: "e" },
-  { name: "Stáj", value: "u" },
-  { name: "Stáj", value: "r" },
-  { name: "Stáj", value: "t" },
-  { name: "Stáj", value: "z" },
-  { name: "Stáj", value: "k" },
-  { name: "Stáj", value: "l" },
+export const specTagMockData: Category[] = [
+  { label: "Hotel", value: "hotel", id: "1" },
+  { label: "Hrad", value: "hrad", id: "2" },
+  { label: "Stodola", value: "stodola", id: "3" },
+  { label: "Stan", value: "stan", id: "4" },
+  { label: "Sad", value: "sad", id: "5" },
+  { label: "Sad", value: "sad", id: "6" },
+  { label: "Sad", value: "sad", id: "7" },
+  { label: "Sad", value: "sad", id: "8" },
+  { label: "Sad", value: "sad", id: "9" },
+  { label: "Sad", value: "sad", id: "10" },
+  { label: "Sad", value: "sad", id: "11" },
+  { label: "Sad", value: "sad", id: "12" },
 ];
 
 export default function NewListingSpecificationStep({}: Props) {
+  const state = useAppSelector(
+    (state) => state.newListing.listingData.listingSpecification
+  );
   const { changeStepHandler } = useNewListingSteps();
-  const [specs, setSpecs] = useState<SpecTagType[]>([
-    { name: "Hello", value: "hello" },
-  ]);
+  const [activeSpecs, setActiveSpects] = useState<Category[]>(state);
   const [specModalActive, setSpecModalActive] = useState(false);
-  const [input, setInput] = useState<string>();
-  const [searchSpec, setSearchSpec] = useState<SpecTagType[]>([]);
+  const [input, setInput] = useState<string>("");
+  const [searchSpec, setSearchSpec] = useState<Category[]>([]);
   const [isInvalid, setIsInvalid] = useState(false);
+  const dispatch = useAppDispatch();
 
   function specModalActiveHandler() {
     setSpecModalActive(!specModalActive);
@@ -96,7 +96,8 @@ export default function NewListingSpecificationStep({}: Props) {
 
   function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (specs.length > 0) {
+    if (activeSpecs.length > 0) {
+      dispatch(newListing.actions.saveListingSpecifications(activeSpecs));
       changeStepHandler("listingLocation");
     } else {
       setIsInvalid(true);
@@ -107,15 +108,17 @@ export default function NewListingSpecificationStep({}: Props) {
     inputRef.current?.focus();
   }
 
-  function deleteTagHandler(data: SpecTagType) {
-    const specsArray = specs.filter((spec) => spec.value !== data.value);
-    setSpecs([...specsArray]);
+  function deleteTagHandler(data: Category) {
+    const activeSpecsArray = activeSpecs.filter(
+      (spec) => spec.value !== data.value
+    );
+    setActiveSpects([...activeSpecsArray]);
   }
 
-  function addTagHandler(data: SpecTagType) {
+  function addTagHandler(data: Category) {
     setIsInvalid(false);
-    if (!specs.some((specData) => specData.value === data.value)) {
-      setSpecs([...specs, data]);
+    if (!activeSpecs.some((specData) => specData.value === data.value)) {
+      setActiveSpects([...activeSpecs, data]);
       setInput("");
     }
   }
@@ -125,8 +128,8 @@ export default function NewListingSpecificationStep({}: Props) {
       addTagHandler(searchSpec[0]);
     }
     if (e.key === "Backspace" && input?.length === 0) {
-      const newSpecArray = specs.slice(0, specs.length - 1);
-      setSpecs(newSpecArray);
+      const newSpecArray = activeSpecs.slice(0, activeSpecs.length - 1);
+      setActiveSpects(newSpecArray);
     }
   }
 
@@ -134,8 +137,12 @@ export default function NewListingSpecificationStep({}: Props) {
     if (input) {
       const textLength = input?.length || 1;
       const searchArray = specTagMockData.filter((item) => {
-        const textSlice = item.name.slice(0, textLength);
-        if (!specs.some((specsItem) => specsItem.value === item.value)) {
+        const textSlice = item.label.slice(0, textLength);
+        if (
+          !activeSpecs.some(
+            (activeSpecsItem) => activeSpecsItem.value === item.value
+          )
+        ) {
           return textSlice.toLowerCase() === input.toLowerCase();
         }
       });
@@ -144,7 +151,7 @@ export default function NewListingSpecificationStep({}: Props) {
     } else {
       setSearchSpec([]);
     }
-  }, [input, specs]);
+  }, [input, activeSpecs]);
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -163,10 +170,10 @@ export default function NewListingSpecificationStep({}: Props) {
           onClick={containerClickHandler}
           className="min-h-50 flex gap-2 col-span-2 flex-wrap items-start content-start justify-start"
         >
-          {specs.map((item) => {
+          {activeSpecs.map((item) => {
             return (
               <SpecTag
-                key={item.name + item.value}
+                key={item.label + item.value + item.id}
                 data={item}
                 onClick={deleteTagHandler}
               />
@@ -192,7 +199,7 @@ export default function NewListingSpecificationStep({}: Props) {
                   {searchSpec.map((item) => {
                     return (
                       <SpecTagModal
-                        key={item.name + item.value}
+                        key={item.label + item.value + item.id}
                         data={item}
                         onClick={addTagHandler}
                       />
