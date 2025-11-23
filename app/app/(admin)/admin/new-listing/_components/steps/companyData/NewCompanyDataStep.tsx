@@ -105,7 +105,7 @@ export default function NewCompanyDataStep({}: Props) {
       onSubmit={onSubmitHandler}
       heading="Registrace dodavatele"
     >
-      <div className="grid grid-cols-2 items-start gap-5">
+      <div className="md:grid flex flex-col grid-cols-2 items-start gap-5">
         <CompanyDataFormPart />
         <ContactPersonFormPart />
       </div>

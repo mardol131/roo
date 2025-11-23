@@ -96,7 +96,7 @@ export default function NewListingTypeStep({}: Props) {
         subheading={"Druhou službu budeš mít možnost nastavit později"}
       >
         <>
-          <div className="flex w-full justify-center gap-5 max-w-250">
+          <div className="flex max-md:flex-col w-full justify-center gap-5 max-w-250">
             {listingTypes.map((listing, i) => {
               const delay = i * 50;
 
@@ -142,7 +142,7 @@ export default function NewListingTypeStep({}: Props) {
       subheading={"Vyber jednu nebo více kategorií kliknutím na ikonu"}
     >
       <>
-        <div className="grid grid-cols-3 w-full justify-items-center gap-5 max-w-250">
+        <div className="grid max-md:flex max-md:flex-col grid-cols-3 w-full justify-items-center gap-5 max-w-250">
           {listingTypeArray.map((listing, i) => {
             const delay = i * 50;
 

@@ -60,9 +60,9 @@ export default function NewListingSummary({}: Props) {
       subheading="Níže najdeš základní sourhn informací, které jsi nám o službě poskytl/a. <br/>Pokud bys chtěl/a ještě něco upravit, u každé sekce klikni na tlačítko upravit, které tě vrátí zpět do formuláře."
     >
       <div
-        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 md:grid flex flex-col grid-cols-2`}
       >
-        <div className="col-span-2 flex items-center gap-2 justify-center">
+        <div className="col-span-2 flex items-center gap-2 justify-center max-md:justify-start">
           <Text
             text="Fakturační údaje"
             tag="h3"
@@ -129,9 +129,9 @@ export default function NewListingSummary({}: Props) {
         />
       </div>
       <div
-        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 md:grid flex flex-col grid-cols-2`}
       >
-        <div className="col-span-2 flex items-center gap-2 justify-center">
+        <div className=" w-full col-span-2 flex items-center gap-2 md:justify-center justify-start">
           <Text
             text="Jméno tvojí služby"
             tag="h3"
@@ -150,12 +150,16 @@ export default function NewListingSummary({}: Props) {
             }}
           />
         </div>
-        <TextBlock label="Jméno služby:" text="Mlýn Davídkov" spanTwo />
+        <TextBlock
+          label="Jméno služby:"
+          text={state.listingData.listingName}
+          spanTwo
+        />
       </div>
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
       >
-        <div className="col-span-2 flex items-center gap-2 justify-center">
+        <div className="col-span-2 flex items-center gap-2 justify-center max-md:justify-start">
           <Text
             text="Specifikace služby"
             tag="h3"
@@ -188,7 +192,7 @@ export default function NewListingSummary({}: Props) {
             {state.listingData.listingSpecification.map((item) => {
               return (
                 <SpecTag
-                  key={item.label + item.value}
+                  key={item.label + item.value + item.id}
                   data={item}
                   onClick={() => {}}
                 />

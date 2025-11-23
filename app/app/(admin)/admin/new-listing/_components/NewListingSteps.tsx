@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppSelector } from "@/app/_redux/hooks";
-import React from "react";
+import React, { useEffect } from "react";
 import NewCompanyDataStep from "./steps/companyData/NewCompanyDataStep";
 import NewListingTypeStep from "./steps/listingType/NewListingTypeStep";
 import NewListingNameStep from "./steps/name/NewListingNameStep";
@@ -11,6 +11,10 @@ import NewListingSummary from "./steps/NewListingSummary";
 
 export default function NewListingSteps() {
   const { step } = useAppSelector((state) => state.newListing);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
   if (step === "companyData") {
     return <NewCompanyDataStep />;
   } else if (step === "listingType") {

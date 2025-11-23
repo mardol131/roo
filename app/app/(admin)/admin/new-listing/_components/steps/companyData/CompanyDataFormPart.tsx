@@ -37,6 +37,7 @@ export default function CompanyDataFormPart({}: Props) {
         name="ico"
         placeholder="123456789"
         required
+        max={8}
       />
       <FormTextInput
         defaultValue={store?.dic}
@@ -44,6 +45,7 @@ export default function CompanyDataFormPart({}: Props) {
         type="text"
         name="dic"
         placeholder="CZ123456789"
+        max={12}
       />
       <FormTextInput
         defaultValue={store?.street}

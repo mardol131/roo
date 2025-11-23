@@ -109,15 +109,15 @@ export default function NewListingSpecificationStep({}: Props) {
   }
 
   function deleteTagHandler(data: Category) {
-    const activeSpecsArray = activeSpecs.filter(
-      (spec) => spec.value !== data.value
-    );
+    const activeSpecsArray = activeSpecs.filter((spec) => spec.id !== data.id);
     setActiveSpects([...activeSpecsArray]);
   }
 
   function addTagHandler(data: Category) {
     setIsInvalid(false);
-    if (!activeSpecs.some((specData) => specData.value === data.value)) {
+    if (!activeSpecs.some((specData) => specData.id === data.id)) {
+      console.log([...activeSpecs, data]);
+
       setActiveSpects([...activeSpecs, data]);
       setInput("");
     }
@@ -125,6 +125,7 @@ export default function NewListingSpecificationStep({}: Props) {
 
   function inputKeyPressPressHandler(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter" && searchSpec.length) {
+      e.preventDefault();
       addTagHandler(searchSpec[0]);
     }
     if (e.key === "Backspace" && input?.length === 0) {
@@ -139,9 +140,7 @@ export default function NewListingSpecificationStep({}: Props) {
       const searchArray = specTagMockData.filter((item) => {
         const textSlice = item.label.slice(0, textLength);
         if (
-          !activeSpecs.some(
-            (activeSpecsItem) => activeSpecsItem.value === item.value
-          )
+          !activeSpecs.some((activeSpecsItem) => activeSpecsItem.id === item.id)
         ) {
           return textSlice.toLowerCase() === input.toLowerCase();
         }
@@ -191,7 +190,7 @@ export default function NewListingSpecificationStep({}: Props) {
               }}
               placeholder="Přidej další"
               type="text"
-              className="focus:outline-0 ml-5 w-full text-lg font-semibold border-borderLight flex items-center justify-start"
+              className="focus:outline-0 w-full text-lg font-semibold border-borderLight flex items-center justify-start"
             />
             {specModalActive && (
               <div className="border top-[120%] border-borderLight absolute h-40 min-w-60 rounded-md bg-white shadow-lg w-full p-4 ">
