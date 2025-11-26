@@ -29,7 +29,7 @@ export function NewListingStepBar() {
   }
 
   return (
-    <div className="border border-borderLight sticky top-0 w-full text-lg bg-white flex justify-between items-center rounded-medium shadow-lg shadow-black/5 p-3">
+    <div className="border border-borderLight sticky top-0 w-full text-base bg-white flex justify-between items-center rounded-medium shadow-lg shadow-black/5 p-2">
       {NewListingStepsArray.map((step, i) => {
         return (
           <Fragment key={step}>
@@ -39,7 +39,7 @@ export function NewListingStepBar() {
                 onClick={() => {
                   changeStepHandler(step);
                 }}
-                className="border-2 cursor-pointer group hover:bg-white animate text-white bg-primary font-bold border-primary w-10 h-10 rounded-full flex items-center justify-center"
+                className="border-2 cursor-pointer group hover:bg-white animate text-white bg-primary font-bold border-primary w-7 h-7 rounded-full flex items-center justify-center"
               >
                 <FaCheck className="text-2xl" />
               </button>
@@ -48,7 +48,7 @@ export function NewListingStepBar() {
                 onClick={() => {
                   changeStepHandler(step);
                 }}
-                className="border-2 text-primary font-bold border-primary w-10 h-10 rounded-full flex items-center justify-center"
+                className="border-2 text-primary font-bold border-primary w-7 h-7 rounded-full flex items-center justify-center"
               >
                 {i + 1}
               </button>
@@ -57,7 +57,7 @@ export function NewListingStepBar() {
                 onClick={() => {
                   changeStepHandler(step);
                 }}
-                className="border-2 text-zinc-300 font-bold border-zinc-300 w-10 h-10 rounded-full flex items-center justify-center"
+                className="border-2 text-zinc-300 font-bold border-zinc-300 w-7 h-7 rounded-full flex items-center justify-center"
               >
                 {i + 1}
               </button>

@@ -222,7 +222,7 @@ export interface Post {
   texts?:
     | (
         | {
-            tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+            tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
             text: string;
             size?:
               | (
@@ -670,7 +670,7 @@ export interface Page {
     | {
         texts?:
           | {
-              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
               text: string;
               size?:
                 | (
@@ -1043,7 +1043,7 @@ export interface Page {
     | {
         texts?:
           | {
-              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
               text: string;
               size?:
                 | (
@@ -1114,7 +1114,7 @@ export interface Page {
         for: {
           texts?:
             | {
-                tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                 text: string;
                 size?:
                   | (
@@ -1266,7 +1266,7 @@ export interface Page {
         against: {
           texts?:
             | {
-                tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                 text: string;
                 size?:
                   | (
@@ -1496,7 +1496,7 @@ export interface Page {
     | {
         texts?:
           | {
-              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
               text: string;
               size?:
                 | (
@@ -1578,7 +1578,7 @@ export interface Page {
     | {
         texts?:
           | {
-              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
               text: string;
               size?:
                 | (
@@ -1858,7 +1858,7 @@ export interface Page {
               label?:
                 | (
                     | {
-                        tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                        tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                         text: string;
                         size?:
                           | (
@@ -1955,7 +1955,7 @@ export interface Page {
                 label?:
                   | (
                       | {
-                          tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                          tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                           text: string;
                           size?:
                             | (
@@ -2050,7 +2050,7 @@ export interface Page {
               label?:
                 | (
                     | {
-                        tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                        tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                         text: string;
                         size?:
                           | (
@@ -2156,7 +2156,7 @@ export interface Page {
     | {
         texts?:
           | {
-              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
               text: string;
               size?:
                 | (
@@ -2414,7 +2414,7 @@ export interface Page {
     | {
         texts?:
           | {
-              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
               text: string;
               size?:
                 | (
@@ -2497,7 +2497,7 @@ export interface Page {
               };
               texts?:
                 | {
-                    tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                    tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                     text: string;
                     size?:
                       | (
@@ -2815,7 +2815,7 @@ export interface Page {
     | {
         texts?:
           | {
-              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+              tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
               text: string;
               size?:
                 | (
@@ -3167,7 +3167,7 @@ export interface Page {
         textsTop?:
           | (
               | {
-                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                   text: string;
                   size?:
                     | (
@@ -3255,7 +3255,7 @@ export interface Page {
         textsBottom?:
           | (
               | {
-                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                   text: string;
                   size?:
                     | (
@@ -3344,7 +3344,7 @@ export interface Page {
           | {
               texts?:
                 | {
-                    tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                    tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                     text: string;
                     size?:
                       | (
@@ -3671,7 +3671,7 @@ export interface Page {
         texts?:
           | (
               | {
-                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                   text: string;
                   size?:
                     | (
@@ -4021,7 +4021,7 @@ export interface Page {
         textsTop?:
           | (
               | {
-                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                   text: string;
                   size?:
                     | (
@@ -4109,7 +4109,7 @@ export interface Page {
         textsBottom?:
           | (
               | {
-                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                   text: string;
                   size?:
                     | (
@@ -4200,7 +4200,7 @@ export interface Page {
               texts?:
                 | (
                     | {
-                        tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span';
+                        tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
                         text: string;
                         size?:
                           | (

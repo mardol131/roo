@@ -1,5 +1,6 @@
 import { HTMLAttributes, useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
+import FormInputLabel from "./FormInputLabel";
 
 type SelectOptionType = {
   text: string;
@@ -21,7 +22,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
 
   return (
     <FormInputWrapper isInvalid={isInvalid} spanTwo={props.spanTwo}>
-      <label className="text-primary font-semibold">{props.label}</label>
+      <FormInputLabel text={props.label} />
 
       <select
         defaultValue={props.defaultValue}

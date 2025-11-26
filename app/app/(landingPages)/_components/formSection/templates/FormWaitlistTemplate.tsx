@@ -64,14 +64,7 @@ export default function FormWaitlistTemplate({}: Props) {
       />
       <FormMultipleSelectInput
         blockType="formmultipleselectinput"
-        label={[
-          {
-            text: "Jsi organizátor? Nabízíš nějakou službu?",
-            tag: "p",
-            color: "primary",
-            fontWeight: "semibold",
-          },
-        ]}
+        label="Jsi organizátor? Nabízíš nějakou službu?"
         required={true}
         options={[
           {

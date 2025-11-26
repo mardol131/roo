@@ -1,6 +1,7 @@
 "use client";
 import { HTMLAttributes, useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
+import FormInputLabel from "./FormInputLabel";
 
 export type FormTextInputProps = {
   blockType?: "formtextinput";
@@ -61,16 +62,11 @@ export function FormTextInput(props: FormTextInputProps) {
       spanTwo={spanTwo}
       bgFilled={bgFilled}
     >
-      <label className="text-primary font-semibold">{label}</label>
+      <FormInputLabel text={label} />
       <div className="flex items-center justify-start gap-2">
         {type === "phone" && (
           <>
-            <select
-              disabled={disabled}
-              name="countryCode"
-              id="countryCode"
-              className="font-semibold"
-            >
+            <select disabled={disabled} name="countryCode" id="countryCode">
               <option value="cz">+420</option>
               <option value="sk">+421</option>
             </select>

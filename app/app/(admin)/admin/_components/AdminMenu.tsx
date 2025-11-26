@@ -144,11 +144,11 @@ export function AdminMenu() {
       <div className="md:hidden relative border border-borderLight bg-white shadow-md rounded-md my-2 shrink-0 row-start-2 w-full flex justify-center">
         <div className="w-full h-full">
           <div className="flex flex-col gap-3 sticky top-0 text-center justify-between items-center h-full border-borderLight rounded-r-3xl p-2">
-            <div className="flex text-xl px-5 md:flex-col min-h-10 text-xl items-center justify-between w-full gap-3">
-              {mobileMenuList.map((button) => {
+            <div className="flex text-xl px-5 md:flex-col min-h-10 items-center justify-between w-full gap-3">
+              {mobileMenuList.map((button, i) => {
                 return (
                   <AdminMobileSidebarButton
-                    key={button.href}
+                    key={button.href || i}
                     href={button.href}
                     icon={button.icon}
                     label={button.label}

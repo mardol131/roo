@@ -1,4 +1,4 @@
-import { getTextsField } from '@/_landingPages/components/text'
+import { getTextField, getTextsField } from '@/_landingPages/components/text'
 import { Block } from 'payload'
 
 export const FormTextInputBlock: Block = {
@@ -40,7 +40,7 @@ export const FormCheckboxInputBlock: Block = {
   slug: 'formcheckboxinput',
   labels: { singular: 'Checkbox', plural: 'Checkboxi' },
   fields: [
-    getTextsField('label'),
+    getTextField('label'),
     { name: 'value', type: 'text', required: true },
     { name: 'spanTwo', type: 'checkbox', label: 'Dva sloupce?' },
     { name: 'required', type: 'select', options: ['true', 'false'] },
@@ -52,7 +52,7 @@ export const FormMultipleCheckboxInputBlock: Block = {
   labels: { singular: 'Vícenásobný checkbox', plural: 'Vícenásobné checkboxi' },
   fields: [
     { name: 'checkboxes', type: 'blocks', blocks: [FormCheckboxInputBlock], required: true },
-    getTextsField('label'),
+    getTextField('label'),
     { name: 'spanTwo', type: 'checkbox', label: 'Dva sloupce?' },
     { name: 'value', type: 'text', required: true },
     { name: 'required', type: 'select', options: ['true', 'false'] },
