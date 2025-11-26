@@ -3,14 +3,22 @@
 import Text from "@/app/_components/atoms/Text";
 import Gastro from "@/app/_icons/Gastro";
 import { ListingType } from "@/app/_types/business/services";
-import { colorsAndGradients, textColor } from "@roo/shared/src/design/colors";
-import { listingCardsData } from "./NewListingTypeStep";
+import {
+  colorsAndGradients,
+  ColorsAndGradientsType,
+  textColor,
+  TextColorType,
+} from "@roo/shared/src/design/colors";
 
 export type ServiceTypeCardProps = {
   onClick: (value: ListingType) => void;
   value: ListingType;
   isActive: boolean;
   delayMs?: string;
+  heading: string;
+  text: string;
+  color: TextColorType;
+  bgColor: ColorsAndGradientsType;
 };
 
 export function ListingTypeCard({
@@ -18,10 +26,13 @@ export function ListingTypeCard({
   value,
   isActive,
   delayMs,
+  heading,
+  text,
+  color: textColorString,
+  bgColor: backgroundColor,
 }: ServiceTypeCardProps) {
-  const data = listingCardsData[value];
-  const color = isActive ? "text-white" : textColor[data.color];
-  const bgColor = isActive ? colorsAndGradients[data.bgColor] : "bg-white";
+  const color = isActive ? "text-white" : textColor[textColorString];
+  const bgColor = isActive ? colorsAndGradients[backgroundColor] : "bg-white";
 
   return (
     <div
@@ -35,14 +46,14 @@ export function ListingTypeCard({
         <Gastro className="" fill="currentColor" />
       </div>
       <Text
-        text={data.heading}
+        text={heading}
         tag="h3"
         size="headingMd"
         fontWeight="semibold"
         color={isActive ? "white" : "black"}
       />
       <Text
-        text={data.text}
+        text={text}
         tag="p"
         color={isActive ? "white" : "black"}
         size="bodyXl"

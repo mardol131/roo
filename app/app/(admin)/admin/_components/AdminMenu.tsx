@@ -3,6 +3,7 @@
 import Text from "@/app/_components/atoms/Text";
 import logo from "@/public/logo.png";
 import { isDeviceWidth } from "@roo/shared/src/functions/isDeviceWidth";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { IconType } from "react-icons";
@@ -103,18 +104,20 @@ function create() {
 export function AdminMenu() {
   const isDesktop = isDeviceWidth("md");
 
+  const t = useTranslations("admin.company.baseMenu");
+
   const menuList: AdminSidebarButtonProps[] = [
-    { href: "/admin", icon: FaHouse, label: "Domů" },
-    { href: "/admin/inzeraty", icon: BsPostcardFill, label: "Inzeráty" },
-    { href: "/admin/sluzby", icon: FaHandHoldingHand, label: "Služby" },
-    { href: "/admin/ucet", icon: FaUser, label: "Účet" },
+    { href: "/admin", icon: FaHouse, label: t("home") },
+    { href: "/admin/inzeraty", icon: BsPostcardFill, label: t("listings") },
+    { href: "/admin/sluzby", icon: FaHandHoldingHand, label: t("services") },
+    { href: "/admin/ucet", icon: FaUser, label: t("account") },
   ];
 
   const mobileMenuList: AdminSidebarButtonProps[] = [
-    { href: "/admin", icon: FaHouse, label: "Domů" },
-    { href: "/admin/inzeraty", icon: BsPostcardFill, label: "Inzeráty" },
-    { href: "/admin/ucet", icon: FaUser, label: "Účet" },
-    { icon: TiThMenu, label: "Menu" },
+    { href: "/admin", icon: FaHouse, label: t("home") },
+    { href: "/admin/inzeraty", icon: BsPostcardFill, label: t("listings") },
+    { href: "/admin/ucet", icon: FaUser, label: t("account") },
+    { icon: TiThMenu, label: t("menu") },
   ];
 
   return (

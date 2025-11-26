@@ -21,11 +21,14 @@ import Button from "../atoms/Button";
 import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
 import UserDropdown from "./userDropdown/UserDropdown";
 import Text from "../atoms/Text";
+import { useTranslations } from "next-intl";
 
 export default function HeaderDesktop() {
   const { settingsType } = useAppSelector((state) => state.headerFilter);
   const { loggedIn } = useAppSelector((state) => state.authSlice);
   const dispatch = useAppDispatch();
+
+  const t = useTranslations("header.desktop");
 
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
@@ -80,7 +83,7 @@ export default function HeaderDesktop() {
           /> */}
           <button>
             <Text
-              text="Staň se dodavatelem"
+              text={t("becomeHost")}
               tag="p"
               color="black"
               className="pr-3 hover:text-primary animate"

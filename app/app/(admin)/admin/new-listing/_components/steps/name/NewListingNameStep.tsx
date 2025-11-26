@@ -8,48 +8,51 @@ import Text from "@/app/_components/atoms/Text";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import { FormEvent, useCallback } from "react";
 import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
-import { useAppDispatch } from "@/app/_redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 export default function NewListingNameStep({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
   const dispatch = useAppDispatch();
+  const state = useAppSelector((state) => state.newListing.currentListingType);
+  const t = useTranslations(
+    state
+      ? `admin.company.newListing.steps.listingName.${state}`
+      : "admin.company.newListing.steps.listingName.gastro"
+  );
 
   const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = formDataToObject(new FormData(e.currentTarget));
-    console.log(data);
     dispatch(newListing.actions.saveListingName(data.listingName));
     changeStepHandler("listingSpecification");
   }, []);
 
   return (
-    <AdminNewListingFormWrapper
-      onSubmit={onSubmitHandler}
-      heading={"Název místa"}
-    >
+    <AdminNewListingFormWrapper onSubmit={onSubmitHandler} heading={t("title")}>
       <AdminFormPartWrapper>
         <Text
-          text="Jak se tvoje místo jménuje?"
+          text={t("subtitle")}
           tag="h3"
           size="headingSm"
           className="col-span-2 text-center"
           fontWeight="semibold"
         />
         <FormTextInput
-          label="Jméno tvého místa"
+          label={t("input.label")}
           type="text"
-          placeholder="např. Statek Ondřejov"
+          placeholder={t("input.placeholder")}
           name="listingName"
           spanTwo
           required
         />
       </AdminFormPartWrapper>
       <Button
-        text="Pokračovat"
+        text={t("button")}
         type="submit"
         bgColor="secondaryPrimary"
         size="xl"

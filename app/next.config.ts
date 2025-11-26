@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 import fs from "fs";
 import dotenv from "dotenv";
+import createNextIntlPlugin from "next-intl/plugin";
 
 // changing env file to monorepo env in development
 if (process.env.VERCEL !== "1") {
@@ -89,4 +90,8 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin(
+  "./app/_localization/_i18n/request.ts"
+);
+
+export default withNextIntl(nextConfig);

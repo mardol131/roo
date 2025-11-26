@@ -14,6 +14,7 @@ import AdminNewListingFormWrapper from "../../wrappers/AdminNewListingFormWrappe
 import CompanyDataFormPart from "./CompanyDataFormPart";
 import ContactPersonFormPart from "./ContactPersonFormPart";
 import { set } from "date-fns";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
@@ -21,6 +22,8 @@ export default function NewCompanyDataStep({}: Props) {
   const [success, setSuccess] = useState(false);
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state.newListing.companyData?.legal);
+
+  const t = useTranslations("admin.company.newListing.steps.companyData");
 
   const { changeStepHandler } = useNewListingSteps();
 
@@ -76,16 +79,6 @@ export default function NewCompanyDataStep({}: Props) {
             <div className="flex gap-2">
               <Button
                 onClick={() => {
-                  setSuccess(false);
-                }}
-                text="Zpět"
-                size="2xl"
-                bgColor="secondaryPrimaryTertiary"
-                textColor="white"
-                rounding="full"
-              />
-              <Button
-                onClick={() => {
                   changeStepHandler("listingType");
                 }}
                 text="Pokračovat"
@@ -101,10 +94,7 @@ export default function NewCompanyDataStep({}: Props) {
     );
   }
   return (
-    <AdminNewListingFormWrapper
-      onSubmit={onSubmitHandler}
-      heading="Registrace dodavatele"
-    >
+    <AdminNewListingFormWrapper onSubmit={onSubmitHandler} heading={t("title")}>
       <div className="md:grid flex flex-col grid-cols-2 items-start gap-5">
         <CompanyDataFormPart />
         <ContactPersonFormPart />
@@ -112,7 +102,7 @@ export default function NewCompanyDataStep({}: Props) {
       <div className="flex flex-col items-center gap-4">
         <FormCheckboxInput
           label={{
-            text: "Souhlasím s obchodními podmínkami a Zpracováním osobních údajů",
+            text: t("legal"),
             tag: "p",
           }}
           value="true"
@@ -122,7 +112,7 @@ export default function NewCompanyDataStep({}: Props) {
         />
         <FormCheckboxInput
           label={{
-            text: "Chci dostávat personalizovaná marketingová sdělení",
+            text: t("marketing"),
             tag: "p",
           }}
           name="marketing"
@@ -133,7 +123,7 @@ export default function NewCompanyDataStep({}: Props) {
       <div className="flex justify-center">
         <Button
           type="submit"
-          text="Pokračovat"
+          text={t("button")}
           size="2xl"
           bgColor="tertiaryPrimarySecondary"
           rounding="full"

@@ -7,51 +7,12 @@ import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice"
 import { ListingType, ListingTypeData } from "@/app/_types/business/services";
 
 import Gastro from "@/app/_icons/Gastro";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
 import { ListingTypeCard } from "./ListingTypeCard";
+import { useTranslations } from "next-intl";
 
 type Props = {};
-
-export const listingCardsData: {
-  gastro: ListingTypeData;
-  entertainment: ListingTypeData;
-  place: ListingTypeData;
-} = {
-  gastro: {
-    heading: "Gastro",
-    text: "Děláš catering, máš foodtruck nebo bar na eventy",
-    icon: Gastro,
-    color: "secondary",
-    bgColor: "secondaryPrimary",
-    index: 1,
-    value: "gastro",
-  },
-  place: {
-    heading: "Místo",
-    text: "Máš prostory, kde pořádáš akce.",
-    icon: Gastro,
-    color: "primary",
-    bgColor: "primary",
-    index: 2,
-    value: "place",
-  },
-  entertainment: {
-    heading: "Zábava",
-    text: "Jsi DJ, kapela, moderátor, kouzelník, tanečnice nebo jakkoliv bavíš hosty",
-    icon: Gastro,
-    color: "tertiary",
-    bgColor: "primaryTertiary",
-    index: 3,
-    value: "entertainment",
-  },
-};
-
-export const listingTypeArray: ListingTypeData[] = [
-  listingCardsData.gastro,
-  listingCardsData.place,
-  listingCardsData.entertainment,
-];
 
 export default function NewListingTypeStep({}: Props) {
   const { listingTypes, currentListingType } = useAppSelector(
@@ -61,10 +22,46 @@ export default function NewListingTypeStep({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
   const [shouldPickOne, setShouldPickOne] = useState(false);
 
+  const t = useTranslations("admin.company.newListing.steps.listingType");
+
   function updateListingTypeArray(value: ListingType) {
     dispatch(newListing.actions.updateListingTypes(value));
     dispatch(newListing.actions.changeCurrentListingType(null));
   }
+
+  const listingCardsData = useMemo(() => {
+    const data: ListingTypeData[] = [
+      {
+        icon: Gastro,
+        color: "secondary",
+        bgColor: "secondaryPrimary",
+        index: 1,
+        value: "gastro",
+        heading: t("cards.gastro.title"),
+        text: t("cards.gastro.description"),
+      },
+      {
+        icon: Gastro,
+        color: "primary",
+        bgColor: "primary",
+        index: 2,
+        value: "place",
+        heading: t("cards.place.title"),
+        text: t("cards.place.description"),
+      },
+      {
+        icon: Gastro,
+        color: "tertiary",
+        bgColor: "primaryTertiary",
+        index: 3,
+        value: "entertainment",
+        heading: t("cards.entertainment.title"),
+        text: t("cards.entertainment.description"),
+      },
+    ];
+
+    return data;
+  }, []);
 
   function anotherStepHandler() {
     if (currentListingType) {
@@ -100,13 +97,23 @@ export default function NewListingTypeStep({}: Props) {
             {listingTypes.map((listing, i) => {
               const delay = i * 50;
 
+              const data = listingCardsData.find(
+                (data) => data.value === listing
+              );
+
+              if (!data) return null;
+
               return (
                 <ListingTypeCard
-                  isActive={currentListingType === listing}
-                  key={listing}
-                  value={listing}
+                  isActive={currentListingType === data.value}
+                  key={data.value}
+                  value={data.value}
                   onClick={updateListingType}
                   delayMs={delay.toString()}
+                  text={data.text}
+                  heading={data.heading}
+                  color={data.color}
+                  bgColor={data.bgColor}
                 />
               );
             })}
@@ -143,16 +150,20 @@ export default function NewListingTypeStep({}: Props) {
     >
       <>
         <div className="grid max-md:flex max-md:flex-col grid-cols-3 w-full justify-items-center gap-5 max-w-250">
-          {listingTypeArray.map((listing, i) => {
+          {listingCardsData.map((listing, i) => {
             const delay = i * 50;
 
             return (
               <ListingTypeCard
                 isActive={listingTypes.some((value) => value === listing.value)}
-                key={listing.text}
+                heading={listing.heading}
+                text={listing.text}
+                key={listing.value}
                 value={listing.value}
                 onClick={updateListingTypeArray}
                 delayMs={delay.toString()}
+                color={listing.color}
+                bgColor={listing.bgColor}
               />
             );
           })}

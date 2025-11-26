@@ -1855,94 +1855,71 @@ export interface Page {
               blockType: 'formselectinput';
             }
           | {
-              label?:
-                | (
-                    | {
-                        tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
-                        text: string;
-                        size?:
-                          | (
-                              | 'displayLg'
-                              | 'displayMd'
-                              | 'displaySm'
-                              | 'headingXl'
-                              | 'headingLg'
-                              | 'headingMd'
-                              | 'headingSm'
-                              | 'headingXs'
-                              | 'bodyXl'
-                              | 'bodyLg'
-                              | 'bodyMd'
-                              | 'bodySm'
-                              | 'bodyXs'
-                            )
-                          | null;
-                        fontWeight?: ('base' | 'semibold' | 'bold' | 'extraBold') | null;
-                        font?: ('display' | 'heading' | 'body') | null;
-                        color?:
-                          | (
-                              | 'primary'
-                              | 'secondary'
-                              | 'secondaryDark'
-                              | 'tertiary'
-                              | 'tertiaryDark'
-                              | 'black'
-                              | 'white'
-                              | 'success'
-                              | 'warning'
-                              | 'danger'
-                              | 'placeholder'
-                              | 'lightOne'
-                              | 'lightTwo'
-                              | 'primarySecondaryOpac'
-                              | 'primaryTertiaryOpac'
-                              | 'secondaryTertiaryOpac'
-                              | 'secondaryPrimaryOpac'
-                              | 'tertiaryPrimaryOpac'
-                              | 'tertiarySecondaryOpac'
-                              | 'primarySecondaryTertiaryOpac'
-                              | 'primaryTertiarySecondaryOpac'
-                              | 'secondaryPrimaryTertiaryOpac'
-                              | 'secondaryTertiryPrimaryOpac'
-                              | 'tertiaryPrimarySecondaryOpac'
-                              | 'tertiarySecondaryPrimaryOpac'
-                              | 'primarySecondary'
-                              | 'primaryTertiary'
-                              | 'secondaryTertiary'
-                              | 'secondaryPrimary'
-                              | 'tertiaryPrimary'
-                              | 'tertiarySecondary'
-                              | 'primarySecondaryTertiary'
-                              | 'primaryTertiarySecondary'
-                              | 'secondaryPrimaryTertiary'
-                              | 'secondaryTertiryPrimary'
-                              | 'tertiaryPrimarySecondary'
-                              | 'tertiarySecondaryPrimary'
-                            )
-                          | null;
-                        className?: string | null;
-                        id?: string | null;
-                        blockName?: string | null;
-                        blockType: 'TextBlock';
-                      }
-                    | {
-                        image?: {
-                          imageUpload?: (string | null) | Media;
-                          alt?: string | null;
-                          src?: string | null;
-                          description?: string | null;
-                          url?: string | null;
-                          rounded?: boolean | null;
-                          shadow?: boolean | null;
-                          squared?: boolean | null;
-                          position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
-                        };
-                        id?: string | null;
-                        blockName?: string | null;
-                        blockType: 'imageBlock';
-                      }
-                  )[]
-                | null;
+              label: {
+                tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
+                text: string;
+                size?:
+                  | (
+                      | 'displayLg'
+                      | 'displayMd'
+                      | 'displaySm'
+                      | 'headingXl'
+                      | 'headingLg'
+                      | 'headingMd'
+                      | 'headingSm'
+                      | 'headingXs'
+                      | 'bodyXl'
+                      | 'bodyLg'
+                      | 'bodyMd'
+                      | 'bodySm'
+                      | 'bodyXs'
+                    )
+                  | null;
+                fontWeight?: ('base' | 'semibold' | 'bold' | 'extraBold') | null;
+                font?: ('display' | 'heading' | 'body') | null;
+                color?:
+                  | (
+                      | 'primary'
+                      | 'secondary'
+                      | 'secondaryDark'
+                      | 'tertiary'
+                      | 'tertiaryDark'
+                      | 'black'
+                      | 'white'
+                      | 'success'
+                      | 'warning'
+                      | 'danger'
+                      | 'placeholder'
+                      | 'lightOne'
+                      | 'lightTwo'
+                      | 'primarySecondaryOpac'
+                      | 'primaryTertiaryOpac'
+                      | 'secondaryTertiaryOpac'
+                      | 'secondaryPrimaryOpac'
+                      | 'tertiaryPrimaryOpac'
+                      | 'tertiarySecondaryOpac'
+                      | 'primarySecondaryTertiaryOpac'
+                      | 'primaryTertiarySecondaryOpac'
+                      | 'secondaryPrimaryTertiaryOpac'
+                      | 'secondaryTertiryPrimaryOpac'
+                      | 'tertiaryPrimarySecondaryOpac'
+                      | 'tertiarySecondaryPrimaryOpac'
+                      | 'primarySecondary'
+                      | 'primaryTertiary'
+                      | 'secondaryTertiary'
+                      | 'secondaryPrimary'
+                      | 'tertiaryPrimary'
+                      | 'tertiarySecondary'
+                      | 'primarySecondaryTertiary'
+                      | 'primaryTertiarySecondary'
+                      | 'secondaryPrimaryTertiary'
+                      | 'secondaryTertiryPrimary'
+                      | 'tertiaryPrimarySecondary'
+                      | 'tertiarySecondaryPrimary'
+                    )
+                  | null;
+                className?: string | null;
+              };
               value: string;
               spanTwo?: boolean | null;
               required?: ('true' | 'false') | null;
@@ -1952,94 +1929,71 @@ export interface Page {
             }
           | {
               checkboxes: {
-                label?:
-                  | (
-                      | {
-                          tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
-                          text: string;
-                          size?:
-                            | (
-                                | 'displayLg'
-                                | 'displayMd'
-                                | 'displaySm'
-                                | 'headingXl'
-                                | 'headingLg'
-                                | 'headingMd'
-                                | 'headingSm'
-                                | 'headingXs'
-                                | 'bodyXl'
-                                | 'bodyLg'
-                                | 'bodyMd'
-                                | 'bodySm'
-                                | 'bodyXs'
-                              )
-                            | null;
-                          fontWeight?: ('base' | 'semibold' | 'bold' | 'extraBold') | null;
-                          font?: ('display' | 'heading' | 'body') | null;
-                          color?:
-                            | (
-                                | 'primary'
-                                | 'secondary'
-                                | 'secondaryDark'
-                                | 'tertiary'
-                                | 'tertiaryDark'
-                                | 'black'
-                                | 'white'
-                                | 'success'
-                                | 'warning'
-                                | 'danger'
-                                | 'placeholder'
-                                | 'lightOne'
-                                | 'lightTwo'
-                                | 'primarySecondaryOpac'
-                                | 'primaryTertiaryOpac'
-                                | 'secondaryTertiaryOpac'
-                                | 'secondaryPrimaryOpac'
-                                | 'tertiaryPrimaryOpac'
-                                | 'tertiarySecondaryOpac'
-                                | 'primarySecondaryTertiaryOpac'
-                                | 'primaryTertiarySecondaryOpac'
-                                | 'secondaryPrimaryTertiaryOpac'
-                                | 'secondaryTertiryPrimaryOpac'
-                                | 'tertiaryPrimarySecondaryOpac'
-                                | 'tertiarySecondaryPrimaryOpac'
-                                | 'primarySecondary'
-                                | 'primaryTertiary'
-                                | 'secondaryTertiary'
-                                | 'secondaryPrimary'
-                                | 'tertiaryPrimary'
-                                | 'tertiarySecondary'
-                                | 'primarySecondaryTertiary'
-                                | 'primaryTertiarySecondary'
-                                | 'secondaryPrimaryTertiary'
-                                | 'secondaryTertiryPrimary'
-                                | 'tertiaryPrimarySecondary'
-                                | 'tertiarySecondaryPrimary'
-                              )
-                            | null;
-                          className?: string | null;
-                          id?: string | null;
-                          blockName?: string | null;
-                          blockType: 'TextBlock';
-                        }
-                      | {
-                          image?: {
-                            imageUpload?: (string | null) | Media;
-                            alt?: string | null;
-                            src?: string | null;
-                            description?: string | null;
-                            url?: string | null;
-                            rounded?: boolean | null;
-                            shadow?: boolean | null;
-                            squared?: boolean | null;
-                            position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
-                          };
-                          id?: string | null;
-                          blockName?: string | null;
-                          blockType: 'imageBlock';
-                        }
-                    )[]
-                  | null;
+                label: {
+                  tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
+                  text: string;
+                  size?:
+                    | (
+                        | 'displayLg'
+                        | 'displayMd'
+                        | 'displaySm'
+                        | 'headingXl'
+                        | 'headingLg'
+                        | 'headingMd'
+                        | 'headingSm'
+                        | 'headingXs'
+                        | 'bodyXl'
+                        | 'bodyLg'
+                        | 'bodyMd'
+                        | 'bodySm'
+                        | 'bodyXs'
+                      )
+                    | null;
+                  fontWeight?: ('base' | 'semibold' | 'bold' | 'extraBold') | null;
+                  font?: ('display' | 'heading' | 'body') | null;
+                  color?:
+                    | (
+                        | 'primary'
+                        | 'secondary'
+                        | 'secondaryDark'
+                        | 'tertiary'
+                        | 'tertiaryDark'
+                        | 'black'
+                        | 'white'
+                        | 'success'
+                        | 'warning'
+                        | 'danger'
+                        | 'placeholder'
+                        | 'lightOne'
+                        | 'lightTwo'
+                        | 'primarySecondaryOpac'
+                        | 'primaryTertiaryOpac'
+                        | 'secondaryTertiaryOpac'
+                        | 'secondaryPrimaryOpac'
+                        | 'tertiaryPrimaryOpac'
+                        | 'tertiarySecondaryOpac'
+                        | 'primarySecondaryTertiaryOpac'
+                        | 'primaryTertiarySecondaryOpac'
+                        | 'secondaryPrimaryTertiaryOpac'
+                        | 'secondaryTertiryPrimaryOpac'
+                        | 'tertiaryPrimarySecondaryOpac'
+                        | 'tertiarySecondaryPrimaryOpac'
+                        | 'primarySecondary'
+                        | 'primaryTertiary'
+                        | 'secondaryTertiary'
+                        | 'secondaryPrimary'
+                        | 'tertiaryPrimary'
+                        | 'tertiarySecondary'
+                        | 'primarySecondaryTertiary'
+                        | 'primaryTertiarySecondary'
+                        | 'secondaryPrimaryTertiary'
+                        | 'secondaryTertiryPrimary'
+                        | 'tertiaryPrimarySecondary'
+                        | 'tertiarySecondaryPrimary'
+                      )
+                    | null;
+                  className?: string | null;
+                };
                 value: string;
                 spanTwo?: boolean | null;
                 required?: ('true' | 'false') | null;
@@ -2047,94 +2001,71 @@ export interface Page {
                 blockName?: string | null;
                 blockType: 'formcheckboxinput';
               }[];
-              label?:
-                | (
-                    | {
-                        tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
-                        text: string;
-                        size?:
-                          | (
-                              | 'displayLg'
-                              | 'displayMd'
-                              | 'displaySm'
-                              | 'headingXl'
-                              | 'headingLg'
-                              | 'headingMd'
-                              | 'headingSm'
-                              | 'headingXs'
-                              | 'bodyXl'
-                              | 'bodyLg'
-                              | 'bodyMd'
-                              | 'bodySm'
-                              | 'bodyXs'
-                            )
-                          | null;
-                        fontWeight?: ('base' | 'semibold' | 'bold' | 'extraBold') | null;
-                        font?: ('display' | 'heading' | 'body') | null;
-                        color?:
-                          | (
-                              | 'primary'
-                              | 'secondary'
-                              | 'secondaryDark'
-                              | 'tertiary'
-                              | 'tertiaryDark'
-                              | 'black'
-                              | 'white'
-                              | 'success'
-                              | 'warning'
-                              | 'danger'
-                              | 'placeholder'
-                              | 'lightOne'
-                              | 'lightTwo'
-                              | 'primarySecondaryOpac'
-                              | 'primaryTertiaryOpac'
-                              | 'secondaryTertiaryOpac'
-                              | 'secondaryPrimaryOpac'
-                              | 'tertiaryPrimaryOpac'
-                              | 'tertiarySecondaryOpac'
-                              | 'primarySecondaryTertiaryOpac'
-                              | 'primaryTertiarySecondaryOpac'
-                              | 'secondaryPrimaryTertiaryOpac'
-                              | 'secondaryTertiryPrimaryOpac'
-                              | 'tertiaryPrimarySecondaryOpac'
-                              | 'tertiarySecondaryPrimaryOpac'
-                              | 'primarySecondary'
-                              | 'primaryTertiary'
-                              | 'secondaryTertiary'
-                              | 'secondaryPrimary'
-                              | 'tertiaryPrimary'
-                              | 'tertiarySecondary'
-                              | 'primarySecondaryTertiary'
-                              | 'primaryTertiarySecondary'
-                              | 'secondaryPrimaryTertiary'
-                              | 'secondaryTertiryPrimary'
-                              | 'tertiaryPrimarySecondary'
-                              | 'tertiarySecondaryPrimary'
-                            )
-                          | null;
-                        className?: string | null;
-                        id?: string | null;
-                        blockName?: string | null;
-                        blockType: 'TextBlock';
-                      }
-                    | {
-                        image?: {
-                          imageUpload?: (string | null) | Media;
-                          alt?: string | null;
-                          src?: string | null;
-                          description?: string | null;
-                          url?: string | null;
-                          rounded?: boolean | null;
-                          shadow?: boolean | null;
-                          squared?: boolean | null;
-                          position?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
-                        };
-                        id?: string | null;
-                        blockName?: string | null;
-                        blockType: 'imageBlock';
-                      }
-                  )[]
-                | null;
+              label: {
+                tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'em' | 'p' | 'span' | 'label';
+                text: string;
+                size?:
+                  | (
+                      | 'displayLg'
+                      | 'displayMd'
+                      | 'displaySm'
+                      | 'headingXl'
+                      | 'headingLg'
+                      | 'headingMd'
+                      | 'headingSm'
+                      | 'headingXs'
+                      | 'bodyXl'
+                      | 'bodyLg'
+                      | 'bodyMd'
+                      | 'bodySm'
+                      | 'bodyXs'
+                    )
+                  | null;
+                fontWeight?: ('base' | 'semibold' | 'bold' | 'extraBold') | null;
+                font?: ('display' | 'heading' | 'body') | null;
+                color?:
+                  | (
+                      | 'primary'
+                      | 'secondary'
+                      | 'secondaryDark'
+                      | 'tertiary'
+                      | 'tertiaryDark'
+                      | 'black'
+                      | 'white'
+                      | 'success'
+                      | 'warning'
+                      | 'danger'
+                      | 'placeholder'
+                      | 'lightOne'
+                      | 'lightTwo'
+                      | 'primarySecondaryOpac'
+                      | 'primaryTertiaryOpac'
+                      | 'secondaryTertiaryOpac'
+                      | 'secondaryPrimaryOpac'
+                      | 'tertiaryPrimaryOpac'
+                      | 'tertiarySecondaryOpac'
+                      | 'primarySecondaryTertiaryOpac'
+                      | 'primaryTertiarySecondaryOpac'
+                      | 'secondaryPrimaryTertiaryOpac'
+                      | 'secondaryTertiryPrimaryOpac'
+                      | 'tertiaryPrimarySecondaryOpac'
+                      | 'tertiarySecondaryPrimaryOpac'
+                      | 'primarySecondary'
+                      | 'primaryTertiary'
+                      | 'secondaryTertiary'
+                      | 'secondaryPrimary'
+                      | 'tertiaryPrimary'
+                      | 'tertiarySecondary'
+                      | 'primarySecondaryTertiary'
+                      | 'primaryTertiarySecondary'
+                      | 'secondaryPrimaryTertiary'
+                      | 'secondaryTertiryPrimary'
+                      | 'tertiaryPrimarySecondary'
+                      | 'tertiarySecondaryPrimary'
+                    )
+                  | null;
+                className?: string | null;
+              };
               spanTwo?: boolean | null;
               value: string;
               required?: ('true' | 'false') | null;
@@ -5025,38 +4956,13 @@ export interface PagesSelect<T extends boolean = true> {
                           label?:
                             | T
                             | {
-                                TextBlock?:
-                                  | T
-                                  | {
-                                      tag?: T;
-                                      text?: T;
-                                      size?: T;
-                                      fontWeight?: T;
-                                      font?: T;
-                                      color?: T;
-                                      className?: T;
-                                      id?: T;
-                                      blockName?: T;
-                                    };
-                                imageBlock?:
-                                  | T
-                                  | {
-                                      image?:
-                                        | T
-                                        | {
-                                            imageUpload?: T;
-                                            alt?: T;
-                                            src?: T;
-                                            description?: T;
-                                            url?: T;
-                                            rounded?: T;
-                                            shadow?: T;
-                                            squared?: T;
-                                            position?: T;
-                                          };
-                                      id?: T;
-                                      blockName?: T;
-                                    };
+                                tag?: T;
+                                text?: T;
+                                size?: T;
+                                fontWeight?: T;
+                                font?: T;
+                                color?: T;
+                                className?: T;
                               };
                           value?: T;
                           spanTwo?: T;
@@ -5076,38 +4982,13 @@ export interface PagesSelect<T extends boolean = true> {
                                       label?:
                                         | T
                                         | {
-                                            TextBlock?:
-                                              | T
-                                              | {
-                                                  tag?: T;
-                                                  text?: T;
-                                                  size?: T;
-                                                  fontWeight?: T;
-                                                  font?: T;
-                                                  color?: T;
-                                                  className?: T;
-                                                  id?: T;
-                                                  blockName?: T;
-                                                };
-                                            imageBlock?:
-                                              | T
-                                              | {
-                                                  image?:
-                                                    | T
-                                                    | {
-                                                        imageUpload?: T;
-                                                        alt?: T;
-                                                        src?: T;
-                                                        description?: T;
-                                                        url?: T;
-                                                        rounded?: T;
-                                                        shadow?: T;
-                                                        squared?: T;
-                                                        position?: T;
-                                                      };
-                                                  id?: T;
-                                                  blockName?: T;
-                                                };
+                                            tag?: T;
+                                            text?: T;
+                                            size?: T;
+                                            fontWeight?: T;
+                                            font?: T;
+                                            color?: T;
+                                            className?: T;
                                           };
                                       value?: T;
                                       spanTwo?: T;
@@ -5119,38 +5000,13 @@ export interface PagesSelect<T extends boolean = true> {
                           label?:
                             | T
                             | {
-                                TextBlock?:
-                                  | T
-                                  | {
-                                      tag?: T;
-                                      text?: T;
-                                      size?: T;
-                                      fontWeight?: T;
-                                      font?: T;
-                                      color?: T;
-                                      className?: T;
-                                      id?: T;
-                                      blockName?: T;
-                                    };
-                                imageBlock?:
-                                  | T
-                                  | {
-                                      image?:
-                                        | T
-                                        | {
-                                            imageUpload?: T;
-                                            alt?: T;
-                                            src?: T;
-                                            description?: T;
-                                            url?: T;
-                                            rounded?: T;
-                                            shadow?: T;
-                                            squared?: T;
-                                            position?: T;
-                                          };
-                                      id?: T;
-                                      blockName?: T;
-                                    };
+                                tag?: T;
+                                text?: T;
+                                size?: T;
+                                fontWeight?: T;
+                                font?: T;
+                                color?: T;
+                                className?: T;
                               };
                           spanTwo?: T;
                           value?: T;

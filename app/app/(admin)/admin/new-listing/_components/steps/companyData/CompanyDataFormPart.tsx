@@ -5,17 +5,21 @@ import Text from "@/app/_components/atoms/Text";
 import { FormSelectInput } from "@/app/_components/molecules/inputs/FormSelectInput";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import { useAppSelector } from "@/app/_redux/hooks";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 type Props = {};
 
 export default function CompanyDataFormPart({}: Props) {
   const store = useAppSelector((state) => state.newListing.companyData);
+  const t = useTranslations(
+    "admin.company.newListing.steps.companyData.leftPart"
+  );
 
   return (
     <AdminFormPartWrapper>
       <Text
-        text="Údaje o společnosti"
+        text={t("title")}
         tag="h4"
         color="black"
         className="font-semibold text-center py-2 col-span-2"
@@ -23,59 +27,59 @@ export default function CompanyDataFormPart({}: Props) {
       />
       <FormTextInput
         defaultValue={store?.companyName}
-        label="Název společnosti"
+        label={t("inputs.companyName.label")}
         type="text"
         name="companyName"
-        placeholder="ROO s.r.o."
+        placeholder={t("inputs.companyName.placeholder")}
         spanTwo
         required
       />
       <FormTextInput
         defaultValue={store?.ico}
-        label="IČO"
+        label={t("inputs.ico.label")}
         type="number"
         name="ico"
-        placeholder="123456789"
+        placeholder={t("inputs.ico.placeholder")}
         required
         max={8}
       />
       <FormTextInput
         defaultValue={store?.dic}
-        label="DIČ"
+        label={t("inputs.dic.label")}
         type="text"
         name="dic"
-        placeholder="CZ123456789"
+        placeholder={t("inputs.dic.placeholder")}
         max={12}
       />
       <FormTextInput
         defaultValue={store?.street}
-        label="Ulice"
+        label={t("inputs.street.label")}
         type="text"
         name="street"
-        placeholder="Eventová 333/6"
+        placeholder={t("inputs.street.placeholder")}
         required
       />
       <FormTextInput
-        label="Město"
+        label={t("inputs.city.label")}
         type="text"
         name="city"
-        placeholder="Praha"
+        placeholder={t("inputs.city.placeholder")}
         required
         defaultValue={store?.city}
       />
       <FormTextInput
-        label="PSČ"
+        label={t("inputs.cityCode.label")}
         type="number"
         name="cityCode"
-        placeholder="140 00"
+        placeholder={t("inputs.cityCode.placeholder")}
         max={5}
         required
         defaultValue={store?.cityCode}
       />
       <FormSelectInput
         blockType="formselectinput"
-        label="Země"
-        placeholder="Vyberte zemi"
+        label={t("inputs.country.label")}
+        placeholder={t("inputs.country.placeholder")}
         value="country"
         options={[
           { text: "Česká republika", value: "czech-republic" },

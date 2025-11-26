@@ -8,6 +8,7 @@ export const textTag = {
     em: "em",
     p: "p",
     span: "span",
+    label: "label",
 };
 export const fontWeight = {
     base: "font-fontBase",

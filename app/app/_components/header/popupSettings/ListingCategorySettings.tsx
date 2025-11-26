@@ -15,13 +15,14 @@ import entertainment from "@/app/_images/entertainment.jpg";
 import Text from "../../atoms/Text";
 import Button from "../../atoms/Button";
 import { ColorsAndGradientsType } from "@roo/shared/src/design/colors";
-
-const m = getLocalization("cs", "header.listingCategory.card");
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 export default function ListingCategorySettings({}: Props) {
   const dispatch = useAppDispatch();
+
+  const t = useTranslations("header.listingCategory.card");
 
   function setListingCategory(value: ListingCategoryType) {
     dispatch(headerFilterSlice.actions.changeListingCategory(value));
@@ -63,20 +64,20 @@ export default function ListingCategorySettings({}: Props) {
                   />
                   <div className="flex bg-black/70 group-hover:bg-black/50 animate scale-z-100 flex-col text-center gap-4 items-center justify-between h-full p-5">
                     <Text
-                      text={m(`${item.value}.heading`)}
+                      text={t(`${item.value}.heading`)}
                       tag="p"
                       size="headingSm"
                       color="white"
                       fontWeight="semibold"
                     />
                     <Text
-                      text={m(`${item.value}.text`)}
+                      text={t(`${item.value}.text`)}
                       tag="p"
                       color="white"
                       fontWeight="semibold"
                     />
                     <Button
-                      text={m(`${item.value}.button_text`)}
+                      text={t(`${item.value}.button_text`)}
                       textColor="white"
                       bgColor={item.buttonBg}
                       size="xl"
