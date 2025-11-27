@@ -2,22 +2,22 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { NewListingSlice } from "../newListingSlice";
 import { ListingType } from "@/app/_types/business/services";
 
-export function updateListingTypes(
+export function updateListingTypesToFill(
   state: NewListingSlice,
   action: PayloadAction<ListingType>
 ) {
-  const serviceIndex = state.listingTypes.findIndex(
+  const serviceIndex = state.listingTypesToFill.findIndex(
     (service) => service === action.payload
   );
 
-  const serviceArray = state.listingTypes;
+  const serviceArray = state.listingTypesToFill;
 
   if (serviceIndex === -1) {
-    state.listingTypes = [...state.listingTypes, action.payload];
+    state.listingTypesToFill = [...state.listingTypesToFill, action.payload];
   } else {
     serviceArray.splice(serviceIndex, 1);
-    state.listingTypes = [...serviceArray];
+    state.listingTypesToFill = [...serviceArray];
   }
 
-  console.log("Updated listing types:", state.listingTypes);
+  console.log("Updated listing types:", state.listingTypesToFill);
 }

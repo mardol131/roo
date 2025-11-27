@@ -1,14 +1,12 @@
 import { ListingType } from "@/app/_types/business/services";
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 import { changeStepAction } from "./actions/changeStepAction";
-import { updateListingTypes } from "./actions/updateListingTypesAction";
+import { updateListingTypesToFill } from "./actions/updateListingTypesToFill";
 import { saveCompanyDataAction } from "./actions/saveCompanyData";
-import { changeCurrentListingTypeAction } from "./actions/changeCurrentListingTypeAction";
-import { saveListingLocationAction } from "./actions/saveListingLocation";
-import { saveListingNameAction } from "./actions/saveListingName";
-import { saveListingTypeAction } from "./actions/saveListingType";
-import { saveListingSpecificationsAction } from "./actions/saveListingSpecifications";
+import { saveLocation } from "./actions/saveLocation";
+import { saveName } from "./actions/saveName";
+import { saveType } from "./actions/saveType";
+import { saveSpecification } from "./actions/saveSpecification";
 
 export type NewListingStepsType =
   | "companyData"
@@ -48,35 +46,33 @@ export type NewCompanyData = {
   };
 };
 
-export type NewListingLocation = {
+export type ListingLocation = {
   adressSameAsCompany: boolean;
-  street: string;
-  city: string;
-  cityCode: string;
-  country: string;
+  street: string | undefined;
+  city: string | undefined;
+  cityCode: string | undefined;
+  country: string | undefined;
 };
 
 export type Category = { label: string; value: string; id: string };
 
-export type NewListingData = {
-  listingName: string;
-  type: ListingType;
-  listingSpecification: Category[];
-  newListingLocation: NewListingLocation;
+export type Listing = {
+  name: string;
+  type: ListingType | undefined;
+  specifications: Category[];
+  location: ListingLocation;
 };
 
 export type NewListingSlice = {
   step: NewListingStepsType;
   companyData: NewCompanyData;
-  listingTypes: ListingType[];
-  currentListingType: ListingType | null;
-  listingData: NewListingData;
+  listingTypesToFill: ListingType[];
+  listingData: Listing;
 };
 
 const initialState: NewListingSlice = {
   step: "companyData",
-  listingTypes: [],
-  currentListingType: null,
+  listingTypesToFill: [],
   companyData: {
     companyName: "",
     ico: "",
@@ -98,15 +94,15 @@ const initialState: NewListingSlice = {
     },
   },
   listingData: {
-    listingName: "",
-    type: "gastro",
-    listingSpecification: [],
-    newListingLocation: {
+    name: "",
+    type: undefined,
+    specifications: [],
+    location: {
       adressSameAsCompany: false,
-      street: "",
-      city: "",
-      cityCode: "",
-      country: "",
+      street: undefined,
+      city: undefined,
+      cityCode: undefined,
+      country: undefined,
     },
   },
 };
@@ -116,13 +112,12 @@ export const newListing = createSlice({
   initialState,
   reducers: {
     changeStep: changeStepAction,
-    updateListingTypes: updateListingTypes,
-    changeCurrentListingType: changeCurrentListingTypeAction,
+    updateTypesToFill: updateListingTypesToFill,
     saveCompanyData: saveCompanyDataAction,
-    saveListingLocation: saveListingLocationAction,
-    saveListingName: saveListingNameAction,
-    saveListingType: saveListingTypeAction,
-    saveListingSpecifications: saveListingSpecificationsAction,
+    saveLocation: saveLocation,
+    saveName: saveName,
+    saveType: saveType,
+    saveSpecifications: saveSpecification,
   },
 });
 

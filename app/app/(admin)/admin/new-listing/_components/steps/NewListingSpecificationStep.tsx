@@ -12,12 +12,14 @@ import {
   newListing,
 } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 type SpecTagProps = {
   data: Category;
   onClick: (value: Category) => void;
+  disableIcon?: boolean;
 };
 
 export function SpecTag(props: SpecTagProps) {
@@ -35,7 +37,7 @@ export function SpecTag(props: SpecTagProps) {
         color="white"
         className="font-semibold"
       />
-      <FaXmark />
+      {!props.disableIcon && <FaXmark />}
     </button>
   );
 }
@@ -74,12 +76,17 @@ export const specTagMockData: Category[] = [
   { label: "Sad", value: "sad", id: "12" },
 ];
 
-export default function NewListingSpecificationStep({}: Props) {
-  const state = useAppSelector(
-    (state) => state.newListing.listingData.listingSpecification
+export default function NewspecificationStep({}: Props) {
+  const state = useAppSelector((state) => state.newListing);
+  const t = useTranslations(
+    state.listingData.type
+      ? `admin.company.newListing.steps.specification.${state.listingData.type}`
+      : "admin.company.newListing.steps.specification.gastro"
   );
   const { changeStepHandler } = useNewListingSteps();
-  const [activeSpecs, setActiveSpects] = useState<Category[]>(state);
+  const [activeSpecs, setActiveSpects] = useState<Category[]>(
+    state.listingData.specifications
+  );
   const [specModalActive, setSpecModalActive] = useState(false);
   const [input, setInput] = useState<string>("");
   const [searchSpec, setSearchSpec] = useState<Category[]>([]);
@@ -97,7 +104,7 @@ export default function NewListingSpecificationStep({}: Props) {
   function onSubmitHandler(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (activeSpecs.length > 0) {
-      dispatch(newListing.actions.saveListingSpecifications(activeSpecs));
+      dispatch(newListing.actions.saveSpecifications(activeSpecs));
       changeStepHandler("listingLocation");
     } else {
       setIsInvalid(true);
@@ -157,10 +164,8 @@ export default function NewListingSpecificationStep({}: Props) {
   return (
     <AdminNewListingFormWrapper
       onSubmit={onSubmitHandler}
-      heading={"Co za místo nabízíš?"}
-      subheading={
-        "Teď potřebujeme přesně specifikovat místo, které nabízíš. Může jich být klidně víc, takže to pořádně popiš."
-      }
+      heading={t("heading")}
+      subheading={t("subheading")}
     >
       <div
         className={` ${isInvalid ? "bg-red-50 border border-danger" : "bg-white "} shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
@@ -188,7 +193,7 @@ export default function NewListingSpecificationStep({}: Props) {
               onChange={(e) => {
                 setInput(e.target.value);
               }}
-              placeholder="Přidej další"
+              placeholder={t("input.placeholder")}
               type="text"
               className="focus:outline-0 w-full text-lg font-semibold border-borderLight flex items-center justify-start"
             />
@@ -210,14 +215,27 @@ export default function NewListingSpecificationStep({}: Props) {
           </div>
         </div>
       </div>
-      <Button
-        text="Pokračovat"
-        type="submit"
-        bgColor="secondaryPrimary"
-        size="xl"
-        textColor="white"
-        rounding="full"
-      />
+      <div className="flex gap-5">
+        <Button
+          text={t("buttonBack")}
+          type="button"
+          bgColor="secondaryPrimary"
+          size="xl"
+          textColor="white"
+          rounding="full"
+          onClick={() => {
+            changeStepHandler("listingName");
+          }}
+        />
+        <Button
+          text={t("buttonContinue")}
+          type="submit"
+          bgColor="secondaryPrimary"
+          size="xl"
+          textColor="white"
+          rounding="full"
+        />
+      </div>
     </AdminNewListingFormWrapper>
   );
 }

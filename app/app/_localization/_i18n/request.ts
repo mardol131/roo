@@ -10,9 +10,11 @@ export default getRequestConfig(async () => {
     await import(`../_messages/${locale}/landingPagesHeader.json`)
   ).default;
   const admin = (await import(`../_messages/${locale}/admin.json`)).default;
+  const countries = (await import(`../_messages/${locale}/countries.json`))
+    .default;
 
   // Combine all messages
-  const messages = { header, landingPagesHeader, admin };
+  const messages = { header, landingPagesHeader, admin, countries };
 
   return {
     locale,

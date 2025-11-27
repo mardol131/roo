@@ -18,7 +18,7 @@ type Props = {};
 export default function NewListingNameStep({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
   const dispatch = useAppDispatch();
-  const state = useAppSelector((state) => state.newListing.currentListingType);
+  const state = useAppSelector((state) => state.newListing.listingData.type);
   const t = useTranslations(
     state
       ? `admin.company.newListing.steps.listingName.${state}`
@@ -28,7 +28,7 @@ export default function NewListingNameStep({}: Props) {
   const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = formDataToObject(new FormData(e.currentTarget));
-    dispatch(newListing.actions.saveListingName(data.listingName));
+    dispatch(newListing.actions.saveName(data.listingName));
     changeStepHandler("listingSpecification");
   }, []);
 
@@ -51,14 +51,16 @@ export default function NewListingNameStep({}: Props) {
           required
         />
       </AdminFormPartWrapper>
-      <Button
-        text={t("button")}
-        type="submit"
-        bgColor="secondaryPrimary"
-        size="xl"
-        textColor="white"
-        rounding="full"
-      />
+      <div className="flex gap-5">
+        <Button
+          text={t("button")}
+          type="submit"
+          bgColor="secondaryPrimary"
+          size="xl"
+          textColor="white"
+          rounding="full"
+        />
+      </div>
     </AdminNewListingFormWrapper>
   );
 }

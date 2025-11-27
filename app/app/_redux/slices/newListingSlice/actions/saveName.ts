@@ -1,10 +1,10 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { NewListingSlice } from "../newListingSlice";
 
-export function saveListingNameAction(
+export function saveName(
   state: NewListingSlice,
   action: PayloadAction<string>
 ) {
-  state.listingData.listingName = action.payload;
-  console.log("Saved listing name:", state.listingData.listingName);
+  state.listingData.name = action.payload;
+  console.log("Saved listing name:", state.listingData.name);
 }

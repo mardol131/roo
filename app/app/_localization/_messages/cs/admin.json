@@ -57,7 +57,7 @@
               },
               "phone": {
                 "label": "Telefon",
-                "placeholder": "+420 123 456 789"
+                "placeholder": "123 456 789"
               },
               "email": {
                 "label": "E-mail",
@@ -128,6 +128,112 @@
               "placeholder": "Název mé služby"
             },
             "button": "Pokračovat",
+            "buttonBack": "Zpět"
+          }
+        },
+        "specification": {
+          "place": {
+            "heading": "Co za místo nabízíš?",
+            "subheading": "Teď potřebujeme přesně specifikovat místo, které nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
+            "input": {
+              "placeholder": "Přidej další"
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "gastro": {
+            "heading": "Co za službu nabízíš?",
+            "subheading": "Teď potřebujeme přesně specifikovat službu, kterou nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
+            "input": {
+              "placeholder": "Přidej další"
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "entertainment": {
+            "heading": "Co za službu nabízíš?",
+            "subheading": "Teď potřebujeme přesně specifikovat službu, kterou nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
+            "input": {
+              "placeholder": "Přidej další"
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          }
+        },
+        "location": {
+          "place": {
+            "title": "Kde se tvoje místo nachází?",
+            "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje",
+            "inputs": {
+              "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "street": {
+                "label": "Ulice",
+                "placeholder": "Ulice 123"
+              },
+              "city": {
+                "label": "Město",
+                "placeholder": "Praha"
+              },
+              "cityCode": {
+                "label": "PSČ",
+                "placeholder": "100 00"
+              },
+              "country": {
+                "label": "Země",
+                "placeholder": "Vyberte zemi"
+              }
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "gastro": {
+            "title": "Kde se tvoje služba nachází?",
+            "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje",
+            "inputs": {
+              "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "street": {
+                "label": "Ulice",
+                "placeholder": "Ulice 123"
+              },
+              "city": {
+                "label": "Město",
+                "placeholder": "Praha"
+              },
+              "cityCode": {
+                "label": "PSČ",
+                "placeholder": "100 00"
+              },
+              "country": {
+                "label": "Země",
+                "placeholder": "Vyberte zemi"
+              }
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "entertainment": {
+            "title": "Kde se tvoje služba nachází?",
+            "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje",
+            "inputs": {
+              "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "street": {
+                "label": "Ulice",
+                "placeholder": "Ulice 123"
+              },
+              "city": {
+                "label": "Město",
+                "placeholder": "Praha"
+              },
+              "cityCode": {
+                "label": "PSČ",
+                "placeholder": "100 00"
+              },
+              "country": {
+                "label": "Země",
+                "placeholder": "Vyberte zemi"
+              }
+            },
+            "buttonContinue": "Pokračovat",
             "buttonBack": "Zpět"
           }
         }

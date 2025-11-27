@@ -15,7 +15,7 @@ import { useTranslations } from "next-intl";
 type Props = {};
 
 export default function NewListingTypeStep({}: Props) {
-  const { listingTypes, currentListingType } = useAppSelector(
+  const { listingTypesToFill, listingData } = useAppSelector(
     (state) => state.newListing
   );
   const dispatch = useAppDispatch();
@@ -24,9 +24,9 @@ export default function NewListingTypeStep({}: Props) {
 
   const t = useTranslations("admin.company.newListing.steps.listingType");
 
-  function updateListingTypeArray(value: ListingType) {
-    dispatch(newListing.actions.updateListingTypes(value));
-    dispatch(newListing.actions.changeCurrentListingType(null));
+  function updateListingTypesToFillArray(value: ListingType) {
+    dispatch(newListing.actions.updateTypesToFill(value));
+    dispatch(newListing.actions.saveType(undefined));
   }
 
   const listingCardsData = useMemo(() => {
@@ -64,26 +64,24 @@ export default function NewListingTypeStep({}: Props) {
   }, []);
 
   function anotherStepHandler() {
-    if (currentListingType) {
+    if (listingData.type) {
       return changeStepHandler("listingName");
     }
-    if (listingTypes.length > 1) {
-      dispatch(newListing.actions.changeCurrentListingType(null));
-      setShouldPickOne(true);
-    } else if (listingTypes.length === 1) {
-      dispatch(newListing.actions.changeCurrentListingType(listingTypes[0]));
-      dispatch(newListing.actions.saveListingType(listingTypes[0]));
-      changeStepHandler("listingName");
+    if (listingTypesToFill.length > 1) {
+      return setShouldPickOne(true);
+    } else if (listingTypesToFill.length === 1) {
+      dispatch(newListing.actions.saveType(listingTypesToFill[0]));
+      return changeStepHandler("listingName");
     }
   }
 
   function returnToTypeshandler() {
     setShouldPickOne(false);
+    dispatch(newListing.actions.saveType(undefined));
   }
 
   function updateListingType(value: ListingType) {
-    dispatch(newListing.actions.changeCurrentListingType(value));
-    dispatch(newListing.actions.saveListingType(value));
+    dispatch(newListing.actions.saveType(value));
   }
 
   if (shouldPickOne) {
@@ -94,7 +92,7 @@ export default function NewListingTypeStep({}: Props) {
       >
         <>
           <div className="flex max-md:flex-col w-full justify-center gap-5 max-w-250">
-            {listingTypes.map((listing, i) => {
+            {listingTypesToFill.map((listing, i) => {
               const delay = i * 50;
 
               const data = listingCardsData.find(
@@ -105,7 +103,7 @@ export default function NewListingTypeStep({}: Props) {
 
               return (
                 <ListingTypeCard
-                  isActive={currentListingType === data.value}
+                  isActive={listingData.type === data.value}
                   key={data.value}
                   value={data.value}
                   onClick={updateListingType}
@@ -119,24 +117,24 @@ export default function NewListingTypeStep({}: Props) {
             })}
           </div>
           <div className="flex gap-5">
-            <div onClick={returnToTypeshandler}>
-              <Button
-                text="Zpět"
-                bgColor="secondaryPrimaryTertiary"
-                size="xl"
-                rounding="full"
-                textColor="white"
-              />
-            </div>
-            <div onClick={anotherStepHandler}>
+            <Button
+              text="Zpět"
+              bgColor="secondaryPrimaryTertiary"
+              size="xl"
+              rounding="full"
+              textColor="white"
+              onClick={returnToTypeshandler}
+            />
+            {listingData.type && (
               <Button
                 text="Pokračovat"
                 bgColor="secondaryPrimaryTertiary"
                 size="xl"
                 rounding="full"
                 textColor="white"
+                onClick={anotherStepHandler}
               />
-            </div>
+            )}
           </div>
         </>
       </AdminNewListingFormWrapper>
@@ -155,12 +153,14 @@ export default function NewListingTypeStep({}: Props) {
 
             return (
               <ListingTypeCard
-                isActive={listingTypes.some((value) => value === listing.value)}
+                isActive={listingTypesToFill.some(
+                  (value) => value === listing.value
+                )}
                 heading={listing.heading}
                 text={listing.text}
                 key={listing.value}
                 value={listing.value}
-                onClick={updateListingTypeArray}
+                onClick={updateListingTypesToFillArray}
                 delayMs={delay.toString()}
                 color={listing.color}
                 bgColor={listing.bgColor}
@@ -168,7 +168,7 @@ export default function NewListingTypeStep({}: Props) {
             );
           })}
         </div>
-        {listingTypes.length > 0 && (
+        {listingTypesToFill.length > 0 && (
           <div onClick={anotherStepHandler}>
             <Button
               text="Pokračovat"

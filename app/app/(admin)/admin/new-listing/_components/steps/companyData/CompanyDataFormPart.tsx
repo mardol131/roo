@@ -81,10 +81,7 @@ export default function CompanyDataFormPart({}: Props) {
         label={t("inputs.country.label")}
         placeholder={t("inputs.country.placeholder")}
         value="country"
-        options={[
-          { text: "Česká republika", value: "czech-republic" },
-          { text: "Slovenská republika", value: "slovakia" },
-        ]}
+        optionsGroup="country"
         required
         defaultValue={store?.country}
       />

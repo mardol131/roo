@@ -7,18 +7,29 @@ type SelectOptionType = {
   value: string;
 };
 
+const countryOptions: SelectOptionType[] = [
+  { text: "Česká republika", value: "cz" },
+  { text: "Slovenská republika", value: "sk" },
+];
+
 export type FormSelectInputProps = {
-  blockType: "formselectinput";
+  blockType?: "formselectinput";
   label: string;
   value: string;
   placeholder: string;
   spanTwo?: boolean;
-  options: SelectOptionType[];
+  options?: SelectOptionType[];
   required?: boolean;
+  disabled?: boolean;
+  defaultValue?: string;
+  optionsGroup?: "country";
 } & HTMLAttributes<HTMLSelectElement>;
 
 export function FormSelectInput(props: FormSelectInputProps) {
   const [isInvalid, setIsInvalid] = useState(false);
+
+  const optionsToRender =
+    props.optionsGroup === "country" ? countryOptions : props.options;
 
   return (
     <FormInputWrapper isInvalid={isInvalid} spanTwo={props.spanTwo}>
@@ -29,6 +40,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
         required={props.required || false}
         name={props.value}
         id={props.value}
+        disabled={props.disabled}
         onInvalid={() => {
           setIsInvalid(true);
         }}
@@ -39,13 +51,14 @@ export function FormSelectInput(props: FormSelectInputProps) {
         <option value="" className="text-textPlaceholder">
           {props.placeholder}
         </option>
-        {props.options.map((option) => {
-          return (
-            <option key={option.text} value={option.value}>
-              {option.text}
-            </option>
-          );
-        })}
+        {optionsToRender &&
+          optionsToRender.map((option) => {
+            return (
+              <option key={option.text} value={option.value}>
+                {option.text}
+              </option>
+            );
+          })}
       </select>
     </FormInputWrapper>
   );

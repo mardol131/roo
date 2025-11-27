@@ -10,12 +10,15 @@ import { FormEvent, useCallback, useMemo } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 import { SpecTag, specTagMockData } from "./NewListingSpecificationStep";
 import { useAppSelector } from "@/app/_redux/hooks";
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
 export default function NewListingSummary({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
   const state = useAppSelector((state) => state.newListing);
+  const tCountry = useTranslations("countries");
+  console.log(state);
 
   const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,7 +31,7 @@ export default function NewListingSummary({}: Props) {
     spanTwo,
   }: {
     label: string;
-    text: string;
+    text?: string;
     spanTwo?: boolean;
   }) {
     return (
@@ -42,12 +45,42 @@ export default function NewListingSummary({}: Props) {
           size="bodyMd"
           fontWeight="semibold"
         />
+        {text && (
+          <Text
+            text={text}
+            tag="h4"
+            color="black"
+            size="bodyMd"
+            fontWeight="semibold"
+          />
+        )}
+      </div>
+    );
+  }
+
+  function SectionHeading({
+    text,
+    onClick,
+  }: {
+    text: string;
+    onClick: () => void;
+  }) {
+    return (
+      <div className="col-span-2 border-b border-borderLight pb-2 w-full flex items-center gap-2 justify-between max-md:justify-start">
         <Text
           text={text}
-          tag="h4"
-          color="black"
-          size="bodyMd"
+          tag="h3"
+          size="headingSm"
+          className=" text-center"
           fontWeight="semibold"
+        />
+        <Button
+          text="Upravit"
+          size="sm"
+          bgColor="primary"
+          rounding="full"
+          textColor="white"
+          onClick={onClick}
         />
       </div>
     );
@@ -62,55 +95,26 @@ export default function NewListingSummary({}: Props) {
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 md:grid flex flex-col grid-cols-2`}
       >
-        <div className="col-span-2 flex items-center gap-2 justify-center max-md:justify-start">
-          <Text
-            text="Fakturační údaje"
-            tag="h3"
-            size="headingSm"
-            className=" text-center"
-            fontWeight="semibold"
-          />
-          <Button
-            text="Upravit"
-            size="sm"
-            bgColor="primary"
-            rounding="full"
-            textColor="white"
-            onClick={() => {
-              changeStepHandler("companyData");
-            }}
-          />
-        </div>
+        <SectionHeading
+          text="Fakturační údaje"
+          onClick={() => changeStepHandler("companyData")}
+        />
         <TextBlock label="Název:" text={state.companyData.companyName} />
         <TextBlock label="IČO:" text={state.companyData.ico} />
         <TextBlock label="DIČ:" text={state.companyData.dic || ""} />
         <TextBlock label="Ulice:" text={state.companyData.street} />
         <TextBlock label="Město:" text={state.companyData.city} />
         <TextBlock label="PSČ:" text={state.companyData.cityCode} />
-        <TextBlock label="Země:" text={state.companyData.country} />
+        <TextBlock label="Země:" text={tCountry(state.companyData.country)} />
       </div>
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
       >
-        <div className="col-span-2 flex items-center gap-2 justify-center">
-          <Text
-            text="Kontaktní osoba"
-            tag="h3"
-            size="headingSm"
-            className=" text-center"
-            fontWeight="semibold"
-          />
-          <Button
-            text="Upravit"
-            size="sm"
-            bgColor="primary"
-            rounding="full"
-            textColor="white"
-            onClick={() => {
-              changeStepHandler("companyData");
-            }}
-          />
-        </div>
+        <SectionHeading
+          text="Kontaktní osoba"
+          onClick={() => changeStepHandler("companyData")}
+        />
+
         <TextBlock
           label="Jméno:"
           text={state.companyData.contactPerson.firstName}
@@ -131,53 +135,23 @@ export default function NewListingSummary({}: Props) {
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 md:grid flex flex-col grid-cols-2`}
       >
-        <div className=" w-full col-span-2 flex items-center gap-2 md:justify-center justify-start">
-          <Text
-            text="Jméno tvojí služby"
-            tag="h3"
-            size="headingSm"
-            className=" text-center"
-            fontWeight="semibold"
-          />
-          <Button
-            text="Upravit"
-            size="sm"
-            bgColor="primary"
-            rounding="full"
-            textColor="white"
-            onClick={() => {
-              changeStepHandler("listingName");
-            }}
-          />
-        </div>
+        <SectionHeading
+          text="Jméno tvojí služby"
+          onClick={() => changeStepHandler("listingName")}
+        />
         <TextBlock
           label="Jméno služby:"
-          text={state.listingData.listingName}
+          text={state.listingData.name}
           spanTwo
         />
       </div>
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
       >
-        <div className="col-span-2 flex items-center gap-2 justify-center max-md:justify-start">
-          <Text
-            text="Specifikace služby"
-            tag="h3"
-            size="headingSm"
-            className=" text-center"
-            fontWeight="semibold"
-          />
-          <Button
-            text="Upravit"
-            size="sm"
-            bgColor="primary"
-            rounding="full"
-            textColor="white"
-            onClick={() => {
-              changeStepHandler("listingSpecification");
-            }}
-          />
-        </div>
+        <SectionHeading
+          text="Specifikace služby"
+          onClick={() => changeStepHandler("listingSpecification")}
+        />
         <div
           className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
         >
@@ -189,12 +163,14 @@ export default function NewListingSummary({}: Props) {
             fontWeight="semibold"
           />
           <div className="flex gap-2 flex-wrap">
-            {state.listingData.listingSpecification.map((item) => {
+            {state.listingData.specifications.map((item) => {
+              console.log(item);
               return (
                 <SpecTag
                   key={item.label + item.value + item.id}
                   data={item}
                   onClick={() => {}}
+                  disableIcon
                 />
               );
             })}
@@ -204,40 +180,16 @@ export default function NewListingSummary({}: Props) {
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
       >
-        <div className="col-span-2 flex items-center gap-2 justify-center">
-          <Text
-            text="Kde sídlíš"
-            tag="h3"
-            size="headingSm"
-            className=" text-center"
-            fontWeight="semibold"
-          />
-          <Button
-            text="Upravit"
-            size="sm"
-            bgColor="primary"
-            rounding="full"
-            textColor="white"
-            onClick={() => {
-              changeStepHandler("listingLocation");
-            }}
-          />
-        </div>
-        <TextBlock
-          label="Ulice:"
-          text={state.listingData.newListingLocation.street}
+        <SectionHeading
+          text="Sídlo tvojí služby"
+          onClick={() => changeStepHandler("listingLocation")}
         />
-        <TextBlock
-          label="Město:"
-          text={state.listingData.newListingLocation.city}
-        />
-        <TextBlock
-          label="PSČ:"
-          text={state.listingData.newListingLocation.cityCode}
-        />
+        <TextBlock label="Ulice:" text={state.listingData.location.street} />
+        <TextBlock label="Město:" text={state.listingData.location.city} />
+        <TextBlock label="PSČ:" text={state.listingData.location.cityCode} />
         <TextBlock
           label="Země:"
-          text={state.listingData.newListingLocation.country}
+          text={tCountry(state.listingData.location.country || "cz")}
         />
       </div>
 
