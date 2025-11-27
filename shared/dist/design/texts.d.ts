@@ -8,6 +8,7 @@ export declare const textTag: {
     em: string;
     p: string;
     span: string;
+    label: string;
 };
 export type TextTag = keyof typeof textTag;
 export declare const fontWeight: {

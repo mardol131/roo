@@ -7,10 +7,8 @@ import {
   headerFilterSlice,
 } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 
-import { getLocalization } from "@/app/_localization/getLocalization";
 import { Counter, CounterType } from "../../filters/Counter";
-
-const m = getLocalization("cs", "header.guest_counter");
+import { useTranslations } from "next-intl";
 
 type Props = {};
 
@@ -20,6 +18,7 @@ export default function GuestsSettings({}: Props) {
   function nullHeaderSettings() {
     dispatch(headerFilterSlice.actions.changeHeaderSettings(null));
   }
+  const t = useTranslations("header.people.guestCounter");
 
   function addGuests(type: GuestType) {
     dispatch(headerFilterSlice.actions.increment(type));
@@ -55,7 +54,7 @@ export default function GuestsSettings({}: Props) {
                 removeGuests(type);
               }}
               value={guests[type]}
-              text={m(type)}
+              text={t(`${type}`)}
               stateChangerOnUserInteract={(value: number) => {
                 changeValueOnUserInput(type, value);
               }}

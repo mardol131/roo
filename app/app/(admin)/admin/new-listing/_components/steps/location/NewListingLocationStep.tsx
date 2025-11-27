@@ -1,0 +1,315 @@
+"use client";
+
+import Button from "@/app/_components/atoms/Button";
+
+import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
+import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
+import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
+import {
+  Category,
+  newListing,
+} from "@/app/_redux/slices/newListingSlice/newListingSlice";
+import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
+import React, { FormEvent, useCallback, useMemo, useState } from "react";
+import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
+import { useTranslations } from "next-intl";
+import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
+import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
+import { FormSelectInput } from "@/app/_components/molecules/inputs/FormSelectInput";
+import { FormMultiSelectInput } from "@/app/_components/molecules/inputs/FormMultiSelectInput";
+import {
+  countryOptions,
+  regionOptions,
+  districtOptions,
+  cityOptions,
+} from "@/app/_components/molecules/inputs/locationData";
+import Text from "@/app/_components/atoms/Text";
+
+type Props = {};
+
+export default function NewListingLocationStep({}: Props) {
+  const state = useAppSelector((state) => state.newListing);
+  const { changeStepHandler } = useNewListingSteps();
+  const [addressIsSameAsInvoicing, setAddressIsSameAsInvoicing] = useState(
+    state.listingData.location.adressSameAsCompany
+  );
+  const [multipleLocations, setMultipleLocations] = useState(
+    state.listingData.location.multipleLocations
+  );
+  const [selectedCountries, setSelectedCountries] = useState<Category[]>(
+    state.listingData.location.serviceAreas?.country || []
+  );
+  const [selectedRegions, setSelectedRegions] = useState<Category[]>(
+    state.listingData.location.serviceAreas?.regions || []
+  );
+  const [selectedDistricts, setSelectedDistricts] = useState<Category[]>(
+    state.listingData.location.serviceAreas?.districts || []
+  );
+  const [selectedCities, setSelectedCities] = useState<Category[]>(
+    state.listingData.location.serviceAreas?.cities || []
+  );
+  const [step, setStep] = useState<"oneLocation" | "multipleLocations">(
+    "oneLocation"
+  );
+  const dispatch = useAppDispatch();
+  const t = useTranslations(
+    state.listingData.type
+      ? `admin.company.newListing.steps.location.${state.listingData.type}`
+      : "admin.company.newListing.steps.location.place"
+  );
+
+  function checkboxOnChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log(e.target.checked);
+    setAddressIsSameAsInvoicing(e.target.checked);
+  }
+
+  const onSubmitHandler = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+
+      if (step === "oneLocation") {
+        const data = formDataToObject(new FormData(e.currentTarget));
+        if (data.sameAddress) {
+          dispatch(
+            newListing.actions.saveLocation({
+              street: state?.companyData?.street,
+              city: state?.companyData?.city,
+              cityCode: state?.companyData?.cityCode,
+              country: state?.companyData?.country,
+              adressSameAsCompany: true,
+              multipleLocations: multipleLocations,
+              serviceAreas: undefined,
+            })
+          );
+        } else {
+          dispatch(
+            newListing.actions.saveLocation({
+              street: data.street,
+              city: data.city,
+              cityCode: data.cityCode,
+              country: data.country,
+              adressSameAsCompany: false,
+              multipleLocations: multipleLocations,
+              serviceAreas: undefined,
+            })
+          );
+        }
+      }
+
+      if (step === "multipleLocations") {
+        dispatch(
+          newListing.actions.saveLocation({
+            street: state?.companyData?.street,
+            city: state?.companyData?.city,
+            cityCode: state?.companyData?.cityCode,
+            country: state?.companyData?.country,
+            adressSameAsCompany:
+              state?.listingData?.location?.adressSameAsCompany,
+            multipleLocations: state?.listingData?.location?.multipleLocations,
+            serviceAreas: multipleLocations
+              ? {
+                  country: selectedCountries,
+                  regions: selectedRegions,
+                  districts: selectedDistricts,
+                  cities: selectedCities,
+                }
+              : undefined,
+          })
+        );
+      }
+
+      if (multipleLocations && step === "oneLocation") {
+        setStep("multipleLocations");
+        return;
+      }
+
+      changeStepHandler("summary");
+    },
+    [
+      multipleLocations,
+      selectedCountries,
+      selectedRegions,
+      selectedDistricts,
+      selectedCities,
+      state?.companyData,
+      dispatch,
+      changeStepHandler,
+    ]
+  );
+
+  if (step === "multipleLocations") {
+    return (
+      <AdminNewListingFormWrapper
+        onSubmit={onSubmitHandler}
+        heading={t("stepTwo.title")}
+        subheading={t("stepTwo.subtitle")}
+      >
+        <div className="w-full flex flex-col gap-5 items-center justify-center max-w-150">
+          <AdminFormPartWrapper disabled={false}>
+            <FormMultiSelectInput
+              spanTwo={true}
+              label="Země"
+              name="serviceCountries"
+              placeholder="Vyberte země"
+              options={countryOptions}
+              defaultValue={selectedCountries}
+              onChangeAction={setSelectedCountries}
+              required={multipleLocations}
+            />
+
+            <FormMultiSelectInput
+              spanTwo={true}
+              label="Kraje"
+              name="serviceRegions"
+              placeholder="Vyberte kraje"
+              options={regionOptions}
+              defaultValue={selectedRegions}
+              onChangeAction={setSelectedRegions}
+            />
+
+            <FormMultiSelectInput
+              spanTwo={true}
+              label="Okresy"
+              name="serviceDistricts"
+              placeholder="Vyberte okresy"
+              options={districtOptions}
+              defaultValue={selectedDistricts}
+              onChangeAction={setSelectedDistricts}
+            />
+
+            <FormMultiSelectInput
+              spanTwo={true}
+              label="Města"
+              name="serviceCities"
+              placeholder="Vyberte města"
+              options={cityOptions}
+              defaultValue={selectedCities}
+              onChangeAction={setSelectedCities}
+            />
+          </AdminFormPartWrapper>
+        </div>
+        <div className="flex gap-5">
+          <Button
+            text="Zpět"
+            type="button"
+            onClick={() => {
+              changeStepHandler("listingSpecification");
+            }}
+            bgColor="secondaryPrimary"
+            size="xl"
+            textColor="white"
+            rounding="full"
+          />
+          <Button
+            text="Pokračovat"
+            type="submit"
+            bgColor="secondaryPrimary"
+            size="xl"
+            textColor="white"
+            rounding="full"
+          />
+        </div>
+      </AdminNewListingFormWrapper>
+    );
+  } else {
+    return (
+      <AdminNewListingFormWrapper
+        onSubmit={onSubmitHandler}
+        heading={t("stepOne.title")}
+        subheading={t("stepOne.subtitle")}
+      >
+        <div className="w-full flex flex-col gap-5 items-center justify-center max-w-150">
+          <>
+            <FormCheckboxInput
+              label={{ text: "Adresa je stejná jako fakturační", tag: "span" }}
+              name="sameAddress"
+              value="true"
+              onChange={checkboxOnChangeHandler}
+              isChecked={addressIsSameAsInvoicing}
+              defaultChecked={state?.listingData?.location?.adressSameAsCompany}
+            />
+            <AdminFormPartWrapper disabled={addressIsSameAsInvoicing}>
+              <FormTextInput
+                type="text"
+                spanTwo={true}
+                name="street"
+                label={t("inputs.street.label")}
+                placeholder={t("inputs.street.placeholder")}
+                disabled={addressIsSameAsInvoicing}
+                defaultValue={state?.listingData.location.street}
+                required={!addressIsSameAsInvoicing}
+              />
+              <FormTextInput
+                type="text"
+                name="city"
+                label={t("inputs.city.label")}
+                placeholder={t("inputs.city.placeholder")}
+                disabled={addressIsSameAsInvoicing}
+                defaultValue={state?.listingData.location.city}
+                required={!addressIsSameAsInvoicing}
+              />
+              <FormTextInput
+                type="text"
+                name="cityCode"
+                label={t("inputs.cityCode.label")}
+                placeholder={t("inputs.cityCode.placeholder")}
+                disabled={addressIsSameAsInvoicing}
+                defaultValue={state?.listingData.location.cityCode}
+                required={!addressIsSameAsInvoicing}
+              />
+              <FormSelectInput
+                spanTwo={true}
+                value="country"
+                optionsGroup="country"
+                label={t("inputs.country.label")}
+                placeholder={t("inputs.country.placeholder")}
+                disabled={addressIsSameAsInvoicing}
+                defaultValue={state?.listingData.location.country}
+                required={!addressIsSameAsInvoicing}
+              />
+            </AdminFormPartWrapper>
+            {state.listingData.type !== "place" && (
+              <FormCheckboxInput
+                label={{
+                  text: "Poskytuji službu ve více lokalitách",
+                  tag: "span",
+                }}
+                name="multipleLocations"
+                value="true"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setMultipleLocations(e.target.checked);
+                }}
+                isChecked={multipleLocations}
+                defaultChecked={state?.listingData?.location?.multipleLocations}
+                className="py-5"
+              />
+            )}
+          </>
+
+          {/* Sekce pro výběr více lokalit */}
+        </div>
+        <div className="flex gap-5">
+          <Button
+            text="Zpět"
+            type="button"
+            onClick={() => {
+              changeStepHandler("listingSpecification");
+            }}
+            bgColor="secondaryPrimary"
+            size="xl"
+            textColor="white"
+            rounding="full"
+          />
+          <Button
+            text="Pokračovat"
+            type="submit"
+            bgColor="secondaryPrimary"
+            size="xl"
+            textColor="white"
+            rounding="full"
+          />
+        </div>
+      </AdminNewListingFormWrapper>
+    );
+  }
+}

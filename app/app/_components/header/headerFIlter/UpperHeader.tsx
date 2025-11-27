@@ -7,23 +7,24 @@ import { FaCheck, FaMagnifyingGlass } from "react-icons/fa6";
 import { MdOutlineFestival } from "react-icons/md";
 import Text from "../../atoms/Text";
 
-import { getLocalization } from "@/app/_localization/getLocalization";
 import {
   headerFilterSlice,
   SettingsTypes,
   SettingsTypesArray,
 } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
+import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 type UpperHeaderProps = {
   headerFilterRef: React.RefObject<HTMLDivElement | null>;
 };
 
-const m = getLocalization("cs", "header");
-
 export function UpperHeader(props: UpperHeaderProps) {
   const { guests, category, settingsType } = useAppSelector(
     (state) => state.headerFilter
   );
+  const t = useTranslations("header");
+
   const dispatch = useAppDispatch();
 
   function setSettingsType(type: SettingsTypes) {
@@ -53,9 +54,9 @@ export function UpperHeader(props: UpperHeaderProps) {
         }}
         className="flex flex-col items-start"
       >
-        <Text text={m(`${value}.label`)} tag="p" size="bodyXs" color="black" />
+        <Text text={t(`${value}.label`)} tag="p" size="bodyXs" color="black" />
         <Text
-          text={m(`${value}.text`)}
+          text={t(`${value}.text`)}
           tag="p"
           size="bodyMd"
           color="black"
@@ -76,25 +77,18 @@ export function UpperHeader(props: UpperHeaderProps) {
         <MdOutlineFestival className="text-primary text-2xl" />
         <button className="flex flex-col items-start">
           <Text
-            text={m("listingCategory.label")}
+            text={t("listingCategory.label")}
             tag="p"
             size="bodyXs"
             color="black"
           />
           <Text
-            text={m(`listingCategory.type.${category}`)}
+            text={t(`listingCategory.type.${category}`)}
             tag="p"
             color="black"
             className={`${(settingsType === "listingCategory" || category) && "text-primary"} hover:text-primary text-start w-full rounded-full cursor-pointer animate`}
           />
         </button>
-        {category && (
-          <div className="absolute top-[100%] w-full mt-3 flex justify-center">
-            <div className="bg-success p-2 w-[50%] shadow-xl rounded-b-lg">
-              <FaCheck />
-            </div>
-          </div>
-        )}
       </div>
     );
   }

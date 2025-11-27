@@ -7,6 +7,7 @@ import Footer from "./_components/footer/Footer";
 import Header from "./_components/header/Header";
 import StoreProvider from "./_redux/StoreProvider";
 import LoginModal from "./_components/molecules/modals/AuthModal/LoginModal";
+import { NextIntlClientProvider } from "next-intl";
 
 export async function generateMetadata() {
   const canonical = "https://www.rooevent.com/";
@@ -48,10 +49,12 @@ export default function RootLayout({
       <body className="h-full">
         <div className="min-h-screen h-full flex flex-col">
           <StoreProvider>
-            <Header />
-            <LoginModal />
-            <main className="flex-1 flex flex-col">{children}</main>
-            <Footer />
+            <NextIntlClientProvider>
+              <Header />
+              <LoginModal />
+              <main className="flex-1 flex flex-col">{children}</main>
+              <Footer />
+            </NextIntlClientProvider>
           </StoreProvider>
         </div>
       </body>

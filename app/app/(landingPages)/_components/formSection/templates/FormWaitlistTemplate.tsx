@@ -2,6 +2,7 @@ import { FormMultipleSelectInput } from "@/app/_components/molecules/inputs/Form
 import { FormCheckboxInput } from "../../../../_components/molecules/inputs/FormCheckboxInput";
 import { FormSelectInput } from "../../../../_components/molecules/inputs/FormSelectInput";
 import { FormTextInput } from "../../../../_components/molecules/inputs/FormTextInput";
+import { FormMultiSelectInput } from "@/app/_components/molecules/inputs/FormMultiSelectInput";
 
 type Props = {};
 
@@ -62,103 +63,48 @@ export default function FormWaitlistTemplate({}: Props) {
         type="email"
         required={true}
       />
-      <FormMultipleSelectInput
+      <FormMultiSelectInput
         blockType="formmultipleselectinput"
-        label={[
-          {
-            text: "Jsi organizátor? Nabízíš nějakou službu?",
-            tag: "p",
-            color: "primary",
-            fontWeight: "semibold",
-          },
-        ]}
+        label="Jsi organizátor? Nabízíš nějakou službu?"
         required={true}
+        name="category"
+        placeholder="Nabízíte nějakou službu?"
+        usage="cms"
+        groupDividerTexts={[
+          { text: "Typ služby", slugAfter: "place" },
+          { text: "Type organizátora", slugAfter: "private" },
+        ]}
         options={[
           {
-            text: "Nabízíte nějakou službu?",
-            tag: "p",
-            color: "primary",
-            fontWeight: "semibold",
-            blockType: "TextBlock",
-          },
-          {
-            blockType: "formcheckboxinput",
-            value: "place",
-            label: {
-              text: "Místo",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
+            label: "Místo",
+            slug: "place",
             id: "place",
           },
           {
-            blockType: "formcheckboxinput",
-            value: "gastro",
-            label: {
-              text: "Gastro",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
+            label: "Gastro",
+            slug: "gastro",
             id: "gastro",
           },
+          { label: "Zábava", slug: "entertainment", id: "entertainment" },
           {
-            blockType: "formcheckboxinput",
-            value: "entertainment",
-            label: {
-              text: "Zábava",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
-            id: "entertainment",
-          },
-          {
-            text: "Co jste za organizátora?",
-            tag: "p",
-            color: "primary",
-            fontWeight: "semibold",
-            blockType: "TextBlock",
-          },
-          {
-            blockType: "formcheckboxinput",
-            value: "private",
-            label: {
-              text: "Soukromá osoba",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
+            label: "Soukromá osoba",
+            slug: "private",
             id: "private",
           },
           {
-            blockType: "formcheckboxinput",
-            value: "company",
-            label: {
-              text: "Společnost",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
+            label: "Společnost",
+            slug: "company",
             id: "company",
           },
           {
-            blockType: "formcheckboxinput",
-            value: "event-agency",
-            label: {
-              text: "Eventová agentura",
-              color: "black",
-              tag: "p",
-              fontWeight: "semibold",
-            },
+            label: "Eventová agentura",
+            slug: "event-agency",
             id: "event-agency",
           },
         ]}
-        value="category"
+        disableSearch={true}
         spanTwo={true}
       />
-
       <FormSelectInput
         blockType="formselectinput"
         label="Jak jste se o nás dozvěděli"
@@ -166,12 +112,16 @@ export default function FormWaitlistTemplate({}: Props) {
         value="reference"
         spanTwo={true}
         options={[
-          { text: "Vyhledávání", value: "search" },
-          { text: "Sociální sítě", value: "social" },
-          { text: "Online reklama", value: "online-ad" },
-          { text: "Doporučení kamaráda", value: "referral" },
-          { text: "Doporučení klientem", value: "client-referral" },
-          { text: "Prodejce", value: "seller" },
+          { label: "Vyhledávání", slug: "search", id: "search" },
+          { label: "Sociální sítě", slug: "social", id: "social" },
+          { label: "Online reklama", slug: "online-ad", id: "online-ad" },
+          { label: "Doporučení kamaráda", slug: "referral", id: "referral" },
+          {
+            label: "Doporučení klientem",
+            slug: "client-referral",
+            id: "client-referral",
+          },
+          { label: "Prodejce", slug: "seller", id: "seller" },
         ]}
         required={true}
       />

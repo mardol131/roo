@@ -8,11 +8,12 @@ import { FaXmark } from "react-icons/fa6";
 import { FormCheckboxInput, FormCheckboxInputProps } from "./FormCheckboxInput";
 import FormInputWrapper from "./FormInputWrapper";
 import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
+import FormInputLabel from "./FormInputLabel";
 
 export type FormMultipleSelectInputProps = {
   blockType: "formmultipleselectinput";
   options: (FormCheckboxInputProps | TextBlockProps)[];
-  label: TextProps[];
+  label: string;
   defaultValue?: string;
   spanTwo?: boolean;
   required?: boolean;
@@ -91,9 +92,7 @@ export function FormMultipleSelectInput(props: FormMultipleSelectInputProps) {
           props.spanTwo && "col-span-2"
         } relative flex flex-col gap-2 w-full items-start justify-start`}
       >
-        <div className="">
-          {props.label && <GenerateTexts texts={props.label} />}
-        </div>
+        <FormInputLabel text={props.label} />
         <div
           ref={selectRef}
           onClick={() => {

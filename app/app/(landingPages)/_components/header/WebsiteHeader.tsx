@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "@/public/logo.png";
 import { headerLinkList } from "./headerLinkList";
+import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 type Props = {
   button?: ButtonProps;
@@ -17,6 +19,8 @@ export function WebsiteHeader({ button }: Props) {
     textColor: button?.textColor || "white",
     link: button?.link || "pridej-se",
   };
+
+  const t = useTranslations("landingPagesHeader.links");
 
   return (
     <div className="hidden z-50 w-full sticky top-0 lg:flex justify-center pt-4 px-4 -mb-10">
@@ -38,7 +42,7 @@ export function WebsiteHeader({ button }: Props) {
                 href={link.link}
                 className="hover:text-primary animate"
               >
-                {link.text}
+                {t(link.value)}
               </Link>
             );
           })}

@@ -15,7 +15,7 @@ export default function AdminFormPartWrapper({
       aria-disabled={disabled}
       className={`${className} ${
         disabled && "opacity-50"
-      } bg-white shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+      } bg-white shadow-lg/5 animate-popup border w-full relative max-w-200 border-borderLight rounded-medium p-4 gap-3 md:grid flex flex-col grid-cols-2`}
     >
       {children}
     </div>

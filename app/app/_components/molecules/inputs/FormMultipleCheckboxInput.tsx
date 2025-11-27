@@ -3,11 +3,12 @@
 import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { ChangeEvent, useState } from "react";
 import { FormCheckboxInput, FormCheckboxInputProps } from "./FormCheckboxInput";
+import FormInputLabel from "./FormInputLabel";
 
 export type FormMultipleCheckboxInputProps = {
   blockType: "formmultiplecheckboxinput";
   checkboxes: FormCheckboxInputProps[];
-  label: TextProps[];
+  label: string;
   spanTwo?: boolean;
   required?: boolean;
   value: string;
@@ -39,7 +40,7 @@ export function FormMultipleCheckboxInput(
       } flex flex-col gap-5 w-full items-start justify-start`}
     >
       <div className="">
-        {props.label && <GenerateTexts texts={props.label} />}
+        {props.label && <FormInputLabel text={props.label} />}
       </div>
       <div
         className={`${props.spanTwo ? "grid md:grid-cols-2 gap-x-5" : "flex flex-col"} gap-2 w-full`}

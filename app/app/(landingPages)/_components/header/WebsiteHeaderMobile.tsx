@@ -9,6 +9,7 @@ import { useRef, useState } from "react";
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { LuMenu } from "react-icons/lu";
 import { headerLinkList } from "./headerLinkList";
+import { useTranslations } from "next-intl";
 
 type Props = {
   button?: ButtonProps;
@@ -22,6 +23,8 @@ export function WebsiteHeaderMobile({ button }: Props) {
     setShowDropdown(false);
   }
   useClickOutside(dropdownRef, closeDropdownHandler);
+
+  const t = useTranslations("landingPagesHeader.links");
 
   const buttonProps: ButtonProps = {
     text: button?.text || "Přidej se k nám",
@@ -65,7 +68,7 @@ export function WebsiteHeaderMobile({ button }: Props) {
                   href={link.link}
                   className="hover:text-primary animate"
                 >
-                  {link.text}
+                  {t(link.value)}
                 </Link>
               );
             })}

@@ -13,6 +13,7 @@ import { useAppDispatch } from "@/app/_redux/hooks";
 import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
 import Button from "../../atoms/Button";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 type Props = { closeHandler: () => void };
 
@@ -20,6 +21,7 @@ export default function UserDropdown({ closeHandler }: Props) {
   const dropdownRef = useRef(null);
   useClickOutside(dropdownRef, closeHandler);
 
+  const t = useTranslations("header.desktop.dropdown");
   const dispatch = useAppDispatch();
 
   const openLoginModalHandler = useCallback(() => {
@@ -35,7 +37,7 @@ export default function UserDropdown({ closeHandler }: Props) {
         >
           <FaUser className="text-primary" />
           <Text
-            text="Přihlásit se"
+            text={t("signIn")}
             tag="p"
             fontWeight="semibold"
             className="group-hover:text-primary"
@@ -49,7 +51,7 @@ export default function UserDropdown({ closeHandler }: Props) {
         >
           <RiFileUserFill className="text-primary" />
           <Text
-            text="Zaregistrovat se"
+            text={t("signUp")}
             tag="p"
             fontWeight="semibold"
             className="group-hover:text-primary"
@@ -57,26 +59,23 @@ export default function UserDropdown({ closeHandler }: Props) {
           />
         </Link>
         <Divider height={1} />
-        <button className="flex flex-col text-start items-start gap-3">
+        <div className="flex flex-col text-start items-start gap-3">
           <Text
-            text="Staňte se dodavatelem"
+            text={t("becomeHost")}
             tag="p"
             size="headingXs"
             fontWeight="semibold"
           />
-          <Text
-            text="Máš parádní prostor pro akce? Umíš bavit lidi, nebo třeba děláš cateringy? Začni nabízet svoje služby po celé ČR!"
-            tag="p"
-          />
+          <Text text={t("becomeHostText")} tag="p" />
           <Button
-            text="Stát se dodavatelem"
+            text={t("becomeHostButton")}
             type="button"
             size="md"
             bgColor="primaryTertiary"
             rounding="full"
             textColor="white"
           />
-        </button>
+        </div>
       </div>
     </div>
   );

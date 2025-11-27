@@ -1,0 +1,60 @@
+{
+  "listingCategory": {
+    "label": "Co hledáte?",
+    "type": {
+      "null": "Vše",
+      "gastro": "Gastro",
+      "place": "Místo",
+      "entertainment": "Zábava"
+    },
+    "card": {
+      "gastro": {
+        "heading": "Gastro",
+        "text": "Catering, občerstvení, dezerty i speciální kuchyně na každou příležitost.",
+        "button_text": "Hledám gastro"
+      },
+      "place": {
+        "heading": "Místo",
+        "text": "Od zahradních stanů po historické sály. Najděte ideální místo pro vaši akci.",
+        "button_text": "Hledám místo"
+      },
+      "entertainment": {
+        "heading": "Zábava",
+        "text": "Hudba, program, show i doprovodné aktivity, které oživí každou akci.",
+        "button_text": "Hledám zábavu"
+      }
+    }
+  },
+  "eventType": {
+    "label": "Typ akce?",
+    "text": "Neurčeno"
+  },
+  "people": {
+    "label": "Hosté?",
+    "text": "Neurčeno",
+    "guestCounter": {
+      "adult": "Dospělí",
+      "minor": "Děti",
+      "ztp": "ZTP",
+      "pets": "Zvířata"
+    }
+  },
+  "location": {
+    "label": "Kde?",
+    "text": "Kdekoliv"
+  },
+  "time": {
+    "label": "Kdy?",
+    "text": "Kdykoliv"
+  },
+  "desktop": {
+    "becomeHost": "Staňte se dodavatelem",
+    "dropdown": {
+      "signIn": "Přihlásit se",
+      "signUp": "Zaregistrovat se",
+      "becomeHost": "Staňte se dodavatelem",
+      "becomeHostText": "Máš parádní prostor pro akce? Umíš bavit lidi, nebo třeba děláš cateringy? Začni nabízet svoje služby po celé ČR!",
+      "becomeHostButton": "Stát se dodavatelem"
+    }
+  }
+}

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { AdminSidebar } from "./_components/AdminSidebar";
-import { AdminHeader } from "./_components/AdminHeader";
-import StoreProvider from "@/app/_redux/StoreProvider";
+import { AdminMenu } from "./_components/AdminMenu";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,9 +12,9 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="grid grid-cols-[70px_1fr] h-screen bg-zinc-150 pr-4">
-      <AdminSidebar />
-      <div className="h-[97%] self-center overflow-y-hidden border border-borderLight flex flex-col shadow-lg rounded-large bg-zinc-100">
+    <div className="grid md:grid-cols-[70px_1fr] max-md:flex flex-col-reverse h-screen bg-zinc-150 md:pr-4 max-md:pt-2 max-md:px-2">
+      <AdminMenu />
+      <div className=" w-full md:h-[97%] h-full self-center overflow-y-hidden border border-borderLight flex flex-col shadow-lg rounded-lg bg-zinc-100">
         {children}
       </div>
     </div>

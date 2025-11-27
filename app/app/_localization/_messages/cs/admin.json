@@ -1,0 +1,261 @@
+{
+  "company": {
+    "baseMenu": {
+      "home": "Domů",
+      "listings": "Inzeráty",
+      "services": "Služby",
+      "account": "Účet",
+      "menu": "Menu"
+    },
+    "newListing": {
+      "steps": {
+        "companyData": {
+          "title": "Registrace firmy",
+          "leftPart": {
+            "title": "Údaje o společnosti",
+            "inputs": {
+              "companyName": {
+                "label": "Název společnosti",
+                "placeholder": "ROO s.r.o"
+              },
+              "ico": {
+                "label": "IČO",
+                "placeholder": "123456789"
+              },
+              "dic": {
+                "label": "DIČ",
+                "placeholder": "CZ123456789"
+              },
+              "street": {
+                "label": "Ulice",
+                "placeholder": "Ulice 123"
+              },
+              "city": {
+                "label": "Město",
+                "placeholder": "Praha"
+              },
+              "cityCode": {
+                "label": "PSČ",
+                "placeholder": "12345"
+              },
+              "country": {
+                "label": "Země",
+                "placeholder": "Vyberte zemi"
+              }
+            }
+          },
+          "rightPart": {
+            "title": "Hlavní kontaktní osoba",
+            "inputs": {
+              "firstName": {
+                "label": "Jméno",
+                "placeholder": "Jan"
+              },
+              "lastName": {
+                "label": "Příjmení",
+                "placeholder": "Novák"
+              },
+              "phone": {
+                "label": "Telefon",
+                "placeholder": "123 456 789"
+              },
+              "email": {
+                "label": "E-mail",
+                "placeholder": "jan.novak@example.com"
+              }
+            }
+          },
+          "button": "Pokračovat",
+          "legal": "Souhlasím s obchodními podmínkami a zásadami ochrany osobních údajů.",
+          "marketing": "Chci dostávat marketingové e-maily o novinkách a nabídkách.",
+          "success": {
+            "title": "Gratulujeme!",
+            "message": "Už jsi o krok blíž k úspěšnému profilu! Pojďme teď nastavit tvůj první inzerát.",
+            "button": "Pokračovat"
+          }
+        },
+        "listingType": {
+          "title": "Jaké služby poskytuješ?",
+          "subtitle": "Vyber jednu nebo více kategorií kliknutím na ikonu",
+          "cards": {
+            "gastro": {
+              "title": "Gastro",
+              "description": "Děláš catering, máš foodtruck nebo bar na eventy."
+            },
+            "place": {
+              "title": "Místo",
+              "description": "Máš prostory, kde pořádáš akce."
+            },
+            "entertainment": {
+              "title": "Zábava",
+              "description": "Jsi DJ, kapela, moderátor, kouzelník, tanečnice nebo jakkoliv bavíš hosty"
+            }
+          },
+          "button": "Pokračovat",
+          "pickOne": {
+            "title": "Jakou službu chceš nastavit jako první?",
+            "subheading": "Druhou službu budeš mít možnost nastavit později.",
+            "button": "Pokračovat",
+            "buttonBack": "Zpět"
+          }
+        },
+        "listingName": {
+          "gastro": {
+            "title": "Název služby",
+            "subtitle": "Jak se má tvoje služba jmenovat?",
+            "input": {
+              "label": "Název služby",
+              "placeholder": "Název mé služby"
+            },
+            "button": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "place": {
+            "title": "Název místa",
+            "subtitle": "Jak se má tvoje místo jmenovat?",
+            "input": {
+              "label": "Název místa",
+              "placeholder": "Název mého místa"
+            },
+            "button": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "entertainment": {
+            "title": "Název služby",
+            "subtitle": "Jak se má tvoje služba jmenovat?",
+            "input": {
+              "label": "Název služby",
+              "placeholder": "Název mé služby"
+            },
+            "button": "Pokračovat",
+            "buttonBack": "Zpět"
+          }
+        },
+        "specification": {
+          "place": {
+            "heading": "Co za místo nabízíš?",
+            "subheading": "Teď potřebujeme přesně specifikovat místo, které nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
+            "input": {
+              "placeholder": "Přidej další"
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "gastro": {
+            "heading": "Co za službu nabízíš?",
+            "subheading": "Teď potřebujeme přesně specifikovat službu, kterou nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
+            "input": {
+              "placeholder": "Přidej další"
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "entertainment": {
+            "heading": "Co za službu nabízíš?",
+            "subheading": "Teď potřebujeme přesně specifikovat službu, kterou nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
+            "input": {
+              "placeholder": "Přidej další"
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          }
+        },
+        "location": {
+          "place": {
+            "stepOne": {
+              "title": "Kde se tvoje místo nachází?",
+              "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje"
+            },
+            "stepTwo": {
+              "title": "",
+              "subtitle": ""
+            },
+            "inputs": {
+              "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "street": {
+                "label": "Ulice",
+                "placeholder": "Ulice 123"
+              },
+              "city": {
+                "label": "Město",
+                "placeholder": "Praha"
+              },
+              "cityCode": {
+                "label": "PSČ",
+                "placeholder": "100 00"
+              },
+              "country": {
+                "label": "Země",
+                "placeholder": "Vyberte zemi"
+              }
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "gastro": {
+            "stepOne": {
+              "title": "Kde se tvoje služba nachází?",
+              "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje"
+            },
+            "stepTwo": {
+              "title": "Vyberte oblasti, kde poskytujete služby",
+              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou"
+            },
+            "inputs": {
+              "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "street": {
+                "label": "Ulice",
+                "placeholder": "Ulice 123"
+              },
+              "city": {
+                "label": "Město",
+                "placeholder": "Praha"
+              },
+              "cityCode": {
+                "label": "PSČ",
+                "placeholder": "100 00"
+              },
+              "country": {
+                "label": "Země",
+                "placeholder": "Vyberte zemi"
+              }
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          },
+          "entertainment": {
+            "stepOne": {
+              "title": "Kde se tvoje služba nachází?",
+              "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje"
+            },
+            "stepTwo": {
+              "title": "Vyberte oblasti, kde poskytujete služby",
+              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou"
+            },
+            "inputs": {
+              "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "street": {
+                "label": "Ulice",
+                "placeholder": "Ulice 123"
+              },
+              "city": {
+                "label": "Město",
+                "placeholder": "Praha"
+              },
+              "cityCode": {
+                "label": "PSČ",
+                "placeholder": "100 00"
+              },
+              "country": {
+                "label": "Země",
+                "placeholder": "Vyberte zemi"
+              }
+            },
+            "buttonContinue": "Pokračovat",
+            "buttonBack": "Zpět"
+          }
+        }
+      }
+    }
+  }
+}
