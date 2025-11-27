@@ -162,8 +162,14 @@
         },
         "location": {
           "place": {
-            "title": "Kde se tvoje místo nachází?",
-            "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje",
+            "stepOne": {
+              "title": "Kde se tvoje místo nachází?",
+              "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje"
+            },
+            "stepTwo": {
+              "title": "",
+              "subtitle": ""
+            },
             "inputs": {
               "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
               "street": {
@@ -187,8 +193,14 @@
             "buttonBack": "Zpět"
           },
           "gastro": {
-            "title": "Kde se tvoje služba nachází?",
-            "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje",
+            "stepOne": {
+              "title": "Kde se tvoje služba nachází?",
+              "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje"
+            },
+            "stepTwo": {
+              "title": "Vyberte oblasti, kde poskytujete služby",
+              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou"
+            },
             "inputs": {
               "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
               "street": {
@@ -212,8 +224,14 @@
             "buttonBack": "Zpět"
           },
           "entertainment": {
-            "title": "Kde se tvoje služba nachází?",
-            "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje",
+            "stepOne": {
+              "title": "Kde se tvoje služba nachází?",
+              "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje"
+            },
+            "stepTwo": {
+              "title": "Vyberte oblasti, kde poskytujete služby",
+              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou"
+            },
             "inputs": {
               "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
               "street": {

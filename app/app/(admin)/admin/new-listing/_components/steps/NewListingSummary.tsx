@@ -11,6 +11,7 @@ import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 import { SpecTag, specTagMockData } from "./NewListingSpecificationStep";
 import { useAppSelector } from "@/app/_redux/hooks";
 import { useTranslations } from "next-intl";
+import Tag from "@/app/_components/molecules/Tag";
 
 type Props = {};
 
@@ -18,7 +19,6 @@ export default function NewListingSummary({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
   const state = useAppSelector((state) => state.newListing);
   const tCountry = useTranslations("countries");
-  console.log(state);
 
   const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -105,7 +105,10 @@ export default function NewListingSummary({}: Props) {
         <TextBlock label="Ulice:" text={state.companyData.street} />
         <TextBlock label="Město:" text={state.companyData.city} />
         <TextBlock label="PSČ:" text={state.companyData.cityCode} />
-        <TextBlock label="Země:" text={tCountry(state.companyData.country)} />
+        <TextBlock
+          label="Země:"
+          text={tCountry(state.listingData.location.country || "cz")}
+        />
       </div>
       <div
         className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
@@ -153,7 +156,7 @@ export default function NewListingSummary({}: Props) {
           onClick={() => changeStepHandler("listingSpecification")}
         />
         <div
-          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
+          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
         >
           <Text
             text="Specifikace:"
@@ -166,10 +169,10 @@ export default function NewListingSummary({}: Props) {
             {state.listingData.specifications.map((item) => {
               console.log(item);
               return (
-                <SpecTag
-                  key={item.label + item.value + item.id}
-                  data={item}
-                  onClick={() => {}}
+                <Tag
+                  key={item.label + item.id + item.id}
+                  text={item.label}
+                  color="white"
                   disableIcon
                 />
               );
@@ -191,6 +194,110 @@ export default function NewListingSummary({}: Props) {
           label="Země:"
           text={tCountry(state.listingData.location.country || "cz")}
         />
+      </div>
+      <div
+        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
+      >
+        <SectionHeading
+          text="Obsluhovaná oblast"
+          onClick={() => changeStepHandler("listingSpecification")}
+        />
+        <div
+          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
+        >
+          <Text
+            text="Země:"
+            tag="h4"
+            color="primary"
+            size="bodyMd"
+            fontWeight="semibold"
+          />
+          <div className="flex gap-2 flex-wrap">
+            {state.listingData.location.serviceAreas?.country.map((item) => {
+              console.log(item);
+              return (
+                <Tag
+                  key={item.label + item.id + item.id}
+                  text={item.label}
+                  color="white"
+                  disableIcon
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div
+          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
+        >
+          <Text
+            text="Kraje:"
+            tag="h4"
+            color="primary"
+            size="bodyMd"
+            fontWeight="semibold"
+          />
+          <div className="flex gap-2 flex-wrap">
+            {state.listingData.location.serviceAreas?.regions.map((item) => {
+              console.log(item);
+              return (
+                <Tag
+                  key={item.label + item.id + item.id}
+                  text={item.label}
+                  color="white"
+                  disableIcon
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div
+          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
+        >
+          <Text
+            text="Okresy:"
+            tag="h4"
+            color="primary"
+            size="bodyMd"
+            fontWeight="semibold"
+          />
+          <div className="flex gap-2 flex-wrap">
+            {state.listingData.location.serviceAreas?.districts.map((item) => {
+              console.log(item);
+              return (
+                <Tag
+                  key={item.label + item.id + item.id}
+                  text={item.label}
+                  color="white"
+                  disableIcon
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div
+          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
+        >
+          <Text
+            text="Města:"
+            tag="h4"
+            color="primary"
+            size="bodyMd"
+            fontWeight="semibold"
+          />
+          <div className="flex gap-2 flex-wrap">
+            {state.listingData.location.serviceAreas?.cities.map((item) => {
+              console.log(item);
+              return (
+                <Tag
+                  key={item.label + item.id + item.id}
+                  text={item.label}
+                  color="white"
+                  disableIcon
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       <Button

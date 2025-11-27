@@ -7,7 +7,6 @@ import { FaCheck, FaMagnifyingGlass } from "react-icons/fa6";
 import { MdOutlineFestival } from "react-icons/md";
 import Text from "../../atoms/Text";
 
-import { getLocalization } from "@/app/_localization/getLocalization";
 import {
   headerFilterSlice,
   SettingsTypes,

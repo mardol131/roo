@@ -7,7 +7,6 @@ import {
   headerFilterSlice,
 } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 
-import { getLocalization } from "@/app/_localization/getLocalization";
 import { Counter, CounterType } from "../../filters/Counter";
 import { useTranslations } from "next-intl";
 

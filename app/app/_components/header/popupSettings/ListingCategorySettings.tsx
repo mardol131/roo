@@ -6,16 +6,15 @@ import {
   ListingCategoryType,
 } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
 
-import { getLocalization } from "@/app/_localization/getLocalization";
-import Image from "next/image";
+import entertainment from "@/app/_images/entertainment.jpg";
 import gastro from "@/app/_images/gastro.jpg";
 import place from "@/app/_images/place.jpg";
-import entertainment from "@/app/_images/entertainment.jpg";
+import Image from "next/image";
 
-import Text from "../../atoms/Text";
-import Button from "../../atoms/Button";
 import { ColorsAndGradientsType } from "@roo/shared/src/design/colors";
 import { useTranslations } from "next-intl";
+import Button from "../../atoms/Button";
+import Text from "../../atoms/Text";
 
 type Props = {};
 

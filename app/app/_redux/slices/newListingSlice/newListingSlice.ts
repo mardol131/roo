@@ -46,15 +46,24 @@ export type NewCompanyData = {
   };
 };
 
+export type MultiLocationArea = {
+  country: Category[];
+  regions: Category[];
+  districts: Category[];
+  cities: Category[];
+};
+
 export type ListingLocation = {
   adressSameAsCompany: boolean;
   street: string | undefined;
   city: string | undefined;
   cityCode: string | undefined;
   country: string | undefined;
+  multipleLocations: boolean;
+  serviceAreas: MultiLocationArea | undefined;
 };
 
-export type Category = { label: string; value: string; id: string };
+export type Category = { label: string; slug: string; id: string };
 
 export type Listing = {
   name: string;
@@ -103,6 +112,8 @@ const initialState: NewListingSlice = {
       city: undefined,
       cityCode: undefined,
       country: undefined,
+      multipleLocations: false,
+      serviceAreas: undefined,
     },
   },
 };

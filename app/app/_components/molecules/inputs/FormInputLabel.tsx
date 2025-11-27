@@ -3,9 +3,10 @@ import Text from "../../atoms/Text";
 
 type Props = {
   text: string;
+  className?: string;
 };
 
-export default function FormInputLabel({ text }: Props) {
+export default function FormInputLabel({ text, className }: Props) {
   return (
     <Text
       text={text}
@@ -13,6 +14,7 @@ export default function FormInputLabel({ text }: Props) {
       color="primary"
       fontWeight="semibold"
       size="bodySm"
+      className={className ? className : ""}
     />
   );
 }
