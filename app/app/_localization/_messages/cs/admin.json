@@ -167,8 +167,8 @@
               "subtitle": "Zadej přesnou adresu. Pokud je adresa stejná jako sídlo tvé firmy, zaklikni pole Adresa je stejná jako fakturační údaje"
             },
             "stepTwo": {
-              "title": "",
-              "subtitle": ""
+              "title": "Vyberte oblasti, kde poskytujete služby",
+              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou"
             },
             "inputs": {
               "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
@@ -253,6 +253,18 @@
             },
             "buttonContinue": "Pokračovat",
             "buttonBack": "Zpět"
+          }
+        },
+        "summary": {
+          "title": "Paráda! Základ je hotový!",
+          "congratulations": "Níže najdeš základní sourhn informací, které jsi nám o službě poskytl/a. Pokud chceš přidat další službu pod stejnou firmou, můžeš to udělat tlačítky níže.",
+          "go_to_admin": "Nebo můžeš přejít přímo do administrace a pokračovat v nastavení této služby.",
+          "buttons": {
+            "start_gastro": "Přidat gastro",
+            "start_place": "Přidat místo",
+            "start_entertainment": "Přidat zábavu",
+            "to_admin": "Přejít do administrace",
+            "back": "Zpět"
           }
         }
       }

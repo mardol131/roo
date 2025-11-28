@@ -7,6 +7,8 @@ import { saveLocation } from "./actions/saveLocation";
 import { saveName } from "./actions/saveName";
 import { saveType } from "./actions/saveType";
 import { saveSpecification } from "./actions/saveSpecification";
+import { restartFull } from "./actions/restartFull";
+import { restartFromListing } from "./actions/restartFromListing";
 
 export type NewListingStepsType =
   | "companyData"
@@ -79,7 +81,7 @@ export type NewListingSlice = {
   listingData: Listing;
 };
 
-const initialState: NewListingSlice = {
+export const newListingInitialData: NewListingSlice = {
   step: "companyData",
   listingTypesToFill: [],
   companyData: {
@@ -103,8 +105,8 @@ const initialState: NewListingSlice = {
     },
   },
   listingData: {
-    name: "",
     type: undefined,
+    name: "",
     specifications: [],
     location: {
       adressSameAsCompany: false,
@@ -120,7 +122,7 @@ const initialState: NewListingSlice = {
 
 export const newListing = createSlice({
   name: "initialFilter",
-  initialState,
+  initialState: newListingInitialData,
   reducers: {
     changeStep: changeStepAction,
     updateTypesToFill: updateListingTypesToFill,
@@ -129,6 +131,8 @@ export const newListing = createSlice({
     saveName: saveName,
     saveType: saveType,
     saveSpecifications: saveSpecification,
+    restartFull: restartFull,
+    restartFromListing: restartFromListing,
   },
 });
 

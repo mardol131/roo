@@ -137,6 +137,15 @@ export default function NewListingLocationStep({}: Props) {
     ]
   );
 
+  const multipleLocationsRequired = useMemo(() => {
+    return (
+      selectedCountries.length === 0 &&
+      selectedRegions.length === 0 &&
+      selectedDistricts.length === 0 &&
+      selectedCities.length === 0
+    );
+  }, [selectedCountries, selectedRegions, selectedDistricts, selectedCities]);
+
   if (step === "multipleLocations") {
     return (
       <AdminNewListingFormWrapper
@@ -154,7 +163,7 @@ export default function NewListingLocationStep({}: Props) {
               options={countryOptions}
               defaultValue={selectedCountries}
               onChangeAction={setSelectedCountries}
-              required={multipleLocations}
+              required={multipleLocationsRequired}
             />
 
             <FormMultiSelectInput
@@ -165,6 +174,7 @@ export default function NewListingLocationStep({}: Props) {
               options={regionOptions}
               defaultValue={selectedRegions}
               onChangeAction={setSelectedRegions}
+              required={multipleLocationsRequired}
             />
 
             <FormMultiSelectInput
@@ -175,6 +185,7 @@ export default function NewListingLocationStep({}: Props) {
               options={districtOptions}
               defaultValue={selectedDistricts}
               onChangeAction={setSelectedDistricts}
+              required={multipleLocationsRequired}
             />
 
             <FormMultiSelectInput
@@ -185,6 +196,7 @@ export default function NewListingLocationStep({}: Props) {
               options={cityOptions}
               defaultValue={selectedCities}
               onChangeAction={setSelectedCities}
+              required={multipleLocationsRequired}
             />
           </AdminFormPartWrapper>
         </div>
@@ -193,7 +205,7 @@ export default function NewListingLocationStep({}: Props) {
             text="Zpět"
             type="button"
             onClick={() => {
-              changeStepHandler("listingSpecification");
+              setStep("oneLocation");
             }}
             bgColor="secondaryPrimary"
             size="xl"

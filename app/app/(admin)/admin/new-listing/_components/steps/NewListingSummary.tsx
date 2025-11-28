@@ -9,305 +9,111 @@ import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput"
 import { FormEvent, useCallback, useMemo } from "react";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 import { SpecTag, specTagMockData } from "./NewListingSpecificationStep";
-import { useAppSelector } from "@/app/_redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { useTranslations } from "next-intl";
 import Tag from "@/app/_components/molecules/Tag";
+import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 
 type Props = {};
 
 export default function NewListingSummary({}: Props) {
   const { changeStepHandler } = useNewListingSteps();
   const state = useAppSelector((state) => state.newListing);
-  const tCountry = useTranslations("countries");
+  const t = useTranslations("admin.company.newListing.steps.summary");
+  const dispatch = useAppDispatch();
 
-  const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    changeStepHandler("listingSpecification");
-  }, []);
-
-  function TextBlock({
-    label,
-    text,
-    spanTwo,
-  }: {
-    label: string;
-    text?: string;
-    spanTwo?: boolean;
-  }) {
-    return (
-      <div
-        className={`${spanTwo && "col-span-2"} h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr]  w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
-      >
-        <Text
-          text={label}
-          tag="h4"
-          color="primary"
-          size="bodyMd"
-          fontWeight="semibold"
-        />
-        {text && (
-          <Text
-            text={text}
-            tag="h4"
-            color="black"
-            size="bodyMd"
-            fontWeight="semibold"
-          />
-        )}
-      </div>
-    );
-  }
-
-  function SectionHeading({
-    text,
-    onClick,
-  }: {
-    text: string;
-    onClick: () => void;
-  }) {
-    return (
-      <div className="col-span-2 border-b border-borderLight pb-2 w-full flex items-center gap-2 justify-between max-md:justify-start">
-        <Text
-          text={text}
-          tag="h3"
-          size="headingSm"
-          className=" text-center"
-          fontWeight="semibold"
-        />
-        <Button
-          text="Upravit"
-          size="sm"
-          bgColor="primary"
-          rounding="full"
-          textColor="white"
-          onClick={onClick}
-        />
-      </div>
-    );
-  }
+  const startNewlistingHandler = useCallback(
+    (listingType: "gastro" | "place" | "entertainment") => {
+      dispatch(
+        newListing.actions.restartFromListing({
+          listtingType: listingType,
+          listingsToFill: state.listingTypesToFill.filter(
+            (type) => type !== listingType
+          ),
+        })
+      );
+    },
+    [changeStepHandler]
+  );
 
   return (
-    <AdminNewListingFormWrapper
-      onSubmit={onSubmitHandler}
-      heading={"Paráda! Základ je hotový!"}
-      subheading="Níže najdeš základní sourhn informací, které jsi nám o službě poskytl/a. <br/>Pokud bys chtěl/a ještě něco upravit, u každé sekce klikni na tlačítko upravit, které tě vrátí zpět do formuláře."
-    >
-      <div
-        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 md:grid flex flex-col grid-cols-2`}
-      >
-        <SectionHeading
-          text="Fakturační údaje"
-          onClick={() => changeStepHandler("companyData")}
-        />
-        <TextBlock label="Název:" text={state.companyData.companyName} />
-        <TextBlock label="IČO:" text={state.companyData.ico} />
-        <TextBlock label="DIČ:" text={state.companyData.dic || ""} />
-        <TextBlock label="Ulice:" text={state.companyData.street} />
-        <TextBlock label="Město:" text={state.companyData.city} />
-        <TextBlock label="PSČ:" text={state.companyData.cityCode} />
-        <TextBlock
-          label="Země:"
-          text={tCountry(state.listingData.location.country || "cz")}
-        />
-      </div>
-      <div
-        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
-      >
-        <SectionHeading
-          text="Kontaktní osoba"
-          onClick={() => changeStepHandler("companyData")}
-        />
+    <div className="w-full h-full relative flex items-center justify-center">
+      <div className="relative overflow-hidden bg-white shadow-xl animate-popup rounded-4xl z-10 max-w-200 w-full flex flex-col items-center gap-10">
+        <div className="z-10  w-full p-10 backdrop flex flex-col items-center text-center gap-8">
+          <Text
+            tag="h2"
+            size="headingLg"
+            text={t("title")}
+            color="black"
+            fontWeight="semibold"
+          />
+          <Text
+            tag="p"
+            text={t("congratulations")}
+            className="text-center"
+            size="bodyXl"
+            fontWeight="semibold"
+          />
 
-        <TextBlock
-          label="Jméno:"
-          text={state.companyData.contactPerson.firstName}
-        />
-        <TextBlock
-          label="Příjmení:"
-          text={state.companyData.contactPerson.lastName}
-        />
-        <TextBlock
-          label="Telefon:"
-          text={state.companyData.contactPerson.phone}
-        />
-        <TextBlock
-          label="Email:"
-          text={state.companyData.contactPerson.email}
-        />
-      </div>
-      <div
-        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 md:grid flex flex-col grid-cols-2`}
-      >
-        <SectionHeading
-          text="Jméno tvojí služby"
-          onClick={() => changeStepHandler("listingName")}
-        />
-        <TextBlock
-          label="Jméno služby:"
-          text={state.listingData.name}
-          spanTwo
-        />
-      </div>
-      <div
-        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
-      >
-        <SectionHeading
-          text="Specifikace služby"
-          onClick={() => changeStepHandler("listingSpecification")}
-        />
-        <div
-          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
-        >
+          <div className="flex items-center gap-2">
+            {state.listingTypesToFill.includes("gastro") && (
+              <Button
+                onClick={() => {
+                  startNewlistingHandler("gastro");
+                }}
+                text={t("buttons.start_gastro")}
+                size="xl"
+                bgColor="secondaryPrimary"
+                textColor="white"
+                rounding="full"
+              />
+            )}
+            {state.listingTypesToFill.includes("place") && (
+              <Button
+                onClick={() => {
+                  startNewlistingHandler("place");
+                }}
+                text={t("buttons.start_place")}
+                size="xl"
+                bgColor="secondaryPrimary"
+                textColor="white"
+                rounding="full"
+              />
+            )}
+            {state.listingTypesToFill.includes("entertainment") && (
+              <Button
+                onClick={() => {
+                  startNewlistingHandler("entertainment");
+                }}
+                text={t("buttons.start_entertainment")}
+                size="xl"
+                bgColor="secondaryPrimary"
+                textColor="white"
+                rounding="full"
+              />
+            )}
+          </div>
           <Text
-            text="Specifikace:"
-            tag="h4"
-            color="primary"
-            size="bodyMd"
+            tag="p"
+            text={t("go_to_admin")}
+            className="text-center"
+            size="bodyXl"
             fontWeight="semibold"
           />
-          <div className="flex gap-2 flex-wrap">
-            {state.listingData.specifications.map((item) => {
-              console.log(item);
-              return (
-                <Tag
-                  key={item.label + item.id + item.id}
-                  text={item.label}
-                  color="white"
-                  disableIcon
-                />
-              );
-            })}
+          <div className="flex gap-2">
+            <Button
+              onClick={() => {
+                changeStepHandler("listingType");
+              }}
+              text={t("buttons.to_admin")}
+              size="xl"
+              bgColor="primaryTertiary"
+              textColor="white"
+              rounding="full"
+            />
           </div>
         </div>
       </div>
-      <div
-        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
-      >
-        <SectionHeading
-          text="Sídlo tvojí služby"
-          onClick={() => changeStepHandler("listingLocation")}
-        />
-        <TextBlock label="Ulice:" text={state.listingData.location.street} />
-        <TextBlock label="Město:" text={state.listingData.location.city} />
-        <TextBlock label="PSČ:" text={state.listingData.location.cityCode} />
-        <TextBlock
-          label="Země:"
-          text={tCountry(state.listingData.location.country || "cz")}
-        />
-      </div>
-      <div
-        className={`bg-white  shadow-lg/5 animate-popup border w-full max-w-200 border-borderLight rounded-medium p-4 gap-3 grid grid-cols-2`}
-      >
-        <SectionHeading
-          text="Obsluhovaná oblast"
-          onClick={() => changeStepHandler("listingSpecification")}
-        />
-        <div
-          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
-        >
-          <Text
-            text="Země:"
-            tag="h4"
-            color="primary"
-            size="bodyMd"
-            fontWeight="semibold"
-          />
-          <div className="flex gap-2 flex-wrap">
-            {state.listingData.location.serviceAreas?.country.map((item) => {
-              console.log(item);
-              return (
-                <Tag
-                  key={item.label + item.id + item.id}
-                  text={item.label}
-                  color="white"
-                  disableIcon
-                />
-              );
-            })}
-          </div>
-        </div>
-        <div
-          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
-        >
-          <Text
-            text="Kraje:"
-            tag="h4"
-            color="primary"
-            size="bodyMd"
-            fontWeight="semibold"
-          />
-          <div className="flex gap-2 flex-wrap">
-            {state.listingData.location.serviceAreas?.regions.map((item) => {
-              console.log(item);
-              return (
-                <Tag
-                  key={item.label + item.id + item.id}
-                  text={item.label}
-                  color="white"
-                  disableIcon
-                />
-              );
-            })}
-          </div>
-        </div>
-        <div
-          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
-        >
-          <Text
-            text="Okresy:"
-            tag="h4"
-            color="primary"
-            size="bodyMd"
-            fontWeight="semibold"
-          />
-          <div className="flex gap-2 flex-wrap">
-            {state.listingData.location.serviceAreas?.districts.map((item) => {
-              console.log(item);
-              return (
-                <Tag
-                  key={item.label + item.id + item.id}
-                  text={item.label}
-                  color="white"
-                  disableIcon
-                />
-              );
-            })}
-          </div>
-        </div>
-        <div
-          className={`col-span-2 h-full border-b border-borderLight p-2 grid grid-cols-[1fr_2fr] w-full self-center justify-self-center gap-5 text-start justify-items-start items-center`}
-        >
-          <Text
-            text="Města:"
-            tag="h4"
-            color="primary"
-            size="bodyMd"
-            fontWeight="semibold"
-          />
-          <div className="flex gap-2 flex-wrap">
-            {state.listingData.location.serviceAreas?.cities.map((item) => {
-              console.log(item);
-              return (
-                <Tag
-                  key={item.label + item.id + item.id}
-                  text={item.label}
-                  color="white"
-                  disableIcon
-                />
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      <Button
-        text="Pokračovat"
-        type="submit"
-        bgColor="secondaryPrimary"
-        size="xl"
-        textColor="white"
-        rounding="full"
-      />
-    </AdminNewListingFormWrapper>
+    </div>
   );
 }

@@ -20,14 +20,14 @@ export function NewListingStepBar() {
         return (
           <div
             key={i / 1563}
-            className="bg-zinc-300 h-0.5 rounded-full grow mx-3"
+            className="bg-zinc-300 h-0.5 rounded-full grow md:mx-3"
           ></div>
         );
       } else {
         return (
           <div
             key={i / 84956}
-            className="bg-primary h-0.5 rounded-full grow mx-3"
+            className="bg-primary h-0.5 rounded-full grow md:mx-3"
           ></div>
         );
       }

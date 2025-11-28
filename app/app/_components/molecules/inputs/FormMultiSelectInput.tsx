@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
 import FormInputLabel from "./FormInputLabel";
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
@@ -51,6 +51,10 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
     }
     setIsInvalid(false);
   };
+
+  useEffect(() => {
+    setIsInvalid(false);
+  }, [props.required]);
 
   const removeOption = (value: Category) => {
     const newValues = selectedValues.filter((v) => v !== value);

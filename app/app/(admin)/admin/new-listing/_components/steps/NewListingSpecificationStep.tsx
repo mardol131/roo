@@ -104,7 +104,7 @@ export default function NewListingSpecificationStep({}: Props) {
       heading={t("heading")}
       subheading={t("subheading")}
     >
-      <div className="w-full max-w-200">
+      <div className="w-full max-w-200 animate-popup">
         <FormMultiSelectInput
           spanTwo={true}
           label="Země"
