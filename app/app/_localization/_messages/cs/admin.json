@@ -92,6 +92,7 @@
             }
           },
           "button": "Pokračovat",
+          "buttonBack": "Zpět",
           "pickOne": {
             "title": "Jakou službu chceš nastavit jako první?",
             "subheading": "Druhou službu budeš mít možnost nastavit později.",
@@ -136,6 +137,7 @@
             "heading": "Co za místo nabízíš?",
             "subheading": "Teď potřebujeme přesně specifikovat místo, které nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
             "input": {
+              "label": "Typ místa",
               "placeholder": "Přidej další"
             },
             "buttonContinue": "Pokračovat",
@@ -145,6 +147,7 @@
             "heading": "Co za službu nabízíš?",
             "subheading": "Teď potřebujeme přesně specifikovat službu, kterou nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
             "input": {
+              "label": "Typ služby",
               "placeholder": "Přidej další"
             },
             "buttonContinue": "Pokračovat",
@@ -154,6 +157,7 @@
             "heading": "Co za službu nabízíš?",
             "subheading": "Teď potřebujeme přesně specifikovat službu, kterou nabízíš. Typů může být klidně víc, takže to pořádně popiš.",
             "input": {
+              "label": "Typ služby",
               "placeholder": "Přidej další"
             },
             "buttonContinue": "Pokračovat",
@@ -172,6 +176,7 @@
             },
             "inputs": {
               "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "serviceArea": "Poskytuji službu ve více lokalitách",
               "street": {
                 "label": "Ulice",
                 "placeholder": "Ulice 123"
@@ -199,10 +204,29 @@
             },
             "stepTwo": {
               "title": "Vyberte oblasti, kde poskytujete služby",
-              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou"
+              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou",
+              "inputs": {
+                "country": {
+                  "label": "Země",
+                  "placeholder": "Vyberte země"
+                },
+                "region": {
+                  "label": "Kraje",
+                  "placeholder": "Vyberte kraje"
+                },
+                "district": {
+                  "label": "Okresy",
+                  "placeholder": "Vyberte okresy"
+                },
+                "city": {
+                  "label": "Města",
+                  "placeholder": "Vyberte města"
+                }
+              }
             },
             "inputs": {
               "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "serviceArea": "Poskytuji službu ve více lokalitách",
               "street": {
                 "label": "Ulice",
                 "placeholder": "Ulice 123"
@@ -230,10 +254,29 @@
             },
             "stepTwo": {
               "title": "Vyberte oblasti, kde poskytujete služby",
-              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou"
+              "subtitle": "Můžete vybrat více krajů, okresů a měst najednou",
+              "inputs": {
+                "country": {
+                  "label": "Země",
+                  "placeholder": "Vyberte země"
+                },
+                "region": {
+                  "label": "Kraje",
+                  "placeholder": "Vyberte kraje"
+                },
+                "district": {
+                  "label": "Okresy",
+                  "placeholder": "Vyberte okresy"
+                },
+                "city": {
+                  "label": "Města",
+                  "placeholder": "Vyberte města"
+                }
+              }
             },
             "inputs": {
               "sameAsInvoicing": "Adresa je stejná jako fakturační údaje",
+              "serviceArea": "Poskytuji službu ve více lokalitách",
               "street": {
                 "label": "Ulice",
                 "placeholder": "Ulice 123"

@@ -2,28 +2,27 @@
 
 import Button from "@/app/_components/atoms/Button";
 
+import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
 import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
 import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
+import { FormMultiSelectInput } from "@/app/_components/molecules/inputs/FormMultiSelectInput";
+import { FormSelectInput } from "@/app/_components/molecules/inputs/FormSelectInput";
+import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
+import {
+  cityOptions,
+  countryOptions,
+  districtOptions,
+  regionOptions,
+} from "@/app/_components/molecules/inputs/locationData";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import {
   Category,
   newListing,
 } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
+import { useTranslations } from "next-intl";
 import React, { FormEvent, useCallback, useMemo, useState } from "react";
 import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
-import { useTranslations } from "next-intl";
-import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
-import { FormSelectInput } from "@/app/_components/molecules/inputs/FormSelectInput";
-import { FormMultiSelectInput } from "@/app/_components/molecules/inputs/FormMultiSelectInput";
-import {
-  countryOptions,
-  regionOptions,
-  districtOptions,
-  cityOptions,
-} from "@/app/_components/molecules/inputs/locationData";
-import Text from "@/app/_components/atoms/Text";
 
 type Props = {};
 
@@ -153,52 +152,50 @@ export default function NewListingLocationStep({}: Props) {
         heading={t("stepTwo.title")}
         subheading={t("stepTwo.subtitle")}
       >
-        <div className="w-full flex flex-col gap-5 items-center justify-center max-w-150">
-          <AdminFormPartWrapper disabled={false}>
-            <FormMultiSelectInput
-              spanTwo={true}
-              label="Země"
-              name="serviceCountries"
-              placeholder="Vyberte země"
-              options={countryOptions}
-              defaultValue={selectedCountries}
-              onChangeAction={setSelectedCountries}
-              required={multipleLocationsRequired}
-            />
+        <div className="w-full flex flex-col gap-5 items-stretch justify-center max-w-150">
+          <FormMultiSelectInput
+            spanTwo={true}
+            label={t("stepTwo.inputs.country.label")}
+            name="serviceCountries"
+            placeholder={t("stepTwo.inputs.country.placeholder")}
+            options={countryOptions}
+            defaultValue={selectedCountries}
+            onChangeAction={setSelectedCountries}
+            required={multipleLocationsRequired}
+          />
 
-            <FormMultiSelectInput
-              spanTwo={true}
-              label="Kraje"
-              name="serviceRegions"
-              placeholder="Vyberte kraje"
-              options={regionOptions}
-              defaultValue={selectedRegions}
-              onChangeAction={setSelectedRegions}
-              required={multipleLocationsRequired}
-            />
+          <FormMultiSelectInput
+            spanTwo={true}
+            label={t("stepTwo.inputs.region.label")}
+            name="serviceRegions"
+            placeholder={t("stepTwo.inputs.region.placeholder")}
+            options={regionOptions}
+            defaultValue={selectedRegions}
+            onChangeAction={setSelectedRegions}
+            required={multipleLocationsRequired}
+          />
 
-            <FormMultiSelectInput
-              spanTwo={true}
-              label="Okresy"
-              name="serviceDistricts"
-              placeholder="Vyberte okresy"
-              options={districtOptions}
-              defaultValue={selectedDistricts}
-              onChangeAction={setSelectedDistricts}
-              required={multipleLocationsRequired}
-            />
+          <FormMultiSelectInput
+            spanTwo={true}
+            label={t("stepTwo.inputs.district.label")}
+            name="serviceDistricts"
+            placeholder={t("stepTwo.inputs.district.placeholder")}
+            options={districtOptions}
+            defaultValue={selectedDistricts}
+            onChangeAction={setSelectedDistricts}
+            required={multipleLocationsRequired}
+          />
 
-            <FormMultiSelectInput
-              spanTwo={true}
-              label="Města"
-              name="serviceCities"
-              placeholder="Vyberte města"
-              options={cityOptions}
-              defaultValue={selectedCities}
-              onChangeAction={setSelectedCities}
-              required={multipleLocationsRequired}
-            />
-          </AdminFormPartWrapper>
+          <FormMultiSelectInput
+            spanTwo={true}
+            label={t("stepTwo.inputs.city.label")}
+            name="serviceCities"
+            placeholder={t("stepTwo.inputs.city.placeholder")}
+            options={cityOptions}
+            defaultValue={selectedCities}
+            onChangeAction={setSelectedCities}
+            required={multipleLocationsRequired}
+          />
         </div>
         <div className="flex gap-5">
           <Button
@@ -233,7 +230,7 @@ export default function NewListingLocationStep({}: Props) {
         <div className="w-full flex flex-col gap-5 items-center justify-center max-w-150">
           <>
             <FormCheckboxInput
-              label={{ text: "Adresa je stejná jako fakturační", tag: "span" }}
+              label={{ text: t("inputs.sameAsInvoicing"), tag: "span" }}
               name="sameAddress"
               value="true"
               onChange={checkboxOnChangeHandler}
@@ -283,7 +280,7 @@ export default function NewListingLocationStep({}: Props) {
             {state.listingData.type !== "place" && (
               <FormCheckboxInput
                 label={{
-                  text: "Poskytuji službu ve více lokalitách",
+                  text: t("inputs.serviceArea"),
                   tag: "span",
                 }}
                 name="multipleLocations"
@@ -302,7 +299,7 @@ export default function NewListingLocationStep({}: Props) {
         </div>
         <div className="flex gap-5">
           <Button
-            text="Zpět"
+            text={t("buttonBack")}
             type="button"
             onClick={() => {
               changeStepHandler("listingSpecification");
@@ -313,7 +310,7 @@ export default function NewListingLocationStep({}: Props) {
             rounding="full"
           />
           <Button
-            text="Pokračovat"
+            text={t("buttonContinue")}
             type="submit"
             bgColor="secondaryPrimary"
             size="xl"

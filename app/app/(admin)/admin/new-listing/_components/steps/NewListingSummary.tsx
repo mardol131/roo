@@ -2,17 +2,12 @@
 
 import Button from "@/app/_components/atoms/Button";
 
-import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
 import Text from "@/app/_components/atoms/Text";
-import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
-import { FormEvent, useCallback, useMemo } from "react";
-import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import { SpecTag, specTagMockData } from "./NewListingSpecificationStep";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
-import { useTranslations } from "next-intl";
-import Tag from "@/app/_components/molecules/Tag";
 import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
+import { useTranslations } from "next-intl";
+import { useCallback } from "react";
+import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 
 type Props = {};
 

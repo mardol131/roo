@@ -17,51 +17,6 @@ import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 
 type Props = {};
 
-type SpecTagProps = {
-  data: Category;
-  onClick: (value: Category) => void;
-  disableIcon?: boolean;
-};
-
-export function SpecTag(props: SpecTagProps) {
-  return (
-    <button
-      onClick={(e) => {
-        e.stopPropagation();
-        props.onClick(props.data);
-      }}
-      className="p-1 px-2 flex items-center justify-center gap-1 text-white cursor-pointer shadow-md/20 rounded-full bg-primary"
-    >
-      <Text
-        text={props.data.label}
-        tag="p"
-        color="white"
-        className="font-semibold"
-      />
-      {!props.disableIcon && <FaXmark />}
-    </button>
-  );
-}
-
-function SpecTagModal(props: SpecTagProps) {
-  return (
-    <button
-      onMouseDown={(e) => {
-        e.stopPropagation();
-        props.onClick(props.data);
-      }}
-      className="font-semibold first:bg-primary/20 hover:bg-primary group  animate group px-2 rounded-full cursor-pointer"
-    >
-      <Text
-        text={props.data.label}
-        tag="p"
-        color="black"
-        className="font-semibold group-hover:text-white animate"
-      />
-    </button>
-  );
-}
-
 export const specTagMockData: Category[] = [
   { label: "Hotel", slug: "hotel", id: "1" },
   { label: "Hrad", slug: "hrad", id: "2" },
@@ -107,9 +62,9 @@ export default function NewListingSpecificationStep({}: Props) {
       <div className="w-full max-w-200 animate-popup">
         <FormMultiSelectInput
           spanTwo={true}
-          label="Země"
+          label={t("input.label")}
           name="serviceCountries"
-          placeholder="Vyberte země"
+          placeholder={t("input.placeholder")}
           options={specTagMockData}
           defaultValue={selectedSpecifications}
           onChangeAction={setSelectedSpecifications}

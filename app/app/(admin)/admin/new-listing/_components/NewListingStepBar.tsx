@@ -40,15 +40,15 @@ export function NewListingStepBar() {
         let bubbleClass = "";
         let icon: React.ReactNode = "";
         if (i < stepsPassed) {
-          bubbleClass =
-            "border-2 cursor-pointer group hover:bg-white animate text-white bg-primary font-bold border-primary w-7 h-7 rounded-full flex items-center justify-center";
+          bubbleClass +=
+            "border-2 cursor-pointer group hover:bg-white animate text-white bg-primary font-bold border-primary w-8 h-8 rounded-full flex items-center justify-center";
           icon = <FaCheck className="text-2xl" />;
         } else if (step === currentStep) {
-          bubbleClass =
-            "border-2 text-primary font-bold border-primary w-7 h-7 rounded-full flex items-center justify-center";
+          bubbleClass +=
+            "border-2 text-primary font-bold border-primary w-8 h-8 rounded-full flex items-center justify-center";
         } else {
-          bubbleClass =
-            "border-2 text-zinc-300 font-bold border-zinc-300 w-7 h-7 rounded-full flex items-center justify-center";
+          bubbleClass +=
+            "border-2 text-zinc-300 font-bold border-zinc-300 w-8 h-8 rounded-full flex items-center justify-center";
         }
 
         if (i === NewListingStepsArray.length - 1) {
