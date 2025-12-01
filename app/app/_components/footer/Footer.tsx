@@ -1,10 +1,9 @@
 "use client";
 
-import React, { ReactNode } from "react";
-import SectionWrapper from "../wrappers/SectionWrapper";
 import logo from "@/public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   FaFacebook,
   FaInstagram,
@@ -12,8 +11,6 @@ import {
   FaTiktok,
   FaYoutube,
 } from "react-icons/fa6";
-import { RooLink } from "../atoms/RooLink";
-import { usePathname } from "next/navigation";
 
 type Props = {};
 

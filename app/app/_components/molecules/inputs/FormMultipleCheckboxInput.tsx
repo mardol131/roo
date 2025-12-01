@@ -1,6 +1,5 @@
 "use client";
 
-import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { ChangeEvent, useState } from "react";
 import { FormCheckboxInput, FormCheckboxInputProps } from "./FormCheckboxInput";
 import FormInputLabel from "./FormInputLabel";
@@ -45,7 +44,7 @@ export function FormMultipleCheckboxInput(
       <div
         className={`${props.spanTwo ? "grid md:grid-cols-2 gap-x-5" : "flex flex-col"} gap-2 w-full`}
       >
-        {props.checkboxes.map((item, i) => {
+        {props.checkboxes.map((item) => {
           return (
             <FormCheckboxInput
               key={item.value + item.label}

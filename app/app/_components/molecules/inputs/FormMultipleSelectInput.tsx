@@ -129,7 +129,7 @@ export function FormMultipleSelectInput(props: FormMultipleSelectInputProps) {
           ref={modalRef}
           className={`flex flex-col p-2 ${toggleModal ? "absolute" : "hidden"} z-20 top-full bg-white border mt-0.5 rounded-lg border-borderLight gap-2 w-full`}
         >
-          {props.options.map((item, i) => {
+          {props.options.map((item) => {
             if (item.blockType === "formcheckboxinput") {
               values.includes(item);
               return (

@@ -1,5 +1,4 @@
 import React from "react";
-import AdminPageSidebarWrapper from "../_components/AdminPageSidebarWrapper";
 
 type Props = {};
 

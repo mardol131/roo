@@ -4,24 +4,21 @@ import { useCallback, useRef, useState } from "react";
 
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
+import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
 import { headerFilterSlice } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
+import logo from "@/public/logo.png";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { MdMenu } from "react-icons/md";
+import Text from "../atoms/Text";
+import { UpperHeader } from "./headerFIlter/UpperHeader";
 import CalendarSettings from "./popupSettings/CalendarSettings";
 import EventTypeSettings from "./popupSettings/EventTypeSettings";
 import GuestsSettings from "./popupSettings/GuestsSettings";
-import PlaceSettings from "./popupSettings/PlaceSettings";
-import { UpperHeader } from "./headerFIlter/UpperHeader";
 import ListingCategorySettings from "./popupSettings/ListingCategorySettings";
-import Image from "next/image";
-import Link from "next/link";
-import { RiMenu2Fill } from "react-icons/ri";
-import logo from "@/public/logo.png";
-import { FaUser } from "react-icons/fa6";
-import { MdMenu } from "react-icons/md";
-import Button from "../atoms/Button";
-import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
+import PlaceSettings from "./popupSettings/PlaceSettings";
 import UserDropdown from "./userDropdown/UserDropdown";
-import Text from "../atoms/Text";
-import { useTranslations } from "next-intl";
 
 export default function HeaderDesktop() {
   const { settingsType } = useAppSelector((state) => state.headerFilter);

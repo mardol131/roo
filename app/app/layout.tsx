@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
 import "./_css/animations.css";
 import "./_css/globals.css";
 
 import { GoogleTagManager } from "@next/third-parties/google";
+import { NextIntlClientProvider } from "next-intl";
 import Footer from "./_components/footer/Footer";
 import Header from "./_components/header/Header";
-import StoreProvider from "./_redux/StoreProvider";
 import LoginModal from "./_components/molecules/modals/AuthModal/LoginModal";
-import { NextIntlClientProvider } from "next-intl";
+import StoreProvider from "./_redux/StoreProvider";
 
 export async function generateMetadata() {
   const canonical = "https://www.rooevent.com/";

@@ -1,9 +1,7 @@
 "use client";
 
-import { act, useState } from "react";
-import { FaCheckSquare } from "react-icons/fa";
-import { MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
-import { MdCheckBox } from "react-icons/md";
+import { useState } from "react";
+import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 
 export type RooCheckboxProps = {
   text: string;

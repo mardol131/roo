@@ -1,6 +1,4 @@
-import React, { CSSProperties, ReactNode } from "react";
-import { FaStore } from "react-icons/fa6";
-import babyShower from "../../../_icons/baby-shower.svg";
+import { CSSProperties } from "react";
 
 type Props = {
   text: string;

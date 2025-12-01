@@ -7,11 +7,8 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { IconType } from "react-icons";
-import { BsPostcard, BsPostcardFill } from "react-icons/bs";
-import { FaThList } from "react-icons/fa";
+import { BsPostcardFill } from "react-icons/bs";
 import { FaHandHoldingHand, FaHouse, FaUser } from "react-icons/fa6";
-import { FiMenu } from "react-icons/fi";
-import { LuMenu } from "react-icons/lu";
 import { TiThMenu } from "react-icons/ti";
 
 type AdminSidebarButtonProps = {

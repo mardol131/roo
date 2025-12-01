@@ -1,13 +1,11 @@
-import { ImageType } from "@/app/_types/objects";
-import React from "react";
-import { BlogPostCardProps } from "../types/blogPostTypes";
-import Image from "next/image";
-import Text from "@/app/_components/atoms/Text";
 import Button from "@/app/_components/atoms/Button";
-import { format } from "date-fns";
+import Text from "@/app/_components/atoms/Text";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
-import PostTags from "./PostTags";
+import { format } from "date-fns";
+import Image from "next/image";
 import Link from "next/link";
+import { BlogPostCardProps } from "../types/blogPostTypes";
+import PostTags from "./PostTags";
 
 export default function BlogPostMainFeaturedCard({
   image,

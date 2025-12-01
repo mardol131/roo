@@ -1,4 +1,3 @@
-import Gastro from "@/app/_icons/Gastro";
 import {
   ColorsAndGradientsType,
   TextColorType,

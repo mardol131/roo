@@ -2,7 +2,7 @@
 
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import Link from "next/link";
-import { FaCheck, FaMagnifyingGlass } from "react-icons/fa6";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 import { MdOutlineFestival } from "react-icons/md";
 import Text from "../../atoms/Text";
@@ -12,7 +12,6 @@ import {
   SettingsTypes,
   SettingsTypesArray,
 } from "@/app/_redux/slices/filtersSlice/headerFilterSlice";
-import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 
 type UpperHeaderProps = {

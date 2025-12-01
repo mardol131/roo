@@ -1,7 +1,6 @@
 import { OverlayType } from "@/app/_types/objects";
-import Image from "next/image";
-import { ReactNode } from "react";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
+import { ReactNode } from "react";
 
 type SectionWrapperProps = {
   classNameOuter?: string;

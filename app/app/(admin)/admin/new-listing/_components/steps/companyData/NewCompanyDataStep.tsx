@@ -9,12 +9,11 @@ import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckb
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
+import { useTranslations } from "next-intl";
 import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
 import AdminNewListingFormWrapper from "../../wrappers/AdminNewListingFormWrapper";
 import CompanyDataFormPart from "./CompanyDataFormPart";
 import ContactPersonFormPart from "./ContactPersonFormPart";
-import { set } from "date-fns";
-import { useTranslations } from "next-intl";
 
 type Props = {};
 
@@ -27,34 +26,37 @@ export default function NewCompanyDataStep({}: Props) {
 
   const { changeStepHandler } = useNewListingSteps();
 
-  const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const onSubmitHandler = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    const data = formDataToObject(new FormData(e.currentTarget));
-    setSuccess(true);
-    dispatch(
-      newListing.actions.saveCompanyData({
-        companyName: data.companyName,
-        ico: data.ico,
-        dic: data.dic,
-        street: data.street,
-        city: data.city,
-        cityCode: data.cityCode,
-        country: data.country,
-        contactPerson: {
-          firstName: data.firstName,
-          lastName: data.lastName,
-          countryCode: data.countryCode,
-          phone: data.phone,
-          email: data.email,
-        },
-        legal: {
-          gdpr: data.gdpr === "true",
-          marketing: data.marketing === "true",
-        },
-      })
-    );
-  }, []);
+      const data = formDataToObject(new FormData(e.currentTarget));
+      setSuccess(true);
+      dispatch(
+        newListing.actions.saveCompanyData({
+          companyName: data.companyName,
+          ico: data.ico,
+          dic: data.dic,
+          street: data.street,
+          city: data.city,
+          cityCode: data.cityCode,
+          country: data.country,
+          contactPerson: {
+            firstName: data.firstName,
+            lastName: data.lastName,
+            countryCode: data.countryCode,
+            phone: data.phone,
+            email: data.email,
+          },
+          legal: {
+            gdpr: data.gdpr === "true",
+            marketing: data.marketing === "true",
+          },
+        })
+      );
+    },
+    [dispatch]
+  );
 
   if (success) {
     return (

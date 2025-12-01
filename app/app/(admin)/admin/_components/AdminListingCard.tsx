@@ -1,9 +1,9 @@
-import Image from "next/image";
 import image from "@/app/_images/test.jpg";
-import { FaRegStar, FaStar } from "react-icons/fa6";
-import { RiSettings3Line } from "react-icons/ri";
+import Image from "next/image";
 import Link from "next/link";
+import { FaRegStar, FaStar } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
+import { RiSettings3Line } from "react-icons/ri";
 
 export function AdminListingCard() {
   const rating = 3;

@@ -61,7 +61,7 @@ export default function NewListingTypeStep({}: Props) {
     ];
 
     return data;
-  }, []);
+  }, [t]);
 
   function anotherStepHandler() {
     if (listingData.type) {

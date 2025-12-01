@@ -1,11 +1,11 @@
 "use client";
 
-import { FaChevronDown, FaChevronUp, FaPlus } from "react-icons/fa6";
 import Link from "next/link";
-import { AdminListingSidebarTab } from "./AdminListingSidebartab";
 import { ReactNode, useState } from "react";
 import { FaBoxes } from "react-icons/fa";
-import { IoImage, IoImages } from "react-icons/io5";
+import { FaPlus } from "react-icons/fa6";
+import { IoImages } from "react-icons/io5";
+import { AdminListingSidebarTab } from "./AdminListingSidebartab";
 
 export function AdminListingSidebar() {
   const [listingsOpen, setListingsOpen] = useState(false);
