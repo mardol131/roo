@@ -17,6 +17,9 @@ import { BlogTags } from './collections/blogTags'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { Companies } from './collections/companies'
 import { Countries } from './collections/countries'
+import { Regions } from './collections/regions'
+import { Districts } from './collections/districts'
+import { Municipalities } from './collections/municipalities'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -60,7 +63,20 @@ export default buildConfig({
       },
     },
   }),
-  collections: [Users, Posts, Listings, Companies, Pages, Media, Admins, BlogTags, Countries],
+  collections: [
+    Users,
+    Posts,
+    Listings,
+    Companies,
+    Pages,
+    Media,
+    Admins,
+    BlogTags,
+    Countries,
+    Regions,
+    Districts,
+    Municipalities,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

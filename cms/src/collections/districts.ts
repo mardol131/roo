@@ -1,0 +1,45 @@
+import { ACL } from '@/functions/ACL'
+import { createSlug } from 'node_modules/@roo/shared/src/functions/data-manipulation/createSlug'
+import type { CollectionConfig } from 'payload'
+
+export const Districts: CollectionConfig = {
+  slug: 'districts',
+  admin: {
+    useAsTitle: 'name',
+  },
+  fields: [
+    {
+      name: 'name',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'slug',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'code',
+      type: 'number',
+      required: true,
+    },
+    {
+      name: 'region',
+      type: 'text',
+    },
+    { name: 'regionCode', type: 'number' },
+  ],
+  access: {
+    update: ACL({ roles: ['superadmin'] }),
+    create: ACL({ roles: ['superadmin'] }),
+  },
+  hooks: {
+    beforeChange: [
+      ({ req, operation, data }) => {
+        if (!data.slug) {
+          data.slug = createSlug(data.name)
+        }
+      },
+    ],
+  },
+}

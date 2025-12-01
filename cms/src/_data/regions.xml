@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<VdpExportPrvku xmlns="urn:cz:isvs:ruian:schemas:VdpExportPrvku:v1" xmlns:ns2="urn:cz:isvs:ruian:schemas:CommonTypy:v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:cz:isvs:ruian:schemas:VdpExportPrvku:v1 https://vdp.cuzk.gov.cz/vdp/resources/schema/01/vdp/xsd/vdpExportPrvku/vdpExportPrvku.xsd">
+    <Zahlavi>
+        <Generovano>2025-12-01T15:53:55.865+01:00</Generovano>
+        <PocetPolozek>14</PocetPolozek>
+    </Zahlavi>
+    <PrvkyVusc>
+        <Podminky>
+            <Nazev></Nazev>
+        </Podminky>
+        <Zaznamy>
+            <Vusc>
+                <Kod>19</Kod>
+                <Nazev>Hlavní město Praha</Nazev>
+                <RegionKod>19</RegionKod>
+                <RegionNazev>Praha</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>35</Kod>
+                <Nazev>Jihočeský kraj</Nazev>
+                <RegionKod>35</RegionKod>
+                <RegionNazev>Jihozápad</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>116</Kod>
+                <Nazev>Jihomoravský kraj</Nazev>
+                <RegionKod>60</RegionKod>
+                <RegionNazev>Jihovýchod</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>51</Kod>
+                <Nazev>Karlovarský kraj</Nazev>
+                <RegionKod>43</RegionKod>
+                <RegionNazev>Severozápad</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>108</Kod>
+                <Nazev>Kraj Vysočina</Nazev>
+                <RegionKod>60</RegionKod>
+                <RegionNazev>Jihovýchod</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>86</Kod>
+                <Nazev>Královéhradecký kraj</Nazev>
+                <RegionKod>51</RegionKod>
+                <RegionNazev>Severovýchod</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>78</Kod>
+                <Nazev>Liberecký kraj</Nazev>
+                <RegionKod>51</RegionKod>
+                <RegionNazev>Severovýchod</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>132</Kod>
+                <Nazev>Moravskoslezský kraj</Nazev>
+                <RegionKod>86</RegionKod>
+                <RegionNazev>Moravskoslezsko</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>124</Kod>
+                <Nazev>Olomoucký kraj</Nazev>
+                <RegionKod>78</RegionKod>
+                <RegionNazev>Střední Morava</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>94</Kod>
+                <Nazev>Pardubický kraj</Nazev>
+                <RegionKod>51</RegionKod>
+                <RegionNazev>Severovýchod</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>43</Kod>
+                <Nazev>Plzeňský kraj</Nazev>
+                <RegionKod>35</RegionKod>
+                <RegionNazev>Jihozápad</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>27</Kod>
+                <Nazev>Středočeský kraj</Nazev>
+                <RegionKod>27</RegionKod>
+                <RegionNazev>Střední Čechy</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>60</Kod>
+                <Nazev>Ústecký kraj</Nazev>
+                <RegionKod>43</RegionKod>
+                <RegionNazev>Severozápad</RegionNazev>
+            </Vusc>
+            <Vusc>
+                <Kod>141</Kod>
+                <Nazev>Zlínský kraj</Nazev>
+                <RegionKod>78</RegionKod>
+                <RegionNazev>Střední Morava</RegionNazev>
+            </Vusc>
+        </Zaznamy>
+    </PrvkyVusc>
+</VdpExportPrvku>

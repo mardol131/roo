@@ -16,7 +16,7 @@ export default function LoginModal({}: Props) {
 
   const closeModalHandler = useCallback(() => {
     dispatch(authSlice.actions.changeModalIsOpen({ isOpen: false }));
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

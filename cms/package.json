@@ -15,7 +15,10 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "test": "pnpm run test:int && pnpm run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" pnpm exec playwright test",
-    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
+    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
+    "seed:regions": "cross-env NODE_OPTIONS=--no-deprecation ts-node --esm ./src/_scripts/seedRegions.ts",
+    "seed:districts": "cross-env NODE_OPTIONS=--no-deprecation ts-node --esm ./src/_scripts/seedDistricts.ts",
+    "seed:municipalities": "cross-env NODE_OPTIONS=--no-deprecation ts-node --esm ./src/_scripts/seedMunicipalities.ts"
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.55.1",
@@ -25,6 +28,8 @@
     "@payloadcms/richtext-lexical": "3.55.1",
     "@payloadcms/ui": "3.55.1",
     "@roo/shared": "workspace:*",
+    "@types/jsdom": "^27.0.0",
+    "@types/xml2js": "^0.4.14",
     "axios": "^1.12.2",
     "cross-env": "^10.0.0",
     "dotenv": "17.2.2",
@@ -32,7 +37,8 @@
     "next": "15.5.3",
     "payload": "3.55.1",
     "react": "19.1.1",
-    "sharp": "0.34.3"
+    "sharp": "0.34.3",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@playwright/test": "1.55.0",

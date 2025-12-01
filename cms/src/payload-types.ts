@@ -77,6 +77,9 @@ export interface Config {
     admins: Admin;
     'blog-tags': BlogTag;
     countries: Country;
+    regions: Region;
+    districts: District;
+    municipalities: Municipality;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -92,6 +95,9 @@ export interface Config {
     admins: AdminsSelect<false> | AdminsSelect<true>;
     'blog-tags': BlogTagsSelect<false> | BlogTagsSelect<true>;
     countries: CountriesSelect<false> | CountriesSelect<true>;
+    regions: RegionsSelect<false> | RegionsSelect<true>;
+    districts: DistrictsSelect<false> | DistrictsSelect<true>;
+    municipalities: MunicipalitiesSelect<false> | MunicipalitiesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -4241,6 +4247,53 @@ export interface Country {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "regions".
+ */
+export interface Region {
+  id: string;
+  name: string;
+  slug: string;
+  code: number;
+  countryPart?: string | null;
+  countryPartCode?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "districts".
+ */
+export interface District {
+  id: string;
+  name: string;
+  slug: string;
+  code: number;
+  region?: string | null;
+  regionCode?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "municipalities".
+ */
+export interface Municipality {
+  id: string;
+  name: string;
+  slug: string;
+  code: number;
+  statusCode?: string | null;
+  pouCode?: number | null;
+  pouName?: string | null;
+  orpCode?: number | null;
+  orpName?: string | null;
+  region?: string | null;
+  regionCode?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -4281,6 +4334,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'countries';
         value: string | Country;
+      } | null)
+    | ({
+        relationTo: 'regions';
+        value: string | Region;
+      } | null)
+    | ({
+        relationTo: 'districts';
+        value: string | District;
+      } | null)
+    | ({
+        relationTo: 'municipalities';
+        value: string | Municipality;
       } | null);
   globalSlug?: string | null;
   user:
@@ -5777,6 +5842,50 @@ export interface BlogTagsSelect<T extends boolean = true> {
 export interface CountriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "regions_select".
+ */
+export interface RegionsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  code?: T;
+  countryPart?: T;
+  countryPartCode?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "districts_select".
+ */
+export interface DistrictsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  code?: T;
+  region?: T;
+  regionCode?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "municipalities_select".
+ */
+export interface MunicipalitiesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  code?: T;
+  statusCode?: T;
+  pouCode?: T;
+  pouName?: T;
+  orpCode?: T;
+  orpName?: T;
+  region?: T;
+  regionCode?: T;
   updatedAt?: T;
   createdAt?: T;
 }
