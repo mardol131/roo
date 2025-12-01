@@ -1,7 +1,5 @@
-import { redirect } from "next/navigation";
-import React from "react";
-import Text from "./_components/atoms/Text";
 import Button from "./_components/atoms/Button";
+import Text from "./_components/atoms/Text";
 
 type Props = {};
 

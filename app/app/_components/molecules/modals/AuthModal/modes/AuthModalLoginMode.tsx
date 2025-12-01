@@ -11,12 +11,15 @@ type Props = { closeModalHandler: () => void };
 export default function AuthModalLoginMode({ closeModalHandler }: Props) {
   const dispatch = useAppDispatch();
 
-  const onSubmitHandler = useCallback((e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+  const onSubmitHandler = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const formData = new FormData(e.currentTarget);
 
-    dispatch(authSlice.actions.loginUser({ email: "", password: "" }));
-  }, []);
+      dispatch(authSlice.actions.loginUser({ email: "", password: "" }));
+    },
+    [dispatch]
+  );
 
   return (
     <div className="bg-white grid grid-cols-2 max-w-200">

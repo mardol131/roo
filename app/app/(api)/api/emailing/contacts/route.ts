@@ -1,7 +1,7 @@
-import { NextRequest } from "next/server";
 import { AddContactFromLandingPageFormTemplateType } from "@/app/_api/emailing";
-import { returnResponse } from "@roo/shared/src/functions/api/returnResponse";
 import { brevo } from "@roo/shared/src/email";
+import { returnResponse } from "@roo/shared/src/functions/api/returnResponse";
+import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
   const body = (await req.json()) as AddContactFromLandingPageFormTemplateType;

@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BlogPostCardProps } from "../types/blogPostTypes";
-import BlogPostCard from "./BlogPostCard";
-import BlogPostMainFeaturedCard from "./BlogPostMainFeaturedCard";
 import BlogPostFeaturedCard from "./BlogPostFeaturedCards";
+import BlogPostMainFeaturedCard from "./BlogPostMainFeaturedCard";
 
 type Props = {
   posts: BlogPostCardProps[];

@@ -1,8 +1,7 @@
-import type { NextConfig } from "next";
-import path from "path";
-import fs from "fs";
 import dotenv from "dotenv";
+import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import path from "path";
 
 // changing env file to monorepo env in development
 if (process.env.VERCEL !== "1") {

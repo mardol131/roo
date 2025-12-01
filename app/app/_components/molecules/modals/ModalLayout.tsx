@@ -1,11 +1,8 @@
 "use client";
 
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
-import { useAppSelector } from "@/app/_redux/hooks";
-import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
-import React, { PropsWithChildren, useCallback, useRef } from "react";
+import { PropsWithChildren, useRef } from "react";
 import { FaXmark } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
 
 type Props = {
   closeHandler: () => void;

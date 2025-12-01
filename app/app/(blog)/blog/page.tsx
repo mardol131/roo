@@ -1,14 +1,8 @@
-import React from "react";
-import FeaturedPostsSection from "./_components/FeaturedPostsSection";
-import { BlogWrapper } from "./_components/BlogWrapper";
-import BlogPostList from "./_components/BlogPostList";
-import { getPosts } from "./_functions/getPosts";
-import { redirect } from "next/navigation";
-import { getFeaturedPosts } from "./_functions/getFeaturedPosts";
-import Text from "@/app/_components/atoms/Text";
 import { getAllCmsPosts, getAllTags, getCmsPosts } from "@/app/_api/payload";
-import BlogCategoryFilterDropdown from "./_components/BlogCategoryFilterDropdown";
+import BlogPostList from "./_components/BlogPostList";
+import { BlogWrapper } from "./_components/BlogWrapper";
 import { PostTagProps } from "./_components/PostTags";
+import { getFeaturedPosts } from "./_functions/getFeaturedPosts";
 
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;

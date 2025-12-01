@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { incrementAction } from "./actions/incrementAction";
-import { decrementAction } from "./actions/decrementAction";
+import { changeHeaderSettingsAction } from "./actions/changeHeaderSettingsAction";
 import { changeListingCategoryAction } from "./actions/changeListingCategoryAction";
 import { changeOnUserInputAction } from "./actions/changeOnUserInputAction";
-import { changeHeaderSettingsAction } from "./actions/changeHeaderSettingsAction";
+import { decrementAction } from "./actions/decrementAction";
+import { incrementAction } from "./actions/incrementAction";
 
 export type SettingsTypes =
   | "listingCategory"

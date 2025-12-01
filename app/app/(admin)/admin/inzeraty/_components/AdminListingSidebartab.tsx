@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import image from "@/app/_images/test.jpg";
 import { useState } from "react";
 import { IoImage } from "react-icons/io5";
 

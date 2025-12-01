@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { decryptPayloadJwt } from "./app/_api/payload";
 
 export async function middleware(req: NextRequest) {
   const { pathname, host } = req.nextUrl;

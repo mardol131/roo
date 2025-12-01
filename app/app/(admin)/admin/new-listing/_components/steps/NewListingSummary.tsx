@@ -28,7 +28,7 @@ export default function NewListingSummary({}: Props) {
         })
       );
     },
-    [changeStepHandler]
+    [changeStepHandler, dispatch]
   );
 
   return (

@@ -72,7 +72,7 @@ export default function FormWaitlistTemplate({}: Props) {
         usage="cms"
         groupDividerTexts={[
           { text: "Typ služby", slugAfter: "place" },
-          { text: "Type organizátora", slugAfter: "private" },
+          { text: "Typ organizátora", slugAfter: "private" },
         ]}
         options={[
           {

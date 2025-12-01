@@ -1,6 +1,6 @@
-import { PayloadAction } from "@reduxjs/toolkit";
-import { NewListingSlice, NewListingStepsType } from "../newListingSlice";
 import { ListingType } from "@/app/_types/business/services";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { NewListingSlice } from "../newListingSlice";
 
 export function restartFromListing(
   state: NewListingSlice,

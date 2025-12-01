@@ -3,7 +3,6 @@
 import Button from "@/app/_components/atoms/Button";
 
 import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
-import Text from "@/app/_components/atoms/Text";
 import { FormMultiSelectInput } from "@/app/_components/molecules/inputs/FormMultiSelectInput";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import {
@@ -12,7 +11,6 @@ import {
 } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { useTranslations } from "next-intl";
 import { FormEvent, useState } from "react";
-import { FaXmark } from "react-icons/fa6";
 import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
 
 type Props = {};

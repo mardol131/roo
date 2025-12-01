@@ -1,8 +1,7 @@
-import React, { ReactNode } from "react";
-import Image from "next/image";
-import image from "@/app/_images/test.jpg";
-import { FaRegImage } from "react-icons/fa6";
 import AdminCheckbox from "@/app/(admin)/admin/_components/inputs/AdminCheckbox";
+import image from "@/app/_images/test.jpg";
+import Image from "next/image";
+import { FaRegImage } from "react-icons/fa6";
 import { AdminTextInput } from "../../_components/inputs/AdminTextInput";
 import { AdminTextarea } from "../../_components/inputs/AdminTextarea";
 

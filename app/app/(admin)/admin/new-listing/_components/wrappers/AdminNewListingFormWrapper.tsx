@@ -1,10 +1,5 @@
 import Text from "@/app/_components/atoms/Text";
-import { useAppSelector } from "@/app/_redux/hooks";
-import { NewListingStepsArray } from "@/app/_redux/slices/newListingSlice/newListingSlice";
-import { FormEvent, Fragment, ReactNode } from "react";
-import { FaCheck } from "react-icons/fa6";
-import { useNewListingSteps } from "../../_hooks/useNewListingSteps";
-import { NewListingStepBar } from "../NewListingStepBar";
+import { FormEvent, ReactNode } from "react";
 
 type Props = {
   heading?: string;
