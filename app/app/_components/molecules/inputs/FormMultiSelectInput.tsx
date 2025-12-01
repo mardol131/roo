@@ -4,7 +4,6 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
 import FormInputLabel from "./FormInputLabel";
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
-import { SpecTag } from "@/app/(admin)/admin/new-listing/_components/steps/NewListingSpecificationStep";
 import { Category } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 import Text from "../../atoms/Text";

@@ -1,6 +1,7 @@
 import { getImageField } from '@/_landingPages/components/image'
 import { getTextsField } from '@/_landingPages/components/text'
 import { ACL } from '@/functions/ACL'
+import { createSlug } from '@roo/shared/functions/data-manipulation/createSlug'
 import type { CollectionConfig } from 'payload'
 
 export const Posts: CollectionConfig = {
@@ -179,12 +180,7 @@ export const Posts: CollectionConfig = {
       ({ data }) => {
         if (data?.title) {
           if (!data.slug) {
-            data.slug = data.title
-              .normalize('NFD') // rozdělí písmena a diakritiku (např. č -> c + ̌)
-              .replace(/[\u0300-\u036f]/g, '') // odstraní diakritiku
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, '-') // nahradí mezery a nealfanumerické znaky pomlčkou
-              .replace(/(^-|-$)+/g, '') // odstraní pomlčky na začátku a konci
+            data.slug = createSlug(data.title)
           }
 
           data.canonical = `${process.env.NEXT_PUBLIC_ROO_WEBSITE}/stranky/${data.slug}`

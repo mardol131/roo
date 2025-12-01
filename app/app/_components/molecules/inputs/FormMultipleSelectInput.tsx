@@ -1,14 +1,13 @@
 "use client";
 
 import { TextBlockProps } from "@/app/(landingPages)/_components/textSection/TextSection";
-import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import Text, { GenerateTexts } from "@/app/_components/atoms/Text";
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { ChangeEvent, useRef, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { FormCheckboxInput, FormCheckboxInputProps } from "./FormCheckboxInput";
-import FormInputWrapper from "./FormInputWrapper";
-import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 import FormInputLabel from "./FormInputLabel";
+import FormInputWrapper from "./FormInputWrapper";
 
 export type FormMultipleSelectInputProps = {
   blockType: "formmultipleselectinput";
