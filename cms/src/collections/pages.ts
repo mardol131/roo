@@ -12,6 +12,7 @@ import { ImageTextSectionBlock } from '@/_landingPages/sections/imageTextSection
 import { MasonrySectionBlock } from '@/_landingPages/sections/masonrySection/MasonrySectionBlock'
 import { TextSectionBlock } from '@/_landingPages/sections/textSection/textSection'
 import { StepsSectionBlock } from '@/_landingPages/sections/stepsSection/stepsSection'
+import { createSlug } from '@roo/shared/functions/data-manipulation/createSlug'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -178,12 +179,7 @@ export const Pages: CollectionConfig = {
       ({ data }) => {
         if (data?.title) {
           if (!data.slug) {
-            data.slug = data.title
-              .normalize('NFD') // rozdělí písmena a diakritiku (např. č -> c + ̌)
-              .replace(/[\u0300-\u036f]/g, '') // odstraní diakritiku
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, '-') // nahradí mezery a nealfanumerické znaky pomlčkou
-              .replace(/(^-|-$)+/g, '') // odstraní pomlčky na začátku a konci
+            data.slug = createSlug(data.title)
           }
 
           data.canonical = `${process.env.NEXT_PUBLIC_ROO_WEBSITE}/stranky/${data.slug}`

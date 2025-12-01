@@ -87,8 +87,8 @@ export default function NewListingTypeStep({}: Props) {
   if (shouldPickOne) {
     return (
       <AdminNewListingFormWrapper
-        heading={"Jakou službu chceš nastavit jako první?"}
-        subheading={"Druhou službu budeš mít možnost nastavit později"}
+        heading={t("pickOne.title")}
+        subheading={t("pickOne.subheading")}
       >
         <>
           <div className="flex max-md:flex-col w-full justify-center gap-5 max-w-250">
@@ -118,7 +118,7 @@ export default function NewListingTypeStep({}: Props) {
           </div>
           <div className="flex gap-5">
             <Button
-              text="Zpět"
+              text={t("buttonBack")}
               bgColor="secondaryPrimaryTertiary"
               size="xl"
               rounding="full"
@@ -127,7 +127,7 @@ export default function NewListingTypeStep({}: Props) {
             />
             {listingData.type && (
               <Button
-                text="Pokračovat"
+                text={t("button")}
                 bgColor="secondaryPrimaryTertiary"
                 size="xl"
                 rounding="full"
@@ -142,10 +142,7 @@ export default function NewListingTypeStep({}: Props) {
   }
 
   return (
-    <AdminNewListingFormWrapper
-      heading={"Jaké služby poskytuješ?"}
-      subheading={"Vyber jednu nebo více kategorií kliknutím na ikonu"}
-    >
+    <AdminNewListingFormWrapper heading={t("title")} subheading={t("subtitle")}>
       <>
         <div className="grid max-md:flex max-md:flex-col grid-cols-3 w-full justify-items-center gap-5 max-w-250">
           {listingCardsData.map((listing, i) => {
@@ -171,7 +168,7 @@ export default function NewListingTypeStep({}: Props) {
         {listingTypesToFill.length > 0 && (
           <div onClick={anotherStepHandler}>
             <Button
-              text="Pokračovat"
+              text={t("button")}
               bgColor="secondaryPrimaryTertiary"
               size="xl"
               rounding="full"

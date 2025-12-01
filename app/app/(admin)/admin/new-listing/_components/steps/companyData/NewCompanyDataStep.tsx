@@ -95,7 +95,7 @@ export default function NewCompanyDataStep({}: Props) {
   }
   return (
     <AdminNewListingFormWrapper onSubmit={onSubmitHandler} heading={t("title")}>
-      <div className="md:grid flex flex-col grid-cols-2 items-start gap-5">
+      <div className="md:grid flex flex-col grid-cols-2 w-full items-start gap-5">
         <CompanyDataFormPart />
         <ContactPersonFormPart />
       </div>

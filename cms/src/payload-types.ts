@@ -71,13 +71,12 @@ export interface Config {
     users: User;
     posts: Post;
     listings: Listing;
-    'sub-listings': SubListing;
-    places: Place;
-    categories: Category;
+    companies: Company;
     pages: Page;
     media: Media;
     admins: Admin;
     'blog-tags': BlogTag;
+    countries: Country;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -87,13 +86,12 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     listings: ListingsSelect<false> | ListingsSelect<true>;
-    'sub-listings': SubListingsSelect<false> | SubListingsSelect<true>;
-    places: PlacesSelect<false> | PlacesSelect<true>;
-    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    companies: CompaniesSelect<false> | CompaniesSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     admins: AdminsSelect<false> | AdminsSelect<true>;
     'blog-tags': BlogTagsSelect<false> | BlogTagsSelect<true>;
+    countries: CountriesSelect<false> | CountriesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -386,38 +384,24 @@ export interface Listing {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sub-listings".
+ * via the `definition` "companies".
  */
-export interface SubListing {
+export interface Company {
   id: string;
-  title?: string | null;
-  slug?: string | null;
-  startingPrice?: number | null;
-  Listing?: (string | null) | Listing;
-  featuredImage?: string | null;
-  category?: (string | null) | Category;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: string;
-  title: string;
-  description: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "places".
- */
-export interface Place {
-  id: string;
-  title: string;
-  description?: string | null;
+  name: string;
+  ico: number;
+  dic?: string | null;
+  street: string;
+  city: string;
+  cityCode: string;
+  country: string;
+  contactPerson: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: number;
+  };
+  createdBy?: (string | null) | User;
   updatedAt: string;
   createdAt: string;
 }
@@ -4246,6 +4230,17 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "countries".
+ */
+export interface Country {
+  id: string;
+  name: string;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -4264,16 +4259,8 @@ export interface PayloadLockedDocument {
         value: string | Listing;
       } | null)
     | ({
-        relationTo: 'sub-listings';
-        value: string | SubListing;
-      } | null)
-    | ({
-        relationTo: 'places';
-        value: string | Place;
-      } | null)
-    | ({
-        relationTo: 'categories';
-        value: string | Category;
+        relationTo: 'companies';
+        value: string | Company;
       } | null)
     | ({
         relationTo: 'pages';
@@ -4290,6 +4277,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blog-tags';
         value: string | BlogTag;
+      } | null)
+    | ({
+        relationTo: 'countries';
+        value: string | Country;
       } | null);
   globalSlug?: string | null;
   user:
@@ -4467,35 +4458,25 @@ export interface ListingsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "sub-listings_select".
+ * via the `definition` "companies_select".
  */
-export interface SubListingsSelect<T extends boolean = true> {
-  title?: T;
-  slug?: T;
-  startingPrice?: T;
-  Listing?: T;
-  featuredImage?: T;
-  category?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "places_select".
- */
-export interface PlacesSelect<T extends boolean = true> {
-  title?: T;
-  description?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
- */
-export interface CategoriesSelect<T extends boolean = true> {
-  title?: T;
-  description?: T;
+export interface CompaniesSelect<T extends boolean = true> {
+  name?: T;
+  ico?: T;
+  dic?: T;
+  street?: T;
+  city?: T;
+  cityCode?: T;
+  country?: T;
+  contactPerson?:
+    | T
+    | {
+        firstName?: T;
+        lastName?: T;
+        email?: T;
+        phone?: T;
+      };
+  createdBy?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -5785,6 +5766,16 @@ export interface AdminsSelect<T extends boolean = true> {
  */
 export interface BlogTagsSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "countries_select".
+ */
+export interface CountriesSelect<T extends boolean = true> {
+  name?: T;
   slug?: T;
   updatedAt?: T;
   createdAt?: T;

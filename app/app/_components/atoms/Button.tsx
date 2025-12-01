@@ -54,7 +54,7 @@ export default function Button(props: ButtonProps) {
 
   const buttonClassname = `${props.disabled ? "opacity-50" : "hover:scale-105"} font-semibold  ${
     props.bgColor === "white" && "border border-borderLight"
-  } animate cursor-pointer shadow-md flex items-center gap-2 ${
+  } animate cursor-pointer shadow-md flex text-center justify-center items-center gap-2 ${
     props.stretch && "w-full"
   } ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor}`;
 

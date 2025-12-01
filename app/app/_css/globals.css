@@ -76,16 +76,6 @@
   --spacing-landingWrapper: 1200px;
 
   /* Animations */
-
-  --animate-popup: popup 200ms ease-in-out both;
-  @keyframes popup {
-    0% {
-      transform: scale(0);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
 }
 
 /* Scrollbar */

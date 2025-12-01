@@ -9,15 +9,14 @@ import sharp from 'sharp'
 import { Users } from './collections/users'
 import { Posts } from './collections/posts'
 import { Listings } from './collections/listings'
-import { SubListings } from './collections/subListings'
-import { Places } from './collections/places'
-import { Categories } from './collections/categories'
 import { Pages } from './collections/pages'
 import dotenv from 'dotenv'
 import { Media } from './collections/media'
 import { Admins } from './collections/admins'
 import { BlogTags } from './collections/blogTags'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import { Companies } from './collections/companies'
+import { Countries } from './collections/countries'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -61,18 +60,7 @@ export default buildConfig({
       },
     },
   }),
-  collections: [
-    Users,
-    Posts,
-    Listings,
-    SubListings,
-    Places,
-    Categories,
-    Pages,
-    Media,
-    Admins,
-    BlogTags,
-  ],
+  collections: [Users, Posts, Listings, Companies, Pages, Media, Admins, BlogTags, Countries],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

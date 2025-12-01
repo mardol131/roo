@@ -1,10 +1,9 @@
 "use client";
 
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import FormInputWrapper from "./FormInputWrapper";
 import FormInputLabel from "./FormInputLabel";
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
-import { SpecTag } from "@/app/(admin)/admin/new-listing/_components/steps/NewListingSpecificationStep";
 import { Category } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 import Text from "../../atoms/Text";
@@ -51,6 +50,10 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
     }
     setIsInvalid(false);
   };
+
+  useEffect(() => {
+    setIsInvalid(false);
+  }, [props.required]);
 
   const removeOption = (value: Category) => {
     const newValues = selectedValues.filter((v) => v !== value);
