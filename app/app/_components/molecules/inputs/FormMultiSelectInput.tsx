@@ -99,11 +99,15 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
   const stringToSend =
     props.usage === "dev"
       ? JSON.stringify(selectedValues)
-      : selectedValues.map((v) => v.id).join(",");
+      : selectedValues.map((v) => v.slug).join(",");
 
   return (
-    <FormInputWrapper isInvalid={isInvalid} spanTwo={props.spanTwo}>
-      <FormInputLabel text={props.label} className="pb-1" />
+    <FormInputWrapper
+      isInvalid={isInvalid}
+      spanTwo={props.spanTwo}
+      isOpen={isOpen}
+    >
+      <FormInputLabel text={props.label} />
 
       {/* Hidden inputs for form submission */}
       <input readOnly hidden name={props.name} value={stringToSend || ""} />
@@ -120,7 +124,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
         />
       )}
 
-      <div className="relative">
+      <div>
         <button
           type="button"
           disabled={props.disabled}
@@ -153,7 +157,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
         {isOpen && !props.disabled && (
           <div
             ref={dropdownRef}
-            className="absolute z-999 w-full mt-2 bg-white border border-borderLight rounded-lg shadow-xl"
+            className="absolute z-9999 top-full w-full mt-2 bg-white border border-borderLight rounded-lg shadow-xl"
           >
             {/* Vyhledávací input */}
             {!props.disableSearch && (
@@ -232,7 +236,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
       {/* Overlay to close dropdown when clicking outside */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-10"
+          className="fixed inset-0 z-9998"
           onClick={() => setIsOpen(false)}
         ></div>
       )}

@@ -1,7 +1,7 @@
 import { jwtVerify } from "jose";
 import * as qs from "qs";
 import { cache } from "react";
-import { Region } from "../_types/locality";
+import { Country, District, Municipality, Region } from "../_types/locality";
 
 export type Methods = "get" | "post" | "put" | "delete" | "patch";
 
@@ -101,6 +101,51 @@ export async function getAllRegions({
     { encodeValuesOnly: true }
   );
   const query = `/regions?${queryString}&sort=name${limit ? `&limit=${limit}` : ""}`;
+  return await fetchPublicData({ query, cache: "no-store" });
+}
+
+export async function getAllCountries({
+  limit,
+  searchQuery,
+}: {
+  limit?: number;
+  searchQuery?: string;
+}): Promise<CmsResponse<Country>> {
+  const queryString = qs.stringify(
+    { where: { name: { contains: searchQuery } } },
+    { encodeValuesOnly: true }
+  );
+  const query = `/countries?${queryString}${limit ? `&limit=${limit}` : ""}`;
+  return await fetchPublicData({ query, cache: "no-store" });
+}
+
+export async function getAllDistricts({
+  limit,
+  searchQuery,
+}: {
+  limit?: number;
+  searchQuery?: string;
+}): Promise<CmsResponse<District>> {
+  const queryString = qs.stringify(
+    { where: { name: { contains: searchQuery } } },
+    { encodeValuesOnly: true }
+  );
+  const query = `/districts?${queryString}${limit ? `&limit=${limit}` : ""}`;
+  return await fetchPublicData({ query, cache: "no-store" });
+}
+
+export async function getAllMunicipalities({
+  limit,
+  searchQuery,
+}: {
+  limit?: number;
+  searchQuery?: string;
+}): Promise<CmsResponse<Municipality>> {
+  const queryString = qs.stringify(
+    { where: { name: { contains: searchQuery } } },
+    { encodeValuesOnly: true }
+  );
+  const query = `/municipalities?${queryString}${limit ? `&limit=${limit}` : ""}`;
   return await fetchPublicData({ query, cache: "no-store" });
 }
 

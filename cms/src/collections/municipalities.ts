@@ -41,6 +41,8 @@ export const Municipalities: CollectionConfig = {
     { name: 'regionCode', type: 'number' },
   ],
   access: {
+    read: () => true,
+    delete: ACL({ roles: ['superadmin'] }),
     update: ACL({ roles: ['superadmin'] }),
     create: ACL({ roles: ['superadmin'] }),
   },

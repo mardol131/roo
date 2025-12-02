@@ -4,22 +4,23 @@ import Button from "@/app/_components/atoms/Button";
 
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
 import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
+import {
+  getAllCountries,
+  getAllDistricts,
+  getAllMunicipalities,
+  getAllRegions,
+} from "@/app/_api/cms";
 import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
 import { FormMultiSelectInput } from "@/app/_components/molecules/inputs/FormMultiSelectInput";
 import { FormSelectInput } from "@/app/_components/molecules/inputs/FormSelectInput";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
-import {
-  cityOptions,
-  countryOptions,
-  districtOptions,
-  regionOptions,
-} from "@/app/_components/molecules/inputs/locationData";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import {
   Category,
   newListing,
 } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
+import debounce from "@roo/shared/src/functions/debounce";
 import { useTranslations } from "next-intl";
 import React, {
   FormEvent,
@@ -29,13 +30,12 @@ import React, {
   useState,
 } from "react";
 import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
-import { getAllRegions } from "@/app/_api/cms";
-import debounce from "@roo/shared/src/functions/debounce";
 
 type Props = {};
 
 export default function NewListingLocationStep({}: Props) {
   const state = useAppSelector((state) => state.newListing);
+
   const t = useTranslations(
     state.listingData.type
       ? `admin.company.newListing.steps.location.${state.listingData.type}`
@@ -57,6 +57,8 @@ export default function NewListingLocationStep({}: Props) {
   const [selectedCountries, setSelectedCountries] = useState<Category[]>(
     state.listingData.location.serviceAreas?.country || []
   );
+  const [countriesList, setCountriesList] = useState<Category[]>([]);
+
   const [selectedRegions, setSelectedRegions] = useState<Category[]>(
     state.listingData.location.serviceAreas?.regions || []
   );
@@ -64,9 +66,20 @@ export default function NewListingLocationStep({}: Props) {
   const [selectedDistricts, setSelectedDistricts] = useState<Category[]>(
     state.listingData.location.serviceAreas?.districts || []
   );
-  const [selectedCities, setSelectedCities] = useState<Category[]>(
-    state.listingData.location.serviceAreas?.cities || []
-  );
+  const [districtsList, setDistrictsList] = useState<Category[]>([]);
+
+  const [selectedMunicipalities, setSelectedMunicipalities] = useState<
+    Category[]
+  >(state.listingData.location.serviceAreas?.municipalities || []);
+  const [municipalitiesList, setMunicipalitiesList] = useState<Category[]>([]);
+
+  const [selectedMunicipalityOne, setSelectedMunicipalityOne] = useState<
+    Category | undefined
+  >(state.listingData.location.municipality);
+
+  const [selectedCountryOne, setSelectedCountryOne] = useState<
+    Category | undefined
+  >(state.listingData.location.country);
 
   function checkboxOnChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
     setAddressIsSameAsInvoicing(e.target.checked);
@@ -82,8 +95,8 @@ export default function NewListingLocationStep({}: Props) {
           dispatch(
             newListing.actions.saveLocation({
               street: state?.companyData?.street,
-              city: state?.companyData?.city,
-              cityCode: state?.companyData?.cityCode,
+              municipality: state?.companyData?.municipality,
+              municipalityCode: state?.companyData?.municipalityCode,
               country: state?.companyData?.country,
               adressSameAsCompany: true,
               multipleLocations: multipleLocations,
@@ -94,9 +107,9 @@ export default function NewListingLocationStep({}: Props) {
           dispatch(
             newListing.actions.saveLocation({
               street: data.street,
-              city: data.city,
-              cityCode: data.cityCode,
-              country: data.country,
+              municipality: selectedMunicipalityOne,
+              municipalityCode: data.municipalityCode,
+              country: selectedCountryOne,
               adressSameAsCompany: false,
               multipleLocations: multipleLocations,
               serviceAreas: state?.listingData.location.serviceAreas,
@@ -109,8 +122,8 @@ export default function NewListingLocationStep({}: Props) {
         dispatch(
           newListing.actions.saveLocation({
             street: state?.companyData?.street,
-            city: state?.companyData?.city,
-            cityCode: state?.companyData?.cityCode,
+            municipality: state?.companyData?.municipality,
+            municipalityCode: state?.companyData?.municipalityCode,
             country: state?.companyData?.country,
             adressSameAsCompany:
               state?.listingData?.location?.adressSameAsCompany,
@@ -120,7 +133,7 @@ export default function NewListingLocationStep({}: Props) {
                   country: selectedCountries,
                   regions: selectedRegions,
                   districts: selectedDistricts,
-                  cities: selectedCities,
+                  municipalities: selectedMunicipalities,
                 }
               : undefined,
           })
@@ -139,7 +152,7 @@ export default function NewListingLocationStep({}: Props) {
       selectedCountries,
       selectedRegions,
       selectedDistricts,
-      selectedCities,
+      selectedMunicipalities,
       state?.companyData,
       dispatch,
       changeStepHandler,
@@ -157,7 +170,6 @@ export default function NewListingLocationStep({}: Props) {
             id: region.id,
           }))
         );
-        console.log(response);
       } catch (error) {
         console.error("Error fetching regions:", error);
       }
@@ -165,14 +177,73 @@ export default function NewListingLocationStep({}: Props) {
     return debounce(onRegionSearchChange, 500);
   }, []);
 
+  const onCountrySearchChangeDebounce = useMemo(() => {
+    const onCountrySearchChange = async (searchQuery: string) => {
+      try {
+        const response = await getAllCountries({ limit: 10, searchQuery });
+        setCountriesList(
+          response.docs.map((country) => ({
+            label: country.name,
+            slug: country.slug,
+            id: country.id,
+          }))
+        );
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+    return debounce(onCountrySearchChange, 500);
+  }, []);
+
+  const onDistrictSearchChangeDebounced = useMemo(() => {
+    const onDistrictSearchChange = async (searchQuery: string) => {
+      try {
+        const response = await getAllDistricts({ limit: 10, searchQuery });
+        setDistrictsList(
+          response.docs.map((district) => ({
+            label: district.name,
+            slug: district.slug,
+            id: district.id,
+          }))
+        );
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+    return debounce(onDistrictSearchChange, 500);
+  }, []);
+
+  const onMunicipalitySearchChangeDebounced = useMemo(() => {
+    const onMunicipalitySearchChange = async (searchQuery: string) => {
+      try {
+        const response = await getAllMunicipalities({ limit: 10, searchQuery });
+        setMunicipalitiesList(
+          response.docs.map((municipality) => ({
+            label: municipality.name,
+            slug: municipality.slug,
+            id: municipality.id,
+          }))
+        );
+      } catch (error) {
+        console.error("Error fetching countries:", error);
+      }
+    };
+    return debounce(onMunicipalitySearchChange, 500);
+  }, []);
+
   const multipleLocationsRequired = useMemo(() => {
     return (
       selectedCountries.length === 0 &&
       selectedRegions.length === 0 &&
       selectedDistricts.length === 0 &&
-      selectedCities.length === 0
+      selectedMunicipalities.length === 0
     );
-  }, [selectedCountries, selectedRegions, selectedDistricts, selectedCities]);
+  }, [
+    selectedCountries,
+    selectedRegions,
+    selectedDistricts,
+    selectedMunicipalities,
+  ]);
 
   useEffect(() => {}, []);
 
@@ -183,16 +254,19 @@ export default function NewListingLocationStep({}: Props) {
         heading={t("stepTwo.title")}
         subheading={t("stepTwo.subtitle")}
       >
-        <div className="w-full flex flex-col gap-5 items-stretch justify-center max-w-150">
+        <div className="w-full relative flex flex-col gap-5 items-stretch justify-center max-w-150">
           <FormMultiSelectInput
             spanTwo={true}
             label={t("stepTwo.inputs.country.label")}
             name="serviceCountries"
             placeholder={t("stepTwo.inputs.country.placeholder")}
-            options={countryOptions}
+            options={countriesList}
             defaultValue={selectedCountries}
             onChangeAction={setSelectedCountries}
-            onSearchChangeAction={onRegionSearchChangeDebounced}
+            onSearchChangeAction={onCountrySearchChangeDebounce}
+            onSearchModalCloseAction={() => {
+              setCountriesList(selectedCountries);
+            }}
             required={multipleLocationsRequired}
           />
 
@@ -216,20 +290,24 @@ export default function NewListingLocationStep({}: Props) {
             label={t("stepTwo.inputs.district.label")}
             name="serviceDistricts"
             placeholder={t("stepTwo.inputs.district.placeholder")}
-            options={districtOptions}
+            options={districtsList}
             defaultValue={selectedDistricts}
+            onSearchChangeAction={onDistrictSearchChangeDebounced}
             onChangeAction={setSelectedDistricts}
+            onSearchModalCloseAction={() => {
+              setDistrictsList(selectedDistricts);
+            }}
             required={multipleLocationsRequired}
           />
 
           <FormMultiSelectInput
             spanTwo={true}
-            label={t("stepTwo.inputs.city.label")}
+            label={t("stepTwo.inputs.municipality.label")}
             name="serviceCities"
-            placeholder={t("stepTwo.inputs.city.placeholder")}
-            options={cityOptions}
-            defaultValue={selectedCities}
-            onChangeAction={setSelectedCities}
+            placeholder={t("stepTwo.inputs.municipality.placeholder")}
+            options={municipalitiesList}
+            defaultValue={selectedMunicipalities}
+            onChangeAction={setSelectedMunicipalities}
             required={multipleLocationsRequired}
           />
         </div>
@@ -284,33 +362,47 @@ export default function NewListingLocationStep({}: Props) {
                 defaultValue={state?.listingData.location.street}
                 required={!addressIsSameAsInvoicing}
               />
-              <FormTextInput
-                type="text"
-                name="city"
-                label={t("inputs.city.label")}
-                placeholder={t("inputs.city.placeholder")}
+              <FormSelectInput
+                name="municipality"
+                label={t("inputs.municipality.label")}
+                placeholder={t("inputs.municipality.placeholder")}
                 disabled={addressIsSameAsInvoicing}
-                defaultValue={state?.listingData.location.city}
+                defaultValue={state?.listingData.location.municipality}
                 required={!addressIsSameAsInvoicing}
+                options={municipalitiesList}
+                onChangeAction={setSelectedMunicipalityOne}
+                onSearchChangeAction={onMunicipalitySearchChangeDebounced}
+                onSearchModalCloseAction={() => {
+                  setMunicipalitiesList(
+                    selectedMunicipalityOne ? [selectedMunicipalityOne] : []
+                  );
+                }}
               />
               <FormTextInput
                 type="text"
-                name="cityCode"
-                label={t("inputs.cityCode.label")}
-                placeholder={t("inputs.cityCode.placeholder")}
+                name="municipalityCode"
+                label={t("inputs.municipalityCode.label")}
+                placeholder={t("inputs.municipalityCode.placeholder")}
                 disabled={addressIsSameAsInvoicing}
-                defaultValue={state?.listingData.location.cityCode}
+                defaultValue={state?.listingData.location.municipalityCode}
                 required={!addressIsSameAsInvoicing}
               />
               <FormSelectInput
                 spanTwo={true}
-                value="country"
-                optionsGroup="country"
+                name="country"
                 label={t("inputs.country.label")}
                 placeholder={t("inputs.country.placeholder")}
                 disabled={addressIsSameAsInvoicing}
                 defaultValue={state?.listingData.location.country}
                 required={!addressIsSameAsInvoicing}
+                options={countriesList}
+                onChangeAction={setSelectedCountryOne}
+                onSearchChangeAction={onCountrySearchChangeDebounce}
+                onSearchModalCloseAction={() => {
+                  setCountriesList(
+                    selectedCountryOne ? [selectedCountryOne] : []
+                  );
+                }}
               />
             </AdminFormPartWrapper>
             {state.listingData.type !== "place" && (

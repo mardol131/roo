@@ -4,6 +4,7 @@ type Props = {
   spanTwo?: boolean;
   bgFilled?: boolean;
   isInvalid?: boolean;
+  isOpen?: boolean;
 };
 
 export default function FormInputWrapper({
@@ -11,6 +12,7 @@ export default function FormInputWrapper({
   spanTwo,
   bgFilled = true,
   isInvalid,
+  isOpen,
 }: PropsWithChildren & Props) {
   const columnSpan = spanTwo && "col-span-2";
 
@@ -20,7 +22,8 @@ export default function FormInputWrapper({
       ? "bg-zinc-50"
       : "bg-white";
 
-  const classes = `${columnSpan} ${background}`;
+  const zIndex = isOpen ? "z-9999" : "";
+  const classes = `${columnSpan} ${background} ${zIndex}`;
   return (
     <div
       className={`${classes} border animate-popup border-borderLight text-base shadow-md p-2 flex flex-col rounded-lg`}

@@ -109,8 +109,9 @@ export default function FormWaitlistTemplate({}: Props) {
         blockType="formselectinput"
         label="Jak jste se o nás dozvěděli"
         placeholder="--vyberte možnost--"
-        value="reference"
+        name="reference"
         spanTwo={true}
+        disableSearch={true}
         options={[
           { label: "Vyhledávání", slug: "search", id: "search" },
           { label: "Sociální sítě", slug: "social", id: "social" },

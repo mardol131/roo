@@ -30,11 +30,11 @@
                 "label": "Ulice",
                 "placeholder": "Ulice 123"
               },
-              "city": {
+              "municipality": {
                 "label": "Město",
-                "placeholder": "Praha"
+                "placeholder": "Vyberte město"
               },
-              "cityCode": {
+              "municipalityCode": {
                 "label": "PSČ",
                 "placeholder": "12345"
               },
@@ -181,11 +181,11 @@
                 "label": "Ulice",
                 "placeholder": "Ulice 123"
               },
-              "city": {
+              "municipality": {
                 "label": "Město",
                 "placeholder": "Praha"
               },
-              "cityCode": {
+              "municipalityCode": {
                 "label": "PSČ",
                 "placeholder": "100 00"
               },
@@ -218,7 +218,7 @@
                   "label": "Okresy",
                   "placeholder": "Vyberte okresy"
                 },
-                "city": {
+                "municipality": {
                   "label": "Města",
                   "placeholder": "Vyberte města"
                 }
@@ -231,11 +231,11 @@
                 "label": "Ulice",
                 "placeholder": "Ulice 123"
               },
-              "city": {
+              "municipality": {
                 "label": "Město",
                 "placeholder": "Praha"
               },
-              "cityCode": {
+              "municipalityCode": {
                 "label": "PSČ",
                 "placeholder": "100 00"
               },
@@ -268,7 +268,7 @@
                   "label": "Okresy",
                   "placeholder": "Vyberte okresy"
                 },
-                "city": {
+                "municipality": {
                   "label": "Města",
                   "placeholder": "Vyberte města"
                 }
@@ -281,11 +281,11 @@
                 "label": "Ulice",
                 "placeholder": "Ulice 123"
               },
-              "city": {
+              "municipality": {
                 "label": "Město",
                 "placeholder": "Praha"
               },
-              "cityCode": {
+              "municipalityCode": {
                 "label": "PSČ",
                 "placeholder": "100 00"
               },

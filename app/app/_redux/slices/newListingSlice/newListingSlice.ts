@@ -32,9 +32,9 @@ export type NewCompanyData = {
   ico: string;
   dic?: string;
   street: string;
-  city: string;
-  cityCode: string;
-  country: string;
+  municipality?: Category;
+  municipalityCode: string;
+  country?: Category;
   contactPerson: {
     firstName: string;
     lastName: string;
@@ -52,24 +52,24 @@ export type MultiLocationArea = {
   country: Category[];
   regions: Category[];
   districts: Category[];
-  cities: Category[];
+  municipalities: Category[];
 };
 
 export type ListingLocation = {
   adressSameAsCompany: boolean;
-  street: string | undefined;
-  city: string | undefined;
-  cityCode: string | undefined;
-  country: string | undefined;
+  street?: string;
+  municipality?: Category;
+  municipalityCode?: string;
+  country?: Category;
   multipleLocations: boolean;
-  serviceAreas: MultiLocationArea | undefined;
+  serviceAreas?: MultiLocationArea;
 };
 
 export type Category = { label: string; slug: string; id: string };
 
 export type Listing = {
   name: string;
-  type: ListingType | undefined;
+  type?: ListingType;
   specifications: Category[];
   location: ListingLocation;
 };
@@ -89,9 +89,9 @@ export const newListingInitialData: NewListingSlice = {
     ico: "",
     dic: "",
     street: "",
-    city: "",
-    cityCode: "",
-    country: "",
+    municipality: undefined,
+    municipalityCode: "",
+    country: undefined,
     contactPerson: {
       firstName: "",
       lastName: "",
@@ -111,8 +111,8 @@ export const newListingInitialData: NewListingSlice = {
     location: {
       adressSameAsCompany: false,
       street: undefined,
-      city: undefined,
-      cityCode: undefined,
+      municipality: undefined,
+      municipalityCode: undefined,
       country: undefined,
       multipleLocations: false,
       serviceAreas: undefined,

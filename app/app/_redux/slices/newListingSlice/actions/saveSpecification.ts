@@ -6,8 +6,4 @@ export function saveSpecification(
   action: PayloadAction<Category[]>
 ) {
   state.listingData.specifications = action.payload;
-  console.log(
-    "Saved listing specifications:",
-    state.listingData.specifications
-  );
 }

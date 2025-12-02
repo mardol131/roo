@@ -4242,6 +4242,7 @@ export interface Country {
   id: string;
   name: string;
   slug: string;
+  code: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -5842,6 +5843,7 @@ export interface BlogTagsSelect<T extends boolean = true> {
 export interface CountriesSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
+  code?: T;
   updatedAt?: T;
   createdAt?: T;
 }

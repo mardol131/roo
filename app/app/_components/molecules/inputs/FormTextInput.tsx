@@ -85,7 +85,11 @@ export function FormTextInput(props: FormTextInputProps) {
           required={required || false}
           defaultValue={defaultValue}
           onChange={changeHandler}
-          className="w-full"
+          className={`w-full p-1 flex items-center h-full text-left border rounded-lg ${
+            props.disabled
+              ? "bg-gray-100 cursor-not-allowed text-gray-400"
+              : "bg-white hover:border-primary cursor-pointer"
+          } ${isInvalid ? "border-red-500" : "border-borderLight"}`}
           value={value}
           minLength={type === "password" ? 8 : min ? min : undefined}
           maxLength={max ? max : undefined}
