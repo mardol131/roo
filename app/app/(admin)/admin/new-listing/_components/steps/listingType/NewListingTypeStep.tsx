@@ -63,21 +63,26 @@ export default function NewListingTypeStep({}: Props) {
     return data;
   }, [t]);
 
-  function anotherStepHandler() {
-    if (listingData.type) {
-      return changeStepHandler("listingName");
-    }
-    if (listingTypesToFill.length > 1) {
-      return setShouldPickOne(true);
-    } else if (listingTypesToFill.length === 1) {
-      dispatch(newListing.actions.saveType(listingTypesToFill[0]));
-      return changeStepHandler("listingName");
-    }
-  }
-
   function returnToTypeshandler() {
     setShouldPickOne(false);
     dispatch(newListing.actions.saveType(undefined));
+  }
+
+  function anotherStepHandler() {
+    if (listingData.type) {
+      changeStepHandler("listingName");
+      return dispatch(newListing.actions.updateTypesToFill(listingData.type));
+    }
+
+    if (listingTypesToFill.length === 1) {
+      dispatch(newListing.actions.updateTypesToFill(listingTypesToFill[0]));
+      updateListingType(listingTypesToFill[0]);
+      return changeStepHandler("listingName");
+    }
+
+    if (listingTypesToFill.length > 1) {
+      return setShouldPickOne(true);
+    }
   }
 
   function updateListingType(value: ListingType) {
@@ -106,7 +111,9 @@ export default function NewListingTypeStep({}: Props) {
                   isActive={listingData.type === data.value}
                   key={data.value}
                   value={data.value}
-                  onClick={updateListingType}
+                  onClick={(value) => {
+                    updateListingType(value);
+                  }}
                   delayMs={delay.toString()}
                   text={data.text}
                   heading={data.heading}

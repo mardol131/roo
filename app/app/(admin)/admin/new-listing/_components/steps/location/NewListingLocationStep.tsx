@@ -21,13 +21,32 @@ import {
 } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";
 import { useTranslations } from "next-intl";
-import React, { FormEvent, useCallback, useMemo, useState } from "react";
+import React, {
+  FormEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";
+import { getAllRegions } from "@/app/_api/cms";
+import debounce from "@roo/shared/src/functions/debounce";
 
 type Props = {};
 
 export default function NewListingLocationStep({}: Props) {
   const state = useAppSelector((state) => state.newListing);
+  const t = useTranslations(
+    state.listingData.type
+      ? `admin.company.newListing.steps.location.${state.listingData.type}`
+      : "admin.company.newListing.steps.location.gastro"
+  );
+  const [step, setStep] = useState<"oneLocation" | "multipleLocations">(
+    "oneLocation"
+  );
+  const dispatch = useAppDispatch();
+
+  // States and hooks
   const { changeStepHandler } = useNewListingSteps();
   const [addressIsSameAsInvoicing, setAddressIsSameAsInvoicing] = useState(
     state.listingData.location.adressSameAsCompany
@@ -41,24 +60,15 @@ export default function NewListingLocationStep({}: Props) {
   const [selectedRegions, setSelectedRegions] = useState<Category[]>(
     state.listingData.location.serviceAreas?.regions || []
   );
+  const [regionsList, setRegionsList] = useState<Category[]>([]);
   const [selectedDistricts, setSelectedDistricts] = useState<Category[]>(
     state.listingData.location.serviceAreas?.districts || []
   );
   const [selectedCities, setSelectedCities] = useState<Category[]>(
     state.listingData.location.serviceAreas?.cities || []
   );
-  const [step, setStep] = useState<"oneLocation" | "multipleLocations">(
-    "oneLocation"
-  );
-  const dispatch = useAppDispatch();
-  const t = useTranslations(
-    state.listingData.type
-      ? `admin.company.newListing.steps.location.${state.listingData.type}`
-      : "admin.company.newListing.steps.location.place"
-  );
 
   function checkboxOnChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.checked);
     setAddressIsSameAsInvoicing(e.target.checked);
   }
 
@@ -77,7 +87,7 @@ export default function NewListingLocationStep({}: Props) {
               country: state?.companyData?.country,
               adressSameAsCompany: true,
               multipleLocations: multipleLocations,
-              serviceAreas: undefined,
+              serviceAreas: state?.listingData.location.serviceAreas,
             })
           );
         } else {
@@ -89,7 +99,7 @@ export default function NewListingLocationStep({}: Props) {
               country: data.country,
               adressSameAsCompany: false,
               multipleLocations: multipleLocations,
-              serviceAreas: undefined,
+              serviceAreas: state?.listingData.location.serviceAreas,
             })
           );
         }
@@ -136,6 +146,25 @@ export default function NewListingLocationStep({}: Props) {
     ]
   );
 
+  const onRegionSearchChangeDebounced = useMemo(() => {
+    const onRegionSearchChange = async (searchQuery: string) => {
+      try {
+        const response = await getAllRegions({ limit: 10, searchQuery });
+        setRegionsList(
+          response.docs.map((region) => ({
+            label: region.name,
+            slug: region.slug,
+            id: region.id,
+          }))
+        );
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching regions:", error);
+      }
+    };
+    return debounce(onRegionSearchChange, 500);
+  }, []);
+
   const multipleLocationsRequired = useMemo(() => {
     return (
       selectedCountries.length === 0 &&
@@ -144,6 +173,8 @@ export default function NewListingLocationStep({}: Props) {
       selectedCities.length === 0
     );
   }, [selectedCountries, selectedRegions, selectedDistricts, selectedCities]);
+
+  useEffect(() => {}, []);
 
   if (step === "multipleLocations") {
     return (
@@ -161,6 +192,7 @@ export default function NewListingLocationStep({}: Props) {
             options={countryOptions}
             defaultValue={selectedCountries}
             onChangeAction={setSelectedCountries}
+            onSearchChangeAction={onRegionSearchChangeDebounced}
             required={multipleLocationsRequired}
           />
 
@@ -169,9 +201,13 @@ export default function NewListingLocationStep({}: Props) {
             label={t("stepTwo.inputs.region.label")}
             name="serviceRegions"
             placeholder={t("stepTwo.inputs.region.placeholder")}
-            options={regionOptions}
+            options={regionsList}
             defaultValue={selectedRegions}
+            onSearchChangeAction={onRegionSearchChangeDebounced}
             onChangeAction={setSelectedRegions}
+            onSearchModalCloseAction={() => {
+              setRegionsList(selectedRegions);
+            }}
             required={multipleLocationsRequired}
           />
 

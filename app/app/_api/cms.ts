@@ -1,11 +1,35 @@
 import { jwtVerify } from "jose";
-import qs from "qs";
+import * as qs from "qs";
 import { cache } from "react";
+import { Region } from "../_types/locality";
 
-export async function getPayloadApi(query: string, cache?: "no-store") {
+export type Methods = "get" | "post" | "put" | "delete" | "patch";
+
+export type CmsResponse<T> = {
+  docs: T[];
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+  limit: number;
+  page: number;
+  nextPage: number | null;
+  pagingCounter: number;
+  prevPage: number | null;
+  totalDocs: number;
+  totalPages: number;
+};
+
+export async function fetchPublicData({
+  query,
+  cache,
+  method = "get",
+}: {
+  query: string;
+  cache?: "no-store";
+  method?: Methods;
+}) {
   try {
     const data = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api${query}`, {
-      method: "get",
+      method,
       headers: { "Content-Type": "application/json" },
       cache: cache || undefined,
     });
@@ -30,27 +54,27 @@ export async function postPayloadApi(payload: any, query: string) {
 
 export async function getCmsPage(slug: string) {
   const query = `/pages?where[slug][equals]=${slug}&limit=1`;
-  return await getPayloadApi(query);
+  return await fetchPublicData({ query });
 }
 
 export async function getCmsPosts() {
   const query = `/posts?[where][featured][not_equals]=true&depth=1`;
-  return await getPayloadApi(query);
+  return await fetchPublicData({ query });
 }
 
 export async function getCmsPost(slug: string) {
   const query = `/posts?[where][slug][equals]=${slug}&depth=1`;
-  return await getPayloadApi(query);
+  return await fetchPublicData({ query });
 }
 
 export async function getCmsFeaturedPosts() {
   const query = `/posts?[where][featured][equals]=true&depth=1`;
-  return await getPayloadApi(query);
+  return await fetchPublicData({ query });
 }
 
 export async function getAllTags() {
   const query = `/blog-tags`;
-  return await getPayloadApi(query);
+  return await fetchPublicData({ query });
 }
 
 export async function getAllCmsPosts(slug: string) {
@@ -62,7 +86,22 @@ export async function getAllCmsPosts(slug: string) {
 
   const queryString = qs.stringify(q, { encodeValuesOnly: true });
   const query = `/posts?${queryString}&depth=1`;
-  return await getPayloadApi(query, "no-store");
+  return await fetchPublicData({ query, cache: "no-store" });
+}
+
+export async function getAllRegions({
+  limit,
+  searchQuery,
+}: {
+  limit?: number;
+  searchQuery?: string;
+}): Promise<CmsResponse<Region>> {
+  const queryString = qs.stringify(
+    { where: { name: { contains: searchQuery } } },
+    { encodeValuesOnly: true }
+  );
+  const query = `/regions?${queryString}&sort=name${limit ? `&limit=${limit}` : ""}`;
+  return await fetchPublicData({ query, cache: "no-store" });
 }
 
 type UserLoginprops = {

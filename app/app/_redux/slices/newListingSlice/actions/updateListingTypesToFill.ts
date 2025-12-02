@@ -6,17 +6,19 @@ export function updateListingTypesToFill(
   state: NewListingSlice,
   action: PayloadAction<ListingType>
 ) {
-  const serviceIndex = state.listingTypesToFill.findIndex(
+  console.log("Current listing types before update:", state.listingTypesToFill);
+  const hasService = state.listingTypesToFill.some(
     (service) => service === action.payload
   );
 
   const serviceArray = state.listingTypesToFill;
 
-  if (serviceIndex === -1) {
+  if (!hasService) {
     state.listingTypesToFill = [...state.listingTypesToFill, action.payload];
   } else {
-    serviceArray.splice(serviceIndex, 1);
-    state.listingTypesToFill = [...serviceArray];
+    state.listingTypesToFill = serviceArray.filter(
+      (service) => service !== action.payload
+    );
   }
 
   console.log("Updated listing types:", state.listingTypesToFill);

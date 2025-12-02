@@ -26,6 +26,8 @@ type FormMultiSelectInputProps = {
   disabled?: boolean;
   defaultValue?: Category[];
   onChangeAction?: (selectedValues: Category[]) => void;
+  onSearchChangeAction?: (searchQuery: string) => void;
+  onSearchModalCloseAction?: () => void;
   largeBaseField?: boolean;
   disableSearch?: boolean;
   usage?: "cms" | "dev";
@@ -39,9 +41,16 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
   const [isInvalid, setIsInvalid] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const setSearchQueryHandler = (query: string) => {
+    setSearchQuery(query);
+    if (props.onSearchChangeAction) {
+      props.onSearchChangeAction(query);
+    }
+  };
+
   const toggleOption = (value: Category) => {
-    const newValues = selectedValues.includes(value)
-      ? selectedValues.filter((v) => v !== value)
+    const newValues = selectedValues.some((v) => v.id === value.id)
+      ? selectedValues.filter((v) => v.id !== value.id)
       : [...selectedValues, value];
 
     setSelectedValues(newValues);
@@ -50,10 +59,6 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
     }
     setIsInvalid(false);
   };
-
-  useEffect(() => {
-    setIsInvalid(false);
-  }, [props.required]);
 
   const removeOption = (value: Category) => {
     const newValues = selectedValues.filter((v) => v !== value);
@@ -64,9 +69,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
   };
 
   const getSelectedOptions = () => {
-    return selectedValues
-      .map((value) => props.options.find((o) => o.id === value.id))
-      .filter((option): option is Category => option !== undefined);
+    return selectedValues;
   };
 
   const getFilteredOptions = () => {
@@ -79,10 +82,18 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
     );
   };
 
+  useEffect(() => {
+    setIsInvalid(false);
+  }, [props.required]);
+
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+
   useClickOutside(dropdownRef, () => {
     setIsOpen(false);
     setSearchQuery("");
+    if (props.onSearchModalCloseAction) {
+      props.onSearchModalCloseAction();
+    }
   });
 
   const stringToSend =
@@ -151,7 +162,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
                   type="text"
                   placeholder="Hledat..."
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={(e) => setSearchQueryHandler(e.target.value)}
                   className="w-full px-3 py-2 border border-borderLight rounded-lg focus:outline-none focus:border-primary"
                   onClick={(e) => e.stopPropagation()}
                 />
@@ -179,14 +190,18 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
                           ) : null
                         )}
                       <label className="flex group items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/5 cursor-pointer animate">
-                        {selectedValues.includes(option) ? (
+                        {selectedValues.some(
+                          (selected) => selected.id === option.id
+                        ) ? (
                           <MdCheckBox className="text-primary text-lg shrink-0" />
                         ) : (
                           <MdOutlineCheckBoxOutlineBlank className="text-primary text-lg shrink-0" />
                         )}
                         <input
                           type="checkbox"
-                          checked={selectedValues.includes(option)}
+                          checked={selectedValues.some(
+                            (selected) => selected.id === option.id
+                          )}
                           onChange={() => toggleOption(option)}
                           className="mr-3"
                           hidden

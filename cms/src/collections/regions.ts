@@ -30,6 +30,8 @@ export const Regions: CollectionConfig = {
     { name: 'countryPartCode', type: 'number' },
   ],
   access: {
+    read: () => true,
+    delete: ACL({ roles: ['superadmin'] }),
     update: ACL({ roles: ['superadmin'] }),
     create: ACL({ roles: ['superadmin'] }),
   },

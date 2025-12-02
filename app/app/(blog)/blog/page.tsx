@@ -1,4 +1,4 @@
-import { getAllCmsPosts, getAllTags, getCmsPosts } from "@/app/_api/payload";
+import { getAllCmsPosts, getAllTags, getCmsPosts } from "@/app/_api/cms";
 import BlogPostList from "./_components/BlogPostList";
 import { BlogWrapper } from "./_components/BlogWrapper";
 import { PostTagProps } from "./_components/PostTags";

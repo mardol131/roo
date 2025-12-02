@@ -49,64 +49,66 @@ export default function NewListingSummary({}: Props) {
             size="bodyXl"
             fontWeight="semibold"
           />
-
-          <div className="flex items-center gap-2">
-            {state.listingTypesToFill.includes("gastro") && (
-              <Button
-                onClick={() => {
-                  startNewlistingHandler("gastro");
-                }}
-                text={t("buttons.start_gastro")}
-                size="xl"
-                bgColor="secondaryPrimary"
-                textColor="white"
-                rounding="full"
-              />
-            )}
-            {state.listingTypesToFill.includes("place") && (
-              <Button
-                onClick={() => {
-                  startNewlistingHandler("place");
-                }}
-                text={t("buttons.start_place")}
-                size="xl"
-                bgColor="secondaryPrimary"
-                textColor="white"
-                rounding="full"
-              />
-            )}
-            {state.listingTypesToFill.includes("entertainment") && (
-              <Button
-                onClick={() => {
-                  startNewlistingHandler("entertainment");
-                }}
-                text={t("buttons.start_entertainment")}
-                size="xl"
-                bgColor="secondaryPrimary"
-                textColor="white"
-                rounding="full"
-              />
-            )}
-          </div>
-          <Text
-            tag="p"
-            text={t("go_to_admin")}
-            className="text-center"
-            size="bodyXl"
-            fontWeight="semibold"
+          <Button
+            onClick={() => {
+              changeStepHandler("listingType");
+            }}
+            text={t("buttons.to_admin")}
+            size="xl"
+            bgColor="primaryTertiary"
+            textColor="white"
+            rounding="full"
           />
-          <div className="flex gap-2">
-            <Button
-              onClick={() => {
-                changeStepHandler("listingType");
-              }}
-              text={t("buttons.to_admin")}
-              size="xl"
-              bgColor="primaryTertiary"
-              textColor="white"
-              rounding="full"
-            />
-          </div>
+
+          {state.listingTypesToFill.length > 0 && (
+            <>
+              <Text
+                tag="p"
+                text={t("fill_more")}
+                className="text-center"
+                size="bodyXl"
+                fontWeight="semibold"
+              />
+              <div className="flex items-center gap-2">
+                {state.listingTypesToFill.includes("gastro") && (
+                  <Button
+                    onClick={() => {
+                      startNewlistingHandler("gastro");
+                    }}
+                    text={t("buttons.start_gastro")}
+                    size="xl"
+                    bgColor="secondaryPrimary"
+                    textColor="white"
+                    rounding="full"
+                  />
+                )}
+                {state.listingTypesToFill.includes("place") && (
+                  <Button
+                    onClick={() => {
+                      startNewlistingHandler("place");
+                    }}
+                    text={t("buttons.start_place")}
+                    size="xl"
+                    bgColor="secondaryPrimary"
+                    textColor="white"
+                    rounding="full"
+                  />
+                )}
+                {state.listingTypesToFill.includes("entertainment") && (
+                  <Button
+                    onClick={() => {
+                      startNewlistingHandler("entertainment");
+                    }}
+                    text={t("buttons.start_entertainment")}
+                    size="xl"
+                    bgColor="secondaryPrimary"
+                    textColor="white"
+                    rounding="full"
+                  />
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

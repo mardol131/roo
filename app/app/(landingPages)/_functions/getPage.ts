@@ -1,4 +1,4 @@
-import { getCmsPage } from "@/app/_api/payload";
+import { getCmsPage } from "@/app/_api/cms";
 import { cache } from "react";
 
 export const getPage = cache(async (slug: string) => {
