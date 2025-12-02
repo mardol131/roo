@@ -154,7 +154,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
                     onClick={() => selectOption(option)}
                     className={`flex items-center px-4 py-2 rounded-lg hover:bg-primary hover:text-white cursor-pointer animate text-left ${
                       selectedValue?.id === option.id
-                        ? "bg-primary/10 text-primary font-semibold"
+                        ? "bg-primary/10 text-primary hover:text-white font-semibold"
                         : ""
                     }`}
                   >
