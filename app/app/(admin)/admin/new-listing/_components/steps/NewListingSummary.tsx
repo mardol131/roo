@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/app/_components/atoms/Button";
+import Button from "@/app/_components/atoms/button/Button";
 
 import Text from "@/app/_components/atoms/Text";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";

@@ -1,4 +1,7 @@
-import { ButtonProps, GenerateButtons } from "@/app/_components/atoms/Button";
+import {
+  ButtonProps,
+  GenerateButtons,
+} from "@/app/_components/atoms/button/Button";
 import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";

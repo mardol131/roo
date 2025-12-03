@@ -1,0 +1,52 @@
+@use "../../../_css//text.scss";
+@import "../../../_css/media.scss";
+
+.button {
+  &.size_4xl {
+    padding: var(--p-5) var(--p-7);
+    font-size: text.$text_2xl;
+
+    @include media_md() {
+      font-size: text.$text_4xl;
+    }
+  }
+
+  &.size_3xl {
+    padding: var(--p-3) var(--p-5);
+    font-size: text.$text_2xl;
+
+    @include media_md() {
+      font-size: text.$text_3xl;
+    }
+  }
+
+  &.size_2xl {
+    padding: var(--p-3) var(--p-5);
+    font-size: text.$text_xl;
+    @include media_md() {
+      font-size: text.$text_2xl;
+    }
+  }
+
+  &.size_xl {
+    padding: var(--p-3) var(--p-5);
+    font-size: text.$text_lg;
+    @include media_md() {
+      font-size: text.$text_xl;
+    }
+  }
+
+  &.size_lg {
+    padding: var(--p-2) var(--p-4);
+    font-size: text.$text_lg;
+  }
+
+  &.size_md {
+    padding: var(--p-1) var(--p-3);
+    font-size: text.$text_base;
+  }
+  &.size_sm {
+    padding: var(--p-1) var(--p-2);
+    font-size: text.$text_sm;
+  }
+}

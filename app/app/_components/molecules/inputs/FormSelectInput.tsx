@@ -114,7 +114,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
           type="button"
           disabled={props.disabled}
           onClick={() => !props.disabled && setIsOpen(!isOpen)}
-          className={`w-full p-1 flex items-center h-full text-left border rounded-lg ${
+          className={`w-full p-1 flex items-center h-full text-left border radius-sm ${
             props.disabled
               ? "bg-gray-100 cursor-not-allowed text-gray-400"
               : "bg-white hover:border-primary cursor-pointer"
@@ -128,7 +128,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
         {isOpen && !props.disabled && (
           <div
             ref={dropdownRef}
-            className="absolute z-9999 top-full w-full mt-2 bg-white border border-borderLight rounded-lg shadow-xl"
+            className="absolute z-9999 top-full w-full mt-2 bg-white border border-borderLight radius-sm shadow-xl"
           >
             {/* Vyhledávací input */}
             {!props.disableSearch && (
@@ -138,7 +138,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
                   placeholder="Hledat..."
                   value={searchQuery}
                   onChange={(e) => setSearchQueryHandler(e.target.value)}
-                  className="w-full px-3 py-2 border border-borderLight rounded-lg focus:outline-none focus:border-primary"
+                  className="w-full px-3 py-2 border border-borderLight radius-sm focus:outline-none focus:border-primary"
                   onClick={(e) => e.stopPropagation()}
                 />
               </div>
@@ -152,7 +152,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
                     key={option.id}
                     type="button"
                     onClick={() => selectOption(option)}
-                    className={`flex items-center px-4 py-2 rounded-lg hover:bg-primary hover:text-white cursor-pointer animate text-left ${
+                    className={`flex items-center px-4 py-2 radius-sm hover:bg-primary hover:text-white cursor-pointer animate text-left ${
                       selectedValue?.id === option.id
                         ? "bg-primary/10 text-primary hover:text-white font-semibold"
                         : ""

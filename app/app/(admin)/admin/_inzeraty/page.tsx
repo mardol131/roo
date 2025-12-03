@@ -4,7 +4,7 @@ import { FaListAlt } from "react-icons/fa";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { PiUserList } from "react-icons/pi";
 import { LuPartyPopper } from "react-icons/lu";
-import Button from "@/app/_components/atoms/Button";
+import Button from "@/app/_components/atoms/button/Button";
 import { AdminListingCard } from "@/app/(admin)/admin/_components/AdminListingCard";
 type Props = {};
 

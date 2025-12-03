@@ -1,12 +1,14 @@
-export declare const buttonSize: {
-    "4xl": string;
-    "3xl": string;
-    "2xl": string;
-    xl: string;
-    lg: string;
-    md: string;
-    sm: string;
-};
+export declare const buttonSize: Readonly<{
+    "4xl": "4xl";
+    "3xl": "3xl";
+    "2xl": "2xl";
+    xl: "xl";
+    lg: "lg";
+    md: "md";
+    sm: "sm";
+    xs: "xs";
+}>;
+export type ButtonSize = keyof typeof buttonSize;
 export declare const rounding: {
     sm: string;
     md: string;

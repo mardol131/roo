@@ -1,0 +1,93 @@
+$text_xs: 0.75rem; // 12px
+$line_xs: 1rem; // 16px
+
+$text_sm: 0.875rem; // 14px
+$line_sm: 1.25rem; // 20px
+
+$text_base: 1rem; // 16px
+$line_base: 1.5rem; // 24px
+
+$text_lg: 1.125rem; // 18px
+$line_lg: 1.75rem; // 28px
+
+$text_xl: 1.25rem; // 20px
+$line_xl: 1.75rem; // 28px
+
+$text_2xl: 1.5rem; // 24px
+$line_2xl: 2rem; // 32px
+
+$text_3xl: 1.875rem; // 30px
+$line_3xl: 2.25rem; // 36px
+
+$text_4xl: 2.25rem; // 36px
+$line_4xl: 2.5rem; // 40px
+
+$text_5xl: 3rem; // 48px
+$line_5xl: 1; // 48px
+
+$text_6xl: 3.75rem; // 60px
+$line_6xl: 1; // 60px
+
+$text_7xl: 4.5rem; // 72px
+$line_7xl: 1; // 72px
+
+$text_8xl: 6rem; // 96px
+$line_8xl: 1; // 96px
+
+$text_9xl: 8rem; // 128px
+$line_9xl: 1; // 128px
+
+$text-sizes: (
+  xs: (
+    0.75rem,
+    1rem,
+  ),
+  sm: (
+    0.875rem,
+    1.25rem,
+  ),
+  base: (
+    1rem,
+    1.5rem,
+  ),
+  lg: (
+    1.125rem,
+    1.75rem,
+  ),
+  xl: (
+    1.25rem,
+    1.75rem,
+  ),
+  2xl: (
+    1.5rem,
+    2rem,
+  ),
+  3xl: (
+    1.875rem,
+    2.25rem,
+  ),
+  4xl: (
+    2.25rem,
+    2.5rem,
+  ),
+  5xl: (
+    3rem,
+    1,
+  ),
+  6xl: (
+    3.75rem,
+    1,
+  ),
+  7xl: (
+    4.5rem,
+    1,
+  ),
+  8xl: (
+    6rem,
+    1,
+  ),
+  9xl: (
+    8rem,
+    1,
+  ),
+);

@@ -9,7 +9,7 @@ import { BlogPostWrapper } from "../_components/BlogPostWrapper";
 import PostTags, { PostTagProps } from "../_components/PostTags";
 import { format } from "date-fns";
 import { Metadata } from "next";
-import Button from "@/app/_components/atoms/Button";
+import Button from "@/app/_components/atoms/button/Button";
 
 type PageComponentProps = {
   params: Promise<{

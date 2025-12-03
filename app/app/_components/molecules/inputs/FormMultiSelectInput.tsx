@@ -129,7 +129,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
           type="button"
           disabled={props.disabled}
           onClick={() => !props.disabled && setIsOpen(!isOpen)}
-          className={`w-full ${props.largeBaseField ? "min-h-30" : ""} flex items-start text-left p-1 border rounded-lg ${
+          className={`w-full ${props.largeBaseField ? "min-h-30" : ""} flex items-start text-left p-1 border radius-sm ${
             props.disabled
               ? "bg-gray-100 cursor-not-allowed text-gray-400"
               : "bg-white hover:border-primary cursor-pointer"
@@ -157,7 +157,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
         {isOpen && !props.disabled && (
           <div
             ref={dropdownRef}
-            className="absolute z-9999 top-full w-full mt-2 bg-white border border-borderLight rounded-lg shadow-xl"
+            className="absolute z-9999 top-full w-full mt-2 bg-white border border-borderLight radius-sm shadow-xl"
           >
             {/* Vyhledávací input */}
             {!props.disableSearch && (
@@ -167,7 +167,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
                   placeholder="Hledat..."
                   value={searchQuery}
                   onChange={(e) => setSearchQueryHandler(e.target.value)}
-                  className="w-full px-3 py-2 border border-borderLight rounded-lg focus:outline-none focus:border-primary"
+                  className="w-full px-3 py-2 border border-borderLight radius-sm focus:outline-none focus:border-primary"
                   onClick={(e) => e.stopPropagation()}
                 />
               </div>
@@ -193,7 +193,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
                             />
                           ) : null
                         )}
-                      <label className="flex group items-center gap-3 px-4 py-2 rounded-lg hover:bg-primary/5 cursor-pointer animate">
+                      <label className="flex group items-center gap-3 px-4 py-2 radius-sm hover:bg-primary/5 cursor-pointer animate">
                         {selectedValues.some(
                           (selected) => selected.id === option.id
                         ) ? (

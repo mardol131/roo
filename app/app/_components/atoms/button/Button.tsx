@@ -1,5 +1,5 @@
 "use client";
-import { roundingList, RoundingType } from "@roo/shared/src/design/rounding";
+import { RoundingType } from "@roo/shared/src/design/rounding";
 import { LucideIconsType } from "@/app/_icons/_iconsList";
 import Link from "next/link";
 import React from "react";
@@ -11,6 +11,8 @@ import {
   TextColorType,
 } from "@roo/shared/src/design/colors";
 import { sendGTMEvent } from "@next/third-parties/google";
+import classes from "./button.module.scss";
+import { ButtonSize } from "@roo/shared/src/design/button";
 
 export type ButtonProps = {
   text: string;
@@ -32,22 +34,10 @@ export type ButtonProps = {
   disabled?: boolean;
 };
 
-export type ButtonSize = keyof typeof buttonSizeList;
-
-const buttonSizeList = {
-  "4xl": "px-7 py-5 md:text-4xl text-2xl",
-  "3xl": "px-5 py-3 md:text-3xl text-1xl",
-  "2xl": "px-5 py-3 md:text-2xl text-xl",
-  xl: "px-5 py-3 md:text-xl text-lg",
-  lg: "px-4 py-2 text-lg",
-  md: "px-3 py-1 text-base",
-  sm: "px-2 py-1 text-sm",
-};
-
 export default function Button(props: ButtonProps) {
   const buttonBgColor = props.bgColor && colorsAndGradients[props.bgColor];
-  const buttonSize = props.size && buttonSizeList[props.size];
-  const buttonRounding = props.rounding && roundingList[props.rounding];
+  const buttonSize = `${classes.button} ${classes[`size_${props.size}`] || ""}`;
+  const buttonRounding = props.rounding && `radius-${props.rounding}`;
   const buttonTextColor = props.textColor && textColor[props.textColor];
   const IconLeft = props.iconLeft && LucideIcons[props.iconLeft];
   const IconRight = props.iconRight && LucideIcons[props.iconRight];

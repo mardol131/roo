@@ -4,7 +4,7 @@ import { useMemo } from "react";
 
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
-import { ButtonProps } from "@/app/_components/atoms/Button";
+import { ButtonProps } from "@/app/_components/atoms/button/Button";
 import { TextProps } from "@/app/_components/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";

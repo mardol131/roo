@@ -541,7 +541,7 @@ export interface Page {
             | 'tertiarySecondaryPrimary'
           )
         | null;
-      size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+      size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
       rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
       className?: string | null;
       type?: ('submit' | 'button' | 'reset') | null;
@@ -645,7 +645,7 @@ export interface Page {
             | 'tertiarySecondaryPrimary'
           )
         | null;
-      size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+      size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
       rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
       className?: string | null;
       type?: ('submit' | 'button' | 'reset') | null;
@@ -897,7 +897,7 @@ export interface Page {
                     | 'tertiarySecondaryPrimary'
                   )
                 | null;
-              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
               rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
@@ -1010,7 +1010,7 @@ export interface Page {
                       | 'tertiarySecondaryPrimary'
                     )
                   | null;
-                size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+                size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
                 rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
                 className?: string | null;
                 type?: ('submit' | 'button' | 'reset') | null;
@@ -1804,7 +1804,7 @@ export interface Page {
                 | 'tertiarySecondaryPrimary'
               )
             | null;
-          size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+          size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
           rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
           className?: string | null;
           type?: ('submit' | 'button' | 'reset') | null;
@@ -2240,7 +2240,7 @@ export interface Page {
                     | 'tertiarySecondaryPrimary'
                   )
                 | null;
-              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
               rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
@@ -2581,7 +2581,7 @@ export interface Page {
                           | 'tertiarySecondaryPrimary'
                         )
                       | null;
-                    size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+                    size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
                     rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
                     className?: string | null;
                     type?: ('submit' | 'button' | 'reset') | null;
@@ -2917,7 +2917,7 @@ export interface Page {
                     | 'tertiarySecondaryPrimary'
                   )
                 | null;
-              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
               rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
@@ -3570,7 +3570,7 @@ export interface Page {
                     | 'tertiarySecondaryPrimary'
                   )
                 | null;
-              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
               rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;
@@ -3772,7 +3772,7 @@ export interface Page {
                     | 'tertiarySecondaryPrimary'
                   )
                 | null;
-              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs') | null;
               rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
               className?: string | null;
               type?: ('submit' | 'button' | 'reset') | null;

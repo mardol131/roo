@@ -1,6 +1,6 @@
 "use client";
 
-import Button, { ButtonProps } from "@/app/_components/atoms/Button";
+import Button, { ButtonProps } from "@/app/_components/atoms/button/Button";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/public/logo.png";

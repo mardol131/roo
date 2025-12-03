@@ -1,7 +1,7 @@
 "use client";
 
 import { apiPost } from "@/app/_api/general";
-import Button, { ButtonProps } from "@/app/_components/atoms/Button";
+import Button, { ButtonProps } from "@/app/_components/atoms/button/Button";
 import Text, { TextProps } from "@/app/_components/atoms/Text";
 import React, { useState } from "react";
 

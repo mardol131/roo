@@ -14,6 +14,7 @@
     "@reduxjs/toolkit": "^2.9.0",
     "@roo/shared": "workspace:*",
     "@types/qs": "^6.14.0",
+    "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "dotenv": "17.2.2",
     "jose": "^6.1.0",
@@ -26,7 +27,8 @@
     "react-icons": "^5.5.0",
     "react-range": "^1.10.0",
     "react-redux": "^9.2.0",
-    "sanitize-html": "^2.17.0"
+    "sanitize-html": "^2.17.0",
+    "sass": "^1.94.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

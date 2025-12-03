@@ -1,4 +1,4 @@
-import Button from "@/app/_components/atoms/Button";
+import Button from "@/app/_components/atoms/button/Button";
 import Text from "@/app/_components/atoms/Text";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import { format } from "date-fns";

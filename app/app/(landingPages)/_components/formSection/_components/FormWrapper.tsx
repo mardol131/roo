@@ -5,7 +5,7 @@ import { FormEvent, useCallback, useMemo, useRef, useState } from "react";
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
 import { apis } from "@/app/_api/_apis";
-import Button, { ButtonProps } from "@/app/_components/atoms/Button";
+import Button, { ButtonProps } from "@/app/_components/atoms/button/Button";
 import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";

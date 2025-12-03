@@ -1,4 +1,4 @@
-import Button from "@/app/_components/atoms/Button";
+import Button from "@/app/_components/atoms/button/Button";
 import Text from "@/app/_components/atoms/Text";
 import image from "@/app/_images/place.jpg";
 import { useAppDispatch } from "@/app/_redux/hooks";

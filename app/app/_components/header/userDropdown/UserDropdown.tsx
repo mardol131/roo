@@ -11,7 +11,7 @@ import { GiPartyFlags } from "react-icons/gi";
 import { FaIdCardAlt } from "react-icons/fa";
 import { useAppDispatch } from "@/app/_redux/hooks";
 import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";
-import Button from "../../atoms/Button";
+import Button from "../../atoms/button/Button";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 

@@ -85,7 +85,7 @@ export function FormTextInput(props: FormTextInputProps) {
           required={required || false}
           defaultValue={defaultValue}
           onChange={changeHandler}
-          className={`w-full p-1 flex items-center h-full text-left border rounded-lg ${
+          className={`w-full p-1 flex items-center h-full text-left border radius-sm ${
             props.disabled
               ? "bg-gray-100 cursor-not-allowed text-gray-400"
               : "bg-white hover:border-primary cursor-pointer"

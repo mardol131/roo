@@ -2,6 +2,8 @@
 @import "./animations.css";
 @import "./texts.css";
 @import "./backgrounds.css";
+@import "./padding.scss";
+@import "./radius.scss";
 
 @source "../../node_modules/@roo/shared";
 
@@ -76,6 +78,18 @@
   --spacing-landingWrapper: 1200px;
 
   /* Animations */
+}
+
+.radius-small {
+  border-radius: var(--radius-small);
+}
+
+.radius-medium {
+  border-radius: var(--radius-medium);
+}
+
+.radius-large {
+  border-radius: var(--radius-large);
 }
 
 /* Scrollbar */

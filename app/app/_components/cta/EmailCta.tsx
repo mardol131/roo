@@ -1,4 +1,4 @@
-import Button, { ButtonProps } from "../atoms/Button";
+import Button, { ButtonProps } from "../atoms/button/Button";
 import Heading from "../atoms/Text";
 
 type Props = {

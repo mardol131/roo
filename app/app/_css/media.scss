@@ -1,0 +1,93 @@
+@import "./variables.scss";
+
+@mixin media_xs() {
+  @media only screen and (min-width: $screen_xs) {
+    @content;
+  }
+}
+
+@mixin media_sm() {
+  @media only screen and (min-width: $screen_sm) {
+    @content;
+  }
+}
+
+@mixin media_md() {
+  @media only screen and (min-width: $screen_md) {
+    @content;
+  }
+}
+
+@mixin media_lg() {
+  @media only screen and (min-width: $screen_lg) {
+    @content;
+  }
+}
+
+@mixin media_xl() {
+  @media only screen and (min-width: $screen_xl) {
+    @content;
+  }
+}
+
+@mixin media_xxl() {
+  @media only screen and (min-width: $screen_xxl) {
+    @content;
+  }
+}
+
+@mixin media_max_xs() {
+  @media only screen and (max-width: $screen_xs) {
+    @content;
+  }
+}
+
+@mixin media_max_sm() {
+  @media only screen and (max-width: $screen_sm) {
+    @content;
+  }
+}
+
+@mixin media_max_md() {
+  @media only screen and (max-width: $screen_md) {
+    @content;
+  }
+}
+
+@mixin media_max_lg() {
+  @media only screen and (max-width: $screen_lg) {
+    @content;
+  }
+}
+
+@mixin media_max_xl() {
+  @media only screen and (max-width: $screen_xl) {
+    @content;
+  }
+}
+
+@mixin media_max_xxl() {
+  @media only screen and (max-width: $screen_xxl) {
+    @content;
+  }
+}
+
+@mixin media_ie() {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+@mixin media_print() {
+  @media print {
+    @content;
+  }
+}
+
+@mixin media_small_laptop() {
+  @media only screen and (min-width: $screen_xl) {
+    @media only screen and (max-height: 800px) {
+      @content;
+    }
+  }
+}

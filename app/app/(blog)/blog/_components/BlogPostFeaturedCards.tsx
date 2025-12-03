@@ -3,7 +3,7 @@ import React from "react";
 import { BlogPostCardProps } from "../types/blogPostTypes";
 import Image from "next/image";
 import Text from "@/app/_components/atoms/Text";
-import Button from "@/app/_components/atoms/Button";
+import Button from "@/app/_components/atoms/button/Button";
 import { format } from "date-fns";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import PostTags from "./PostTags";

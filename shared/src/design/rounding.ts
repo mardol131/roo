@@ -1,8 +1,5 @@
-export const roundingList = {
-  sm: "rounded-small",
-  md: "rounded-medium",
-  lg: "rounded-large",
-  full: "rounded-full",
-};
+import { Enum } from "../functions/enum";
+
+export const roundingList = Enum("sm", "md", "lg", "full");
 
 export type RoundingType = keyof typeof roundingList;

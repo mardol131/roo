@@ -1,10 +1,12 @@
 import React, { PropsWithChildren } from "react";
+import FormInputLabel from "./FormInputLabel";
 
 type Props = {
   spanTwo?: boolean;
   bgFilled?: boolean;
   isInvalid?: boolean;
   isOpen?: boolean;
+  label?: string;
 };
 
 export default function FormInputWrapper({
@@ -13,6 +15,7 @@ export default function FormInputWrapper({
   bgFilled = true,
   isInvalid,
   isOpen,
+  label,
 }: PropsWithChildren & Props) {
   const columnSpan = spanTwo && "col-span-2";
 
@@ -26,8 +29,10 @@ export default function FormInputWrapper({
   const classes = `${columnSpan} ${background} ${zIndex}`;
   return (
     <div
-      className={`${classes} border animate-popup border-borderLight text-base shadow-md p-2 flex flex-col rounded-lg`}
+      className={`${classes} border animate-popup border-borderLight text-base shadow-md p-2 flex flex-col radius-md`}
     >
+      {label && <FormInputLabel text={label} />}
+
       {children}
     </div>
   );
