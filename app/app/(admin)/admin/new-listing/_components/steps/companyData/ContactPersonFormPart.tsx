@@ -1,5 +1,5 @@
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import { useAppSelector } from "@/app/_redux/hooks";
 import { useTranslations } from "next-intl";

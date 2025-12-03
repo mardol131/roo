@@ -2,7 +2,7 @@ import {
   ButtonProps,
   GenerateButtons,
 } from "@/app/_components/atoms/button/Button";
-import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/text/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import { objectPosition, SidesType } from "@roo/shared/src/design/orientation";
@@ -20,7 +20,7 @@ function ImageOne(props: ImageOneProps) {
   const rounded = props.image.rounded ? "rounded-xl" : "";
   const squared = props.image.squared ? "aspect-square" : "";
   const position = props.image.position
-    ? objectPosition[props.image.position]
+    ? `object-position-${props.image.position}`
     : "";
 
   const classes = `${shadow} ${rounded} ${squared} ${position}`;
@@ -58,9 +58,9 @@ export default function ImageTextSection(props: Props) {
   }
   const innerImage = props.innerOverlay?.image;
   const innerBg = props.innerOverlay?.overlayColor
-    ? colorsAndGradients[props.innerOverlay?.overlayColor]
-    : props.innerOverlay?.overlayClassname &&
-      props.innerOverlay?.overlayClassname;
+    ? `bg-${props.innerOverlay?.overlayColor}`
+    : props.innerOverlay?.overlayClassname;
+
   return (
     <LandingSectionWrapper overlay={props.outerOverlay}>
       <div

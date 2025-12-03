@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/app/_components/atoms/button/Button";
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";

@@ -1,4 +1,4 @@
-import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/text/Text";
 import {
   colorsAndGradients,
   ColorsAndGradientsType,
@@ -27,7 +27,7 @@ export function MasonryBubbleText(props: MasonryBubbleTextProps) {
         gridRowEnd: props.row?.end,
       }}
       className={`${
-        props.bgColor && colorsAndGradients[props.bgColor]
+        props.bgColor && `bg-${props.bgColor}`
       } p-6 rounded-large shadow-xl flex flex-col gap-4 items-center justify-center`}
     >
       <GenerateTexts texts={props.texts} />

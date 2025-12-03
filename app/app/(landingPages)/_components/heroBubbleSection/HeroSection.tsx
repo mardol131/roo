@@ -4,10 +4,11 @@ import {
   ButtonProps,
   GenerateButtons,
 } from "@/app/_components/atoms/button/Button";
-import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/text/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
+import classes from "./HeroSection.module.scss";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
 
 type Props = {

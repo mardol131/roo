@@ -3,7 +3,7 @@ import {
   ButtonProps,
   GenerateButtons,
 } from "@/app/_components/atoms/button/Button";
-import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/text/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import Image from "next/image";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";

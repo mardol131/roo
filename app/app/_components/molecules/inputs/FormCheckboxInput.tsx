@@ -1,6 +1,6 @@
 "use client";
 
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { ChangeEvent, useState } from "react";
 import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
 import { TextBlockProps } from "../../../(landingPages)/_components/textSection/TextSection";

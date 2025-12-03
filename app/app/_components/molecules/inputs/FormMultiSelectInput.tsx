@@ -6,7 +6,7 @@ import FormInputLabel from "./FormInputLabel";
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { Category } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { MdCheckBox, MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
-import Text from "../../atoms/Text";
+import Text from "../../atoms/text/Text";
 import Tag from "../Tag";
 
 type GroupDivider = {

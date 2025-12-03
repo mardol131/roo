@@ -11,7 +11,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { MdMenu } from "react-icons/md";
-import Text from "../atoms/Text";
+import Text from "../atoms/text/Text";
 import { UpperHeader } from "./headerFIlter/UpperHeader";
 import CalendarSettings from "./popupSettings/CalendarSettings";
 import EventTypeSettings from "./popupSettings/EventTypeSettings";

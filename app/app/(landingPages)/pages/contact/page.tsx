@@ -2,7 +2,7 @@ import { WebsiteHeader } from "../../_components/header/WebsiteHeader";
 import { WebsiteHeaderMobile } from "../../_components/header/WebsiteHeaderMobile";
 import { LandingSectionWrapper } from "../../_components/wrappers/LandingSectionWrapper";
 
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
 import { LuMail } from "react-icons/lu";

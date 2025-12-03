@@ -3,7 +3,7 @@
 import { FormEvent, useCallback, useMemo, useState } from "react";
 
 import Button from "@/app/_components/atoms/button/Button";
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 
 import { FormCheckboxInput } from "@/app/_components/molecules/inputs/FormCheckboxInput";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";

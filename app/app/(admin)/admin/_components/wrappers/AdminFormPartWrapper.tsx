@@ -1,4 +1,4 @@
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import React, { PropsWithChildren } from "react";
 
 export type AdminFormPartWrapperProps = PropsWithChildren & {

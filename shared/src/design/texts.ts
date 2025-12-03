@@ -1,3 +1,5 @@
+import { Enum } from "../functions/enum";
+
 export const textTag = {
   h1: "h1",
   h2: "h2",
@@ -13,29 +15,25 @@ export const textTag = {
 
 export type TextTag = keyof typeof textTag;
 
-export const fontWeight = {
-  base: "font-fontBase",
-  semibold: "font-fontSemibold",
-  bold: "font-fontBold",
-  extraBold: "font-fontExtrabold",
-};
+export const fontWeight = Enum("base", "semibold", "bold", "extraBold");
+
 export type FontWeight = keyof typeof fontWeight;
 
-export const fontSize = {
-  displayLg: "text-displayLg",
-  displayMd: "text-displayMd",
-  displaySm: "text-displaySm",
-  headingXl: "text-headingXl",
-  headingLg: "text-headingLg",
-  headingMd: "text-headingMd",
-  headingSm: "text-headingSm",
-  headingXs: "text-headingXs",
-  bodyXl: "text-bodyXl",
-  bodyLg: "text-bodyLg",
-  bodyMd: "text-bodyMd",
-  bodySm: "text-bodySm",
-  bodyXs: "text-bodyXs",
-};
+export const fontSize = Enum(
+  "displayLg",
+  "displayMd",
+  "displaySm",
+  "headingXl",
+  "headingLg",
+  "headingMd",
+  "headingSm",
+  "headingXs",
+  "bodyXl",
+  "bodyLg",
+  "bodyMd",
+  "bodySm",
+  "bodyXs"
+);
 
 export type FontSize = keyof typeof fontSize;
 

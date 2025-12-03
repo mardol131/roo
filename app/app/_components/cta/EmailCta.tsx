@@ -1,5 +1,5 @@
 import Button, { ButtonProps } from "../atoms/button/Button";
-import Heading from "../atoms/Text";
+import Heading from "../atoms/text/Text";
 
 type Props = {
   heading: string;

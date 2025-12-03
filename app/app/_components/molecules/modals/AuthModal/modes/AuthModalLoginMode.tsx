@@ -1,5 +1,5 @@
 import Button from "@/app/_components/atoms/button/Button";
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import image from "@/app/_images/place.jpg";
 import { useAppDispatch } from "@/app/_redux/hooks";
 import { authSlice } from "@/app/_redux/slices/authSlice/authSlice";

@@ -14,7 +14,7 @@ import Image from "next/image";
 import { ColorsAndGradientsType } from "@roo/shared/src/design/colors";
 import { useTranslations } from "next-intl";
 import Button from "../../atoms/button/Button";
-import Text from "../../atoms/Text";
+import Text from "../../atoms/text/Text";
 
 type Props = {};
 

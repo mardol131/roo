@@ -2,7 +2,7 @@ import { ImageType } from "@/app/_types/objects";
 import React from "react";
 import { BlogPostCardProps } from "../types/blogPostTypes";
 import Image from "next/image";
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import Button from "@/app/_components/atoms/button/Button";
 import { format } from "date-fns";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";

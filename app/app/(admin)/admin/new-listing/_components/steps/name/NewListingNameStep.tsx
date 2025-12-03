@@ -4,7 +4,7 @@ import Button from "@/app/_components/atoms/button/Button";
 
 import AdminFormPartWrapper from "@/app/(admin)/admin/_components/wrappers/AdminFormPartWrapper";
 import AdminNewListingFormWrapper from "@/app/(admin)/admin/new-listing/_components/wrappers/AdminNewListingFormWrapper";
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { FormTextInput } from "@/app/_components/molecules/inputs/FormTextInput";
 import { FormEvent, useCallback } from "react";
 import { useNewListingSteps } from "../../../_hooks/useNewListingSteps";

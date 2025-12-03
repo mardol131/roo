@@ -1,4 +1,7 @@
-import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import Text, {
+  GenerateTexts,
+  TextProps,
+} from "@/app/_components/atoms/text/Text";
 import { colors, ColorsType } from "@roo/shared/src/design/colors";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 

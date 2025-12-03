@@ -1,7 +1,7 @@
 "use client";
 
 import { TextBlockProps } from "@/app/(landingPages)/_components/textSection/TextSection";
-import Text, { GenerateTexts } from "@/app/_components/atoms/Text";
+import Text, { GenerateTexts } from "@/app/_components/atoms/text/Text";
 import { useClickOutside } from "@/app/_hooks/useClickOutside";
 import { ChangeEvent, useRef, useState } from "react";
 import { FaXmark } from "react-icons/fa6";

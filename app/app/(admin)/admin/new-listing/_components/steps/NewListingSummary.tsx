@@ -2,7 +2,7 @@
 
 import Button from "@/app/_components/atoms/button/Button";
 
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { useAppDispatch, useAppSelector } from "@/app/_redux/hooks";
 import { newListing } from "@/app/_redux/slices/newListingSlice/newListingSlice";
 import { useTranslations } from "next-intl";

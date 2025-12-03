@@ -1,5 +1,5 @@
 import Button from "./_components/atoms/button/Button";
-import Text from "./_components/atoms/Text";
+import Text from "./_components/atoms/text/Text";
 
 type Props = {};
 

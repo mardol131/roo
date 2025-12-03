@@ -1,6 +1,6 @@
 "use client";
 
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FaSortAlphaDown } from "react-icons/fa";
 import { PostTagProps } from "./PostTags";

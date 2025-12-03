@@ -2,7 +2,7 @@
 
 import React, { useCallback, useRef } from "react";
 import Divider from "../../atoms/Divider";
-import Text from "../../atoms/Text";
+import Text from "../../atoms/text/Text";
 import { User } from "lucide-react";
 import { FaUser } from "react-icons/fa6";
 import { RiFileUserFill } from "react-icons/ri";

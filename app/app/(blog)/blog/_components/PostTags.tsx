@@ -1,6 +1,6 @@
 "use client";
 
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import React from "react";
 import {
   colorsAndGradients,

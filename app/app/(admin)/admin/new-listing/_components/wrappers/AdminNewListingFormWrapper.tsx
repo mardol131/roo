@@ -1,4 +1,4 @@
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { FormEvent, ReactNode } from "react";
 
 type Props = {

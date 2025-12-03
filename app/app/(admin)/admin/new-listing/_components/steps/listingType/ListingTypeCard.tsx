@@ -1,6 +1,6 @@
 "use client";
 
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import Gastro from "@/app/_icons/Gastro";
 import { ListingType } from "@/app/_types/business/services";
 import {

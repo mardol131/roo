@@ -6,7 +6,10 @@ import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers
 
 import { apis } from "@/app/_api/_apis";
 import Button, { ButtonProps } from "@/app/_components/atoms/button/Button";
-import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import Text, {
+  GenerateTexts,
+  TextProps,
+} from "@/app/_components/atoms/text/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import { formDataToObject } from "@roo/shared/src/functions/data-manipulation/formDataToObject";

@@ -3,7 +3,7 @@ import {
   ButtonProps,
   GenerateButtons,
 } from "@/app/_components/atoms/button/Button";
-import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/text/Text";
 import { ImageType, OverlayType } from "@/app/_types/objects";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
@@ -19,8 +19,7 @@ type IconsTextProps = {
 
 function IconsTextCard(props: IconsTextProps) {
   const bgColor =
-    props.overlay?.overlayColor &&
-    colorsAndGradients[props.overlay.overlayColor];
+    props.overlay?.overlayColor && `bg-${props.overlay.overlayColor}`;
   if (props.isCard) {
     return (
       <div className="flex relative flex-col items-center justify-between gap-5 max-w-100 w-full h-auto rounded-xl overflow-hidden shadow-xl">

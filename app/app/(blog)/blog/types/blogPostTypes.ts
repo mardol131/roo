@@ -1,6 +1,6 @@
 import { ImageType } from "@/app/_types/objects";
 import { PostTagProps } from "../_components/PostTags";
-import { TextProps } from "@/app/_components/atoms/Text";
+import { TextProps } from "@/app/_components/atoms/text/Text";
 
 export type BlogPostCardProps = {
   id: string;

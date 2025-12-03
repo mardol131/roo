@@ -2,7 +2,10 @@ import React from "react";
 
 import { LandingSectionWrapper } from "@/app/(landingPages)/_components/wrappers/LandingSectionWrapper";
 
-import Text, { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import Text, {
+  GenerateTexts,
+  TextProps,
+} from "@/app/_components/atoms/text/Text";
 import { OverlayType } from "@/app/_types/objects";
 import { FaCheck, FaXmark } from "react-icons/fa6";
 import { colorsAndGradients } from "@roo/shared/src/design/colors";
@@ -45,11 +48,11 @@ function CheckItem({
 
 export default function ComparisonSection(props: ComparisonSectionProps) {
   const bgFor = props.for.overlay?.overlayColor
-    ? colorsAndGradients[props.for.overlay?.overlayColor]
+    ? `bg-${props.for.overlay?.overlayColor}`
     : props.for.overlay.overlayClassname;
 
   const bgAgainst = props.against.overlay?.overlayColor
-    ? colorsAndGradients[props.against.overlay?.overlayColor]
+    ? `bg-${props.against.overlay?.overlayColor}`
     : props.against.overlay.overlayClassname;
 
   return (

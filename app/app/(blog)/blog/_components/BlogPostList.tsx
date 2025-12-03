@@ -1,7 +1,7 @@
 import React from "react";
 import { BlogPostCardProps } from "../types/blogPostTypes";
 import BlogPostCard from "./BlogPostCard";
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { PostTagProps } from "./PostTags";
 import BlogCategoryFilterDropdown from "./BlogCategoryFilterDropdown";
 import FeaturedPostsSection from "./FeaturedPostsSection";

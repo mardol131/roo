@@ -52,126 +52,146 @@
 .bg-blackTransparent {
   background: linear-gradient(
     60deg,
-    rgba(var(--color-rooBlack), 0.3),
-    rgba(var(--color-rooBlack), 0.1)
+    rgba(var(--color-rooBlackRgba), 0.8),
+    rgba(var(--color-rooBlackRgba), 0.3)
   );
 }
 .bg-transparentBlack {
   background: linear-gradient(
     60deg,
-    var(--color-rooBlack) 30%,
-    var(--color-rooBlack)
+    rgba(var(--color-rooBlack), 0.3) rgba(var(--color-rooBlack), 0.8)
   );
 }
 
 .bg-primaryTransparent {
-  background: linear-gradient(30deg, var(--color-primary) 70%, transparent);
+  background: linear-gradient(
+    60deg,
+    rgba(var(--color-primaryRgba), 0.8),
+    transparent
+  );
 }
 .bg-secondaryTransparent {
-  background: linear-gradient(30deg, var(--color-secondary) 70%, transparent);
+  background: linear-gradient(
+    60deg,
+    rgba(var(--color-secondaryRgba), 0.8),
+    transparent
+  );
 }
 .bg-tertiaryTransparent {
-  background: linear-gradient(30deg, var(--color-tertiary) 70%, transparent);
+  background: linear-gradient(
+    60deg,
+    rgba(var(--color-tertiaryRgba), 0.8),
+    transparent
+  );
 }
 
 .bg-transparentPrimary {
-  background: linear-gradient(30deg, transparent, var(--color-primary) 70%);
+  background: linear-gradient(
+    60deg,
+    transparent rgba(var(--color-primaryRgba), 0.8)
+  );
 }
 .bg-transparentSecondary {
-  background: linear-gradient(30deg, transparent, var(--color-secondary) 70%);
+  background: linear-gradient(
+    60deg,
+    transparent rgba(var(--color-secondaryRgba), 0.8)
+  );
 }
 .bg-transparentTertiary {
-  background: linear-gradient(30deg, transparent, var(--color-tertiary) 70%);
+  background: linear-gradient(
+    60deg,
+    transparent rgba(var(--color-tertiaryRgba), 0.8)
+  );
 }
 
 .bg-primarySecondaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-primary) 70%,
-    var(--color-secondary) 70%
+    60deg,
+    rgba(var(--color-primaryRgba), 0.8),
+    rgba(var(--color-secondaryRgba), 0.7)
   );
 }
 .bg-primaryTertiaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-primary) 70%,
-    var(--color-tertiary) 70%
+    60deg,
+    rgba(var(--color-primaryRgba), 0.8),
+    rgba(var(--color-tertiaryRgba), 0.7)
   );
 }
 .bg-secondaryTertiaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-secondary) 70%,
-    var(--color-tertiary) 70%
+    60deg,
+    rgba(var(--color-secondaryRgba), 0.8),
+    rgba(var(--color-tertiaryRgba), 0.7)
   );
 }
 .bg-secondaryPrimaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-secondary) 70%,
-    var(--color-primary) 70%
+    60deg,
+    rgba(var(--color-secondaryRgba), 0.8),
+    rgba(var(--color-primaryRgba), 0.7)
   );
 }
 .bg-tertiaryPrimaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-tertiary) 70%,
-    var(--color-primary) 70%
+    60deg,
+    rgba(var(--color-tertiaryRgba), 0.8),
+    rgba(var(--color-primaryRgba), 0.7)
   );
 }
 .bg-tertiarySecondaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-tertiary) 70%,
-    var(--color-secondary) 70%
+    60deg,
+    rgba(var(--color-tertiaryRgba), 0.8),
+    rgba(var(--color-secondaryRgba), 0.7)
   );
 }
 .bg-primarySecondaryTertiaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-primary) 70%,
-    var(--color-secondary) 70%,
-    var(--color-tertiary) 70%
+    60deg,
+    rgba(var(--color-primaryRgba), 0.8),
+    rgba(var(--color-secondaryRgba), 0.7),
+    rgba(var(--color-tertiaryRgba), 0.7)
   );
 }
 .bg-primaryTertiarySecondaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-primary) 70%,
-    var(--color-tertiary) 70%,
-    var(--color-secondary) 70%
+    60deg,
+    rgba(var(--color-primaryRgba), 0.8),
+    rgba(var(--color-tertiaryRgba), 0.7),
+    rgba(var(--color-secondaryRgba), 0.7)
   );
 }
 .bg-secondaryPrimaryTertiaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-secondary) 70%,
-    var(--color-primary) 70%,
-    var(--color-tertiary) 70%
+    60deg,
+    rgba(var(--color-secondaryRgba), 0.8),
+    rgba(var(--color-primaryRgba), 0.7),
+    rgba(var(--color-tertiaryRgba), 0.7)
   );
 }
 .bg-secondaryTertiaryPrimaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-secondary) 70%,
-    var(--color-tertiary) 70%,
-    var(--color-primary) 70%
+    60deg,
+    rgba(var(--color-secondaryRgba), 0.8),
+    rgba(var(--color-tertiaryRgba), 0.7),
+    rgba(var(--color-primaryRgba), 0.7)
   );
 }
 .bg-tertiaryPrimarySecondaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-tertiary) 70%,
-    var(--color-primary) 70%,
-    var(--color-secondary) 70%
+    60deg,
+    rgba(var(--color-tertiaryRgba), 0.8),
+    rgba(var(--color-primaryRgba), 0.7),
+    rgba(var(--color-secondaryRgba), 0.7)
   );
 }
 .bg-tertiarySecondaryPrimaryOpac {
   background: linear-gradient(
-    30deg,
-    var(--color-tertiary) 70%,
-    var(--color-secondary) 70%,
-    var(--color-primary) 70%
+    60deg,
+    rgba(var(--color-tertiaryRgba), 0.8),
+    rgba(var(--color-secondaryRgba), 0.7),
+    rgba(var(--color-primaryRgba), 0.7)
   );
 }
 

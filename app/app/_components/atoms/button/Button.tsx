@@ -38,15 +38,14 @@ export default function Button(props: ButtonProps) {
   const buttonBgColor = props.bgColor && `bg-${props.bgColor}`;
   const buttonSize = `${classes.button} ${classes[`size_${props.size}`] || ""}`;
   const buttonRounding = props.rounding && `radius-${props.rounding}`;
-  const buttonTextColor = props.textColor && `color-${props.textColor}`;
+  const buttonTextColor = props.textColor && `text-${props.textColor}`;
   const IconLeft = props.iconLeft && LucideIcons[props.iconLeft];
   const IconRight = props.iconRight && LucideIcons[props.iconRight];
+  const disabledClass = props.disabled ? classes.disabled : "";
+  const borderClass = props.bgColor === "white" && classes.whiteStyle;
+  const stretchClass = props.stretch ? classes.stretch : "";
 
-  const buttonClassname = `${props.disabled ? "opacity-50" : "hover:scale-105"} font-semibold  ${
-    props.bgColor === "white" && "border border-borderLight"
-  } animate cursor-pointer shadow-md flex text-center justify-center items-center gap-2 ${
-    props.stretch && "w-full"
-  } ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor}`;
+  const buttonClassname = `animate ${classes.button} ${disabledClass} ${borderClass} ${stretchClass} ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor}`;
 
   function onClickHandler() {
     if (props.GT) {

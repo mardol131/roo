@@ -1,3 +1,5 @@
+@import "./media.scss";
+
 $text_xs: 0.75rem; // 12px
 $line_xs: 1rem; // 16px
 
@@ -91,3 +93,271 @@ $text-sizes: (
     1,
   ),
 );
+
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-secondaryDark {
+  color: var(--color-secondaryDark);
+}
+.text-tertiary {
+  color: var(--color-tertiary);
+}
+.text-tertiaryDark {
+  color: var(--color-tertiaryDark);
+}
+.text-black {
+  color: var(--color-rooBlack);
+}
+.text-white {
+  color: white;
+}
+.text-lightOne {
+  color: var(--color-lightOne);
+}
+// .text-primarySecondaryOpac {
+//   @apply bg-linear-to-r from-primary/70 to-secondary/70 bg-clip-text text-transparent;
+// }
+// .text-primaryTertiaryOpac {
+//   @apply bg-linear-to-r from-primary/70 to-tertiary/70 bg-clip-text text-transparent;
+// }
+// .text-secondaryTertiaryOpac {
+//   @apply bg-linear-to-r from-secondary/70 to-tertiary/70 bg-clip-text text-transparent;
+// }
+// .text-secondaryPrimaryOpac {
+//   @apply bg-linear-to-r from-secondary/70 to-primary/70 bg-clip-text text-transparent;
+// }
+// .text-tertiaryPrimaryOpac {
+//   @apply bg-linear-to-r from-tertiary/70 to-primary/70 bg-clip-text text-transparent;
+// }
+// .text-tertiarySecondaryOpac {
+//   @apply bg-linear-to-r from-tertiary/70 to-secondary/70 bg-clip-text text-transparent;
+// }
+// .text-primarySecondaryTertiaryOpac {
+//   @apply bg-linear-to-r from-primary/70 via-secondary/70 to-tertiary/70 bg-clip-text text-transparent;
+// }
+// .text-primaryTertiarySecondaryOpac {
+//   @apply bg-linear-to-r from-primary/70 via-tertiary/70 to-secondary/70 bg-clip-text text-transparent;
+// }
+// .text-secondaryPrimaryTertiaryOpac {
+//   @apply bg-linear-to-r from-secondary/70 via-primary/70 to-tertiary/70 bg-clip-text text-transparent;
+// }
+// .text-secondaryTertiryPrimaryOpac {
+//   @apply bg-linear-to-r from-secondary/70 via-tertiary/70 to-primary/70 bg-clip-text text-transparent;
+// }
+// .text-tertiaryPrimarySecondaryOpac {
+//   @apply bg-linear-to-r from-tertiary/70 via-primary/70 to-secondary/70 bg-clip-text text-transparent;
+// }
+// .text-tertiarySecondaryPrimaryOpac {
+//   @apply bg-linear-to-r from-tertiary/70 via-secondary/70 to-primary/70 bg-clip-text text-transparent;
+// }
+
+.text-primarySecondary {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-primaryTertiary {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-tertiary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text-secondaryTertiary {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary),
+    var(--color-tertiary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.text-secondaryPrimary {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary),
+    var(--color-primary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-tertiaryPrimary {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiary),
+    var(--color-primary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-tertiarySecondary {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-primarySecondaryTertiary {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-primaryTertiarySecondary {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-tertiary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-secondaryPrimaryTertiary {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary),
+    var(--color-primary),
+    var(--color-tertiary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-secondaryTertiryPrimary {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary),
+    var(--color-tertiary),
+    var(--color-primary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-tertiaryPrimarySecondary {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiary),
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-tertiarySecondaryPrimary {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiary),
+    var(--color-secondary),
+    var(--color-primary)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Text size */
+
+.fontSize-displayLg {
+  font-size: 72px;
+
+  @media media_max_md {
+    font-size: 53px;
+  }
+}
+.fontSize-displayMd {
+  font-size: 48px;
+  @media media_max_md {
+    font-size: 40px;
+  }
+}
+.fontSize-displaySm {
+  font-size: 40px;
+  @media media_max_md {
+    font-size: 32px;
+  }
+}
+.fontSize-headingXl {
+  font-size: 60px;
+  @media media_max_md {
+    font-size: 48px;
+  }
+}
+
+.fontSize-headingLg {
+  font-size: 40px;
+  @media media_max_md {
+    font-size: 32px;
+  }
+}
+.fontSize-headingMd {
+  font-size: 28px;
+  @media media_max_md {
+    font-size: 24px;
+  }
+}
+.fontSize-headingSm {
+  font-size: 20px;
+}
+.fontSize-headingXs {
+  font-size: 18px;
+}
+.fontSize-bodyXl {
+  font-size: 20px;
+}
+.fontSize-bodyLg {
+  font-size: 18px;
+}
+.fontSize-bodyMd {
+  font-size: 16px;
+}
+.fontSize-bodySm {
+  font-size: 13px;
+}
+.fontSize-bodyXs {
+  font-size: 10px;
+}
+
+/* Fonts boldness*/
+.fontWeight-base {
+  font-weight: 500;
+}
+
+.fontWeight-semibold {
+  font-weight: 600;
+}
+
+.fontWeight-bold {
+  font-weight: 700;
+}
+
+.fontWeight-extraBold {
+  font-weight: 800;
+}

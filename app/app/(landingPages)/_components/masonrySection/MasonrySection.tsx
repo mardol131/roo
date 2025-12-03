@@ -6,7 +6,7 @@ import {
 import { MasonryBubbleText, MasonryBubbleTextProps } from "./MasonryBubbleText";
 import { OverlayType } from "@/app/_types/objects";
 import Button, { ButtonProps } from "@/app/_components/atoms/button/Button";
-import { GenerateTexts, TextProps } from "@/app/_components/atoms/Text";
+import { GenerateTexts, TextProps } from "@/app/_components/atoms/text/Text";
 import { LandingSectionWrapper } from "../wrappers/LandingSectionWrapper";
 
 export type MasonrySectionProps = {

@@ -1,3 +1,5 @@
+import { Enum } from "../functions/enum";
+
 export type SidesType = "left" | "right";
 
 export const sides = {
@@ -13,12 +15,6 @@ export const textAlign = {
 
 export type TextAlignType = keyof typeof textAlign;
 
-export const objectPosition = {
-  center: "object-center",
-  top: "object-top",
-  bottom: "object-bottom",
-  left: "object-left",
-  right: "object-right",
-};
+export const objectPosition = Enum("center", "top", "bottom", "left", "right");
 
 export type ObjectPosition = keyof typeof objectPosition;

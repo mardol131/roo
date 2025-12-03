@@ -1,9 +1,10 @@
 @import "tailwindcss";
-@import "./texts.css";
+@import "./colors.scss";
+@import "./text.scss";
 @import "./backgrounds.scss";
 @import "./padding.scss";
 @import "./radius.scss";
-@import "./colors.scss";
+@import "./position.scss";
 
 @layer utilities {
   .no-spin::-webkit-outer-spin-button,
@@ -25,6 +26,13 @@
 @font-face {
   font-family: Nunito;
   src: url("../_fonts/Nunit-sans.ttf");
+}
+
+:root {
+  --font-base: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extraBold: 800;
 }
 
 @theme {
@@ -78,18 +86,6 @@
   /* Animations */
 }
 
-.radius-small {
-  border-radius: var(--radius-small);
-}
-
-.radius-medium {
-  border-radius: var(--radius-medium);
-}
-
-.radius-large {
-  border-radius: var(--radius-large);
-}
-
 /* Scrollbar */
 
 * {
@@ -100,15 +96,15 @@
 /* Helper classes */
 
 .listingGridColumns {
-  @apply grid-cols-[repeat(auto-fit,minmax(17rem,1fr))];
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
 }
 
 .blogPostColumns {
-  @apply grid-cols-[repeat(auto-fit,minmax(17rem,1fr))];
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
 }
 
 .animate {
-  @apply ease-in-out transition-all;
+  transition: all ease-in-out 0.1s;
 }
 
 .gradientBorder {

@@ -1,145 +1,87 @@
 :root {
   --color-white: #ffffff;
+  --color-whiteRgba: 255, 255, 255;
+
   --color-black: #000000;
+  --color-blackRgba: 0, 0, 0;
 
   --color-secondary: #ff9900;
+  --color-secondaryRgba: 255, 153, 0;
   --color-secondaryDark: #f2810e;
+  --color-secondaryDarkRgba: 242, 129, 14;
   --color-primary: #ff0066;
+  --color-primaryRgba: 255, 0, 102;
   --color-tertiary: #663399;
+  --color-tertiaryRgba: 102, 51, 153;
   --color-tertiaryDark: #333366;
+  --color-tertiaryDarkRgba: 51, 51, 102;
 
   --color-specialBlue: #0099ff;
+  --color-specialBlueRgba: 0, 153, 255;
   --color-specialGreen: #80f20e;
+  --color-specialGreenRgba: 128, 242, 14;
 
   --color-rooGray: #343434;
+  --color-rooGrayRgba: 52, 52, 52;
+
   --color-rooBlack: #181818;
+  --color-rooBlackRgba: 18, 18, 18;
 
   --color-success: oklch(72.3% 0.219 149.579);
+  --color-successRgba: 72, 56, 149;
   --color-warning: #fcaa2e;
+  --color-warningRgba: 252, 170, 46;
   --color-danger: #ee094b;
+  --color-dangerRgba: 238, 9, 75;
 
   --color-borderLight: oklch(92.8% 0.006 264.531);
+  --color-borderLightRgba: 92, 6, 264;
 
   --color-textNormal: oklch(27.8% 0.033 256.848);
+  --color-textNormalRgba: 27, 8, 256;
   --color-textMedium: oklch(44.6% 0.03 256.802);
+  --color-textMediumRgba: 44, 15, 256;
 
   --color-placeholder: oklch(55.1% 0.027 264.364);
+  --color-placeholderRgba: 55, 22, 264;
 
   --color-lightOne: oklch(27.4% 0.006 286.033);
+  --color-lightOneRgba: 27, 6, 286;
   --color-lightOne: oklch(27.4% 0.006 286.033);
+  --color-lightOneRgba: 27, 6, 286;
 
   --color-optionsBar: oklch(98.5% 0.002 247.839);
+  --color-optionsBarRgba: 98, 2, 247;
 }
 
-$color-white: #ffffff;
-$color-black: #000000;
+$white: #ffffff;
+$black: #000000;
 
-$color-secondary: #ff9900;
-$color-secondaryDark: #f2810e;
-$color-primary: #ff0066;
-$color-tertiary: #663399;
-$color-tertiaryDark: #333366;
+$secondary: var(--color-secondary);
+$secondaryDark: var(--color-secondaryDark);
+$primary: var(--color-primary);
+$tertiary: var(--color-tertiary);
+$tertiaryDark: var(--color-tertiaryDark);
+$specialBlue: var(--color-specialBlue);
+$specialGreen: var(--color-specialGreen);
 
-$color-specialBlue: #0099ff;
-$color-specialGreen: #80f20e;
-
-$color-rooGray: #343434;
-$color-rooBlack: #181818;
-
+$rooGray: var(--color-rooGray);
+$rooBlack: var(--color-rooBlack);
 /* Status */
-$color-success: oklch(72.3% 0.219 149.579);
-$color-warning: #fcaa2e;
-$color-danger: #ee094b;
+$success: var(--color-success);
+$warning: var(--color-warning);
+$danger: var(--color-danger);
 
 /* Border */
-$color-borderLight: oklch(92.8% 0.006 264.531);
+$borderLight: var(--color-borderLight);
 
 /* Text */
-$color-textNormal: oklch(27.8% 0.033 256.848);
-$color-textMedium: oklch(44.6% 0.03 256.802);
-$color-placeholder: oklch(55.1% 0.027 264.364);
+$textNormal: var(--color-textNormal);
+$textMedium: var(--color-textMedium);
+$placeholder: var(--color-placeholder);
 
 /* Light */
-$color-lightOne: oklch(27.4% 0.006 286.033);
+$lightOne: var(--color-lightOne);
 
 /* UI */
-$color-optionsBar: oklch(98.5% 0.002 247.839);
-
-.color-white {
-  color: #ffffff;
-}
-
-.color-black {
-  color: #000000;
-}
-
-.color-secondary {
-  color: #ff9900;
-}
-.color-secondaryDark {
-  color: #f2810e;
-}
-
-/* Primary Colors */
-.color-primary {
-  color: #ff0066;
-}
-.color-tertiary {
-  color: #663399;
-}
-.color-tertiaryDark {
-  color: #333366;
-}
-
-/* Special Colors */
-.color-specialBlue {
-  color: #0099ff;
-}
-.color-specialGreen {
-  color: #80f20e;
-}
-
-/* Roo Colors */
-.color-rooGray {
-  color: #343434;
-}
-.color-rooBlack {
-  color: #181818;
-}
-
-/* Status Colors */
-.color-success {
-  color: oklch(72.3% 0.219 149.579);
-}
-.color-warning {
-  color: #fcaa2e;
-}
-.color-danger {
-  color: #ee094b;
-}
-
-/* Border Colors */
-.color-borderLight {
-  color: oklch(92.8% 0.006 264.531);
-}
-
-/* Text Colors */
-.color-textNormal {
-  color: oklch(27.8% 0.033 256.848);
-}
-.color-textMedium {
-  color: oklch(44.6% 0.03 256.802);
-}
-.color-placeholder {
-  color: oklch(55.1% 0.027 264.364);
-}
-
-/* Light Colors */
-.color-lightOne {
-  color: oklch(27.4% 0.006 286.033);
-}
-
-/* UI / Options Bar */
-.color-optionsBar {
-  color: oklch(98.5% 0.002 247.839);
-}
+$optionsBar: var(--color-optionsBar);

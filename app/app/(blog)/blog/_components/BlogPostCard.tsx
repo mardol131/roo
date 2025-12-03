@@ -1,5 +1,5 @@
 import Button from "@/app/_components/atoms/button/Button";
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import { format } from "date-fns";
 import Image from "next/image";

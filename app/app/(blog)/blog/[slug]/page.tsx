@@ -4,7 +4,7 @@ import { getPost } from "../_functions/getPost";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
-import Text, { GenerateTexts } from "@/app/_components/atoms/Text";
+import Text, { GenerateTexts } from "@/app/_components/atoms/text/Text";
 import { BlogPostWrapper } from "../_components/BlogPostWrapper";
 import PostTags, { PostTagProps } from "../_components/PostTags";
 import { format } from "date-fns";

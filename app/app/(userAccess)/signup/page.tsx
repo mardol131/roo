@@ -1,4 +1,4 @@
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import image from "@/app/_images/place.jpg";
 import Image from "next/image";
 import SignupForm from "./_components/SignupForm";

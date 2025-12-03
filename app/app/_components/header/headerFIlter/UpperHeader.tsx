@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
 import { MdOutlineFestival } from "react-icons/md";
-import Text from "../../atoms/Text";
+import Text from "../../atoms/text/Text";
 
 import {
   headerFilterSlice,

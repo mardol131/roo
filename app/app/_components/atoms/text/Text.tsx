@@ -16,6 +16,7 @@ import { getImageSrc } from "@roo/shared/src/functions/media/getImageSrc";
 import Image from "next/image";
 import Link from "next/link";
 import sanitizeHtml from "sanitize-html";
+import classes from "./Text.module.scss";
 
 export type TextProps = {
   text: string;
@@ -29,10 +30,10 @@ export type TextProps = {
 };
 
 export default function Text(props: TextProps) {
-  const color = props.color ? `color-${props.color}` : textColor.black;
+  const color = `text-${props.color || "black"}`;
   const textFont = props.font ? font[props.font] : font.heading;
-  const weight = props.fontWeight && fontWeight[props.fontWeight];
-  const size = props.size ? fontSize[props.size] : fontSize.bodyMd;
+  const weight = `fontWeight-${props.fontWeight || "base"}`;
+  const size = `fontSize-${props.size || "bodyMd"}`;
 
   //   const align = props.textAlign && textAlign[props.textAlign];
   const classes = `${props.className || ""} ${color || ""} ${weight || ""} ${textFont || ""} ${size || ""} animate`;

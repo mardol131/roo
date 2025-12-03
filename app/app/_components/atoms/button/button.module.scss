@@ -2,6 +2,16 @@
 @import "../../../_css/media.scss";
 
 .button {
+  font-weight: var(--fontWeight-bold);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
   &.size_4xl {
     padding: var(--p-5) var(--p-7);
     font-size: text.$text_2xl;
@@ -49,4 +59,17 @@
     padding: var(--p-1) var(--p-2);
     font-size: text.$text_sm;
   }
+}
+
+.button:hover {
+  transform: scale(105%);
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.whiteStyle {
+  border: 2px solid var(--color-borderLight);
 }

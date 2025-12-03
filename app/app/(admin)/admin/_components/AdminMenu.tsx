@@ -1,6 +1,6 @@
 "use client";
 
-import Text from "@/app/_components/atoms/Text";
+import Text from "@/app/_components/atoms/text/Text";
 import logo from "@/public/logo.png";
 import { isDeviceWidth } from "@roo/shared/src/functions/isDeviceWidth";
 import { useTranslations } from "next-intl";
