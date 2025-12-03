@@ -1,5 +1,5 @@
-import "./_css/animations.css";
-import "./_css/globals.css";
+import "./_css/animations.scss";
+import "./_css/globals.scss";
 
 import { GoogleTagManager } from "@next/third-parties/google";
 import { NextIntlClientProvider } from "next-intl";

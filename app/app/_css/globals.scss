@@ -1,11 +1,9 @@
 @import "tailwindcss";
-@import "./animations.css";
 @import "./texts.css";
-@import "./backgrounds.css";
+@import "./backgrounds.scss";
 @import "./padding.scss";
 @import "./radius.scss";
-
-@source "../../node_modules/@roo/shared";
+@import "./colors.scss";
 
 @layer utilities {
   .no-spin::-webkit-outer-spin-button,
@@ -62,7 +60,7 @@
 
   --font-display: "Montserrat";
   --font-heading: "Nunito";
-  --font-bdoy: "Nunito";
+  --font-body: "Nunito";
 
   /* Radius */
 

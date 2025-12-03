@@ -18,7 +18,7 @@ type Props = {
 
 export default function HeroBubbleSection(props: Props) {
   const bgColor = props.innerOverlay?.overlayColor
-    ? colorsAndGradients[props.innerOverlay?.overlayColor]
+    ? `bg-${props.innerOverlay.overlayColor}`
     : props.innerOverlay?.overlayClassname;
 
   const image = props.innerOverlay?.image;
@@ -38,7 +38,7 @@ export default function HeroBubbleSection(props: Props) {
         )}
         <div
           className={`relative min-h-150 w-full md:grid grid-cols-[2fr_1fr] flex items-center md:p-10 p-4  ${
-            bgColor || " bg-linear-90 from-rooBlack to-transparent"
+            bgColor || " bg-transparent"
           }`}
         >
           <div className="flex flex-col justify-center h-full gap-5">

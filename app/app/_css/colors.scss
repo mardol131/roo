@@ -1,0 +1,145 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-secondary: #ff9900;
+  --color-secondaryDark: #f2810e;
+  --color-primary: #ff0066;
+  --color-tertiary: #663399;
+  --color-tertiaryDark: #333366;
+
+  --color-specialBlue: #0099ff;
+  --color-specialGreen: #80f20e;
+
+  --color-rooGray: #343434;
+  --color-rooBlack: #181818;
+
+  --color-success: oklch(72.3% 0.219 149.579);
+  --color-warning: #fcaa2e;
+  --color-danger: #ee094b;
+
+  --color-borderLight: oklch(92.8% 0.006 264.531);
+
+  --color-textNormal: oklch(27.8% 0.033 256.848);
+  --color-textMedium: oklch(44.6% 0.03 256.802);
+
+  --color-placeholder: oklch(55.1% 0.027 264.364);
+
+  --color-lightOne: oklch(27.4% 0.006 286.033);
+  --color-lightOne: oklch(27.4% 0.006 286.033);
+
+  --color-optionsBar: oklch(98.5% 0.002 247.839);
+}
+
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-secondary: #ff9900;
+$color-secondaryDark: #f2810e;
+$color-primary: #ff0066;
+$color-tertiary: #663399;
+$color-tertiaryDark: #333366;
+
+$color-specialBlue: #0099ff;
+$color-specialGreen: #80f20e;
+
+$color-rooGray: #343434;
+$color-rooBlack: #181818;
+
+/* Status */
+$color-success: oklch(72.3% 0.219 149.579);
+$color-warning: #fcaa2e;
+$color-danger: #ee094b;
+
+/* Border */
+$color-borderLight: oklch(92.8% 0.006 264.531);
+
+/* Text */
+$color-textNormal: oklch(27.8% 0.033 256.848);
+$color-textMedium: oklch(44.6% 0.03 256.802);
+$color-placeholder: oklch(55.1% 0.027 264.364);
+
+/* Light */
+$color-lightOne: oklch(27.4% 0.006 286.033);
+
+/* UI */
+$color-optionsBar: oklch(98.5% 0.002 247.839);
+
+.color-white {
+  color: #ffffff;
+}
+
+.color-black {
+  color: #000000;
+}
+
+.color-secondary {
+  color: #ff9900;
+}
+.color-secondaryDark {
+  color: #f2810e;
+}
+
+/* Primary Colors */
+.color-primary {
+  color: #ff0066;
+}
+.color-tertiary {
+  color: #663399;
+}
+.color-tertiaryDark {
+  color: #333366;
+}
+
+/* Special Colors */
+.color-specialBlue {
+  color: #0099ff;
+}
+.color-specialGreen {
+  color: #80f20e;
+}
+
+/* Roo Colors */
+.color-rooGray {
+  color: #343434;
+}
+.color-rooBlack {
+  color: #181818;
+}
+
+/* Status Colors */
+.color-success {
+  color: oklch(72.3% 0.219 149.579);
+}
+.color-warning {
+  color: #fcaa2e;
+}
+.color-danger {
+  color: #ee094b;
+}
+
+/* Border Colors */
+.color-borderLight {
+  color: oklch(92.8% 0.006 264.531);
+}
+
+/* Text Colors */
+.color-textNormal {
+  color: oklch(27.8% 0.033 256.848);
+}
+.color-textMedium {
+  color: oklch(44.6% 0.03 256.802);
+}
+.color-placeholder {
+  color: oklch(55.1% 0.027 264.364);
+}
+
+/* Light Colors */
+.color-lightOne {
+  color: oklch(27.4% 0.006 286.033);
+}
+
+/* UI / Options Bar */
+.color-optionsBar {
+  color: oklch(98.5% 0.002 247.839);
+}

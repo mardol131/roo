@@ -251,9 +251,7 @@ export interface Post {
               | (
                   | 'primary'
                   | 'secondary'
-                  | 'secondaryDark'
                   | 'tertiary'
-                  | 'tertiaryDark'
                   | 'black'
                   | 'white'
                   | 'success'
@@ -453,9 +451,7 @@ export interface Page {
         | (
             | 'primary'
             | 'secondary'
-            | 'secondaryDark'
             | 'tertiary'
-            | 'tertiaryDark'
             | 'black'
             | 'white'
             | 'success'
@@ -557,9 +553,7 @@ export interface Page {
         | (
             | 'primary'
             | 'secondary'
-            | 'secondaryDark'
             | 'tertiary'
-            | 'tertiaryDark'
             | 'black'
             | 'white'
             | 'success'
@@ -685,9 +679,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -809,9 +801,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -922,9 +912,7 @@ export interface Page {
                   | (
                       | 'primary'
                       | 'secondary'
-                      | 'secondaryDark'
                       | 'tertiary'
-                      | 'tertiaryDark'
                       | 'black'
                       | 'white'
                       | 'success'
@@ -1058,9 +1046,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -1129,9 +1115,7 @@ export interface Page {
                   | (
                       | 'primary'
                       | 'secondary'
-                      | 'secondaryDark'
                       | 'tertiary'
-                      | 'tertiaryDark'
                       | 'black'
                       | 'white'
                       | 'success'
@@ -1281,9 +1265,7 @@ export interface Page {
                   | (
                       | 'primary'
                       | 'secondary'
-                      | 'secondaryDark'
                       | 'tertiary'
-                      | 'tertiaryDark'
                       | 'black'
                       | 'white'
                       | 'success'
@@ -1511,9 +1493,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -1593,9 +1573,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -1716,9 +1694,7 @@ export interface Page {
             | (
                 | 'primary'
                 | 'secondary'
-                | 'secondaryDark'
                 | 'tertiary'
-                | 'tertiaryDark'
                 | 'black'
                 | 'white'
                 | 'success'
@@ -1871,9 +1847,7 @@ export interface Page {
                   | (
                       | 'primary'
                       | 'secondary'
-                      | 'secondaryDark'
                       | 'tertiary'
-                      | 'tertiaryDark'
                       | 'black'
                       | 'white'
                       | 'success'
@@ -1945,9 +1919,7 @@ export interface Page {
                     | (
                         | 'primary'
                         | 'secondary'
-                        | 'secondaryDark'
                         | 'tertiary'
-                        | 'tertiaryDark'
                         | 'black'
                         | 'white'
                         | 'success'
@@ -2017,9 +1989,7 @@ export interface Page {
                   | (
                       | 'primary'
                       | 'secondary'
-                      | 'secondaryDark'
                       | 'tertiary'
-                      | 'tertiaryDark'
                       | 'black'
                       | 'white'
                       | 'success'
@@ -2102,9 +2072,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -2152,9 +2120,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -2360,9 +2326,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -2443,9 +2407,7 @@ export interface Page {
                       | (
                           | 'primary'
                           | 'secondary'
-                          | 'secondaryDark'
                           | 'tertiary'
-                          | 'tertiaryDark'
                           | 'black'
                           | 'white'
                           | 'success'
@@ -2493,9 +2455,7 @@ export interface Page {
                       | (
                           | 'primary'
                           | 'secondary'
-                          | 'secondaryDark'
                           | 'tertiary'
-                          | 'tertiaryDark'
                           | 'black'
                           | 'white'
                           | 'success'
@@ -2761,9 +2721,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -2829,9 +2787,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -3113,9 +3069,7 @@ export interface Page {
                     | (
                         | 'primary'
                         | 'secondary'
-                        | 'secondaryDark'
                         | 'tertiary'
-                        | 'tertiaryDark'
                         | 'black'
                         | 'white'
                         | 'success'
@@ -3201,9 +3155,7 @@ export interface Page {
                     | (
                         | 'primary'
                         | 'secondary'
-                        | 'secondaryDark'
                         | 'tertiary'
-                        | 'tertiaryDark'
                         | 'black'
                         | 'white'
                         | 'success'
@@ -3290,9 +3242,7 @@ export interface Page {
                       | (
                           | 'primary'
                           | 'secondary'
-                          | 'secondaryDark'
                           | 'tertiary'
-                          | 'tertiaryDark'
                           | 'black'
                           | 'white'
                           | 'success'
@@ -3482,9 +3432,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -3617,9 +3565,7 @@ export interface Page {
                     | (
                         | 'primary'
                         | 'secondary'
-                        | 'secondaryDark'
                         | 'tertiary'
-                        | 'tertiaryDark'
                         | 'black'
                         | 'white'
                         | 'success'
@@ -3684,9 +3630,7 @@ export interface Page {
                 | (
                     | 'primary'
                     | 'secondary'
-                    | 'secondaryDark'
                     | 'tertiary'
-                    | 'tertiaryDark'
                     | 'black'
                     | 'white'
                     | 'success'
@@ -3967,9 +3911,7 @@ export interface Page {
                     | (
                         | 'primary'
                         | 'secondary'
-                        | 'secondaryDark'
                         | 'tertiary'
-                        | 'tertiaryDark'
                         | 'black'
                         | 'white'
                         | 'success'
@@ -4055,9 +3997,7 @@ export interface Page {
                     | (
                         | 'primary'
                         | 'secondary'
-                        | 'secondaryDark'
                         | 'tertiary'
-                        | 'tertiaryDark'
                         | 'black'
                         | 'white'
                         | 'success'
@@ -4146,9 +4086,7 @@ export interface Page {
                           | (
                               | 'primary'
                               | 'secondary'
-                              | 'secondaryDark'
                               | 'tertiary'
-                              | 'tertiaryDark'
                               | 'black'
                               | 'white'
                               | 'success'

@@ -1,0 +1,267 @@
+@use "colors.scss";
+@import "animations.scss";
+
+.bg-white {
+  background-color: white;
+}
+.bg-whiteOpac {
+  background-color: white;
+  opacity: 0.5;
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.bg-secondaryOpac {
+  background-color: var(--color-secondary);
+  opacity: 0.5;
+}
+
+.bg-secondaryDark {
+  background-color: var(--color-secondaryDark);
+}
+.bg-secondaryDarkOpac {
+  background-color: var(--color-secondaryDark);
+  opacity: 0.5;
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-primaryOpac {
+  background-color: var(--color-primary);
+  opacity: 0.5;
+}
+
+.bg-tertiary {
+  background-color: var(--color-tertiary);
+}
+.bg-tertiaryOpac {
+  background-color: var(--color-tertiary);
+  opacity: 0.5;
+}
+
+.bg-tertiaryDark {
+  background-color: var(--color-tertiaryDark);
+}
+.bg-tertiaryDarkOpac {
+  background-color: var(--color-tertiaryDark);
+  opacity: 0.5;
+}
+
+.bg-blackTransparent {
+  background: linear-gradient(
+    60deg,
+    rgba(var(--color-rooBlack), 0.3),
+    rgba(var(--color-rooBlack), 0.1)
+  );
+}
+.bg-transparentBlack {
+  background: linear-gradient(
+    60deg,
+    var(--color-rooBlack) 30%,
+    var(--color-rooBlack)
+  );
+}
+
+.bg-primaryTransparent {
+  background: linear-gradient(30deg, var(--color-primary) 70%, transparent);
+}
+.bg-secondaryTransparent {
+  background: linear-gradient(30deg, var(--color-secondary) 70%, transparent);
+}
+.bg-tertiaryTransparent {
+  background: linear-gradient(30deg, var(--color-tertiary) 70%, transparent);
+}
+
+.bg-transparentPrimary {
+  background: linear-gradient(30deg, transparent, var(--color-primary) 70%);
+}
+.bg-transparentSecondary {
+  background: linear-gradient(30deg, transparent, var(--color-secondary) 70%);
+}
+.bg-transparentTertiary {
+  background: linear-gradient(30deg, transparent, var(--color-tertiary) 70%);
+}
+
+.bg-primarySecondaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-primary) 70%,
+    var(--color-secondary) 70%
+  );
+}
+.bg-primaryTertiaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-primary) 70%,
+    var(--color-tertiary) 70%
+  );
+}
+.bg-secondaryTertiaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-secondary) 70%,
+    var(--color-tertiary) 70%
+  );
+}
+.bg-secondaryPrimaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-secondary) 70%,
+    var(--color-primary) 70%
+  );
+}
+.bg-tertiaryPrimaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-tertiary) 70%,
+    var(--color-primary) 70%
+  );
+}
+.bg-tertiarySecondaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-tertiary) 70%,
+    var(--color-secondary) 70%
+  );
+}
+.bg-primarySecondaryTertiaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-primary) 70%,
+    var(--color-secondary) 70%,
+    var(--color-tertiary) 70%
+  );
+}
+.bg-primaryTertiarySecondaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-primary) 70%,
+    var(--color-tertiary) 70%,
+    var(--color-secondary) 70%
+  );
+}
+.bg-secondaryPrimaryTertiaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-secondary) 70%,
+    var(--color-primary) 70%,
+    var(--color-tertiary) 70%
+  );
+}
+.bg-secondaryTertiaryPrimaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-secondary) 70%,
+    var(--color-tertiary) 70%,
+    var(--color-primary) 70%
+  );
+}
+.bg-tertiaryPrimarySecondaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-tertiary) 70%,
+    var(--color-primary) 70%,
+    var(--color-secondary) 70%
+  );
+}
+.bg-tertiarySecondaryPrimaryOpac {
+  background: linear-gradient(
+    30deg,
+    var(--color-tertiary) 70%,
+    var(--color-secondary) 70%,
+    var(--color-primary) 70%
+  );
+}
+
+.bg-primarySecondary {
+  background: linear-gradient(
+    30deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+}
+.bg-primaryTertiary {
+  background: linear-gradient(
+    30deg,
+    var(--color-primary),
+    var(--color-tertiary)
+  );
+}
+.bg-secondaryTertiary {
+  background: linear-gradient(
+    30deg,
+    var(--color-secondary),
+    var(--color-tertiary)
+  );
+}
+.bg-secondaryPrimary {
+  background: linear-gradient(
+    30deg,
+    var(--color-secondary),
+    var(--color-primary)
+  );
+}
+.bg-tertiaryPrimary {
+  background: linear-gradient(
+    30deg,
+    var(--color-tertiary),
+    var(--color-primary)
+  );
+}
+.bg-tertiarySecondary {
+  background: linear-gradient(
+    30deg,
+    var(--color-tertiary),
+    var(--color-secondary)
+  );
+}
+.bg-primarySecondaryTertiary {
+  background: linear-gradient(
+    30deg,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-tertiary)
+  );
+}
+.bg-primaryTertiarySecondary {
+  background: linear-gradient(
+    30deg,
+    var(--color-primary),
+    var(--color-tertiary),
+    var(--color-secondary)
+  );
+}
+.bg-secondaryPrimaryTertiary {
+  background: linear-gradient(
+    30deg,
+    var(--color-secondary),
+    var(--color-primary),
+    var(--color-tertiary)
+  );
+}
+.bg-secondaryTertiaryPrimary {
+  background: linear-gradient(
+    30deg,
+    var(--color-secondary),
+    var(--color-tertiary),
+    var(--color-primary)
+  );
+}
+.bg-tertiaryPrimarySecondary {
+  background: linear-gradient(
+    30deg,
+    var(--color-tertiary),
+    var(--color-primary),
+    var(--color-secondary)
+  );
+}
+.bg-tertiarySecondaryPrimary {
+  background: linear-gradient(
+    30deg,
+    var(--color-tertiary),
+    var(--color-secondary),
+    var(--color-primary)
+  );
+}

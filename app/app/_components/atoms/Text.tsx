@@ -29,7 +29,7 @@ export type TextProps = {
 };
 
 export default function Text(props: TextProps) {
-  const color = props.color ? textColor[props.color] : textColor.black;
+  const color = props.color ? `color-${props.color}` : textColor.black;
   const textFont = props.font ? font[props.font] : font.heading;
   const weight = props.fontWeight && fontWeight[props.fontWeight];
   const size = props.size ? fontSize[props.size] : fontSize.bodyMd;

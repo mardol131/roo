@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./animations.css";
+@import "./animations.scss";
 
 /* Fonts boldness*/
 .font-fontBase {

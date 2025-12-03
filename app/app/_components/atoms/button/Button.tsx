@@ -35,10 +35,10 @@ export type ButtonProps = {
 };
 
 export default function Button(props: ButtonProps) {
-  const buttonBgColor = props.bgColor && colorsAndGradients[props.bgColor];
+  const buttonBgColor = props.bgColor && `bg-${props.bgColor}`;
   const buttonSize = `${classes.button} ${classes[`size_${props.size}`] || ""}`;
   const buttonRounding = props.rounding && `radius-${props.rounding}`;
-  const buttonTextColor = props.textColor && textColor[props.textColor];
+  const buttonTextColor = props.textColor && `color-${props.textColor}`;
   const IconLeft = props.iconLeft && LucideIcons[props.iconLeft];
   const IconRight = props.iconRight && LucideIcons[props.iconRight];
 
