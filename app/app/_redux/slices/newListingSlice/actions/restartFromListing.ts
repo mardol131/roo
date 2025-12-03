@@ -18,8 +18,8 @@ export function restartFromListing(
     location: {
       adressSameAsCompany: false,
       street: undefined,
-      city: undefined,
-      cityCode: undefined,
+      municipality: undefined,
+      municipalityCode: undefined,
       country: undefined,
       multipleLocations: false,
       serviceAreas: undefined,

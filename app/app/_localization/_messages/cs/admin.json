@@ -301,7 +301,7 @@
         "summary": {
           "title": "Paráda! Základ je hotový!",
           "congratulations": "Úvodní kostra tvého inzerátu je připravená. Teď už jen doplnit detaily a můžeš začít sbírat poptávky! 🎉 Další kroky najdeš v administraci, do které přejdeš tlačítkem níže.",
-          "fill_more": "Na začátku jsi nám řekl, že máš pod stejnou firmou více služeb. Pokud teď chceš přidat další, můžeš tak učinit tlačítky níže.",
+          "fill_more": "Na začátku jsi nám řekl, že máš pod stejnou firmou více služeb. Chceš teď přidat další službu?",
           "buttons": {
             "start_gastro": "Přidat gastro",
             "start_place": "Přidat místo",

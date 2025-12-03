@@ -10,6 +10,7 @@ export type FormTextareaInputProps = {
   placeholder: string;
   spanTwo?: boolean;
   required?: boolean;
+  disabled?: boolean;
 };
 
 export function FormTextareaInput(props: FormTextareaInputProps) {
@@ -28,7 +29,11 @@ export function FormTextareaInput(props: FormTextareaInputProps) {
         name={props.name}
         placeholder={props.placeholder}
         required={props.required || false}
-        className="h-full resize-y"
+        className={`w-full resize-y p-1 flex items-center h-full text-left border rounded-lg ${
+          props.disabled
+            ? "bg-gray-100 cursor-not-allowed text-gray-400"
+            : "bg-white hover:border-primary cursor-pointer"
+        } ${isInvalid ? "border-red-500" : "border-borderLight"}`}
       />
     </FormInputWrapper>
   );

@@ -93,7 +93,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
         readOnly
         hidden
         name={props.name}
-        value={stringToSend}
+        value={stringToSend || ""}
         onChange={() => {}}
       />
 
@@ -102,7 +102,7 @@ export function FormSelectInput(props: FormSelectInputProps) {
         <input
           type="text"
           required
-          value={stringToSend}
+          value={stringToSend || ""}
           onChange={() => {}}
           style={{ display: "none" }}
           onInvalid={() => setIsInvalid(true)}

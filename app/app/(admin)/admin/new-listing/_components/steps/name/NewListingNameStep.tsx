@@ -34,14 +34,7 @@ export default function NewListingNameStep({}: Props) {
 
   return (
     <AdminNewListingFormWrapper onSubmit={onSubmitHandler} heading={t("title")}>
-      <AdminFormPartWrapper>
-        <Text
-          text={t("subtitle")}
-          tag="h3"
-          size="headingSm"
-          className="col-span-2 text-center"
-          fontWeight="semibold"
-        />
+      <AdminFormPartWrapper title={t("subtitle")}>
         <FormTextInput
           label={t("input.label")}
           type="text"

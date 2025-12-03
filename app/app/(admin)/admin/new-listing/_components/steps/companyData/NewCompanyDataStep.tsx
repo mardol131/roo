@@ -155,24 +155,7 @@ export default function NewCompanyDataStep({}: Props) {
   return (
     <AdminNewListingFormWrapper onSubmit={onSubmitHandler} heading={t("title")}>
       <div className="md:grid flex flex-col grid-cols-2 w-full items-start gap-5">
-        <AdminFormPartWrapper>
-          <button
-            type="button"
-            onClick={() => {
-              console.log(state);
-              console.log(selectedCountry);
-              console.log(selectedMunicipality);
-            }}
-          >
-            Text
-          </button>
-          <Text
-            text={t("leftPart.title")}
-            tag="h4"
-            color="black"
-            className="font-semibold text-center py-2 col-span-2"
-            size="headingSm"
-          />
+        <AdminFormPartWrapper title={t("leftPart.title")}>
           <FormTextInput
             defaultValue={state.companyName}
             label={t("leftPart.inputs.companyName.label")}

@@ -17,14 +17,7 @@ export default function ContactPersonFormPart({}: Props) {
   );
 
   return (
-    <AdminFormPartWrapper>
-      <Text
-        text={t("title")}
-        tag="h4"
-        color="black"
-        className="font-semibold text-center py-2 col-span-2"
-        size="headingSm"
-      />
+    <AdminFormPartWrapper title={t("title")}>
       <FormTextInput
         label={t("inputs.firstName.label")}
         type="text"

@@ -129,7 +129,7 @@ export function FormMultiSelectInput(props: FormMultiSelectInputProps) {
           type="button"
           disabled={props.disabled}
           onClick={() => !props.disabled && setIsOpen(!isOpen)}
-          className={`w-full ${props.largeBaseField ? "min-h-30" : "min-h-10"} flex items-start h-full text-left p-2 border rounded-lg ${
+          className={`w-full ${props.largeBaseField ? "min-h-30" : ""} flex items-start text-left p-1 border rounded-lg ${
             props.disabled
               ? "bg-gray-100 cursor-not-allowed text-gray-400"
               : "bg-white hover:border-primary cursor-pointer"
