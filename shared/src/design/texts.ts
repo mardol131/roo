@@ -15,7 +15,13 @@ export const textTag = {
 
 export type TextTag = keyof typeof textTag;
 
-export const fontWeight = Enum("base", "semibold", "bold", "extraBold");
+export const fontWeight = Enum(
+  "light",
+  "base",
+  "semibold",
+  "bold",
+  "extraBold"
+);
 
 export type FontWeight = keyof typeof fontWeight;
 

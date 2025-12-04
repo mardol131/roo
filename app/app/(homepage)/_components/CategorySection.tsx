@@ -1,5 +1,5 @@
-import SectionHeading from "@/app/_components/atoms/SectionHeading";
-import ListingCard from "@/app/_components/cards/ListingCard";
+import Text from "@/app/_components/atoms/text/Text";
+import ListingCard from "@/app/_components/atoms/cards/ListingCard";
 
 type Props = {};
 
@@ -13,7 +13,7 @@ export default async function CategorySection(props: Props) {
 
   return (
     <div className="flex flex-col gap-11">
-      <SectionHeading level="h2" text="Místo pro akci" />
+      <Text tag="h2" text="Kategorie" size="headingMd" />
       <div className="flex gap-5">
         {cards.map((card) => {
           return card;

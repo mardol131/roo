@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "./colors.scss";
+@import "./fontWeight.scss";
+@import "./shadow.scss";
 @import "./text.scss";
 @import "./backgrounds.scss";
 @import "./padding.scss";
@@ -29,10 +31,16 @@
 }
 
 :root {
-  --font-base: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
+  --fontWeight-light: 300;
+  --font-base: 400;
+  --font-semibold: 700;
+  --font-bold: 800;
   --font-extraBold: 800;
+
+  --spacing-adminGap: 1rem;
+  --spacing-contentWrapper: 1500px;
+  --spacing-lowerHeader: 1000px;
+  --spacing-landingWrapper: 1200px;
 }
 
 @theme {
@@ -82,8 +90,6 @@
   --spacing-contentWrapper: 1500px;
   --spacing-lowerHeader: 1000px;
   --spacing-landingWrapper: 1200px;
-
-  /* Animations */
 }
 
 /* Scrollbar */

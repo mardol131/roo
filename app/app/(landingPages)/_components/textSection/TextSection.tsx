@@ -36,7 +36,7 @@ export default function TextSection(props: Props) {
   return (
     <LandingSectionWrapper overlay={props.outerOverlay}>
       <div
-        className={`${image?.src && "rounded-2xl"} relative w-full overflow-hidden flex items-center justify-center`}
+        className={`${image?.src && "rounded-2xl"} relative w-full max-w-230 overflow-hidden flex items-center justify-center`}
       >
         {image?.src && (
           <Image

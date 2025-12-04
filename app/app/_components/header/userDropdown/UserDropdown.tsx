@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef } from "react";
-import Divider from "../../atoms/Divider";
+import Divider from "../../atoms/divider/Divider";
 import Text from "../../atoms/text/Text";
 import { User } from "lucide-react";
 import { FaUser } from "react-icons/fa6";

@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./divider.module.scss";
 
 type Props = {
   height: number;
@@ -7,6 +8,6 @@ type Props = {
 
 export default function Divider({ height }: Props) {
   return (
-    <div style={{ height: `${height}px` }} className="w-full bg-gray-200"></div>
+    <div style={{ height: `${height}px` }} className={classes.divider}></div>
   );
 }

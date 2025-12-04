@@ -118,42 +118,132 @@ $text-sizes: (
 .text-lightOne {
   color: var(--color-lightOne);
 }
-// .text-primarySecondaryOpac {
-//   @apply bg-linear-to-r from-primary/70 to-secondary/70 bg-clip-text text-transparent;
-// }
-// .text-primaryTertiaryOpac {
-//   @apply bg-linear-to-r from-primary/70 to-tertiary/70 bg-clip-text text-transparent;
-// }
-// .text-secondaryTertiaryOpac {
-//   @apply bg-linear-to-r from-secondary/70 to-tertiary/70 bg-clip-text text-transparent;
-// }
-// .text-secondaryPrimaryOpac {
-//   @apply bg-linear-to-r from-secondary/70 to-primary/70 bg-clip-text text-transparent;
-// }
-// .text-tertiaryPrimaryOpac {
-//   @apply bg-linear-to-r from-tertiary/70 to-primary/70 bg-clip-text text-transparent;
-// }
-// .text-tertiarySecondaryOpac {
-//   @apply bg-linear-to-r from-tertiary/70 to-secondary/70 bg-clip-text text-transparent;
-// }
-// .text-primarySecondaryTertiaryOpac {
-//   @apply bg-linear-to-r from-primary/70 via-secondary/70 to-tertiary/70 bg-clip-text text-transparent;
-// }
-// .text-primaryTertiarySecondaryOpac {
-//   @apply bg-linear-to-r from-primary/70 via-tertiary/70 to-secondary/70 bg-clip-text text-transparent;
-// }
-// .text-secondaryPrimaryTertiaryOpac {
-//   @apply bg-linear-to-r from-secondary/70 via-primary/70 to-tertiary/70 bg-clip-text text-transparent;
-// }
-// .text-secondaryTertiryPrimaryOpac {
-//   @apply bg-linear-to-r from-secondary/70 via-tertiary/70 to-primary/70 bg-clip-text text-transparent;
-// }
-// .text-tertiaryPrimarySecondaryOpac {
-//   @apply bg-linear-to-r from-tertiary/70 via-primary/70 to-secondary/70 bg-clip-text text-transparent;
-// }
-// .text-tertiarySecondaryPrimaryOpac {
-//   @apply bg-linear-to-r from-tertiary/70 via-secondary/70 to-primary/70 bg-clip-text text-transparent;
-// }
+.text-primarySecondaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-primaryRgba),
+    var(--color-secondaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-primaryTertiaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-primaryRgba),
+    var(--color-tertiaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-secondaryTertiaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondaryRgba),
+    var(--color-tertiaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-secondaryPrimaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondaryRgba),
+    var(--color-primaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-tertiaryPrimaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiaryRgba),
+    var(--color-primaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-tertiarySecondaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiaryRgba),
+    var(--color-secondaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-primarySecondaryTertiaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-primaryRgba),
+    var(--color-secondaryRgba),
+    var(--color-tertiaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-primaryTertiarySecondaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-primaryRgba),
+    var(--color-tertiaryRgba),
+    var(--color-secondaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-secondaryPrimaryTertiaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondaryRgba),
+    var(--color-primaryRgba),
+    var(--color-tertiaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-secondaryTertiryPrimaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondaryRgba),
+    var(--color-tertiaryRgba),
+    var(--color-primaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-tertiaryPrimarySecondaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiaryRgba),
+    var(--color-primaryRgba),
+    var(--color-secondaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.text-tertiarySecondaryPrimaryOpac {
+  background: linear-gradient(
+    90deg,
+    var(--color-tertiaryRgba),
+    var(--color-secondaryRgba),
+    var(--color-primaryRgba)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
 .text-primarySecondary {
   background: linear-gradient(

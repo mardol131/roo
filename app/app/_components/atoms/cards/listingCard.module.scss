@@ -1,0 +1,65 @@
+.wrapper {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-2xl);
+}
+
+.categoryTag {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  background-color: var(--color-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.categoryTag:hover {
+  background-color: var(--color-secondaryDark);
+  transform: scale(103%);
+}
+
+.likeButton {
+  cursor: pointer;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.likeButton:hover {
+  transform: scale(110%);
+}
+
+.icon {
+  cursor: pointer;
+  color: white;
+}
+
+.iconActive {
+  color: var(--color-primary);
+}
+
+.image {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.infoWrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 1rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  justify-content: flex-end;
+  color: var(--color-primary);
+}

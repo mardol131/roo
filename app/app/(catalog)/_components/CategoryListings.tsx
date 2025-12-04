@@ -1,4 +1,4 @@
-import ListingCard from "@/app/_components/cards/ListingCard";
+import ListingCard from "@/app/_components/atoms/cards/ListingCard";
 
 type Props = {};
 

@@ -17,6 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import sanitizeHtml from "sanitize-html";
 import classes from "./Text.module.scss";
+import clsx from "clsx";
 
 export type TextProps = {
   text: string;
@@ -36,7 +37,14 @@ export default function Text(props: TextProps) {
   const size = `fontSize-${props.size || "bodyMd"}`;
 
   //   const align = props.textAlign && textAlign[props.textAlign];
-  const classes = `${props.className || ""} ${color || ""} ${weight || ""} ${textFont || ""} ${size || ""} animate`;
+  const classes = clsx(
+    props.className,
+    color,
+    weight,
+    textFont,
+    size,
+    "animate"
+  );
 
   const htmlSafeText = sanitizeHtml(props.text, {
     allowedTags: ["strong", "span", "a", "br", "link"],
@@ -73,20 +81,24 @@ export function GenerateTexts(props: {
       return <Text {...text} key={i} />;
     } else if (text.blockType === "imageBlock") {
       return (
-        <div key={i} className="w-full max-w-300 h-auto">
+        <div key={i} className={clsx(classes.generateTextsWrapper)}>
           <Image
             src={getImageSrc(text.image.src, "cms")}
             alt={text.image.alt || "image-top"}
             width={1500}
             height={1500}
-            className={`${text.image.shadow && "shadow-xl"} ${text.image.rounded && "rounded-xl"} w-full max-w-300 h-auto mb-3`}
+            className={clsx(
+              text.image.shadow && classes.shadow,
+              text.image.rounded && classes.rounded,
+              classes.image
+            )}
           />
           {text.image.description && (
             <Text
               text={text.image.description}
               tag="p"
               size="bodyMd"
-              className="italic"
+              className={clsx(classes.imageDescription)}
             />
           )}
         </div>

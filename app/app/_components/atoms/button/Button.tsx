@@ -13,6 +13,7 @@ import {
 import { sendGTMEvent } from "@next/third-parties/google";
 import classes from "./button.module.scss";
 import { ButtonSize } from "@roo/shared/src/design/button";
+import clsx from "clsx";
 
 export type ButtonProps = {
   text: string;
@@ -45,7 +46,17 @@ export default function Button(props: ButtonProps) {
   const borderClass = props.bgColor === "white" && classes.whiteStyle;
   const stretchClass = props.stretch ? classes.stretch : "";
 
-  const buttonClassname = `animate ${classes.button} ${disabledClass} ${borderClass} ${stretchClass} ${buttonSize} ${buttonBgColor} ${buttonRounding} ${buttonTextColor}`;
+  const buttonClassname = clsx(
+    `animate`,
+    classes.button,
+    disabledClass,
+    borderClass,
+    stretchClass,
+    buttonSize,
+    buttonBgColor,
+    buttonRounding,
+    buttonTextColor
+  );
 
   function onClickHandler() {
     if (props.GT) {
@@ -85,7 +96,7 @@ export function GenerateButtons({
   className?: string;
 }) {
   return (
-    <div className={`flex gap-3 flex-wrap ${className}`}>
+    <div className={clsx(className, classes.generateButtons)}>
       {buttons && buttons.map((button, i) => <Button key={i} {...button} />)}
     </div>
   );

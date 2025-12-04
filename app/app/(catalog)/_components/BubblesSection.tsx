@@ -1,6 +1,6 @@
 import { BubbleType } from "@/app/_types/bubbles";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import Bubble from "../../_components/bubbles/Bubble";
+import Bubble from "../../_components/atoms/bubble/Bubble";
 
 type Props = {
   bubbles: BubbleType[];

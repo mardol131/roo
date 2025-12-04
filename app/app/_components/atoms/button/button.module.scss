@@ -2,7 +2,7 @@
 @import "../../../_css/media.scss";
 
 .button {
-  font-weight: var(--fontWeight-bold);
+  font-weight: var(--font-semibold);
   cursor: pointer;
   box-shadow: var(--shadow-md);
 
@@ -72,4 +72,10 @@
 
 .whiteStyle {
   border: 2px solid var(--color-borderLight);
+}
+
+.generateButtons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
